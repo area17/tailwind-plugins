@@ -1,10 +1,12 @@
 const _ = require('lodash');
+const getFirstBp = require('../util/getFirstBp');
 
 module.exports = function({ addComponents, theme }) {
   const screens = theme('screens', {});
   const widths = theme('main-col-widths', {});
   const outerGutters = theme('outer-gutters', {});
   const className = '.container';
+  const firstBp = getFirstBp(theme);
 
   const containerStyles = _.map(screens, (width, bp) => {
     let styles = {};
@@ -21,7 +23,7 @@ module.exports = function({ addComponents, theme }) {
       };
     }
 
-    if (bp === 'xs') {
+    if (bp === firstBp) {
       return {
         [className]: {
           'margin-right': 'auto',
