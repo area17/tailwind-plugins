@@ -250,7 +250,45 @@ module.exports = {
 
 ### Layout
 
-WIP
+This plugin creates classes to handle column layouts.
+
+#### Usage
+
+```html
+<div class="cols-container">
+  <div class="cols-3 sm:cols-2 md:cols-4 lg:cols-6 xl:cols-4">
+    ...
+  </div>
+</div>
+```
+
+#### Config
+
+```javascript
+module.exports = {
+  ...
+
+  theme: {
+    innerGutters: {
+      xs: '16px',
+      sm: '16px',
+      md: '16px',
+      lg: '24px',
+      xl: '24px'
+    },
+
+    columnCount: {
+      xs: 6,
+      sm: 6,
+      md: 12,
+      lg: 12,
+      xl: 12
+    },
+  }
+
+  ...
+};
+```
 
 ## Todo
 

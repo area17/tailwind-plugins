@@ -5,10 +5,9 @@ const getFirstBp = require('../util/getFirstBp');
 // - Add styles so that layouts can be inheritted across breakpoints
 
 module.exports = function({ addComponents, theme }) {
-  const outerGutters = theme('outerGutters', {});
   const innerGutters = theme('innerGutters', {});
   const columnCount = theme('columnCount', {});
-  const className = '.layout-container';
+  const className = '.cols-container';
   const firstBp = getFirstBp(theme);
   // const breakpoints = Object.keys(columnCount);
 
