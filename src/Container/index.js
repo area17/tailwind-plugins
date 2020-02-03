@@ -3,8 +3,8 @@ const getFirstBp = require('../util/getFirstBp');
 
 module.exports = function({ addComponents, theme }) {
   const screens = theme('screens', {});
-  const widths = theme('main-col-widths', {});
-  const outerGutters = theme('outer-gutters', {});
+  const widths = theme('mainColWidths', {});
+  const outerGutters = theme('outerGutters', {});
   const className = '.container';
   const firstBp = getFirstBp(theme);
 
