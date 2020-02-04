@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watchAll"
   },
   "author": "",
   "license": "ISC",
@@ -13,10 +13,12 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "prettier": "^1.19.1"
+    "jest": "^25.1.0",
+    "jest-matcher-css": "^1.1.0",
+    "prettier": "^1.19.1",
+    "tailwindcss": "^1.1.4"
   },
   "dependencies": {
-    "jest": "^25.1.0",
     "lodash": "^4.17.15"
   }
 }
