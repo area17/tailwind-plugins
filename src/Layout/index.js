@@ -158,9 +158,9 @@ module.exports = function({ addComponents, theme }) {
     return styles;
   });
 
-  addComponents(containerStyles);
-  addComponents(columnDefaultStyles);
-  addComponents(columnStyles);
+  addComponents([...containerStyles, ...columnDefaultStyles, ...columnStyles]);
+  // addComponents(columnDefaultStyles);
+  // addComponents(columnStyles);
 
   function getWidthCalc(bp, cols) {
     const maxCols = columnCount[bp];
