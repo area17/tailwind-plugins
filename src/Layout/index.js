@@ -3,6 +3,7 @@ const getFirstBp = require('../util/getFirstBp');
 
 // TODO:
 // - Add styles so that layouts can be inheritted across breakpoints
+// - Split prefixed and non-prefixed cols classes to prevent non-prefixed classes overriding
 
 module.exports = function({ addComponents, theme }) {
   const innerGutters = theme('innerGutters', {});
@@ -16,7 +17,8 @@ module.exports = function({ addComponents, theme }) {
       return {
         [className]: {
           display: 'flex',
-          'flex-flow': 'row wrap'
+          'flex-flow': 'row wrap',
+          'margin-left': `-${gutter}`
         },
         // ['[class*="cols-"]:not(.cols-container):not([class*="push"])']: {
         ['[class*="cols-"]:not(.cols-container)']: {
@@ -43,9 +45,9 @@ module.exports = function({ addComponents, theme }) {
     }
   });
 
-  const columnStyles = _.map(columnCount, (maxCols, bp) => {
+  // Create non-prefixed cols classes before prefixed classes to prevent erroneous overriding
+  const columnDefaultStyles = _.map(columnCount, (maxCols, bp) => {
     const styles = [];
-    // const bpIndex = breakpoints.indexOf(bp);
 
     for (let i = 1; i <= maxCols; i++) {
       let col = {};
@@ -70,13 +72,44 @@ module.exports = function({ addComponents, theme }) {
       col = {
         ...col,
         [`@screen ${bp}`]: {
-          [`.cols-${i}, .${bp}\\:cols-${i}`]: {
+          [`.cols-${i}`]: {
             width: `calc(${colWidth})`
           },
-          [`.push-${i}, .${bp}\\:push-${i}`]: {
+          [`.push-${i}`]: {
             'margin-left': `calc(${colPush})`
           },
-          [`.cols-container .push-${i}, .cols-container .${bp}\\:push-${i}`]: {
+          [`.cols-container .push-${i}`]: {
+            'margin-left': `calc(${colPushContained})`
+          }
+        }
+      };
+
+      styles.push(col);
+    }
+
+    return styles;
+  });
+
+  const columnStyles = _.map(columnCount, (maxCols, bp) => {
+    const styles = [];
+    // const bpIndex = breakpoints.indexOf(bp);
+
+    for (let i = 1; i <= maxCols; i++) {
+      let col = {};
+      const colWidth = getWidthCalc(bp, i);
+      const colPush = `${colWidth} + ${innerGutters[bp]}`;
+      const colPushContained = `${colWidth} + (${innerGutters[bp]} * 2)`;
+
+      col = {
+        ...col,
+        [`@screen ${bp}`]: {
+          [`.${bp}\\:cols-${i}`]: {
+            width: `calc(${colWidth})`
+          },
+          [`.${bp}\\:push-${i}`]: {
+            'margin-left': `calc(${colPush})`
+          },
+          [`.cols-container .${bp}\\:push-${i}`]: {
             'margin-left': `calc(${colPushContained})`
           }
         }
@@ -126,6 +159,7 @@ module.exports = function({ addComponents, theme }) {
   });
 
   addComponents(containerStyles);
+  addComponents(columnDefaultStyles);
   addComponents(columnStyles);
 
   function getWidthCalc(bp, cols) {
