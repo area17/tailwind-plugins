@@ -7,13 +7,11 @@ module.exports = function({ addComponents, theme }) {
 
   const typoStyles = _.map(typography.sets, (typo, name) => {
     const className = `.f-${name}`;
-    const fontFamily = typography.family[typo['font-family']] || 'inherit';
 
     return _.map(typo.settings, (settings, bp) => {
       if (bp === firstBp) {
         return {
           [className]: {
-            'font-family': fontFamily,
             ...typo.settings[firstBp]
           }
         };
