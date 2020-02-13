@@ -2,6 +2,7 @@ const _ = require('lodash');
 const getFirstBp = require('../util/getFirstBp');
 
 // TODO:
+// - automatically set column widths to 100%
 // - Add styles so that layouts can be inheritted across breakpoints
 // - Split prefixed and non-prefixed cols classes to prevent non-prefixed classes overriding
 
@@ -32,12 +33,6 @@ module.exports = function({ addComponents, theme }) {
             'margin-left': `-${gutter}`
           },
           ['[class*="cols-"]:not(.cols-container)']: {
-            'margin-left': gutter
-          },
-          [`.push-0, .${bp}\\:push-0`]: {
-            'margin-left': 0
-          },
-          [`.cols-container .push-0, .cols-container .${bp}\\:push-0`]: {
             'margin-left': gutter
           }
         }
