@@ -41,5 +41,17 @@ module.exports = function({ addComponents, theme }) {
     }
   });
 
+  const nestedContainer = {
+    [`${className} ${className}`]: {
+      width: 'auto',
+      'padding-right': 0,
+      'padding-left': 0
+    }
+  };
+
+  containerStyles.push(nestedContainer);
+
+  console.log(containerStyles);
+
   addComponents(containerStyles);
 };
