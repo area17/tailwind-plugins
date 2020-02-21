@@ -6,20 +6,13 @@ These plugins extend Tailwind to include utility classes for our commonly used F
 
 ## Setup
 
-1. Clone repo
-2. Link package
+1. Add package to `package.json` dependencies
 
-```
-// in package folder
-$ npm link
+```json
+"a17-tailwind": "git+ssh://git@code.area17.com:a17/tailwind-plugins.git"
 ```
 
-```
-// in tailwind folder
-$ npm link a17-tailwind
-```
-
-3. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
+1. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
 
 ```javascript
 const { Container, Spacing, Typography } = require('a17-tailwind');
