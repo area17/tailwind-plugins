@@ -51,7 +51,5 @@ module.exports = function({ addComponents, theme }) {
 
   containerStyles.push(nestedContainer);
 
-  console.log(containerStyles);
-
   addComponents(containerStyles);
 };
