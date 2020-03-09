@@ -11,7 +11,7 @@ module.exports = function({ addComponents, theme }) {
   const columnCount = theme('columnCount', {});
   const className = '.cols-container';
   const firstBp = getFirstBp(theme);
-  // const breakpoints = Object.keys(columnCount);
+  const breakpoints = Object.keys(columnCount);
 
   const containerStyles = _.map(innerGutters, (gutter, bp) => {
     if (bp === firstBp) {
@@ -87,13 +87,45 @@ module.exports = function({ addComponents, theme }) {
 
   const columnStyles = _.map(columnCount, (maxCols, bp) => {
     const styles = [];
-    // const bpIndex = breakpoints.indexOf(bp);
+    const bpIndex = breakpoints.indexOf(bp);
 
     for (let i = 1; i <= maxCols; i++) {
       let col = {};
       const colWidth = getWidthCalc(bp, i);
       const colPush = `${colWidth} + ${innerGutters[bp]}`;
       const colPushContained = `${colWidth} + (${innerGutters[bp]} * 2)`;
+      let inheritStyles = {};
+
+      // loop over any following breakpoints and add the width calcs so that it can inherit styles
+      // Commented out for now. need to test how much bloat it adds to the css
+      breakpoints.forEach((inheritBp) => {
+        let styles = {};
+        const inheritBpIndex = breakpoints.indexOf(inheritBp);
+        if (inheritBpIndex > bpIndex) {
+          const inheritColWidth = getWidthCalc(inheritBp, i);
+          const inheritColPush = `${inheritColWidth} + ${innerGutters[inheritBp]}`;
+          const inheritColPushContained = `${inheritColWidth} + (${innerGutters[inheritBp]} * 2)`;
+
+          styles = {
+            [`@screen ${inheritBp}`]: {
+              [`.${bp}\\:cols-${i}`]: {
+                width: `calc(${inheritColWidth})`
+              },
+              [`.${bp}\\:push-${i}`]: {
+                'margin-left': `calc(${inheritColPush})`
+              },
+              [`.cols-container .${bp}\\:push-${i}`]: {
+                'margin-left': `calc(${inheritColPushContained})`
+              }
+            }
+          };
+        }
+
+        inheritStyles = {
+          ...inheritStyles,
+          ...styles
+        };
+      });
 
       col = {
         ...col,
@@ -107,18 +139,9 @@ module.exports = function({ addComponents, theme }) {
           [`.cols-container .${bp}\\:push-${i}`]: {
             'margin-left': `calc(${colPushContained})`
           }
-        }
+        },
+        ...inheritStyles
       };
-
-      // loop over any following breakpoints and add the width calcs so that it can inherit styles
-      // Commented out for now. need to test how much bloat it adds to the css
-      // const inheritStyles = _.map(columnCount, (inheritMaxCols, inheritBp) => {
-      //   const inheritBpIndex = breakpoints.indexOf(inheritBp);
-      //   if (inheritBpIndex > bpIndex) {
-      //   }
-      //   // compare to index of in-loop breakpoint
-      //   // do whatever
-      // });
 
       styles.push(col);
     }
