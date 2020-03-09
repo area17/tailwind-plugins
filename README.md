@@ -4,6 +4,10 @@
 
 These plugins extend Tailwind to include utility classes for our commonly used FE Boilerplate mixins - Typography sets, Layout, Spacing sets.
 
+## Requirements
+
+- [TailwindCSS](https://tailwindcss.com/)
+
 ## Setup
 
 1. Add package to `package.json` dependencies
@@ -12,7 +16,7 @@ These plugins extend Tailwind to include utility classes for our commonly used F
 "a17-tailwind": "git+ssh://git@code.area17.com:a17/tailwind-plugins.git"
 ```
 
-1. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
+2. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
 
 ```javascript
 const { Container, Spacing, Typography } = require('a17-tailwind');
