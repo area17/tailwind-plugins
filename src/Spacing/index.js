@@ -8,24 +8,21 @@ module.exports = function({ addComponents, theme }) {
   const spacingGroups = theme('spacingGroups', {});
   const prefixes = { mt: 'margin-top', pt: 'padding-top' };
   const firstBp = getFirstBp(theme);
+  let spacingStyles = {};
 
-  const spacingStyles = _.map(prefixes, (property, prefix) => {
-    return _.map(spacingGroups, (group, name) => {
+  _.forEach(prefixes, (property, prefix) => {
+    _.forEach(spacingGroups, (group, name) => {
       const className = `.${prefix}-${name}`;
 
-      return _.map(group, (value, bp) => {
+      _.forEach(group, (value, bp) => {
         if (bp === firstBp) {
-          return {
-            [className]: {
-              [property]: value
-            }
+          spacingStyles[className] = {
+            [property]: value
           };
         } else {
-          return {
-            [`@screen ${bp}`]: {
-              [className]: {
-                [property]: value
-              }
+          spacingStyles[`@screen ${bp}`] = {
+            [className]: {
+              [property]: value
             }
           };
         }
@@ -33,5 +30,5 @@ module.exports = function({ addComponents, theme }) {
     });
   });
 
-  addComponents(...spacingStyles);
+  addComponents(spacingStyles);
 };
