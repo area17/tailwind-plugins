@@ -1,12 +1,12 @@
 const _ = require('lodash');
 const getFirstBp = require('../util/getFirstBp');
 
-// TODO:
-// - Add options for customizing`prefixes`
-
 module.exports = function({ addComponents, theme }) {
   const spacingGroups = theme('spacingGroups', {});
-  const prefixes = { mt: 'margin-top', pt: 'padding-top' };
+  const prefixes = theme('spacingGroupProperties', {
+    mt: 'margin-top',
+    pt: 'padding-top'
+  });
   const firstBp = getFirstBp(theme);
   let spacingStyles = {};
 
