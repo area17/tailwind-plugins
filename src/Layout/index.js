@@ -22,7 +22,8 @@ module.exports = function({ addComponents, theme }) {
           'margin-left': `-${gutter}`
         },
         // ['[class*="cols-"]:not(.cols-container):not([class*="push"])']: {
-        ['[class*="cols-"]:not(.cols-container)']: {
+        // ['[class*="cols-"]:not(.cols-container)']: {
+        ['.cols-container [class*="cols-"]']: {
           'margin-left': gutter
         }
       };
@@ -32,7 +33,7 @@ module.exports = function({ addComponents, theme }) {
           [className]: {
             'margin-left': `-${gutter}`
           },
-          ['[class*="cols-"]:not(.cols-container)']: {
+          ['.cols-container [class*="cols-"]']: {
             'margin-left': gutter
           }
         }
@@ -108,7 +109,7 @@ module.exports = function({ addComponents, theme }) {
 
           styles = {
             [`@screen ${inheritBp}`]: {
-              [`.${bp}\\:cols-${i}`]: {
+              [`.${bp}\\:cols-${i}, .${bp}\\:w-cols-${i}`]: {
                 width: `calc(${inheritColWidth})`
               },
               [`.${bp}\\:push-${i}`]: {
@@ -130,7 +131,7 @@ module.exports = function({ addComponents, theme }) {
       col = {
         ...col,
         [`@screen ${bp}`]: {
-          [`.${bp}\\:cols-${i}`]: {
+          [`.${bp}\\:cols-${i}, .${bp}\\:w-cols-${i}`]: {
             width: `calc(${colWidth})`
           },
           [`.${bp}\\:push-${i}`]: {
