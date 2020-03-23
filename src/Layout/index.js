@@ -21,7 +21,8 @@ module.exports = function({ addComponents, theme }) {
           'flex-flow': 'row wrap',
           'margin-left': `-${gutter}`
         },
-        ['.cols-container [class*="cols-"]:not(.cols-container)']: {
+        // ['.cols-container [class*="cols-"]:not(.cols-container)']: {
+        ['.cols-container [class*="cols-"]']: {
           'margin-left': gutter
         }
       };
@@ -31,7 +32,8 @@ module.exports = function({ addComponents, theme }) {
           [className]: {
             'margin-left': `-${gutter}`
           },
-          ['.cols-container [class*="cols-"]:not(.cols-container)']: {
+          ['.cols-container [class*="cols-"]']: {
+            // ['.cols-container [class*="cols-"]:not(.cols-container)']: {
             'margin-left': gutter
           }
         }
@@ -45,7 +47,8 @@ module.exports = function({ addComponents, theme }) {
 
     for (let i = 1; i <= maxCols; i++) {
       let col = {};
-      const colWidth = getWidthCalc(bp, i);
+      const colWidth = getWidthCalc(bp, i, false);
+      const colWidthContained = getWidthCalc(bp, i);
       const colPush = `${colWidth} + ${innerGutters[bp]}`;
       const colPushContained = `${colWidth} + (${innerGutters[bp]} * 2)`;
 
@@ -54,10 +57,13 @@ module.exports = function({ addComponents, theme }) {
           [`.cols-${i}`]: {
             width: `calc(${colWidth})`
           },
+          [`.cols-container > .cols-${i}`]: {
+            width: `calc(${colWidthContained})`
+          },
           [`.push-${i}`]: {
             'margin-left': `calc(${colPush})`
           },
-          [`.cols-container .push-${i}`]: {
+          [`.cols-container > .push-${i}`]: {
             'margin-left': `calc(${colPushContained})`
           }
         };
@@ -69,10 +75,13 @@ module.exports = function({ addComponents, theme }) {
           [`.cols-${i}`]: {
             width: `calc(${colWidth})`
           },
+          [`.cols-container > .cols-${i}`]: {
+            width: `calc(${colWidthContained})`
+          },
           [`.push-${i}`]: {
             'margin-left': `calc(${colPush})`
           },
-          [`.cols-container .push-${i}`]: {
+          [`.cols-container > .push-${i}`]: {
             'margin-left': `calc(${colPushContained})`
           }
         }
@@ -90,7 +99,8 @@ module.exports = function({ addComponents, theme }) {
 
     for (let i = 1; i <= maxCols; i++) {
       let col = {};
-      const colWidth = getWidthCalc(bp, i);
+      const colWidth = getWidthCalc(bp, i, false);
+      const colWidthContained = getWidthCalc(bp, i);
       const colPush = `${colWidth} + ${innerGutters[bp]}`;
       const colPushContained = `${colWidth} + (${innerGutters[bp]} * 2)`;
       let inheritStyles = {};
@@ -101,19 +111,23 @@ module.exports = function({ addComponents, theme }) {
         let styles = {};
         const inheritBpIndex = breakpoints.indexOf(inheritBp);
         if (inheritBpIndex > bpIndex) {
-          const inheritColWidth = getWidthCalc(inheritBp, i);
+          const inheritColWidth = getWidthCalc(inheritBp, i, false);
+          const inheritColWidthContained = getWidthCalc(inheritBp, i);
           const inheritColPush = `${inheritColWidth} + ${innerGutters[inheritBp]}`;
           const inheritColPushContained = `${inheritColWidth} + (${innerGutters[inheritBp]} * 2)`;
 
           styles = {
             [`@screen ${inheritBp}`]: {
-              [`.${bp}\\:cols-${i}, .${bp}\\:w-cols-${i}`]: {
+              [`.${bp}\\:cols-${i}`]: {
                 width: `calc(${inheritColWidth})`
+              },
+              [`.cols-container > .${bp}\\:cols-${i}`]: {
+                width: `calc(${inheritColWidthContained})`
               },
               [`.${bp}\\:push-${i}`]: {
                 'margin-left': `calc(${inheritColPush})`
               },
-              [`.cols-container .${bp}\\:push-${i}`]: {
+              [`.cols-container > .${bp}\\:push-${i}`]: {
                 'margin-left': `calc(${inheritColPushContained})`
               }
             }
@@ -129,13 +143,16 @@ module.exports = function({ addComponents, theme }) {
       col = {
         ...col,
         [`@screen ${bp}`]: {
-          [`.${bp}\\:cols-${i}, .${bp}\\:w-cols-${i}`]: {
+          [`.${bp}\\:cols-${i}`]: {
             width: `calc(${colWidth})`
+          },
+          [`.cols-container > .${bp}\\:cols-${i}`]: {
+            width: `calc(${colWidthContained})`
           },
           [`.${bp}\\:push-${i}`]: {
             'margin-left': `calc(${colPush})`
           },
-          [`.cols-container .${bp}\\:push-${i}`]: {
+          [`.cols-container > .${bp}\\:push-${i}`]: {
             'margin-left': `calc(${colPushContained})`
           }
         },
@@ -153,7 +170,7 @@ module.exports = function({ addComponents, theme }) {
         [`.push-0`]: {
           'margin-left': 0
         },
-        [`.cols-container .push-0`]: {
+        [`.cols-container > .push-0`]: {
           'margin-left': innerGutters[bp]
         }
       };
@@ -163,7 +180,7 @@ module.exports = function({ addComponents, theme }) {
           [`.push-0, .${bp}\\:push-0`]: {
             'margin-left': 0
           },
-          [`.cols-container .push-0, .cols-container .${bp}\\:push-0`]: {
+          [`.cols-container > .push-0, .cols-container > .${bp}\\:push-0`]: {
             'margin-left': innerGutters[bp]
           }
         }
@@ -177,19 +194,20 @@ module.exports = function({ addComponents, theme }) {
 
   addComponents([...containerStyles, ...columnDefaultStyles, ...columnStyles]);
 
-  function getWidthCalc(bp, cols) {
+  function getWidthCalc(bp, cols, inContainer = true) {
     const maxCols = columnCount[bp];
     const innerGutter = innerGutters[bp];
+    const containerBump = inContainer ? innerGutter : `0px`;
 
     let colWidth = `(100% - ((${maxCols -
-      1} * ${innerGutter}) + ${innerGutter})) / ${maxCols} * ${cols}`;
+      1} * ${innerGutter} + ${containerBump}))) / ${maxCols} * ${cols}`;
 
     if (cols >= 1) {
       colWidth = `${colWidth} + (${cols - 1} * ${innerGutter} )`;
     }
 
     if (cols === maxCols) {
-      colWidth = `100% - ${innerGutter}`;
+      colWidth = `100% - ${containerBump}`;
     }
 
     return colWidth;
