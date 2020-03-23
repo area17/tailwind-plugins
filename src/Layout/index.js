@@ -21,7 +21,6 @@ module.exports = function({ addComponents, theme }) {
           'flex-flow': 'row wrap',
           'margin-left': `-${gutter}`
         },
-        // ['.cols-container [class*="cols-"]:not(.cols-container)']: {
         ['.cols-container [class*="cols-"]']: {
           'margin-left': gutter
         }
@@ -33,7 +32,6 @@ module.exports = function({ addComponents, theme }) {
             'margin-left': `-${gutter}`
           },
           ['.cols-container [class*="cols-"]']: {
-            // ['.cols-container [class*="cols-"]:not(.cols-container)']: {
             'margin-left': gutter
           }
         }
@@ -50,7 +48,7 @@ module.exports = function({ addComponents, theme }) {
       const colWidth = getWidthCalc(bp, i, false);
       const colWidthContained = getWidthCalc(bp, i);
       const colPush = `${colWidth} + ${innerGutters[bp]}`;
-      const colPushContained = `${colWidth} + (${innerGutters[bp]} * 2)`;
+      const colPushContained = `${colWidthContained} + (${innerGutters[bp]} * 2)`;
 
       if (bp === firstBp) {
         col = {
@@ -102,7 +100,7 @@ module.exports = function({ addComponents, theme }) {
       const colWidth = getWidthCalc(bp, i, false);
       const colWidthContained = getWidthCalc(bp, i);
       const colPush = `${colWidth} + ${innerGutters[bp]}`;
-      const colPushContained = `${colWidth} + (${innerGutters[bp]} * 2)`;
+      const colPushContained = `${colWidthContained} + (${innerGutters[bp]} * 2)`;
       let inheritStyles = {};
 
       // loop over any following breakpoints and add the width calcs so that it can inherit styles
@@ -114,7 +112,7 @@ module.exports = function({ addComponents, theme }) {
           const inheritColWidth = getWidthCalc(inheritBp, i, false);
           const inheritColWidthContained = getWidthCalc(inheritBp, i);
           const inheritColPush = `${inheritColWidth} + ${innerGutters[inheritBp]}`;
-          const inheritColPushContained = `${inheritColWidth} + (${innerGutters[inheritBp]} * 2)`;
+          const inheritColPushContained = `${inheritColWidthContained} + (${innerGutters[inheritBp]} * 2)`;
 
           styles = {
             [`@screen ${inheritBp}`]: {
