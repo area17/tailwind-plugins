@@ -37,7 +37,7 @@ module.exports = function({ addComponents, theme }) {
           position: 'relative',
           overflow: 'hidden'
         },
-        [`.${prefix}:first-child, .${prefix}-content`]: {
+        [`.${prefix} > *:first-child, .${prefix}-content`]: {
           position: 'absolute',
           left: 0,
           right: 0,
