@@ -287,6 +287,81 @@ module.exports = {
 };
 ```
 
+### Ratio boxes
+
+This plugin creates classes to be used with html ratio boxes.
+All tokens are created with breakpoint prefix for keys not equals to sets.
+For elements into sets, components are created
+#### Usage
+
+```html
+// Tokens
+<div class=".ratio .ratio-1x1 .md:ratio-4x3">
+  <div class=".ratio-content">
+    ...
+  </div>
+</div>
+
+// Sets
+<div class=".ratio .ratio-01">
+  <div class=".ratio-content">
+    ...
+  </div>
+</div>
+<div class=".ratio .ratio-cover-full ">
+  <div class=".ratio-content">
+    ...
+  </div>
+</div>
+```
+
+#### Config
+
+```javascript
+const ratios = {
+  '1x1': 1,
+  '4x3': '4:3',
+  '3x2': 3 / 2,
+  '16x9': 16 / 9,
+  '21x9': 21 / 9,
+  '4x5': 4 / 5
+};
+
+module.exports = {
+  ...
+
+  theme: {
+    ratios: {
+      ...ratios,
+      sets: {
+        '01': {
+          sm: ratios['1x1']
+        },
+        '02': {
+          sm: ratios['4x3']
+        },
+        '03': {
+          sm: ratios['3x2']
+        },
+        '04': {
+          sm: ratios['3x2'],
+          lg: ratios['16x9']
+        },
+        'cover-full': {
+          portrait: ratios['4x3'],
+          landscape: ratios['4x5']
+        },
+        'cover-half': {
+          landscape: ratios['4x5']
+        }
+      }
+    }
+  }
+
+  ...
+};
+```
+
 ## Todo
 
 - Finish adding plugins
