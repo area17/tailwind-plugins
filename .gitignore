@@ -1,9 +1,14 @@
-.DS_Store
 node_modules
-.vscode
 dist
 
 # Log files
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#File System
+.DS_Store
+
+#IDE
+.vscode
+.idea
