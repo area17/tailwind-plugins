@@ -21,7 +21,7 @@ module.exports = function({ addComponents, theme }) {
           'flex-flow': 'row wrap',
           'margin-left': `-${gutter}`
         },
-        ['.cols-container [class*="cols-"]']: {
+        ['.cols-container [class*="cols-"]:not(.cols-container)']: {
           'margin-left': gutter
         }
       };
@@ -31,7 +31,7 @@ module.exports = function({ addComponents, theme }) {
           [className]: {
             'margin-left': `-${gutter}`
           },
-          ['.cols-container [class*="cols-"]']: {
+          ['.cols-container [class*="cols-"]:not(.cols-container)']: {
             'margin-left': gutter
           }
         }
