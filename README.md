@@ -292,6 +292,7 @@ module.exports = {
 This plugin creates classes to be used with html ratio boxes.
 All tokens are created with breakpoint prefix for keys not equals to sets.
 For elements into sets, components are created
+
 #### Usage
 
 ```html
@@ -360,6 +361,77 @@ module.exports = {
 
   ...
 };
+```
+
+### Keyline
+
+This plugin creates a border that sits in the gutter between elements.
+
+It creates utility classes based on the `borderColor` settings in your Tailwind config (falls back to `colors`).
+
+There is also a `{prefix}:keyline-0` class to remove the keylines at any of your set breakpoints.
+
+#### Usage
+
+```html
+<div class="keyline-l-primary"></div>
+
+<div class="md:keyline-l-primary"></div>
+
+<div class="md:keyline-l-primary xl:keyline-0"></div>
+```
+
+#### Config
+
+```javascript
+module.exports = {
+  ...
+
+  theme: {
+    borderColor: (theme) => ({
+      primary: theme('colors.grey.light'),
+      accent: {
+        green: theme('colors.green.500'),
+        red: theme('colors.red.500')
+      }
+    })
+  }
+
+  ...
+}
+```
+
+The config above will generate the following classes:
+
+```css
+.keyline-l-primary
+.sm:keyline-l-primary
+.md:keyline-l-primary
+.lg:keyline-l-primary
+.xl:keyline-l-primary
+
+.keyline-r-primary
+.sm:keyline-r-primary
+.md:keyline-r-primary
+.lg:keyline-r-primary
+.xl:keyline-r-primary
+
+.keyline-l-accent-green
+.sm:keyline-l-accent-green
+.md:keyline-l-accent-green
+.lg:keyline-l-accent-green
+.xl:keyline-l-accent-green
+
+.keyline-r-accent-red
+.sm:keyline-r-accent-red
+.md:keyline-r-accent-red
+.lg:keyline-r-accent-red
+.xl:keyline-r-accent-red
+
+.sm:keyline-0
+.md:keyline-0
+.lg:keyline-0
+.xl:keyline-0
 ```
 
 ## Todo
