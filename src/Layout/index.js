@@ -9,7 +9,7 @@ const getFirstBp = require('../util/getFirstBp');
 module.exports = function({ addComponents, theme }) {
   const innerGutters = theme('innerGutters', {});
   const columnCount = theme('columnCount', {});
-  const className = '.cols-container';
+  const className = '.columns-container';
   const firstBp = getFirstBp(theme);
   const breakpoints = Object.keys(columnCount);
 
@@ -21,7 +21,7 @@ module.exports = function({ addComponents, theme }) {
           'flex-flow': 'row wrap',
           'margin-left': `-${gutter}`
         },
-        ['.cols-container [class*="cols-"]:not(.cols-container)']: {
+        ['.columns-container [class*="cols-"]']: {
           'margin-left': gutter
         }
       };
@@ -31,7 +31,7 @@ module.exports = function({ addComponents, theme }) {
           [className]: {
             'margin-left': `-${gutter}`
           },
-          ['.cols-container [class*="cols-"]:not(.cols-container)']: {
+          ['.columns-container [class*="cols-"]']: {
             'margin-left': gutter
           }
         }
@@ -55,13 +55,13 @@ module.exports = function({ addComponents, theme }) {
           [`.cols-${i}`]: {
             width: `calc(${colWidth})`
           },
-          [`.cols-container > .cols-${i}`]: {
+          [`.columns-container > .cols-${i}`]: {
             width: `calc(${colWidthContained})`
           },
           [`.push-${i}`]: {
             'margin-left': `calc(${colPush})`
           },
-          [`.cols-container > .push-${i}`]: {
+          [`.columns-container > .push-${i}`]: {
             'margin-left': `calc(${colPushContained})`
           }
         };
@@ -73,13 +73,13 @@ module.exports = function({ addComponents, theme }) {
           [`.cols-${i}`]: {
             width: `calc(${colWidth})`
           },
-          [`.cols-container > .cols-${i}`]: {
+          [`.columns-container > .cols-${i}`]: {
             width: `calc(${colWidthContained})`
           },
           [`.push-${i}`]: {
             'margin-left': `calc(${colPush})`
           },
-          [`.cols-container > .push-${i}`]: {
+          [`.columns-container > .push-${i}`]: {
             'margin-left': `calc(${colPushContained})`
           }
         }
@@ -119,13 +119,13 @@ module.exports = function({ addComponents, theme }) {
               [`.${bp}\\:cols-${i}`]: {
                 width: `calc(${inheritColWidth})`
               },
-              [`.cols-container > .${bp}\\:cols-${i}`]: {
+              [`.columns-container > .${bp}\\:cols-${i}`]: {
                 width: `calc(${inheritColWidthContained})`
               },
               [`.${bp}\\:push-${i}`]: {
                 'margin-left': `calc(${inheritColPush})`
               },
-              [`.cols-container > .${bp}\\:push-${i}`]: {
+              [`.columns-container > .${bp}\\:push-${i}`]: {
                 'margin-left': `calc(${inheritColPushContained})`
               }
             }
@@ -144,13 +144,13 @@ module.exports = function({ addComponents, theme }) {
           [`.${bp}\\:cols-${i}`]: {
             width: `calc(${colWidth})`
           },
-          [`.cols-container > .${bp}\\:cols-${i}`]: {
+          [`.columns-container > .${bp}\\:cols-${i}`]: {
             width: `calc(${colWidthContained})`
           },
           [`.${bp}\\:push-${i}`]: {
             'margin-left': `calc(${colPush})`
           },
-          [`.cols-container > .${bp}\\:push-${i}`]: {
+          [`.columns-container > .${bp}\\:push-${i}`]: {
             'margin-left': `calc(${colPushContained})`
           }
         },
@@ -168,7 +168,7 @@ module.exports = function({ addComponents, theme }) {
         [`.push-0`]: {
           'margin-left': 0
         },
-        [`.cols-container > .push-0`]: {
+        [`.columns-container > .push-0`]: {
           'margin-left': innerGutters[bp]
         }
       };
@@ -178,7 +178,7 @@ module.exports = function({ addComponents, theme }) {
           [`.push-0, .${bp}\\:push-0`]: {
             'margin-left': 0
           },
-          [`.cols-container > .push-0, .cols-container > .${bp}\\:push-0`]: {
+          [`.columns-container > .push-0, .columns-container > .${bp}\\:push-0`]: {
             'margin-left': innerGutters[bp]
           }
         }
