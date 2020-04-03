@@ -8,7 +8,7 @@ module.exports = function({ addComponents, theme }) {
     pt: 'padding-top'
   });
   const firstBp = getFirstBp(theme);
-  let spacingStyles = {};
+  let spacingStyles = [];
 
   _.forEach(prefixes, (property, prefix) => {
     _.forEach(spacingGroups, (group, name) => {
@@ -16,15 +16,19 @@ module.exports = function({ addComponents, theme }) {
 
       _.forEach(group, (value, bp) => {
         if (bp === firstBp) {
-          spacingStyles[className] = {
-            [property]: value
-          };
-        } else {
-          spacingStyles[`@screen ${bp}`] = {
+          spacingStyles.push({
             [className]: {
               [property]: value
             }
-          };
+          });
+        } else {
+          spacingStyles.push({
+            [`@screen ${bp}`]: {
+              [className]: {
+                [property]: value
+              }
+            }
+          });
         }
       });
     });
