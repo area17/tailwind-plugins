@@ -4,6 +4,7 @@ const Layout = require('./src/Layout');
 const Spacing = require('./src/Spacing');
 const Typography = require('./src/Typography');
 const RatioBox = require('./src/RatioBox');
+const PseudoElements = require('./src/PseudoElements');
 
 module.exports = {
   Container,
@@ -11,5 +12,6 @@ module.exports = {
   Layout,
   Spacing,
   Typography,
-  RatioBox
+  RatioBox,
+  PseudoElements
 };
