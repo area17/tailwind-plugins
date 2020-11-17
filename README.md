@@ -19,12 +19,12 @@ These plugins extend Tailwind to include utility classes for our commonly used F
 2. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
 
 ```javascript
-const { Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements } = require('a17-tailwind');
+const { Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements, GridGap } = require('a17-tailwind');
 
 module.exports = {
   ...
 
-  plugins: [Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements]
+  plugins: [Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements, GridGap]
 
   ...
 };
@@ -59,7 +59,7 @@ module.exports = {
       xl: '1440px'
     },
 
-    'main-col-widths': {
+    mainColWidths: {
       xl: '1220px',
       lg: 'fluid',
       md: 'fluid',
@@ -67,7 +67,7 @@ module.exports = {
       xs: 'fluid'
     },
 
-    'outer-gutters': {
+    outerGutters: {
       xl: '60px',
       lg: '36px',
       md: '24px',
@@ -421,6 +421,46 @@ The config above will generate the following classes:
 .md:keyline-0
 .lg:keyline-0
 .xl:keyline-0
+```
+
+### GridGap
+
+This plugin creates classes to handle responsive grid gutters:
+
+* `.gap-gutter`
+* `.gap-y-gutter`
+* `.gap-x-gutter`
+
+Which are responsive CSS grid gutters to complement [grid-gap](https://tailwindcss.com/docs/gap)
+
+#### Usage
+
+```html
+<div class="grid grid-cols-2 gap-gutter">
+  ...
+</div>
+```
+
+Where `grid` and `grid-cols-2` are Tailwind [classes](https://tailwindcss.com/docs/grid-template-columns).
+
+#### Config
+
+```javascript
+module.exports = {
+  ...
+
+  theme: {
+    innerGutters: {
+      xs: '16px',
+      sm: '16px',
+      md: '16px',
+      lg: '24px',
+      xl: '24px'
+    },
+  }
+
+  ...
+};
 ```
 
 ## Todo
