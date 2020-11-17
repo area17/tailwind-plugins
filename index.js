@@ -5,6 +5,8 @@ const Spacing = require('./src/Spacing');
 const Typography = require('./src/Typography');
 const RatioBox = require('./src/RatioBox');
 const PseudoElements = require('./src/PseudoElements');
+const DevTools = require('./src/DevTools');
+const GridGap = require('./src/GridGap');
 
 module.exports = {
   Container,
@@ -13,5 +15,7 @@ module.exports = {
   Spacing,
   Typography,
   RatioBox,
-  PseudoElements
+  PseudoElements,
+  DevTools,
+  GridGap
 };
