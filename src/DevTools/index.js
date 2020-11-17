@@ -1,5 +1,5 @@
 require('dotenv').config();
-const getFirstBp = require('./util/getFirstBp');
+const getFirstBp = require('../util/getFirstBp');
 
 module.exports = function({ addBase, theme }) {
   const breakpoints = theme('screens');

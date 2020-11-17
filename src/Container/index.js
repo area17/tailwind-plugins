@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const getFirstBp = require('./util/getFirstBp');
+const getFirstBp = require('../util/getFirstBp');
 
 module.exports = function({ addComponents, theme }) {
   const widths = theme('mainColWidths', {});
