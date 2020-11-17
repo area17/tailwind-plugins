@@ -54,26 +54,24 @@ module.exports = {
     screens: {
       xs: { max: '543px' },
       sm: '544px',
-      md: '768px',
-      lg: '1024px',
+      md: '766px',
+      lg: '1023px',
       xl: '1440px'
     },
-
     mainColWidths: {
-      xl: '1220px',
-      lg: 'fluid',
-      md: 'fluid',
-      sm: 'fluid',
-      xs: 'fluid'
+      xs: 'auto',
+      sm: 'auto',
+      md: 'auto',
+      lg: 'auto',
+      xl: '1376px'
     },
-
     outerGutters: {
-      xl: '60px',
-      lg: '36px',
-      md: '24px',
+      xs: '16px',
       sm: '16px',
-      xs: '16px'
-    }
+      md: '32px',
+      lg: '32px',
+      xl: 'auto'
+    },
   },
 
   corePlugins: {
@@ -109,42 +107,45 @@ module.exports = {
   theme: {
     spacingGroups: (theme) => ({
       'outer-1': {
-        xs: theme('spacing.11'),
-        md: theme('spacing.12'),
-        lg: theme('spacing.13'),
-        xl: theme('spacing.14')
+        xs: theme('spacing.16'),
+        lg: theme('spacing.24')
       },
-
       'inner-1': {
-        xs: theme('spacing.9'),
-        md: theme('spacing.10'),
-        lg: theme('spacing.11'),
-        xl: theme('spacing.12')
-      },
-
-      'inner-2': {
         xs: theme('spacing.6'),
-        md: theme('spacing.9'),
-        lg: theme('spacing.10'),
-        xl: theme('spacing.11')
+        md: theme('spacing.10'),
+        lg: theme('spacing.16')
       },
+    }),
+  }
 
-      'inner-3': {
+  ...
+}
+```
+
+If you also have `innerGutters` and `outerGutters` set up, you may want to include your gutters as spacing groups:
+
+```javascript
+module.exports = {
+  ...
+
+  theme: {
+    spacingGroups: (theme) => ({
+      'inner-gutter': theme('innerGutters'),
+      'outer-gutter': theme('outerGutters'),
+      'outer-1': {
+        xs: theme('spacing.16'),
+        lg: theme('spacing.24')
+      },
+      'inner-1': {
+        xs: theme('spacing.6'),
+        md: theme('spacing.10'),
+        lg: theme('spacing.16')
+      },
+      'inner-2': {
         xs: theme('spacing.4'),
-        md: theme('spacing.5'),
-        lg: theme('spacing.6'),
-        xl: theme('spacing.8')
+        md: theme('spacing.6'),
+        lg: theme('spacing.8')
       },
-
-      'inner-4': {
-        xs: theme('spacing.2'),
-        lg: theme('spacing.3'),
-        xl: theme('spacing.4')
-      },
-
-      'inner-5': {
-        xs: theme('spacing.1')
-      }
     }),
   }
 
@@ -177,13 +178,11 @@ module.exports = {
     'line-height': 1.2,
     'font-weight': 400
   },
-
   'suisse-400-2': {
     'font-size': 11,
     'line-height': 1.2,
     'font-weight': 400
   },
-
   'suisse-400-3': {
     'font-size': 12,
     'line-height': 1.2,
@@ -263,18 +262,17 @@ module.exports = {
     innerGutters: {
       xs: '16px',
       sm: '16px',
-      md: '16px',
+      md: '24px',
       lg: '24px',
       xl: '24px'
     },
-
     columnCount: {
-      xs: 6,
-      sm: 6,
-      md: 12,
+      xs: 4,
+      sm: 4,
+      md: 8,
       lg: 12,
       xl: 12
-    },
+    }
   }
 
   ...
@@ -456,6 +454,75 @@ module.exports = {
       md: '16px',
       lg: '24px',
       xl: '24px'
+    },
+  }
+
+  ...
+};
+```
+
+### DevTools
+
+This plugin creates a boilerplate style tool for the bottom left of your screen which reveals the current breakpoint, `APP_ENV` and a grid column overlay with toggle.
+
+#### Usage
+
+```html
+<div class="dev-tools">
+  <button class="dev-tools-toggle" onClick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden;"></button>
+  <div class="dev-tools-grid" hidden></div>
+</div>
+```
+
+Add this at the end of your document, before the `</body>`.
+
+To (optionally) display the `APP_ENV` you'll need a `.env` file:
+
+```env
+APP_ENV=local
+```
+
+#### Config
+
+```javascript
+module.exports = {
+  ...
+
+  theme: {
+    screens: {
+      xs: { max: '543px' },
+      sm: '544px',
+      md: '766px',
+      lg: '1023px',
+      xl: '1440px'
+    },
+    mainColWidths: {
+      xs: 'auto',
+      sm: 'auto',
+      md: 'auto',
+      lg: 'auto',
+      xl: '1376px'
+    },
+    outerGutters: {
+      xs: '16px',
+      sm: '16px',
+      md: '32px',
+      lg: '32px',
+      xl: 'auto'
+    },
+    innerGutters: {
+      xs: '16px',
+      sm: '16px',
+      md: '24px',
+      lg: '24px',
+      xl: '24px'
+    },
+    columnCount: {
+      xs: 4,
+      sm: 4,
+      md: 8,
+      lg: 12,
+      xl: 12
     },
   }
 
