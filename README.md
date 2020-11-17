@@ -19,12 +19,12 @@ These plugins extend Tailwind to include utility classes for our commonly used F
 2. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
 
 ```javascript
-const { Container, Spacing, Typography } = require('a17-tailwind');
+const { Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements } = require('a17-tailwind');
 
 module.exports = {
   ...
 
-  plugins: [Container, Typography, Spacing]
+  plugins: [Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements]
 
   ...
 };
@@ -297,20 +297,15 @@ For elements into sets, components are created
 
 ```html
 // Tokens
-<div class=".ratio .ratio-1x1 .md:ratio-4x3">
-  <div class=".ratio-content">
+<div class="ratio ratio-1x1 md:ratio-4x3">
+  <div class="ratio-content">
     ...
   </div>
 </div>
 
 // Sets
-<div class=".ratio .ratio-01">
-  <div class=".ratio-content">
-    ...
-  </div>
-</div>
-<div class=".ratio .ratio-cover-full ">
-  <div class=".ratio-content">
+<div class="ratio ratio-01">
+  <div class="ratio-content">
     ...
   </div>
 </div>
