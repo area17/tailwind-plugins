@@ -239,29 +239,6 @@ module.exports = {
 };
 ```
 
-Finally it needs to be added to the main `tailwind.config.js`. This is where you can also set the font-family stacks
-
-```javascript
-module.exports = {
-  ...
-
-  theme: {
-    typography: {
-      family: {
-        sans: "Suisse, Helvetica, Arial, sans-serif",
-        serif: "Georgia, serif"
-      },
-
-      sets: {
-        ...require('./setup/typography/body'),
-      }
-    }
-  }
-
-  ...
-};
-```
-
 ### Layout
 
 This plugin creates classes to handle column layouts.
