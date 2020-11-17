@@ -199,24 +199,41 @@ Type set config:
 ```javascript
 // setup/body.js
 const suisse400 = require('./base/suisse-400');
+const sans = 'Suisse, Arial, sans-serif';
 
 module.exports = {
-  'body-1': {
-    'font-family': 'sans',
-    settings: {
-      xs: suisse400['suisse-400-4'],
-      md: suisse400['suisse-400-5'],
-      lg: suisse400['suisse-400-6'],
-      xl: suisse400['suisse-400-7']
-    }
-  },
-
-  'body-2': {
-    'font-family': 'sans',
-    settings: {
-      xs: suisse400['suisse-400-8'],
-      md: suisse400['suisse-400-9'],
-      lg: suisse400['suisse-400-10']
+  theme: {
+    fontFamily: {
+      sans: sans
+    },
+    typography: {
+      // with tokens
+      'body-1': {
+        settings: {
+          xs: {
+            ...suisse400['suisse-400-4'],
+            'font-family': sans
+          },
+          md: suisse400['suisse-400-5'],
+          lg: suisse400['suisse-400-6'],
+          xl: suisse400['suisse-400-7']
+        }
+      },
+      // with directly entered values
+      'caption': {
+        settings: {
+          xs: {
+            'font-family': sans,
+            'font-size': 11,
+            'line-height': 1.2,
+            'text-transform': 'uppercase',
+            'letter-spacing': 1
+          },
+          md: {
+            'font-size': 12,
+          }
+        }
+      }
     }
   }
 };
