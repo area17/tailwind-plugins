@@ -22,7 +22,7 @@ module.exports = function({ addComponents, theme }) {
 
     if (width === 'auto' || width === 'fluid') {
       styles = {
-        width: `calc(100% - ${parseInt(gutter, 10) * 2}px)`
+        width: `calc(100% - (${gutter} * 2))`
       };
     } else {
       styles = {
