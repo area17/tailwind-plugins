@@ -9,41 +9,40 @@ const getFirstBp = require('../util/getFirstBp');
 module.exports = function({ addComponents, theme }) {
   const innerGutters = theme('innerGutters', {});
   const columnCount = theme('columnCount', {});
-  const className = '.columns-container';
   const firstBp = getFirstBp(theme);
   const breakpoints = Object.keys(columnCount);
 
   const containerStyles = _.map(innerGutters, (gutter, bp) => {
     if (bp === firstBp) {
       return {
-        [className]: {
+        '.cols-container': {
           display: 'flex',
           'flex-flow': 'row wrap',
           'margin-left': `-${gutter}`
         },
-        ['.columns-container [class*="cols-"]']: {
+        ['.cols-container [class*="cols-"]']: {
           'margin-left': gutter
         },
-        ['.columns-container .cols-ml-reset']: {
+        ['.cols-container .cols-ml-reset']: {
           'margin-left': 0
         },
-        ['.columns-container .cols-screen-ml-reset']: {
+        ['.cols-container .cols-screen-ml-reset']: {
           'margin-left': 0
         }
       };
     } else {
       return {
         [`@screen ${bp}`]: {
-          [className]: {
+          '.cols-container': {
             'margin-left': `-${gutter}`
           },
-          ['.columns-container [class*="cols-"]']: {
+          ['.cols-container [class*="cols-"]']: {
             'margin-left': gutter
           },
-          ['.columns-container .cols-ml-reset']: {
+          ['.cols-container .cols-ml-reset']: {
             'margin-left': 0
           },
-          ['.columns-container .cols-screen-ml-reset']: {
+          ['.cols-container .cols-screen-ml-reset']: {
             'margin-left': 0
           }
         }
@@ -74,19 +73,19 @@ module.exports = function({ addComponents, theme }) {
           [`.cols-screen-${i}`]: {
             width: `calc(${colWidth})`
           },
-          [`.columns-container > .cols-${i}`]: {
+          [`.cols-container > .cols-${i}`]: {
             width: `calc(${colWidthContained})`
           },
-          [`.columns-container > .cols-screen-${i}`]: {
+          [`.cols-container > .cols-screen-${i}`]: {
             width: `calc(${colWidthContainedScreen})`
           },
           [`.push-${i}`]: {
             'margin-left': `calc(${colPush})`
           },
-          [`.columns-container > .push-${i}`]: {
+          [`.cols-container > .push-${i}`]: {
             'margin-left': `calc(${colPushContained})`
           },
-          [`.columns-container > .push-screen-${i}`]: {
+          [`.cols-container > .push-screen-${i}`]: {
             'margin-left': `calc(${colPushContainedScreen})`
           }
         };
@@ -98,13 +97,13 @@ module.exports = function({ addComponents, theme }) {
           [`.cols-${i}`]: {
             width: `calc(${colWidth})`
           },
-          [`.columns-container > .cols-${i}`]: {
+          [`.cols-container > .cols-${i}`]: {
             width: `calc(${colWidthContained})`
           },
           [`.push-${i}`]: {
             'margin-left': `calc(${colPush})`
           },
-          [`.columns-container > .push-${i}`]: {
+          [`.cols-container > .push-${i}`]: {
             'margin-left': `calc(${colPushContained})`
           }
         }
@@ -157,25 +156,25 @@ module.exports = function({ addComponents, theme }) {
               [`.${bp}\\:cols-${i}`]: {
                 width: `calc(${inheritColWidth})`
               },
-              [`.columns-container > .${bp}\\:cols-${i}`]: {
+              [`.cols-container > .${bp}\\:cols-${i}`]: {
                 width: `calc(${inheritColWidthContained})`
               },
               [`.${bp}\\:cols-screen-${i}`]: {
                 width: `calc(${inheritColWidthScreen})`
               },
-              [`.columns-container > .${bp}\\:cols-screen-${i}`]: {
+              [`.cols-container > .${bp}\\:cols-screen-${i}`]: {
                 width: `calc(${inheritColWidthContainedScreen})`
               },
               [`.${bp}\\:push-${i}`]: {
                 'margin-left': `calc(${inheritColPush})`
               },
-              [`.columns-container > .${bp}\\:push-${i}`]: {
+              [`.cols-container > .${bp}\\:push-${i}`]: {
                 'margin-left': `calc(${inheritColPushContained})`
               },
               [`.${bp}\\:push-screen-${i}`]: {
                 'margin-left': `calc(${inheritColPushScreen})`
               },
-              [`.columns-container > .${bp}\\:push-screen-${i}`]: {
+              [`.cols-container > .${bp}\\:push-screen-${i}`]: {
                 'margin-left': `calc(${inheritColPushContainedScreen})`
               }
             }
@@ -194,25 +193,25 @@ module.exports = function({ addComponents, theme }) {
           [`.${bp}\\:cols-${i}`]: {
             width: `calc(${colWidth})`
           },
-          [`.columns-container > .${bp}\\:cols-${i}`]: {
+          [`.cols-container > .${bp}\\:cols-${i}`]: {
             width: `calc(${colWidthContained})`
           },
           [`.${bp}\\:cols-screen-${i}`]: {
             width: `calc(${colWidthScreen})`
           },
-          [`.columns-container > .${bp}\\:cols-screen-${i}`]: {
+          [`.cols-container > .${bp}\\:cols-screen-${i}`]: {
             width: `calc(${colWidthContainedScreen})`
           },
           [`.${bp}\\:push-${i}`]: {
             'margin-left': `calc(${colPush})`
           },
-          [`.columns-container > .${bp}\\:push-${i}`]: {
+          [`.cols-container > .${bp}\\:push-${i}`]: {
             'margin-left': `calc(${colPushContained})`
           },
           [`.${bp}\\:push-screen-${i}`]: {
             'margin-left': `calc(${colPushScreen})`
           },
-          [`.columns-container > .${bp}\\:push-screen-${i}`]: {
+          [`.cols-container > .${bp}\\:push-screen-${i}`]: {
             'margin-left': `calc(${colPushContainedScreen})`
           }
         },
@@ -230,13 +229,13 @@ module.exports = function({ addComponents, theme }) {
         [`.push-0`]: {
           'margin-left': 0
         },
-        [`.columns-container > .push-0`]: {
+        [`.cols-container > .push-0`]: {
           'margin-left': innerGutters[bp]
         },
         [`.push-screen-0`]: {
           'margin-left': 0
         },
-        [`.columns-container > .push-screen-0`]: {
+        [`.cols-container > .push-screen-0`]: {
           'margin-left': innerGutters[bp]
         }
       };
@@ -246,7 +245,7 @@ module.exports = function({ addComponents, theme }) {
           [`.push-0, .${bp}\\:push-0`]: {
             'margin-left': 0
           },
-          [`.columns-container > .push-0, .columns-container > .${bp}\\:push-0`]: {
+          [`.cols-container > .push-0, .cols-container > .${bp}\\:push-0`]: {
             'margin-left': innerGutters[bp]
           }
         },
@@ -254,7 +253,7 @@ module.exports = function({ addComponents, theme }) {
           [`.push-screen-0, .${bp}\\:push-screen-0`]: {
             'margin-left': 0
           },
-          [`.columns-container > .push-screen-0, .columns-container > .${bp}\\:push-screen-0`]: {
+          [`.cols-container > .push-screen-0, .cols-container > .${bp}\\:push-screen-0`]: {
             'margin-left': innerGutters[bp]
           }
         }
