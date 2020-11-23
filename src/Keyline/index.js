@@ -28,8 +28,11 @@ module.exports = function({ addComponents, theme }) {
   const responsiveStyles = _.map(columnCount, (cols, bp) => {
     return {
       [`@screen ${bp}`]: {
-        [`[class*="keyline-"]:before`]: {
+        [`[class*="keyline-l"]:before`]: {
           left: `calc(${innerGutters[bp]} / -2)`
+        },
+        [`[class*="keyline-r"]:before`]: {
+          right: `calc(${innerGutters[bp]} / -2)`
         },
         [`[class*="${bp}\\:keyline-"]:before`]: {
           display: 'block'
