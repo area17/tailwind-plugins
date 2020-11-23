@@ -42,10 +42,22 @@ module.exports = {
 
 This plugin creates a class for a page container. It sets the max-width and outer gutters across all of the configured breakpoints. Note that the default Tailwind container plugin will need to be disabled.
 
+Also includes a breakout class to allow full 100vw elements inside a container.
+
 #### Usage
 
 ```html
 <div class="container">
+  ...
+</div>
+```
+
+```html
+<div class="container">
+  ...
+  <div class="breakout">
+    <!-- full 100vw box -->
+  </div>
   ...
 </div>
 ```
