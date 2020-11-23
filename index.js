@@ -7,6 +7,7 @@ const RatioBox = require('./src/RatioBox');
 const PseudoElements = require('./src/PseudoElements');
 const DevTools = require('./src/DevTools');
 const GridGap = require('./src/GridGap');
+const GridLine = require('./src/GridGap');
 
 module.exports = {
   Container,
@@ -17,5 +18,6 @@ module.exports = {
   RatioBox,
   PseudoElements,
   DevTools,
-  GridGap
+  GridGap,
+  GridLine
 };

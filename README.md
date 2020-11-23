@@ -427,6 +427,96 @@ The config above will generate the following classes:
 .xl:keyline-0
 ```
 
+### GridLine
+
+A series of classes to draw grid strokes inside the gutters of a grid. This is specifically intended to be used with Tailwind's `grid` classes and assumes your gutters are all `--inner-gutter` in size. That means, if you wish to add more vertical spacing, you'll need to do this with padding on the children.
+
+The classes automatically account for first row, first of row, last row and last of row to only draw the internal grid lines and have no undesired lines outside of the grid of items. They will do this for any amount of columns at any breakpoint.
+
+The classes support up to the maximum amount of columns at each breakpoint; so if your breakpoint has 12 design columns, you could have functioning grid lines up to 12 columns. If you need more, you can specify more with a `maxCols` object in your config.
+
+You can mix item width, item height, row and column classes and control the color of the horizontal and vertical strokes independently.
+
+* `grid-line-x` - draws grid lines above each child, each is the width of the child, except the first row
+* `grid-line-xfull` - essentially draws row lines
+* `grid-line-y` - draws grid lines to the left of each child, each is the height of the child, except the first column
+* `grid-line-yfull` - essentially draws column lines
+* `grid-line-x-primary` - makes the horizontal grid lines the primary border color
+* `grid-line-y-primary` - makes the vertical grid lines the primary border color
+* `grid-line-xy-primary` - makes both the horizontal and vertical grid lines the primary border color
+
+
+#### Usage
+
+```html
+<!-- Lines above each item, the width of each item, primary border color -->
+<ul class="grid sm:grid-cols-2 lg:grid-cols-4 gap-gutter grid-line-x grid-line-x-primary">
+  <li>...</li>
+  ...
+</ul>
+
+<!-- Row lines, primary border color -->
+<ul class="grid sm:grid-cols-2 lg:grid-cols-4 gap-gutter grid-line-xfull grid-line-x-primary">
+  <li>...</li>
+  ...
+</ul>
+
+<!-- Lines at the side each item, the height of each item, primary border color -->
+<ul class="grid sm:grid-cols-2 lg:grid-cols-4 gap-gutter grid-line-y grid-line-y-primary">
+  <li>...</li>
+  ...
+</ul>
+
+<!-- Column lines, primary border color -->
+<ul class="grid sm:grid-cols-2 lg:grid-cols-4 gap-gutter grid-line-yfull grid-line-y-primary">
+  <li>...</li>
+  ...
+</ul>
+
+<!-- Row and column lines, primary border color -->
+<ul class="grid sm:grid-cols-2 lg:grid-cols-4 gap-gutter grid-line-xfull grid-line-yfull grid-line-xy-primary">
+  <li>...</li>
+  ...
+</ul>
+```
+
+#### Config
+
+```javascript
+module.exports = {
+  ...
+
+  theme: {
+    borderColor: {
+      primary: 'red',
+      secondary: 'green',
+      tertiary: 'blue'
+    }
+  }
+
+  ...
+}
+```
+
+Optional, to have a different number of maximum columns:
+
+```javascript
+module.exports = {
+  ...
+
+  theme: {
+    maxCols: {
+      sm: 4,
+      md: 10,
+      lg: 20,
+      xl: 20
+    }
+  }
+
+  ...
+}
+```
+
 ### GridGap
 
 This plugin creates classes to handle responsive grid gutters:
