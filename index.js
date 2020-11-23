@@ -8,6 +8,7 @@ const PseudoElements = require('./src/PseudoElements');
 const DevTools = require('./src/DevTools');
 const GridGap = require('./src/GridGap');
 const GridLine = require('./src/GridGap');
+const Setup = require('./src/Setup');
 
 module.exports = {
   Container,
@@ -19,5 +20,6 @@ module.exports = {
   PseudoElements,
   DevTools,
   GridGap,
-  GridLine
+  GridLine,
+  Setup
 };

@@ -38,6 +38,62 @@ module.exports = {
 
 ## Plugins
 
+### Setup
+
+This plugin sets up the breakpoint, container width, gutter, column count and breakpoint info as CSS variables that the other plugins here use.
+
+#### Usage
+
+*Produces no CSS classes, is setup for other plugins' classes*
+
+#### Config
+
+```javascript
+module.exports = {
+  ...
+
+  theme: {
+    screens: {
+      xs: { max: '543px' },
+      sm: '544px',
+      md: '766px',
+      lg: '1023px',
+      xl: '1440px'
+    },
+    mainColWidths: {
+      xs: 'auto',
+      sm: 'auto',
+      md: 'auto',
+      lg: 'auto',
+      xl: '1376px'
+    },
+    outerGutters: {
+      xs: '16px',
+      sm: '16px',
+      md: '32px',
+      lg: '32px',
+      xl: 'auto'
+    },
+    innerGutters: {
+      xs: '16px',
+      sm: '16px',
+      md: '24px',
+      lg: '24px',
+      xl: '24px'
+    },
+    columnCount: {
+      xs: 4,
+      sm: 4,
+      md: 8,
+      lg: 12,
+      xl: 12
+    },
+  }
+
+  ...
+};
+```
+
 ### Container
 
 This plugin creates a class for a page container. It sets the max-width and outer gutters across all of the configured breakpoints. Note that the default Tailwind container plugin will need to be disabled.
@@ -592,51 +648,7 @@ APP_ENV=local
 
 #### Config
 
-```javascript
-module.exports = {
-  ...
-
-  theme: {
-    screens: {
-      xs: { max: '543px' },
-      sm: '544px',
-      md: '766px',
-      lg: '1023px',
-      xl: '1440px'
-    },
-    mainColWidths: {
-      xs: 'auto',
-      sm: 'auto',
-      md: 'auto',
-      lg: 'auto',
-      xl: '1376px'
-    },
-    outerGutters: {
-      xs: '16px',
-      sm: '16px',
-      md: '32px',
-      lg: '32px',
-      xl: 'auto'
-    },
-    innerGutters: {
-      xs: '16px',
-      sm: '16px',
-      md: '24px',
-      lg: '24px',
-      xl: '24px'
-    },
-    columnCount: {
-      xs: 4,
-      sm: 4,
-      md: 8,
-      lg: 12,
-      xl: 12
-    },
-  }
-
-  ...
-};
-```
+None
 
 ## Todo
 

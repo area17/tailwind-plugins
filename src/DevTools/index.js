@@ -1,41 +1,4 @@
-require('dotenv').config();
-const getFirstBp = require('../util/getFirstBp');
-
-module.exports = function({ addBase, theme }) {
-  const breakpoints = theme('screens');
-  const mainColWidths = theme('mainColWidths', {});
-  const outerGutters = theme('outerGutters', {});
-  const innerGutters = theme('innerGutters', {});
-  const columnCount = theme('columnCount', {});
-  const firstBp = getFirstBp(theme);
-  const rootVariables = [];
-
-  Object.keys(breakpoints).forEach(bp => {
-    let styles = {
-      ':root': {
-        '--breakpoint': `${JSON.stringify(bp + "")}`,
-        '--env': `${JSON.stringify((process.env.ENV || process.env.APP_ENV || 'dev') + "")}`,
-        '--container-width': mainColWidths[bp],
-        '--inner-gutter': innerGutters[bp],
-        '--outer-gutter': outerGutters[bp],
-        '--grid-columns': `${ columnCount[bp] }`,
-        '--grid-column-bg': 'rgba(127, 255, 255, 0.25)'
-      }
-    };
-
-    if (bp === firstBp) {
-      rootVariables.push(styles);
-    } else {
-      rootVariables.push({
-        [`@screen ${bp}`]: {
-          ...styles
-        }
-      });
-    }
-  });
-
-  addBase(rootVariables);
-
+module.exports = function({ addBase }) {
   addBase({
     '.dev-tools': {
       'position': 'fixed',
@@ -89,9 +52,9 @@ module.exports = function({ addBase, theme }) {
       'right': '0',
       'top': '0',
       'bottom': '0',
-      'width': 'var(--container-width)',
+      'width': 'calc(var(--container-width, 100%) - (2 * var(--outer-gutter, 0)));',
       'height': '100%',
-      'margin': '0 var(--outer-gutter)',
+      'margin': '0 auto',
       'background': `repeating-linear-gradient(
         90deg,
         var(--grid-column-bg),
