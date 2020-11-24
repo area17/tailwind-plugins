@@ -513,6 +513,12 @@ You can mix item width, item height, row and column classes and control the colo
 * `grid-line-y-primary` - makes the vertical grid lines the primary border color
 * `grid-line-xy-primary` - makes both the horizontal and vertical grid lines the primary border color
 
+The gridline color classes also have responsive states to switch them on, eg:
+
+* `md:grid-line-x-primary` - switches primary border color horizontal grid lines at `md` breakpoint
+
+(the intention being you likely don't want grid lines at smaller breakpoints because the gutters will likely be very small)
+
 
 #### Usage
 

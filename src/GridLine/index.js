@@ -22,32 +22,40 @@ module.exports = function({ addComponents, theme }) {
       '.grid-line-x > *::before': {
         'left': '0',
         'right': '0',
-        'top': 'calc(var(--inner-gutter) / -2)',
-        'bottom': 'calc(var(--inner-gutter) / -2 - 1px)',
+        'top': '0',
+        'bottom': 'calc(var(--inner-gutter) / -2)',
         'border-top': '0 solid transparent',
         'border-bottom': '0 solid transparent'
       },
       '.grid-line-xfull > *::before': {
         'left': 'calc(var(--inner-gutter) / -2)',
-        'right': 'calc(var(--inner-gutter) / -2 - 1px)',
-        'top': 'calc(var(--inner-gutter) / -2)',
-        'bottom': 'calc(var(--inner-gutter) / -2 - 1px)',
+        'right': 'calc(var(--inner-gutter) / -2)',
+        'top': '0',
+        'bottom': 'calc(var(--inner-gutter) / -2)',
         'border-top': '0 solid transparent',
         'border-bottom': '0 solid transparent'
       },
       '.grid-line-y > *::after': {
-        'left': 'calc(var(--inner-gutter) / -2)',
-        'right': 'calc(var(--inner-gutter) / -2 - 1px)',
+        'left': '0',
+        'right': 'calc(var(--inner-gutter) / -2)',
         'top': '0',
         'bottom': '0',
         'border-left': '0 solid transparent',
         'border-right': '0 solid transparent'
       },
       '.grid-line-yfull > *::after': {
-        'left': 'calc(var(--inner-gutter) / -2)',
-        'right': 'calc(var(--inner-gutter) / -2 - 1px)',
+        'left': '0',
+        'right': 'calc(var(--inner-gutter) / -2)',
         'top': 'calc(var(--inner-gutter) / -1)',
         'bottom': '0',
+        'border-left': '0 solid transparent',
+        'border-right': '0 solid transparent'
+      },
+      '.grid-line-yfull[class*="grid-line-x"] > *::after': {
+        'left': '0',
+        'right': 'calc(var(--inner-gutter) / -2)',
+        'top': 'calc(var(--inner-gutter) / -2)',
+        'bottom': 'calc(var(--inner-gutter) / -2)',
         'border-left': '0 solid transparent',
         'border-right': '0 solid transparent'
       },
@@ -58,26 +66,22 @@ module.exports = function({ addComponents, theme }) {
   Object.entries(colors).forEach(group => {
     const [name, color] = group;
     styles.push({
-      [`.grid-line-x-${ name } > *::before`]: {
-        'border-top-color': color,
+      [`.grid-line-x-${ name }[class*="grid-line-x-"] > *::before`]: {
         'border-bottom-color': color
       }
     });
     styles.push({
-      [`.grid-line-y-${ name } > *::after`]: {
-        'border-left-color': color,
+      [`.grid-line-y-${ name }[class*="grid-line-y-"] > *::after`]: {
         'border-right-color': color
       }
     });
     styles.push({
-      [`.grid-line-xy-${ name } > *::before`]: {
-        'border-top-color': color,
+      [`.grid-line-xy-${ name }[class*="grid-line-xy-"] > *::before`]: {
         'border-bottom-color': color
       }
     });
     styles.push({
-      [`.grid-line-xy-${ name } > *::after`]: {
-        'border-left-color': color,
+      [`.grid-line-xy-${ name }[class*="grid-line-xy-"] > *::after`]: {
         'border-right-color': color
       }
     });
@@ -93,7 +97,6 @@ module.exports = function({ addComponents, theme }) {
         // horizontal lines, reset
         bpStyles.push({
           [`.grid-cols-${ i }[class*="grid-line-x"] > *:nth-child(n)::before`]: {
-            'border-top-width': '1px',
             'border-bottom-width': '1px'
           }
         });
@@ -109,15 +112,9 @@ module.exports = function({ addComponents, theme }) {
             'right': '0'
           }
         });
-        // horizontal first row, hide top border
-        bpStyles.push({
-          [`.grid-cols-${ i }[class*="grid-line-x"] > *:nth-child(-n+${ i })::before`]: {
-            'border-top-width': '0'
-          }
-        });
         // horizontal last row, hide bottom border
         bpStyles.push({
-          [`.grid-cols-${ i }[class*="grid-line-x"] > *:nth-child(${ i }n+1):nth-last-child(-n+${ i })::before, .grid-cols-${ i }[class*="grid-line-x"] > *:nth-child(${ i }n+1):nth-last-child(-n+${ i }) ~ li::before`] : {
+          [`.grid-cols-${ i }[class*="grid-line-x"] > *:nth-child(${ i }n+1):nth-last-child(-n+${ i })::before, .grid-cols-${ i }[class*="grid-line-x"] > *:nth-child(${ i }n+1):nth-last-child(-n+${ i }) ~ *::before`] : {
             'border-bottom-width': '0'
           }
         });
@@ -126,25 +123,18 @@ module.exports = function({ addComponents, theme }) {
           // vertical lines, reset
           bpStyles.push({
             [`.grid-cols-${ i }[class*="grid-line-y"] > *:nth-child(n)::after`]: {
-              'border-left-width': '1px',
               'border-right-width': '1px'
-            }
-          });
-          // vertical lines, hide first in row
-          bpStyles.push({
-            [`.grid-cols-${ i }[class*="grid-line-y"] > *:nth-child(${ i }n+1)::after`]: {
-              'border-left-width': '0'
             }
           });
           // vertical last in row, fix right
           bpStyles.push({
-            [`.grid-cols-${ i }[class*="grid-line-x"] > *:nth-child(${ i }n+${ i })::after`]: {
+            [`.grid-cols-${ i }[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(${ i }n+${ i })::after`]: {
               'border-right-width': '0'
             }
           });
           // vertical lines, fix top position of first row
           bpStyles.push({
-            [`.grid-cols-${ i }[class*="grid-line-y"] > *:nth-child(-n+${ i })::after`]: {
+            [`.grid-cols-${ i }[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+${ i })::after`]: {
               'top': '0'
             }
           });
@@ -157,44 +147,61 @@ module.exports = function({ addComponents, theme }) {
         }
       }
 
+      // set stroke colours
+      Object.entries(colors).forEach(group => {
+        const [name, color] = group;
+        bpStyles.push({
+          [`.${ bp }\\:grid-line-x-${ name }[class*="grid-line-x-"] > *::before`]: {
+            'border-bottom-color': color
+          }
+        });
+        bpStyles.push({
+          [`.${ bp }\\:grid-line-y-${ name }[class*="grid-line-y-"] > *::after`]: {
+            'border-right-color': color
+          }
+        });
+        bpStyles.push({
+          [`.${ bp }\\:grid-line-xy-${ name }[class*="grid-line-xy-"] > *::before`]: {
+            'border-bottom-color': color
+          }
+        });
+        bpStyles.push({
+          [`.${ bp }\\:grid-line-xy-${ name }[class*="grid-line-xy-"] > *::after`]: {
+            'border-right-color': color
+          }
+        });
+      });
+
       // horizontal lines, reset
       bpStyles.push({
-        [`.${ bp }\\:grid-cols-${ i }.grid-line-x > *:nth-child(n)::before`]: {
+        [`.${ bp }\\:grid-cols-${ i }.grid-line-x > *:nth-child(n):nth-child(n)::before, .${ bp }\\:grid-cols-${ i }.grid-line-x > *:nth-child(n):nth-child(n) ~ *::before`]: {
           'left': '0',
           'right': '0',
-          'border-top-width': '1px',
           'border-bottom-width': '1px'
         }
       });
       bpStyles.push({
-        [`.${ bp }\\:grid-cols-${ i }.grid-line-xfull > *:nth-child(n)::before`]: {
+        [`.${ bp }\\:grid-cols-${ i }.grid-line-xfull > *:nth-child(n):nth-child(n)::before, .${ bp }\\:grid-cols-${ i }.grid-line-xfull > *:nth-child(n):nth-child(n) ~ *::before`]: {
           'left': 'calc(var(--inner-gutter) / -2)',
-          'right': 'calc(var(--inner-gutter) / -2 - 1px)',
-          'border-top-width': '1px',
+          'right': 'calc(var(--inner-gutter) / -2)',
           'border-bottom-width': '1px'
         }
       });
       // horizontal first in row, fix left
       bpStyles.push({
-        [`.${ bp }\\:grid-cols-${ i }[class*="grid-line-x"] > *:nth-child(${ i }n+1)::before`]: {
+        [`.${ bp }\\:grid-cols-${ i }[class*="grid-line-x"] > *:nth-child(n):nth-child(${ i }n+1)::before`]: {
           'left': '0'
         }
       });
       // horizontal last in row, fix right
       bpStyles.push({
-        [`.${ bp }\\:grid-cols-${ i }[class*="grid-line-x"] > *:nth-child(${ i }n+${ i })::before`]: {
+        [`.${ bp }\\:grid-cols-${ i }[class*="grid-line-x"] > *:nth-child(n):nth-child(${ i }n+${ i })::before`]: {
           'right': '0'
-        }
-      });
-      // horizontal first row, hide top border
-      bpStyles.push({
-        [`.${ bp }\\:grid-cols-${ i }[class*="grid-line-x"] > *:nth-child(-n+${ i })::before`]: {
-          'border-top-width': '0'
         }
       });
       // horizontal last row, hide bottom border
       bpStyles.push({
-        [`.${ bp }\\:grid-cols-${ i }[class*="grid-line-x"] > *:nth-child(${ i }n+1):nth-last-child(-n+${ i })::before, .${ bp }\\:grid-cols-${ i }[class*="grid-line-x"] > *:nth-child(${ i }n+1):nth-last-child(-n+${ i }) ~ li::before`] : {
+        [`.${ bp }\\:grid-cols-${ i }[class*="grid-line-x"] > *:nth-child(${ i }n+1):nth-last-child(-n+${ i })::before, .${ bp }\\:grid-cols-${ i }[class*="grid-line-x"] > *:nth-child(${ i }n+1):nth-last-child(-n+${ i }) ~ *::before`] : {
           'border-bottom-width': '0'
         }
       });
@@ -202,34 +209,35 @@ module.exports = function({ addComponents, theme }) {
       if (i > 1) {
         // vertical lines, reset
         bpStyles.push({
-          [`.${ bp }\\:grid-cols-${ i }.grid-line-y > *:nth-child(n)::after`]: {
+          [`.${ bp }\\:grid-cols-${ i }.grid-line-y[class*="grid-line-y"] > *:nth-child(n)::after`]: {
             'top': '0',
-            'border-left-width': '1px',
+            'bottom': '0',
             'border-right-width': '1px'
           }
         });
         bpStyles.push({
-          [`.${ bp }\\:grid-cols-${ i }.grid-line-yfull > *:nth-child(n)::after`]: {
+          [`.${ bp }\\:grid-cols-${ i }.grid-line-yfull[class*="grid-line-y"] > *:nth-child(n)::after`]: {
             'top': 'calc(var(--inner-gutter) / -1)',
-            'border-left-width': '1px',
+            'bottom': '0',
             'border-right-width': '1px'
           }
         });
-        // vertical lines, hide first in row
         bpStyles.push({
-          [`.${ bp }\\:grid-cols-${ i }[class*="grid-line-y"] > *:nth-child(${ i }n+1)::after`]: {
-            'border-left-width': '0'
+          [`.${ bp }\\:grid-cols-${ i }.grid-line-yfull[class*="grid-line-x"] > *:nth-child(n)::after`]: {
+            'top': 'calc(var(--inner-gutter) / -2)',
+            'bottom': 'calc(var(--inner-gutter) / -2)',
+            'border-right-width': '1px'
           }
         });
         // vertical last in row, fix right
         bpStyles.push({
-          [`.${ bp }\\:grid-cols-${ i }[class*="grid-line-x"] > *:nth-child(${ i }n+${ i })::after`]: {
+          [`.${ bp }\\:grid-cols-${ i }[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(${ i }n+${ i })::after`]: {
             'border-right-width': '0'
           }
         });
         // vertical lines, fix top position of first row
         bpStyles.push({
-          [`.${ bp }\\:grid-cols-${ i }[class*="grid-line-y"] > *:nth-child(-n+${ i })::after`]: {
+          [`.${ bp }\\:grid-cols-${ i }[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+${ i })::after`]: {
             'top': '0'
           }
         });
