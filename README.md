@@ -314,7 +314,19 @@ module.exports = {
 
 ### Layout
 
-This plugin creates classes to handle column layouts.
+This plugin creates classes to handle column layouts:
+
+* `.cols-container` on parent, makes a flex row wrap container with a negative inner gutter margin left
+* `.col-N` on child, sets with N columns wide, if inside of `.cols-container` also includes a inner gutter margin left
+* `.push-N` on child, sets a margin left of N columns wide
+* `.push-N-gutter` on child, sets a margin left of N columns wide with an additional inner gutter width
+* `.cols-ml-reset` on child, resets margin left to 0
+
+Each of these have tailwind responsive classes.
+
+Essentially `.cols-container` and multiple `.col-N` will wrap in a grid as you'd expect with inner gutter margins. Just `.col-N` on its own has no margins by default.
+
+
 
 #### Usage
 
@@ -324,6 +336,13 @@ This plugin creates classes to handle column layouts.
     ...
   </div>
 </div>
+```
+
+Or, without being in a `cols-container`:
+
+```html
+<div class="cols-2 md:cols-4 lg:cols-6">
+<div class="cols-1 push-1 md:cols-2 md:push-2 lg:cols-3">
 ```
 
 #### Config

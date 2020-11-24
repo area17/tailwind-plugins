@@ -1,288 +1,111 @@
-const _ = require('lodash');
-const getFirstBp = require('../util/getFirstBp');
-
-// TODO:
-// - automatically set column widths to 100%
-// - Add styles so that layouts can be inheritted across breakpoints
-// - Split prefixed and non-prefixed cols classes to prevent non-prefixed classes overriding
-
 module.exports = function({ addComponents, theme }) {
-  const innerGutters = theme('innerGutters', {});
+  const breakpoints = theme('screens');
+  const firstBp = Object.keys(breakpoints)[0];
   const columnCount = theme('columnCount', {});
-  const firstBp = getFirstBp(theme);
-  const breakpoints = Object.keys(columnCount);
+  const maxCols = theme('maxGridCols', columnCount);
+  const maxColAmount = Math.max.apply(Math, Object.values(maxCols));
 
-  const containerStyles = _.map(innerGutters, (gutter, bp) => {
-    if (bp === firstBp) {
-      return {
-        '.cols-container': {
-          display: 'flex',
-          'flex-flow': 'row wrap',
-          'margin-left': `-${gutter}`
-        },
-        ['.cols-container > [class*="cols-"]']: {
-          'margin-left': gutter
-        },
-        ['.cols-container > .cols-ml-reset']: {
-          'margin-left': 0
-        },
-        ['.cols-container > .cols-screen-ml-reset']: {
-          'margin-left': 0
-        }
-      };
-    } else {
-      return {
-        [`@screen ${bp}`]: {
-          '.cols-container': {
-            'margin-left': `-${gutter}`
-          },
-          ['.cols-container > [class*="cols-"]']: {
-            'margin-left': gutter
-          },
-          ['.cols-container > .cols-ml-reset']: {
-            'margin-left': 0
-          },
-          ['.cols-container > .cols-screen-ml-reset']: {
-            'margin-left': 0
-          }
-        }
-      };
-    }
-  });
-
-  // Create non-prefixed cols classes before prefixed classes to prevent erroneous overriding
-  const columnDefaultStyles = _.map(columnCount, (maxCols, bp) => {
-    const styles = [];
-
-    for (let i = 1; i <= maxCols; i++) {
-      let col = {};
-      const colWidth = getWidthCalc(bp, i, false);
-      const colWidthScreen = getWidthCalc(bp, i, false, true);
-      const colWidthContained = getWidthCalc(bp, i);
-      const colWidthContainedScreen = getWidthCalc(bp, i, true, true);
-      const colPush = `${colWidth} + ${innerGutters[bp]}`;
-      const colPushScreen = `${colWidthScreen} + ${innerGutters[bp]}`;
-      const colPushContained = `${colWidthContained} + (${innerGutters[bp]} * 2)`;
-      const colPushContainedScreen = `${colWidthContained} + (${innerGutters[bp]} * 2)`;
-
-      if (bp === firstBp) {
-        col = {
-          [`.cols-${i}`]: {
-            width: `calc(${colWidth})`
-          },
-          [`.cols-screen-${i}`]: {
-            width: `calc(${colWidth})`
-          },
-          [`.cols-container > .cols-${i}`]: {
-            width: `calc(${colWidthContained})`
-          },
-          [`.cols-container > .cols-screen-${i}`]: {
-            width: `calc(${colWidthContainedScreen})`
-          },
-          [`.push-${i}`]: {
-            'margin-left': `calc(${colPush})`
-          },
-          [`.cols-container > .push-${i}`]: {
-            'margin-left': `calc(${colPushContained})`
-          },
-          [`.cols-container > .push-screen-${i}`]: {
-            'margin-left': `calc(${colPushContainedScreen})`
-          }
-        };
+  const styles = [
+    {
+      '.cols-container': {
+        'display': 'flex',
+        'flex-flow': 'row wrap',
+        'margin-left': 'calc(var(--inner-gutter) * -1)',
+      },
+      ['.cols-container > [class*="cols-"]']: {
+        'width': 'calc(100% - var(--inner-gutter))',
+        'margin-left': 'var(--inner-gutter)'
+      },
+      ['.cols-container > .cols-ml-reset']: {
+        'margin-left': 0
       }
+    }
+  ];
 
-      col = {
-        ...col,
-        [`@screen ${bp}`]: {
-          [`.cols-${i}`]: {
-            width: `calc(${colWidth})`
-          },
-          [`.cols-container > .cols-${i}`]: {
-            width: `calc(${colWidthContained})`
-          },
-          [`.push-${i}`]: {
-            'margin-left': `calc(${colPush})`
-          },
-          [`.cols-container > .push-${i}`]: {
-            'margin-left': `calc(${colPushContained})`
-          }
-        }
-      };
+  function coreCalc(inContainer, cols, bump) {
+    let calc = `((${ cols } / var(--grid-columns)) * 100%) - (var(--inner-gutter) - (${ cols } / var(--grid-columns) * var(--inner-gutter)))`;
 
-      styles.push(col);
+    if (inContainer) {
+      calc = `((${ cols } / var(--grid-columns)) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (${ cols } / var(--grid-columns) * var(--inner-gutter)))`;
     }
 
-    return styles;
-  });
-
-  const columnStyles = _.map(columnCount, (maxCols, bp) => {
-    const styles = [];
-    const bpIndex = breakpoints.indexOf(bp);
-
-    for (let i = 1; i <= maxCols; i++) {
-      let col = {};
-      const colWidth = getWidthCalc(bp, i, false);
-      const colWidthScreen = getWidthCalc(bp, i, false, true);
-      const colWidthContained = getWidthCalc(bp, i);
-      const colWidthContainedScreen = getWidthCalc(bp, i, false, true);
-      const colPush = `${colWidth} + ${innerGutters[bp]}`;
-      const colPushScreen = `${colWidthScreen} + ${innerGutters[bp]}`;
-      const colPushContained = `${colWidthContained} + (${innerGutters[bp]} * 2)`;
-      const colPushContainedScreen = `${colWidthContainedScreen} + (${innerGutters[bp]} * 2)`;
-      let inheritStyles = {};
-
-      // loop over any following breakpoints and add the width calcs so that it can inherit styles
-      // Commented out for now. need to test how much bloat it adds to the css
-      breakpoints.forEach((inheritBp) => {
-        let styles = {};
-        const inheritBpIndex = breakpoints.indexOf(inheritBp);
-        if (inheritBpIndex > bpIndex) {
-          const inheritColWidth = getWidthCalc(inheritBp, i, false);
-          const inheritColWidthScreen = getWidthCalc(inheritBp, i, false, true);
-          const inheritColWidthContained = getWidthCalc(inheritBp, i);
-          const inheritColWidthContainedScreen = getWidthCalc(
-            inheritBp,
-            i,
-            false,
-            true
-          );
-          const inheritColPush = `${inheritColWidth} + ${innerGutters[inheritBp]}`;
-          const inheritColPushScreen = `${inheritColWidthScreen} + ${innerGutters[inheritBp]}`;
-          const inheritColPushContained = `${inheritColWidthContained} + (${innerGutters[inheritBp]} * 2)`;
-          const inheritColPushContainedScreen = `${inheritColWidthContainedScreen} + (${innerGutters[inheritBp]} * 2)`;
-
-          styles = {
-            [`@screen ${inheritBp}`]: {
-              [`.${bp}\\:cols-${i}`]: {
-                width: `calc(${inheritColWidth})`
-              },
-              [`.cols-container > .${bp}\\:cols-${i}`]: {
-                width: `calc(${inheritColWidthContained})`
-              },
-              [`.${bp}\\:cols-screen-${i}`]: {
-                width: `calc(${inheritColWidthScreen})`
-              },
-              [`.cols-container > .${bp}\\:cols-screen-${i}`]: {
-                width: `calc(${inheritColWidthContainedScreen})`
-              },
-              [`.${bp}\\:push-${i}`]: {
-                'margin-left': `calc(${inheritColPush})`
-              },
-              [`.cols-container > .${bp}\\:push-${i}`]: {
-                'margin-left': `calc(${inheritColPushContained})`
-              },
-              [`.${bp}\\:push-screen-${i}`]: {
-                'margin-left': `calc(${inheritColPushScreen})`
-              },
-              [`.cols-container > .${bp}\\:push-screen-${i}`]: {
-                'margin-left': `calc(${inheritColPushContainedScreen})`
-              }
-            }
-          };
-        }
-
-        inheritStyles = {
-          ...inheritStyles,
-          ...styles
-        };
-      });
-
-      col = {
-        ...col,
-        [`@screen ${bp}`]: {
-          [`.${bp}\\:cols-${i}`]: {
-            width: `calc(${colWidth})`
-          },
-          [`.cols-container > .${bp}\\:cols-${i}`]: {
-            width: `calc(${colWidthContained})`
-          },
-          [`.${bp}\\:cols-screen-${i}`]: {
-            width: `calc(${colWidthScreen})`
-          },
-          [`.cols-container > .${bp}\\:cols-screen-${i}`]: {
-            width: `calc(${colWidthContainedScreen})`
-          },
-          [`.${bp}\\:push-${i}`]: {
-            'margin-left': `calc(${colPush})`
-          },
-          [`.cols-container > .${bp}\\:push-${i}`]: {
-            'margin-left': `calc(${colPushContained})`
-          },
-          [`.${bp}\\:push-screen-${i}`]: {
-            'margin-left': `calc(${colPushScreen})`
-          },
-          [`.cols-container > .${bp}\\:push-screen-${i}`]: {
-            'margin-left': `calc(${colPushContainedScreen})`
-          }
-        },
-        ...inheritStyles
-      };
-
-      styles.push(col);
+    if (bump) {
+      calc = `(${ calc }) + ${ bump }`;
     }
 
-    // add push reset styles to end
-    let pushReset = {};
-
-    if (bp === firstBp) {
-      pushReset = {
-        [`.push-0`]: {
-          'margin-left': 0
-        },
-        [`.cols-container > .push-0`]: {
-          'margin-left': innerGutters[bp]
-        },
-        [`.push-screen-0`]: {
-          'margin-left': 0
-        },
-        [`.cols-container > .push-screen-0`]: {
-          'margin-left': innerGutters[bp]
-        }
-      };
-    } else {
-      pushReset = {
-        [`@screen ${bp}`]: {
-          [`.push-0, .${bp}\\:push-0`]: {
-            'margin-left': 0
-          },
-          [`.cols-container > .push-0, .cols-container > .${bp}\\:push-0`]: {
-            'margin-left': innerGutters[bp]
-          }
-        },
-        [`@screen ${bp}`]: {
-          [`.push-screen-0, .${bp}\\:push-screen-0`]: {
-            'margin-left': 0
-          },
-          [`.cols-container > .push-screen-0, .cols-container > .${bp}\\:push-screen-0`]: {
-            'margin-left': innerGutters[bp]
-          }
-        }
-      };
-    }
-
-    styles.push(pushReset);
-
-    return styles;
-  });
-
-  addComponents([...containerStyles, ...columnDefaultStyles, ...columnStyles]);
-
-  function getWidthCalc(bp, cols, inContainer = true, inScreen = false) {
-    const maxCols = columnCount[bp];
-    const innerGutter = innerGutters[bp];
-    const containerBump = inContainer ? innerGutter : `0px`;
-    const baseWidth = inScreen ? '100vw' : '100%';
-    let colWidth = `(${baseWidth} - ((${maxCols -
-      1} * ${innerGutter} + ${containerBump}))) / ${maxCols} * ${cols}`;
-
-    if (cols >= 1) {
-      colWidth = `${colWidth} + (${cols - 1} * ${innerGutter} )`;
-    }
-
-    if (cols === maxCols) {
-      colWidth = `${baseWidth} - ${containerBump}`;
-    }
-
-    return colWidth;
+    return `calc(${ calc })`;
   }
+
+  [...Array(maxColAmount).keys()].forEach(n => {
+    const colStyles = {
+      [`.cols-${ n }`]: {
+        'width': coreCalc(false, n)
+      },
+      [`.cols-container > .cols-${ n }`]: {
+        'width': coreCalc(true, n)
+      },
+      [`.push-${ n }`]: {
+        'margin-left': coreCalc(false, n, 'var(--inner-gutter)')
+      },
+      [`.cols-container > .push-${ n }`]: {
+        'margin-left': coreCalc(true, n, 'var(--inner-gutter)')
+      },
+      [`.push-${ n }-gutter`]: {
+        'margin-left': coreCalc(false, n, '(var(--inner-gutter) * 2)')
+      },
+      [`.cols-container > .push-${ n }-gutter`]: {
+        'margin-left': coreCalc(true, n, '(var(--inner-gutter) * 2)')
+      }
+    }
+    styles.push(colStyles);
+  });
+
+  Object.keys(breakpoints).forEach(bp => {
+    const bpStyles = [
+      {
+        [`.${ bp }\\:cols-container`]: {
+          'display': 'flex',
+          'flex-flow': 'row wrap',
+          'margin-left': 'calc(var(--inner-gutter) * -1)'
+        },
+        [`.${ bp }\\:cols-container > [class*="cols-"]`]: {
+          'width': '100%',
+          'margin-left': 'var(--inner-gutter)'
+        },
+        [`.${ bp }\\:cols-container > .cols-ml-reset`]: {
+          'margin-left': 0
+        }
+      }
+    ];
+
+    [...Array(maxColAmount).keys()].forEach(n => {
+      const colStyles = {
+        [`.${ bp }\\:cols-${ n }`]: {
+          'width': coreCalc(false, n)
+        },
+        [`.cols-container > .${ bp }\\:cols-${ n }`]: {
+          'width': coreCalc(true, n)
+        },
+        [`.${ bp }\\:push-${ n }`]: {
+          'margin-left': coreCalc(false, n, 'var(--inner-gutter)')
+        },
+        [`.cols-container > .${ bp }\\:push-${ n }`]: {
+          'margin-left': coreCalc(true, n, 'var(--inner-gutter)')
+        },
+        [`.${ bp }\\:push-${ n }-gutter`]: {
+          'margin-left': coreCalc(false, n, '(var(--inner-gutter) * 2)')
+        },
+        [`.cols-container > .${ bp }\\:push-${ n }-gutter`]: {
+          'margin-left': coreCalc(true, n, '(var(--inner-gutter) * 2)')
+        }
+      }
+      bpStyles.push(colStyles);
+    });
+
+    styles.push({
+      [`@screen ${bp}`]: bpStyles
+    });
+  });
+
+  addComponents(styles);
 };
