@@ -1,14 +1,15 @@
-const _ = require('lodash');
 const getFirstBp = require('../util/getFirstBp');
 
 module.exports = function({ addComponents, theme }) {
   const typography = theme('typography', {});
   const firstBp = getFirstBp(theme);
 
-  const typoStyles = _.map(typography.sets, (typo, name) => {
+  const typoStyles = Object.entries(typography.sets).map(a => {
+    const [name, typo] = a;
     const className = `.f-${name}`;
 
-    return _.map(typo.settings, (settings, bp) => {
+    return Object.entries(typo.settings).map(b => {
+      const [bp, settings] = b;
       if (bp === firstBp) {
         return {
           [className]: {
