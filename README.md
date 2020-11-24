@@ -322,7 +322,7 @@ This plugin creates classes to handle column layouts:
 * `.push-N-gutter` on child, sets a margin left of N columns wide with an additional inner gutter width
 * `.cols-ml-reset` on child, resets margin left to 0
 
-Each of these have tailwind responsive classes.
+Each of these have tailwind responsive classes and all settings are breakpoint+.
 
 Essentially `.cols-container` and multiple `.col-N` will wrap in a grid as you'd expect with inner gutter margins. Just `.col-N` on its own has no margins by default.
 
@@ -532,7 +532,7 @@ You can mix item width, item height, row and column classes and control the colo
 * `grid-line-y-primary` - makes the vertical grid lines the primary border color
 * `grid-line-xy-primary` - makes both the horizontal and vertical grid lines the primary border color
 
-The gridline color classes also have responsive states to switch them on, eg:
+The gridline color classes also have responsive states, which are breakpoint+ to switch them on, eg:
 
 * `md:grid-line-x-primary` - switches primary border color horizontal grid lines at `md` breakpoint
 
