@@ -19,13 +19,13 @@ $ npm install @area17/a17-tailwind-plugins
 Or, add package to `package.json` dependencies
 
 ```json
-"a17-tailwind": "@area17/a17-helpers": "^1.0.1"
+"@area17/a17-tailwind-plugins": "^1.0.1"
 ```
 
 2. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
 
 ```javascript
-const { Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements, GridGap } = require('a17-tailwind');
+const { Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements, GridGap } = require('a17-tailwind-plugins');
 
 module.exports = {
   ...
