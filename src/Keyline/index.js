@@ -1,102 +1,71 @@
-const _ = require('lodash');
-
-// TODO:
-// - Add ability to set different keyline colors at different breakpoints
-
 module.exports = function({ addComponents, theme }) {
-  const columnCount = theme('columnCount', {});
-  const directions = { l: 'left', r: 'right' };
+  const breakpoints = theme('screens');
   const colors = theme('borderColor', theme('color', {}));
-  const innerGutters = theme('innerGutters', {});
+  const directions = { l: 'left', r: 'right' };
+
   let styles = [
     {
       ['[class*="keyline-"]']: {
         position: 'relative'
       },
-      ['[class*="keyline-"]:before']: {
+      ['[class*="keyline-"]::before']: {
         content: 'attr(👻)',
-        display: 'none',
         position: 'absolute',
         'z-index': 0,
+        left: `calc(var(--inner-gutter) / -2 - 1px)`,
+        right: `calc(var(--inner-gutter) / -2)`,
         top: 0,
         bottom: 0,
+        border: '1px solid transparent',
         'pointer-events': 'none'
+      },
+      ['[class*="keyline-0"]::before']: {
+        'border-right-color': 'transparent',
+        'border-left-color': 'transparent'
       }
     }
   ];
 
-  const responsiveStyles = _.map(columnCount, (cols, bp) => {
-    return {
-      [`@screen ${bp}`]: {
-        [`[class*="keyline-l"]:before`]: {
-          left: `calc(${innerGutters[bp]} / -2)`
-        },
-        [`[class*="keyline-r"]:before`]: {
-          right: `calc(${innerGutters[bp]} / -2)`
-        },
-        [`[class*="${bp}\\:keyline-"]:before`]: {
-          display: 'block'
-        },
-        [`[class*="${bp}\\:keyline-0"]:before`]: {
-          display: 'none'
-        }
-      }
-    };
-  });
+  function generateDirectionStyles(bp) {
+    const arr = [];
+    bp = bp ? `${ bp }\\:` : '';
 
-  styles.push(responsiveStyles);
-
-  _.forEach(directions, (property, dir) => {
-    styles.push({
-      [`[class*="keyline-${dir}"]:before`]: {
-        [`border-${property}`]: '1px solid'
-      }
-    });
-
-    _.forEach(colors, (color, name) => {
-      const className = `keyline-${dir}-${name}`;
-
-      buildColorStyles(color, className, property);
-    });
-
-    const responsiveResetStyles = _.map(columnCount, (cols, bp) => {
-      return {
-        [`@screen ${bp}`]: {
-          [`[class*="${bp}\\:keyline-${dir}-0"]:before`]: {
-            display: 'none'
+    Object.entries(directions).map(a => {
+      const [dir, property] = a;
+      // add colors
+      Object.entries(colors).map(b => {
+        const [name, color] = b;
+        arr.push({
+          [`.${ bp }keyline-${ dir }-${ name }::before`]: {
+            [`border-${ property }-color`]: color
           }
+        });
+      });
+      // add hiding classes
+      arr.push({
+        [`.${ bp }keyline-${ dir }-0::before`]: {
+          [`border-${ property }-color`]: 'transparent'
         }
-      };
+      });
+      arr.push({
+        [`.${ bp }keyline-0::before`]: {
+          [`border-${ property }-color`]: 'transparent'
+        }
+      });
     });
 
-    styles.push(responsiveResetStyles);
+    return arr;
+  }
+
+  const directionStyles = generateDirectionStyles();
+
+  const bpStyles = Object.keys(breakpoints).map(bp => {
+    return {
+      [`@screen ${bp}`]: generateDirectionStyles(bp)
+    }
   });
+
+  styles = styles.concat(directionStyles, bpStyles);
 
   addComponents(styles);
-
-  function buildColorStyles(color, className, property) {
-    let colorStyles = [];
-
-    if (typeof color === 'string') {
-      styles.push(getStyles(color, className, property));
-    } else {
-      _.forEach(color, (shade, key) => {
-        let newClassName = `${className}-${key}`;
-        buildColorStyles(shade, newClassName, property);
-      });
-    }
-
-    return colorStyles;
-  }
-
-  function getStyles(color, className, property) {
-    return {
-      [`.${className}:before`]: {
-        display: 'block'
-      },
-      [`[class*="${className}"]:before`]: {
-        [`border-${property}-color`]: color
-      }
-    };
-  }
 };
