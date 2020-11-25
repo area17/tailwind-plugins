@@ -20,13 +20,13 @@ module.exports = function({ addComponents, theme }) {
           'flex-flow': 'row wrap',
           'margin-left': `-${gutter}`
         },
-        ['.cols-container [class*="cols-"]']: {
+        ['.cols-container > [class*="cols-"]']: {
           'margin-left': gutter
         },
-        ['.cols-container .cols-ml-reset']: {
+        ['.cols-container > .cols-ml-reset']: {
           'margin-left': 0
         },
-        ['.cols-container .cols-screen-ml-reset']: {
+        ['.cols-container > .cols-screen-ml-reset']: {
           'margin-left': 0
         }
       };
@@ -36,13 +36,13 @@ module.exports = function({ addComponents, theme }) {
           '.cols-container': {
             'margin-left': `-${gutter}`
           },
-          ['.cols-container [class*="cols-"]']: {
+          ['.cols-container > [class*="cols-"]']: {
             'margin-left': gutter
           },
-          ['.cols-container .cols-ml-reset']: {
+          ['.cols-container > .cols-ml-reset']: {
             'margin-left': 0
           },
-          ['.cols-container .cols-screen-ml-reset']: {
+          ['.cols-container > .cols-screen-ml-reset']: {
             'margin-left': 0
           }
         }
