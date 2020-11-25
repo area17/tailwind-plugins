@@ -19,7 +19,7 @@ $ npm install @area17/a17-tailwind-plugins
 Or, add package to `package.json` dependencies
 
 ```json
-"@area17/a17-tailwind-plugins": "^1.0.1"
+"@area17/a17-tailwind-plugins": "^2.0.0"
 ```
 
 2. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
@@ -30,7 +30,7 @@ const { Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElement
 module.exports = {
   ...
 
-  plugins: [Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements, GridGap]
+  plugins: [Setup, Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements, GridGap, GridLine]
 
   ...
 };
@@ -443,13 +443,71 @@ module.exports = {
 };
 ```
 
+### Colour Tokens and ApplyColourVariables
+
+These plugin turns colour tokens into CSS variables on the `:root`. And then `ApplyColourVariables` sets your border, text and background colours to these variables if they're found inside of the tokens. You can pass through Hex, RGB, HSL values into your border, text and background colours and not use tokens.
+
+#### Config
+
+```JavaScript
+const color = {
+  tokens: {
+    white: "#fff",
+    grey-5: "#f2f2f2",
+    grey-10: "#e6e6e6",
+    grey-15: "#d9d9d9",
+    grey-54: "#757575",
+    grey-90: "#1a1a1a",
+    black: "#000",
+    purple-600: "#6621d9",
+    purple-900: "#5319ba"
+  },
+  borderColor: {
+    primary: "grey-10",
+    secondary: "grey-15",
+    tertiary: "grey-5"
+  },
+  textColor: {
+    title: "black",
+    primary: "grey-90",
+    secondary: "grey-54",
+    accent: "purple-900"
+  },
+  backgroundColor: {
+    primary: "white",
+    banner: "#3d4892",
+    accent: "purple-600"
+  }
+};
+
+module.exports = {
+  ...
+
+  theme: {
+    colorShades: color.shades,
+    borderColor: ApplyColourVariables(color.shades, color.borderColor),
+    textColor: ApplyColourVariables(color.shades, color.textColor),
+    backgroundColor: ApplyColourVariables(color.shades, color.backgroundColor),
+  }
+  ...
+};
+```
+
 ### Keyline
 
-This plugin creates a border that sits in the gutter between elements.
+This plugin creates a border that sits in the gutter between elements and assumes spacing is that of `var(--inner-gutter)`.
 
 It creates utility classes based on the `borderColor` settings in your Tailwind config (falls back to `colors`).
 
-There is also a `{prefix}:keyline-0` class to remove the keylines at any of your set breakpoints.
+* `keyline-l-primary` draws a keyline to the left of the element in the primary colour
+* `keyline-r-primary` draws a keyline to the right of the element in the primary colour
+* `md:keyline-l-secondary` draws a keyline to the left of the element in the secondary colour at the medium and up
+* `keyline-0` hides both left and right keylines on the element, if previously set
+* `md:keyline-0` hides both left and right keylines on the element, if previously set, at medium and up
+* `md:keyline-l-0` hides just the left keyline at medium and up
+* `md:keyline-right-0` hides just the right keyline and medium and up
+
+*NB: for keylines in grids of items, you might be better served with GridLines and a Tailwind grid*
 
 #### Usage
 
@@ -459,6 +517,8 @@ There is also a `{prefix}:keyline-0` class to remove the keylines at any of your
 <div class="md:keyline-l-primary"></div>
 
 <div class="md:keyline-l-primary xl:keyline-0"></div>
+
+<div class="keyline-l-secondary keyline-r-secondary md:keyline-l-tertiary md:keyline-r-0 lg:keyline-0 xl:keyline-r-tertiary"></div>
 ```
 
 #### Config
@@ -469,49 +529,14 @@ module.exports = {
 
   theme: {
     borderColor: (theme) => ({
-      primary: theme('colors.grey.light'),
-      accent: {
-        green: theme('colors.green.500'),
-        red: theme('colors.red.500')
-      }
+      primary: "grey-10",
+      secondary: "grey-15",
+      tertiary: "grey-5"
     })
   }
 
   ...
 }
-```
-
-The config above will generate the following classes:
-
-```css
-.keyline-l-primary
-.sm:keyline-l-primary
-.md:keyline-l-primary
-.lg:keyline-l-primary
-.xl:keyline-l-primary
-
-.keyline-r-primary
-.sm:keyline-r-primary
-.md:keyline-r-primary
-.lg:keyline-r-primary
-.xl:keyline-r-primary
-
-.keyline-l-accent-green
-.sm:keyline-l-accent-green
-.md:keyline-l-accent-green
-.lg:keyline-l-accent-green
-.xl:keyline-l-accent-green
-
-.keyline-r-accent-red
-.sm:keyline-r-accent-red
-.md:keyline-r-accent-red
-.lg:keyline-r-accent-red
-.xl:keyline-r-accent-red
-
-.sm:keyline-0
-.md:keyline-0
-.lg:keyline-0
-.xl:keyline-0
 ```
 
 ### GridLine
