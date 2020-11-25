@@ -10,10 +10,16 @@ These plugins extend Tailwind to include utility classes for our commonly used F
 
 ## Setup
 
-1. Add package to `package.json` dependencies
+1. Install via npm:
+
+```shell
+$ npm install @area17/a17-tailwind-plugins
+```
+
+Or, add package to `package.json` dependencies
 
 ```json
-"a17-tailwind": "npm install @area17/a17-tailwind-plugins"
+"a17-tailwind": "@area17/a17-helpers": "^1.0.1"
 ```
 
 2. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
