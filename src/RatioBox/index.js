@@ -24,7 +24,7 @@ module.exports = function({ addComponents, theme }) {
       }
     });
   };
-  const getRatioPercent = (ratio) => (1 / ratio) * 100;
+  const getRatioPercent = (ratio) => Math.round((1 / ratio  + Number.EPSILON) * 100000) / 1000;
   const isValidRatioFromString = (stringRatio) =>
     stringRatio
       .map((value) => Number(value))
