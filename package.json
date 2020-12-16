@@ -9,14 +9,16 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^10.0.2",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-prettier": "^3.1.1",
     "jest": "^25.1.0",
     "jest-matcher-css": "^1.1.0",
+    "postcss": "^8.1.7",
     "prettier": "^1.19.1",
-    "tailwindcss": "^1.1.4"
+    "tailwindcss": "^2.0.1"
   },
   "dependencies": {
     "dotenv": "^8.2.0"
