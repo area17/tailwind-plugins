@@ -55,7 +55,7 @@ module.exports = function({ addComponents, theme }) {
   }
 
   const ratiosTokens = Object.keys(ratios).filter((key) => key !== 'sets');
-  const ratiosSets = Object.keys(ratios.sets) || [];
+  const ratiosSets = ratios && ratios.sets ? Object.keys(ratios.sets) : [];
 
   ratiosTokens.forEach((key) => {
     const ratio = ratios[key];
