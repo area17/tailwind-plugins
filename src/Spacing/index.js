@@ -37,6 +37,13 @@ module.exports = function({ addBase, theme }) {
           cssProps.forEach(prop => {
             spacingStyles[`.${prefix}-${name}`][prop] = `var(--spacing-${name})`;
           });
+          // negative margins
+          if (prefix.indexOf('m') > -1) {
+            spacingStyles[`.-${prefix}-${name}`] = spacingStyles[`.-${prefix}-${name}`] || {};
+            cssProps.forEach(prop => {
+              spacingStyles[`.-${prefix}-${name}`][prop] = `calc(var(--spacing-${name}) * -1)`;
+            });
+          }
         });
       } else {
         rootStyles[`@screen ${bp}`] = rootStyles[`@screen ${bp}`] || { ':root': {} };
