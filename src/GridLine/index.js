@@ -1,8 +1,6 @@
-const getFirstBp = require('../util/getFirstBp');
-
 module.exports = function({ addComponents, theme }) {
   const breakpoints = theme('screens');
-  const firstBp = getFirstBp(theme);
+  const firstBp = Object.keys(breakpoints)[0];
   const colors = theme('borderColor', theme('color', {}));
   const columnCount = theme('columnCount', {});
   const maxCols = theme('maxGridCols', columnCount);

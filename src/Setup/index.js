@@ -1,5 +1,4 @@
 require('dotenv').config();
-const getFirstBp = require('../util/getFirstBp');
 
 module.exports = function({ addBase, theme }) {
   const breakpoints = theme('screens');
@@ -7,7 +6,7 @@ module.exports = function({ addBase, theme }) {
   const outerGutters = theme('outerGutters', {});
   const innerGutters = theme('innerGutters', {});
   const columnCount = theme('columnCount', {});
-  const firstBp = getFirstBp(theme);
+  const firstBp = Object.keys(breakpoints)[0];
   const rootVariables = [];
 
   Object.keys(breakpoints).forEach(bp => {

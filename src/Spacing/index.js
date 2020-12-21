@@ -1,5 +1,3 @@
-const getFirstBp = require('../util/getFirstBp');
-
 module.exports = function({ addBase, theme }) {
   const spacingGroups = theme('spacingGroups', {});
   const cssSpacingProps = {
@@ -18,7 +16,8 @@ module.exports = function({ addBase, theme }) {
     px: ['padding-left', 'padding-right'],
     py: ['padding-top', 'padding-bottom']
   }
-  const firstBp = getFirstBp(theme);
+  const breakpoints = theme('screens');
+  const firstBp = Object.keys(breakpoints)[0];
   const rootStyles = {
     ':root': {}
   };

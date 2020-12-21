@@ -1,10 +1,8 @@
-const getFirstBp = require('../util/getFirstBp');
-
 module.exports = function({ addComponents, theme }) {
   const ratios = theme('ratios', {});
   const prefix = 'ratio';
-  const firstBp = getFirstBp(theme);
   const bps = Object.keys(theme('screens', {})) || [];
+  const firstBp = bps[0];
   const bpsWithoutFirstBp = bps.filter((bp) => bp !== firstBp);
   const ratioBoxStyles = [];
   const addRatio = (key, ratio) => {
