@@ -1,17 +1,28 @@
-module.exports = function({ addComponents, theme }) {
-  const breakpoints = theme('screens');
+module.exports = function({ addBase, theme }) {
+  const breakpoints = theme('screens', {});
+  const fontFamilies = theme('fontFamilies', {});
+  const typesets = theme('typesets', {});
   const firstBp = Object.keys(breakpoints)[0];
 
-  const typoStyles = Object.entries(typography.sets).map(a => {
+  const families = Object.entries(fontFamilies).map(a => {
+    const [name, family] = a;
+    return {
+      ':root': {
+        [`--${ name }`]: family
+      }
+    }
+  });
+
+  const typoStyles = Object.entries(typesets).map(a => {
     const [name, typo] = a;
     const className = `.f-${name}`;
 
-    return Object.entries(typo.settings).map(b => {
+    return Object.entries(typo).map(b => {
       const [bp, settings] = b;
       if (bp === firstBp) {
         return {
           [className]: {
-            ...typo.settings[firstBp]
+            ...settings
           }
         };
       } else {
@@ -26,5 +37,6 @@ module.exports = function({ addComponents, theme }) {
     });
   });
 
-  addComponents(typoStyles);
+  addBase(families);
+  addBase(typoStyles);
 };
