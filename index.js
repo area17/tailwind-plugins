@@ -9,6 +9,8 @@ const DevTools = require('./src/DevTools');
 const GridGap = require('./src/GridGap');
 const GridLine = require('./src/GridGap');
 const Setup = require('./src/Setup');
+const Shades = require('./src/Shades');
+const ApplyColourVariables = require('./src/ApplyColourVariables');
 
 module.exports = {
   Container,
@@ -21,5 +23,7 @@ module.exports = {
   DevTools,
   GridGap,
   GridLine,
-  Setup
+  Setup,
+  Shades,
+  ApplyColourVariables
 };
