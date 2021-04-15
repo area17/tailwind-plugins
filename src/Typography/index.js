@@ -4,20 +4,20 @@ module.exports = function({ addBase, theme }) {
   const typesets = theme('typesets', {});
   const firstBp = Object.keys(breakpoints)[0];
 
-  const families = Object.entries(fontFamilies).map(a => {
+  const families = Object.entries(fontFamilies).map((a) => {
     const [name, family] = a;
     return {
       ':root': {
-        [`--${ name }`]: family
+        [`--${name}`]: family
       }
-    }
+    };
   });
 
-  const typoStyles = Object.entries(typesets).map(a => {
+  const typoStyles = Object.entries(typesets).map((a) => {
     const [name, typo] = a;
     const className = `.f-${name}`;
 
-    return Object.entries(typo).map(b => {
+    return Object.entries(typo).map((b) => {
       const [bp, settings] = b;
       if (bp === firstBp) {
         return {

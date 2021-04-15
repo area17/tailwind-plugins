@@ -1,8 +1,6 @@
 module.exports = function({ addComponents, theme }) {
   const tokens = theme('colors', {});
 
-  console.log(tokens);
-
   let styles = {};
   styles[':root'] = {};
 
