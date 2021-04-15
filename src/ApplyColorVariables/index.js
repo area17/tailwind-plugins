@@ -7,12 +7,21 @@ module.exports = function(tokens, colors) {
       return key === color || key === colorSplit[0];
     });
 
-    if (!found) return;
+    if (found) {
+      if (typeof found[1] === 'string') {
+        colors[name] = `var(--${found[0]})`;
+      } else {
+        const foundChild = Object.keys(found[1]).find(
+          (key) => key === colorSplit[1]
+        );
 
-    const colorVal =
-      typeof found[1] === 'string' ? found[1] : found[1][colorSplit[1]];
-
-    colors[name] = `var(--${colorVal})`;
+        if (foundChild) {
+          colors[name] = `var(--${found[0]}-${foundChild})`;
+        }
+      }
+    } else {
+      colors[name] = color;
+    }
   });
 
   return colors;
