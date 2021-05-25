@@ -36,6 +36,12 @@ module.exports = {
 };
 ```
 
+## Sample set up files
+
+* [tailwind.config.js](https://code.area17.com/a17/tailwind-plugins/-/blob/v2/sample/tailwind.config.js)
+* [frontend.config.json](https://code.area17.com/a17/tailwind-plugins/-/blob/v2/sample/frontend.config.json)
+
+
 ## Plugins
 
 ### Setup
