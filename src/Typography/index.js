@@ -1,18 +1,28 @@
-const _ = require('lodash');
-const getFirstBp = require('../util/getFirstBp');
+module.exports = function({ addBase, theme }) {
+  const breakpoints = theme('screens', {});
+  const fontFamilies = theme('fontFamilies', {});
+  const typesets = theme('typesets', {});
+  const firstBp = Object.keys(breakpoints)[0];
 
-module.exports = function({ addComponents, theme }) {
-  const typography = theme('typography', {});
-  const firstBp = getFirstBp(theme);
+  const families = Object.entries(fontFamilies).map((a) => {
+    const [name, family] = a;
+    return {
+      ':root': {
+        [`--${name}`]: family
+      }
+    };
+  });
 
-  const typoStyles = _.map(typography.sets, (typo, name) => {
+  const typoStyles = Object.entries(typesets).map((a) => {
+    const [name, typo] = a;
     const className = `.f-${name}`;
 
-    return _.map(typo.settings, (settings, bp) => {
+    return Object.entries(typo).map((b) => {
+      const [bp, settings] = b;
       if (bp === firstBp) {
         return {
           [className]: {
-            ...typo.settings[firstBp]
+            ...settings
           }
         };
       } else {
@@ -27,5 +37,6 @@ module.exports = function({ addComponents, theme }) {
     });
   });
 
-  addComponents(typoStyles);
+  addBase(families);
+  addBase(typoStyles);
 };

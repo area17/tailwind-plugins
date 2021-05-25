@@ -1,10 +1,8 @@
-const getFirstBp = require('../util/getFirstBp');
-
 module.exports = function({ addComponents, theme }) {
   const ratios = theme('ratios', {});
   const prefix = 'ratio';
-  const firstBp = getFirstBp(theme);
   const bps = Object.keys(theme('screens', {})) || [];
+  const firstBp = bps[0];
   const bpsWithoutFirstBp = bps.filter((bp) => bp !== firstBp);
   const ratioBoxStyles = [];
   const addRatio = (key, ratio) => {
@@ -24,7 +22,7 @@ module.exports = function({ addComponents, theme }) {
       }
     });
   };
-  const getRatioPercent = (ratio) => (1 / ratio) * 100;
+  const getRatioPercent = (ratio) => Math.round((1 / ratio  + Number.EPSILON) * 100000) / 1000;
   const isValidRatioFromString = (stringRatio) =>
     stringRatio
       .map((value) => Number(value))
@@ -55,7 +53,7 @@ module.exports = function({ addComponents, theme }) {
   }
 
   const ratiosTokens = Object.keys(ratios).filter((key) => key !== 'sets');
-  const ratiosSets = Object.keys(ratios.sets) || [];
+  const ratiosSets = ratios && ratios.sets ? Object.keys(ratios.sets) : [];
 
   ratiosTokens.forEach((key) => {
     const ratio = ratios[key];

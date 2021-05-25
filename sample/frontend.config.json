@@ -1,0 +1,207 @@
+{
+  "structure": {
+    "breakpoints": {
+      "xs": "0",
+      "sm": "544px",
+      "md": "650px",
+      "lg": "990px",
+      "xl": "1300px",
+      "xxl": "1520px"
+    },
+    "columns": {
+      "xs": "4",
+      "sm": "4",
+      "md": "8",
+      "lg": "12",
+      "xl": "12",
+      "xxl": "12"
+    },
+    "container": {
+      "xs": "auto",
+      "sm": "auto",
+      "md": "auto",
+      "lg": "auto",
+      "xl": "auto",
+      "xxl": "1440px"
+    },
+    "gutters": {
+      "inner": {
+        "xs": "10px",
+        "sm": "15px",
+        "md": "20px",
+        "lg": "30px",
+        "xl": "40px",
+        "xxl": "40px"
+      },
+      "outer": {
+        "xs": "20px",
+        "sm": "30px",
+        "md": "40px",
+        "lg": "40px",
+        "xl": "40px",
+        "xxl": "auto"
+      }
+    }
+  },
+  "ratios": {
+    "1x1": "1:1",
+    "16x9": "16:9",
+    "21x9": "21:9",
+    "3x2": "3:2",
+    "3x4": "3:4",
+    "4x3": "3:4",
+    "4x5": "4:5"
+  },
+  "spacing": {
+    "outer-1": {
+      "xs": 64,
+      "lg": 96
+    },
+    "inner-1": {
+      "xs": 24,
+      "md": 40,
+      "lg": 64
+    },
+    "inner-2": {
+      "xs": 16,
+      "md": 24,
+      "lg": 32
+    }
+  },
+  "color": {
+    "tokens": {
+      "white": "#fff",
+      "grey-5": "#f2f2f2",
+      "grey-10": "#e6e6e6",
+      "grey-15": "#d9d9d9",
+      "grey-54": "#757575",
+      "grey-90": "#1a1a1a",
+      "black": "#000",
+      "purple-600": "#6621d9",
+      "purple-900": "#5319ba"
+    },
+    "borderColor": {
+      "primary": "grey-10",
+      "secondary": "grey-15",
+      "tertiary": "grey-5"
+    },
+    "textColor": {
+      "title": "black",
+      "primary": "grey-90",
+      "inverse": "white",
+      "secondary": "grey-54",
+      "accent": "purple-900"
+    },
+    "backgroundColor": {
+      "primary": "white",
+      "banner": "#3d4892",
+      "accent": "purple-600"
+    }
+  },
+  "typography": {
+    "families": {
+      "sans": "\"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif",
+      "serif": "\"Times New Roman\", Georgia, serif"
+    },
+    "typesets": {
+      "h1": {
+        "xs": {
+          "font-family": "var(--sans)",
+          "bold-weight": "500",
+          "font-size": "32",
+          "line-height": "1.2",
+          "letter-spacing": "-0.02em",
+          "font-smoothing": "true"
+        },
+        "md": {
+          "font-size": "36px"
+        },
+        "lg": {
+          "font-size": "48px"
+        }
+      },
+      "h2": {
+        "xs": {
+          "font-family": "var(--sans)",
+          "bold-weight": "500",
+          "font-size": "28px",
+          "line-height": "1.2",
+          "letter-spacing": "-0.02em",
+          "font-smoothing": "true"
+        },
+        "md": {
+          "font-size": "32px"
+        },
+        "lg": {
+          "font-size": "36px"
+        }
+      },
+      "h3": {
+        "xs": {
+          "font-family": "var(--sans)",
+          "bold-weight": "500",
+          "font-size": "18px",
+          "line-height": "1.2",
+          "letter-spacing": "-0.02em",
+          "font-smoothing": "true"
+        },
+        "md": {
+          "font-size": "20px"
+        },
+        "lg": {
+          "font-size": "24px"
+        }
+      },
+      "h4": {
+        "xs": {
+          "font-family": "var(--sans)",
+          "bold-weight": "500",
+          "font-size": "16px",
+          "line-height": "1.2",
+          "letter-spacing": "-0.02em",
+          "font-smoothing": "true"
+        },
+        "md": {
+          "font-size": "18px"
+        }
+      },
+      "body": {
+        "xs": {
+          "font-family": "var(--sans)",
+          "bold-weight": "600",
+          "font-size": "14px",
+          "line-height": "1.7",
+          "font-smoothing": "true"
+        },
+        "md": {
+          "font-size": "16px"
+        }
+      },
+      "quote": {
+        "xs": {
+          "font-family": "var(--serif)",
+          "font-style": "italic",
+          "font-size": "14px",
+          "line-height": 1.2,
+          "font-weight": 400
+        },
+        "md": {
+          "font-size": "20px"
+        },
+        "lg": {
+          "font-size": "22px"
+        }
+      },
+      "caption": {
+        "xs": {
+          "font-family": "var(--sans)",
+          "text-transform": "uppercase",
+          "letter-spacing": 1,
+          "font-size": "12px",
+          "line-height": 1.2,
+          "font-weight": 400
+        }
+      }
+    }
+  }
+}

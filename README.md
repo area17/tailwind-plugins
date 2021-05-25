@@ -19,7 +19,7 @@ $ npm install @area17/a17-tailwind-plugins
 Or, add package to `package.json` dependencies
 
 ```json
-"@area17/a17-tailwind-plugins": "^1.0.1"
+"@area17/a17-tailwind-plugins": "^2.0.0"
 ```
 
 2. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
@@ -30,22 +30,96 @@ const { Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElement
 module.exports = {
   ...
 
-  plugins: [Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements, GridGap]
+  plugins: [Setup, Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements, GridGap, GridLine]
 
   ...
 };
 ```
 
+## Sample set up files
+
+* [tailwind.config.js](https://code.area17.com/a17/tailwind-plugins/-/blob/v2/sample/tailwind.config.js)
+* [frontend.config.json](https://code.area17.com/a17/tailwind-plugins/-/blob/v2/sample/frontend.config.json)
+
+
 ## Plugins
+
+### Setup
+
+This plugin sets up the breakpoint, container width, gutter, column count and breakpoint info as CSS variables that the other plugins here use.
+
+#### Usage
+
+*Produces no CSS classes, is setup for other plugins' classes*
+
+#### Config
+
+```javascript
+module.exports = {
+  ...
+
+  theme: {
+    screens: {
+      xs: { max: '543px' },
+      sm: '544px',
+      md: '766px',
+      lg: '1023px',
+      xl: '1440px'
+    },
+    mainColWidths: {
+      xs: 'auto',
+      sm: 'auto',
+      md: 'auto',
+      lg: 'auto',
+      xl: '1376px'
+    },
+    outerGutters: {
+      xs: '16px',
+      sm: '16px',
+      md: '32px',
+      lg: '32px',
+      xl: 'auto'
+    },
+    innerGutters: {
+      xs: '16px',
+      sm: '16px',
+      md: '24px',
+      lg: '24px',
+      xl: '24px'
+    },
+    columnCount: {
+      xs: 4,
+      sm: 4,
+      md: 8,
+      lg: 12,
+      xl: 12
+    },
+  }
+
+  ...
+};
+```
 
 ### Container
 
 This plugin creates a class for a page container. It sets the max-width and outer gutters across all of the configured breakpoints. Note that the default Tailwind container plugin will need to be disabled.
 
+Also includes a breakout class to allow full 100vw elements inside a container.
+
 #### Usage
 
 ```html
 <div class="container">
+  ...
+</div>
+```
+
+```html
+<div class="container">
+  ...
+  <div class="breakout">
+    <!-- full 100vw box -->
+  </div>
   ...
 </div>
 ```
@@ -246,7 +320,19 @@ module.exports = {
 
 ### Layout
 
-This plugin creates classes to handle column layouts.
+This plugin creates classes to handle column layouts:
+
+* `.cols-container` on parent, makes a flex row wrap container with a negative inner gutter margin left
+* `.col-N` on child, sets with N columns wide, if inside of `.cols-container` also includes a inner gutter margin left
+* `.push-N` on child, sets a margin left of N columns wide
+* `.push-N-gutter` on child, sets a margin left of N columns wide with an additional inner gutter width
+* `.cols-ml-reset` on child, resets margin left to 0
+
+Each of these have tailwind responsive classes and all settings are breakpoint+.
+
+Essentially `.cols-container` and multiple `.col-N` will wrap in a grid as you'd expect with inner gutter margins. Just `.col-N` on its own has no margins by default.
+
+
 
 #### Usage
 
@@ -256,6 +342,13 @@ This plugin creates classes to handle column layouts.
     ...
   </div>
 </div>
+```
+
+Or, without being in a `cols-container`:
+
+```html
+<div class="cols-2 md:cols-4 lg:cols-6">
+<div class="cols-1 push-1 md:cols-2 md:push-2 lg:cols-3">
 ```
 
 #### Config
@@ -356,13 +449,71 @@ module.exports = {
 };
 ```
 
+### Colour Tokens and ApplyColourVariables
+
+These plugin turns colour tokens into CSS variables on the `:root`. And then `ApplyColourVariables` sets your border, text and background colours to these variables if they're found inside of the tokens. You can pass through Hex, RGB, HSL values into your border, text and background colours and not use tokens.
+
+#### Config
+
+```JavaScript
+const color = {
+  tokens: {
+    white: "#fff",
+    grey-5: "#f2f2f2",
+    grey-10: "#e6e6e6",
+    grey-15: "#d9d9d9",
+    grey-54: "#757575",
+    grey-90: "#1a1a1a",
+    black: "#000",
+    purple-600: "#6621d9",
+    purple-900: "#5319ba"
+  },
+  borderColor: {
+    primary: "grey-10",
+    secondary: "grey-15",
+    tertiary: "grey-5"
+  },
+  textColor: {
+    title: "black",
+    primary: "grey-90",
+    secondary: "grey-54",
+    accent: "purple-900"
+  },
+  backgroundColor: {
+    primary: "white",
+    banner: "#3d4892",
+    accent: "purple-600"
+  }
+};
+
+module.exports = {
+  ...
+
+  theme: {
+    colorShades: color.shades,
+    borderColor: ApplyColourVariables(color.shades, color.borderColor),
+    textColor: ApplyColourVariables(color.shades, color.textColor),
+    backgroundColor: ApplyColourVariables(color.shades, color.backgroundColor),
+  }
+  ...
+};
+```
+
 ### Keyline
 
-This plugin creates a border that sits in the gutter between elements.
+This plugin creates a border that sits in the gutter between elements and assumes spacing is that of `var(--inner-gutter)`.
 
 It creates utility classes based on the `borderColor` settings in your Tailwind config (falls back to `colors`).
 
-There is also a `{prefix}:keyline-0` class to remove the keylines at any of your set breakpoints.
+* `keyline-l-primary` draws a keyline to the left of the element in the primary colour
+* `keyline-r-primary` draws a keyline to the right of the element in the primary colour
+* `md:keyline-l-secondary` draws a keyline to the left of the element in the secondary colour at the medium and up
+* `keyline-0` hides both left and right keylines on the element, if previously set
+* `md:keyline-0` hides both left and right keylines on the element, if previously set, at medium and up
+* `md:keyline-l-0` hides just the left keyline at medium and up
+* `md:keyline-right-0` hides just the right keyline and medium and up
+
+*NB: for keylines in grids of items, you might be better served with GridLines and a Tailwind grid*
 
 #### Usage
 
@@ -372,6 +523,8 @@ There is also a `{prefix}:keyline-0` class to remove the keylines at any of your
 <div class="md:keyline-l-primary"></div>
 
 <div class="md:keyline-l-primary xl:keyline-0"></div>
+
+<div class="keyline-l-secondary keyline-r-secondary md:keyline-l-tertiary md:keyline-r-0 lg:keyline-0 xl:keyline-r-tertiary"></div>
 ```
 
 #### Config
@@ -382,11 +535,9 @@ module.exports = {
 
   theme: {
     borderColor: (theme) => ({
-      primary: theme('colors.grey.light'),
-      accent: {
-        green: theme('colors.green.500'),
-        red: theme('colors.red.500')
-      }
+      primary: "grey-10",
+      secondary: "grey-15",
+      tertiary: "grey-5"
     })
   }
 
@@ -394,37 +545,100 @@ module.exports = {
 }
 ```
 
-The config above will generate the following classes:
+### GridLine
 
-```css
-.keyline-l-primary
-.sm:keyline-l-primary
-.md:keyline-l-primary
-.lg:keyline-l-primary
-.xl:keyline-l-primary
+A series of classes to draw grid strokes inside the gutters of a grid. This is specifically intended to be used with Tailwind's `grid` classes and assumes your gutters are all `--inner-gutter` in size. That means, if you wish to add more vertical spacing, you'll need to do this with padding on the children.
 
-.keyline-r-primary
-.sm:keyline-r-primary
-.md:keyline-r-primary
-.lg:keyline-r-primary
-.xl:keyline-r-primary
+The classes automatically account for first row, first of row, last row and last of row to only draw the internal grid lines and have no undesired lines outside of the grid of items. They will do this for any amount of columns at any breakpoint.
 
-.keyline-l-accent-green
-.sm:keyline-l-accent-green
-.md:keyline-l-accent-green
-.lg:keyline-l-accent-green
-.xl:keyline-l-accent-green
+The classes support up to the maximum amount of columns at each breakpoint; so if your breakpoint has 12 design columns, you could have functioning grid lines up to 12 columns. If you need more, you can specify more with a `maxCols` object in your config.
 
-.keyline-r-accent-red
-.sm:keyline-r-accent-red
-.md:keyline-r-accent-red
-.lg:keyline-r-accent-red
-.xl:keyline-r-accent-red
+You can mix item width, item height, row and column classes and control the color of the horizontal and vertical strokes independently.
 
-.sm:keyline-0
-.md:keyline-0
-.lg:keyline-0
-.xl:keyline-0
+* `grid-line-x` - draws grid lines above each child, each is the width of the child, except the first row
+* `grid-line-xfull` - essentially draws row lines
+* `grid-line-y` - draws grid lines to the left of each child, each is the height of the child, except the first column
+* `grid-line-yfull` - essentially draws column lines
+* `grid-line-x-primary` - makes the horizontal grid lines the primary border color
+* `grid-line-y-primary` - makes the vertical grid lines the primary border color
+* `grid-line-xy-primary` - makes both the horizontal and vertical grid lines the primary border color
+
+The gridline color classes also have responsive states, which are breakpoint+ to switch them on, eg:
+
+* `md:grid-line-x-primary` - switches primary border color horizontal grid lines at `md` breakpoint
+
+(the intention being you likely don't want grid lines at smaller breakpoints because the gutters will likely be very small)
+
+
+#### Usage
+
+```html
+<!-- Lines above each item, the width of each item, primary border color -->
+<ul class="grid sm:grid-cols-2 lg:grid-cols-4 gap-gutter grid-line-x grid-line-x-primary">
+  <li>...</li>
+  ...
+</ul>
+
+<!-- Row lines, primary border color -->
+<ul class="grid sm:grid-cols-2 lg:grid-cols-4 gap-gutter grid-line-xfull grid-line-x-primary">
+  <li>...</li>
+  ...
+</ul>
+
+<!-- Lines at the side each item, the height of each item, primary border color -->
+<ul class="grid sm:grid-cols-2 lg:grid-cols-4 gap-gutter grid-line-y grid-line-y-primary">
+  <li>...</li>
+  ...
+</ul>
+
+<!-- Column lines, primary border color -->
+<ul class="grid sm:grid-cols-2 lg:grid-cols-4 gap-gutter grid-line-yfull grid-line-y-primary">
+  <li>...</li>
+  ...
+</ul>
+
+<!-- Row and column lines, primary border color -->
+<ul class="grid sm:grid-cols-2 lg:grid-cols-4 gap-gutter grid-line-xfull grid-line-yfull grid-line-xy-primary">
+  <li>...</li>
+  ...
+</ul>
+```
+
+#### Config
+
+```javascript
+module.exports = {
+  ...
+
+  theme: {
+    borderColor: {
+      primary: 'red',
+      secondary: 'green',
+      tertiary: 'blue'
+    }
+  }
+
+  ...
+}
+```
+
+Optional, to have a different number of maximum columns:
+
+```javascript
+module.exports = {
+  ...
+
+  theme: {
+    maxCols: {
+      sm: 4,
+      md: 10,
+      lg: 20,
+      xl: 20
+    }
+  }
+
+  ...
+}
 ```
 
 ### GridGap
@@ -490,51 +704,7 @@ APP_ENV=local
 
 #### Config
 
-```javascript
-module.exports = {
-  ...
-
-  theme: {
-    screens: {
-      xs: { max: '543px' },
-      sm: '544px',
-      md: '766px',
-      lg: '1023px',
-      xl: '1440px'
-    },
-    mainColWidths: {
-      xs: 'auto',
-      sm: 'auto',
-      md: 'auto',
-      lg: 'auto',
-      xl: '1376px'
-    },
-    outerGutters: {
-      xs: '16px',
-      sm: '16px',
-      md: '32px',
-      lg: '32px',
-      xl: 'auto'
-    },
-    innerGutters: {
-      xs: '16px',
-      sm: '16px',
-      md: '24px',
-      lg: '24px',
-      xl: '24px'
-    },
-    columnCount: {
-      xs: 4,
-      sm: 4,
-      md: 8,
-      lg: 12,
-      xl: 12
-    },
-  }
-
-  ...
-};
-```
+None
 
 ## Todo
 
