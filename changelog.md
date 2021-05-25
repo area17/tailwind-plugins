@@ -5,7 +5,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [2.0.0] - 2021-05-25
 
-* notes
+### Summary of main changes
+
+* `git diff -b v1.0.1 v2.0.0`
+* [Compare](https://code.area17.com/a17/tailwind-plugins/-/compare/v1.0.1...v2.0.0)
+
+Large refactor, rewrite and added new things.
+
+#### Changed
+
+* remove dependency on lowdash
+* now uses `frontend.config.json` for set up
+* adds `GridLine` plugin
+* `GridGap` uses CSS variables
+* adds `RatioBox` plugin
+* no longer uses `getFirstBp` utility
+* adds color token CSS variables
+
 
 ## [1.0.1] - 2020-11-25
 
@@ -13,8 +29,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 * `git diff -b v1.0.0 v1.0.1`
 * [Compare](https://code.area17.com/a17/tailwind-plugins/compare/release%2F1.0.0...release%2F1.0.1)
-
-### Summary of main changes
 
 Fix nested `.cols-container` element left margin in `Layout` plugin
 
