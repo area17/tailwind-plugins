@@ -1,7 +1,13 @@
 module.exports = function(tokens, colors) {
+  console.log(colors);
   Object.entries(colors).forEach((item) => {
     const [name, color] = item;
-    const colorSplit = color.split('-');
+    const colorSplitIndex = color.lastIndexOf('-');
+    const colorSplit =
+      colorSplitIndex > -1
+        ? [color.slice(0, colorSplitIndex), color.slice(colorSplitIndex + 1)]
+        : [color];
+
     const found = Object.entries(tokens).find((token) => {
       const [key, value] = token;
       return key === color || key === colorSplit[0];
