@@ -10,6 +10,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Removed console log
 
+## [2.0.1] - 2021-06-17
+
+#### Fixed
+
+- Using dashes in the color name when declaring colors in a js object was breaking the var output
+
 ## [2.0.0] - 2021-05-25
 
 ### Summary of main changes
