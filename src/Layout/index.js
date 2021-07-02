@@ -47,14 +47,26 @@ module.exports = function({ addComponents, theme }) {
       [`.push-${ n }`]: {
         'margin-left': coreCalc(false, n, 'var(--inner-gutter)')
       },
+      [`.push-r-${ n }`]: {
+        'margin-right': coreCalc(false, n, 'var(--inner-gutter)')
+      },
       [`.cols-container > .push-${ n }`]: {
         'margin-left': coreCalc(true, n, 'var(--inner-gutter)')
+      },
+      [`.cols-container > .push-r-${ n }`]: {
+        'margin-right': coreCalc(true, n, 'var(--inner-gutter)')
       },
       [`.push-${ n }-gutter`]: {
         'margin-left': coreCalc(false, n, '(var(--inner-gutter) * 2)')
       },
+      [`.push-r-${ n }-gutter`]: {
+        'margin-right': coreCalc(false, n, '(var(--inner-gutter) * 2)')
+      },
       [`.cols-container > .push-${ n }-gutter`]: {
         'margin-left': coreCalc(true, n, '(var(--inner-gutter) * 2)')
+      },
+      [`.cols-container > .push-r-${ n }-gutter`]: {
+        'margin-right': coreCalc(true, n, '(var(--inner-gutter) * 2)')
       }
     }
     styles.push(colStyles);
