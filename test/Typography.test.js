@@ -1,25 +1,6 @@
 const generatePluginCss = require('./generatePluginCss');
 const cssMatcher = require('jest-matcher-css');
 const { Typography } = require('../index');
-const helvetica400 = {
-  'helvetica-400-1': {
-    'font-size': 10,
-    'line-height': 1.2,
-    'font-weight': 400
-  },
-
-  'helvetica-400-2': {
-    'font-size': 11,
-    'line-height': 1.2,
-    'font-weight': 400
-  },
-
-  'helvetica-400-3': {
-    'font-size': 12,
-    'line-height': 1.2,
-    'font-weight': 400
-  }
-};
 
 expect.extend({
   toMatchCss: cssMatcher
@@ -46,42 +27,54 @@ describe('typography plugin', () => {
             sans: 'Helvetica, Arial, sans-serif'
           },
           sets: {
-            'body-1': {
-              'font-family': 'sans',
-              settings: {
-                xs: helvetica400['helvetica-400-1'],
-                md: helvetica400['helvetica-400-2'],
-                lg: helvetica400['helvetica-400-3']
+            'h1': {
+              "xs": {
+                "font-family": "var(--sans)",
+                "bold-weight": "500",
+                "font-size": "32",
+                "line-height": "1.2",
+                "letter-spacing": "-0.02em",
+                "font-smoothing": "true"
+              },
+              "md": {
+                "font-size": "36px"
+              },
+              "lg": {
+                "font-size": "48px"
               }
             }
           }
         }
       }
     }).then((css) => {
+      console.log(css);
       expect(css).toMatchCss(`
-        .f-body-1 {
-          font-family: Helvetica, Arial, sans-serif;
-          font-size: 10px;
-          line-height: 1.2;
-          font-weight: 400
-        }
+.f-h1 {
+  font-family: var(--sans);
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  --bold-weight: 500;
+}
 
-        @media (min-width: 768px) {
-          .f-body-1 {
-            font-size: 11px;
-            line-height: 1.2;
-            font-weight: 400
-          }
-        }
+.f-h1 b, .f-h1 strong {
+  font-weight: var(--bold-weight);
+}
 
-        @media (min-width: 1024px) {
-          .f-body-1 {
-            font-size: 12px;
-            line-height: 1.2;
-            font-weight: 400
-          }
-        }
-      `);
+@media (min-width: 768px) {
+  .f-h1 {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .f-h1 {
+    font-size: 48px;
+  }
+}
+`);
     });
   });
 

@@ -318,6 +318,69 @@ module.exports = {
 };
 ```
 
+There are some special, none standard font properties you can set:
+
+* `bold-weight` - sets a variable of `--bold-weight` and sets any `b` or `strong` children of the element to use `font-weight: var(--bold-weight);` to give you control over the font weights
+* `font-smoothing` - `true` or `false`, equivalent to Tailwind's `antialiased` and `subpixel-antialiased` classes
+
+```JavaScript
+module.exports = {
+  theme: {
+    families: {
+      sans: "\"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif"
+    },
+    typography: {
+      h1: {
+        xs: {
+          "font-family": "var(--sans)",
+          "font-size": "32",
+          "line-height": "1.2",
+          "letter-spacing": "-0.02em",
+          "bold-weight": "500",
+          "font-smoothing": "true"
+        },
+        md: {
+          "font-size": "36px"
+        },
+        lg: {
+          "font-size": "48px"
+        }
+      }
+    }
+  }
+};
+```
+
+Produces CSS:
+
+```CSS
+.f-h1 {
+  font-family: var(--sans);
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  --bold-weight: 500;
+}
+
+.f-h1 b, .f-h1 strong {
+  font-weight: var(--bold-weight);
+}
+
+@media (min-width: 650px) {
+  .f-h1 {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 990px) {
+  .f-h1 {
+    font-size: 48px;
+  }
+}
+```
+
 ### Layout
 
 This plugin creates classes to handle column layouts:
