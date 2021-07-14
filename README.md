@@ -25,7 +25,7 @@ Or, add package to `package.json` dependencies
 2. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
 
 ```javascript
-const { Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements, GridGap } = require('a17-tailwind-plugins');
+const { Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements, GridGap } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
   ...
