@@ -15,7 +15,7 @@ module.exports = {
     innerGutters: feConfig.structure.gutters.inner,
     outerGutters: feConfig.structure.gutters.outer,
     columnCount: feConfig.structure.columns,
-    fontFamily: feConfig.typography.families,
+    fontFamilies: feConfig.typography.families,
     typesets: feConfig.typography.typesets,
     spacingGroups: (theme) => ({
       'gutter': theme('innerGutters'),
