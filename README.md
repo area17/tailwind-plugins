@@ -25,12 +25,12 @@ Or, add package to `package.json` dependencies
 2. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
 
 ```javascript
-const { Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements, GridGap } = require('@area17/a17-tailwind-plugins');
+const { Container, SpacingTokens, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements, GridGap } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
   ...
 
-  plugins: [Setup, Container, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements, GridGap, GridLine]
+  plugins: [Setup, Container, SpacingTokens, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements, GridGap, GridLine]
 
   ...
 };
@@ -162,7 +162,52 @@ module.exports = {
 };
 ```
 
-### Spacing
+### Spacing tokens (fixed)
+
+This plugin converts standard Tailwind spacing tokens from pixels into `rem` tokens. Standard Tailwind classes are generated, eg. `mt-` and `pt-`. Designers often specify spacing in terms of pixels, using this set up you can see "padding top 40px" and then use `.pt-40`. Key to understand is that `.mt-4` will not produce `margin-top: 1rem;`, but instead will produce `margin-top: 0.25rem;` which is equivalent to `4px`.
+
+#### Usage
+
+```html
+<div class="mt-40 p-20">
+  <h1>Lorem ipsum</h1>
+
+  <div class="mt-inner-1">
+    ...
+  </div>
+</div>
+```
+
+#### Config
+
+```javascript
+module.exports = {
+  ...
+
+  theme: {
+    spacing: {
+      "0": "0",
+      "1": "1px",
+      "2": "2px",
+      "4": "4px",
+      "8": "8px",
+      "10": "10px",
+      "12": "12px",
+      "16": "16px",
+      "20": "20px",
+      "24": "24px",
+      "28": "28px",
+      "32": "32px",
+      "36": "36px",
+      "40": "40px",
+    },
+  }
+  ...
+}
+```
+
+
+### Spacing (responsive)
 
 This plugin creates classes for the spacing scale sets. It uses the spacing scale in your `tailwind.config.js` or falls back to the default tailwind spacing values. It creates classes prefixed with both `mt-` and `pt-`.
 
@@ -191,40 +236,9 @@ module.exports = {
         lg: theme('spacing.24')
       },
       'inner-1': {
-        xs: theme('spacing.6'),
-        md: theme('spacing.10'),
-        lg: theme('spacing.16')
-      },
-    }),
-  }
-
-  ...
-}
-```
-
-If you also have `innerGutters` and `outerGutters` set up, you may want to include your gutters as spacing groups:
-
-```javascript
-module.exports = {
-  ...
-
-  theme: {
-    spacingGroups: (theme) => ({
-      'inner-gutter': theme('innerGutters'),
-      'outer-gutter': theme('outerGutters'),
-      'outer-1': {
-        xs: theme('spacing.16'),
-        lg: theme('spacing.24')
-      },
-      'inner-1': {
-        xs: theme('spacing.6'),
-        md: theme('spacing.10'),
-        lg: theme('spacing.16')
-      },
-      'inner-2': {
-        xs: theme('spacing.4'),
-        md: theme('spacing.6'),
-        lg: theme('spacing.8')
+        xs: 12,
+        md: '20px',
+        lg: 40
       },
     }),
   }

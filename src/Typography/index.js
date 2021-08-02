@@ -21,8 +21,8 @@ module.exports = function({ addBase, theme }) {
     return Object.entries(typo).map((b) => {
       const [bp, settings] = b;
 
-      if (settings['font-size'] && (typeof settings['font-size'] === 'number' || settings['font-size'].match(/[0-9]$/ig))) {
-        settings['font-size'] = settings['font-size'] + 'px';
+      if (settings['font-size'] && (typeof settings['font-size'] === 'number' || settings['font-size'].match(/[0-9]$/ig) || settings['font-size'].match(/px$/ig))) {
+        settings['font-size'] = (parseInt(settings['font-size'], 10) / 16) + 'rem';
       }
 
       if (settings['font-smoothing']) {

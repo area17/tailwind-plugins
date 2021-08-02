@@ -1,5 +1,5 @@
 // A17 tailwind plugins
-const { Setup, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, Spacing, Typography, ColorTokens, ApplyColorVariables } = require('a17-tailwind');
+const { Setup, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, SpacingTokens, Spacing, Typography, ColorTokens, ApplyColorVariables } = require('a17-tailwind');
 
 // conf
 const feConfig = require('./frontend.config.json');
@@ -17,11 +17,8 @@ module.exports = {
     columnCount: feConfig.structure.columns,
     fontFamilies: feConfig.typography.families,
     typesets: feConfig.typography.typesets,
-    spacingGroups: (theme) => ({
-      'gutter': theme('innerGutters'),
-      'outer-gutter': theme('outerGutters'),
-      ...feConfig.spacing
-    }),
+    spacingGroups: feConfig.spacing.groups,
+    spacing: SpacingTokens(feConfig.spacing.tokens),
     colorTokens: feConfig.color.tokens,
     borderColor: ApplyColorVariables(feConfig.color.tokens, feConfig.color.borderColor),
     textColor: ApplyColorVariables(feConfig.color.tokens, feConfig.color.textColor),
@@ -32,7 +29,9 @@ module.exports = {
         'safe-top': 'env(safe-area-inset-top)',
         'safe-bottom': 'env(safe-area-inset-bottom)',
         'safe-left': 'env(safe-area-inset-left)',
-        'safe-right': 'env(safe-area-inset-right)'
+        'safe-right': 'env(safe-area-inset-right)',
+        'gutter': 'var(--inner-gutter)',
+        'outer-gutter': 'var(--outer-gutter)'
       }
     }
   }
