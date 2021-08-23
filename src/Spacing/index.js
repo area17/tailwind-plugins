@@ -23,6 +23,14 @@ module.exports = function({ addBase, theme }) {
   };
   const spacingStyles = {};
 
+  // create root bp keys in bp order
+  Object.keys(breakpoints).forEach(bp => {
+    if (bp !== firstBp) {
+      rootStyles[`@screen ${bp}`] = { ':root': {} };
+    }
+  });
+
+  // fill in root bp sizing info and make classes
   Object.entries(spacingGroups).forEach(group => {
     const [name, spacings] = group;
     Object.entries(spacings).forEach(spacing => {
@@ -46,12 +54,19 @@ module.exports = function({ addBase, theme }) {
           }
         });
       } else {
-        rootStyles[`@screen ${bp}`] = rootStyles[`@screen ${bp}`] || { ':root': {} };
         rootStyles[`@screen ${bp}`][':root'][`--spacing-${ name }`] = space;
       }
     });
   });
 
+  // clean up empty keys
+  Object.keys(rootStyles).forEach(key => {
+    if (key !== ':root' && rootStyles[key][':root'] && Object.keys(rootStyles[key][':root']).length === 0 && rootStyles[key][':root'].constructor === Object) {
+      delete rootStyles[key];
+    }
+  });
+
+  // add
   addBase(rootStyles);
   addBase(spacingStyles);
 };
