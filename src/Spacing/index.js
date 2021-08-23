@@ -1,4 +1,4 @@
-module.exports = function({ addBase, theme }) {
+module.exports = function({ addBase, theme, prefix }) {
   const spacingGroups = theme('spacingGroups', {});
   const cssSpacingProps = {
     m: ['margin'],
@@ -15,7 +15,7 @@ module.exports = function({ addBase, theme }) {
     pl: ['padding-left'],
     px: ['padding-left', 'padding-right'],
     py: ['padding-top', 'padding-bottom']
-  }
+  };
   const breakpoints = theme('screens');
   const firstBp = Object.keys(breakpoints)[0];
   const rootStyles = {
@@ -24,44 +24,54 @@ module.exports = function({ addBase, theme }) {
   const spacingStyles = {};
 
   // create root bp keys in bp order
-  Object.keys(breakpoints).forEach(bp => {
+  Object.keys(breakpoints).forEach((bp) => {
     if (bp !== firstBp) {
       rootStyles[`@screen ${bp}`] = { ':root': {} };
     }
   });
 
   // fill in root bp sizing info and make classes
-  Object.entries(spacingGroups).forEach(group => {
+  Object.entries(spacingGroups).forEach((group) => {
     const [name, spacings] = group;
-    Object.entries(spacings).forEach(spacing => {
+    Object.entries(spacings).forEach((spacing) => {
       let [bp, space] = spacing;
-      space = (parseInt(space, 10) / 16) + 'rem';
+      space = parseInt(space, 10) / 16 + 'rem';
       if (bp === firstBp) {
-        rootStyles[':root'][`--spacing-${ name }`] = space;
+        rootStyles[':root'][`--spacing-${name}`] = space;
         // create utility class
-        Object.entries(cssSpacingProps).forEach(spacingProp => {
-          const [prefix, cssProps] = spacingProp;
-          spacingStyles[`.${prefix}-${name}`] = spacingStyles[`.${prefix}-${name}`] || {};
-          cssProps.forEach(prop => {
-            spacingStyles[`.${prefix}-${name}`][prop] = `var(--spacing-${name})`;
+        Object.entries(cssSpacingProps).forEach((spacingProp) => {
+          const [propName, cssProps] = spacingProp;
+          const className = prefix(`.${propName}-${name}`);
+          spacingStyles[className] = spacingStyles[className] || {};
+          cssProps.forEach((prop) => {
+            spacingStyles[className][prop] = `var(--spacing-${name})`;
           });
           // negative margins
-          if (prefix.indexOf('m') > -1) {
-            spacingStyles[`.-${prefix}-${name}`] = spacingStyles[`.-${prefix}-${name}`] || {};
-            cssProps.forEach(prop => {
-              spacingStyles[`.-${prefix}-${name}`][prop] = `calc(var(--spacing-${name}) * -1)`;
+          if (propName.indexOf('m') > -1) {
+            const classNameNegative = prefix(`.-${propName}-${name}`);
+            spacingStyles[classNameNegative] =
+              spacingStyles[classNameNegative] || {};
+            cssProps.forEach((prop) => {
+              spacingStyles[classNameNegative][
+                prop
+              ] = `calc(var(--spacing-${name}) * -1)`;
             });
           }
         });
       } else {
-        rootStyles[`@screen ${bp}`][':root'][`--spacing-${ name }`] = space;
+        rootStyles[`@screen ${bp}`][':root'][`--spacing-${name}`] = space;
       }
     });
   });
 
   // clean up empty keys
-  Object.keys(rootStyles).forEach(key => {
-    if (key !== ':root' && rootStyles[key][':root'] && Object.keys(rootStyles[key][':root']).length === 0 && rootStyles[key][':root'].constructor === Object) {
+  Object.keys(rootStyles).forEach((key) => {
+    if (
+      key !== ':root' &&
+      rootStyles[key][':root'] &&
+      Object.keys(rootStyles[key][':root']).length === 0 &&
+      rootStyles[key][':root'].constructor === Object
+    ) {
       delete rootStyles[key];
     }
   });
