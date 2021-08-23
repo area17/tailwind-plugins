@@ -1,4 +1,6 @@
 module.exports = function(tokens, colors) {
+  if (!colors) return;
+
   Object.entries(colors).forEach((item) => {
     const [name, color] = item;
     const colorSplitIndex = color.lastIndexOf('-');
