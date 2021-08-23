@@ -1,7 +1,8 @@
-module.exports = function({ addComponents, theme }) {
+module.exports = function({ addUtilities, theme, config }) {
   const breakpoints = theme('screens');
   const colors = theme('borderColor', theme('color', {}));
   const directions = { l: 'left', r: 'right' };
+  const prefixString = config('prefix');
 
   let styles = [
     {
@@ -28,28 +29,28 @@ module.exports = function({ addComponents, theme }) {
 
   function generateDirectionStyles(bp) {
     const arr = [];
-    bp = bp ? `${ bp }\\:` : '';
+    bp = bp ? `${bp}\\:` : '';
 
-    Object.entries(directions).map(a => {
+    Object.entries(directions).map((a) => {
       const [dir, property] = a;
       // add colors
-      Object.entries(colors).map(b => {
+      Object.entries(colors).map((b) => {
         const [name, color] = b;
         arr.push({
-          [`.${ bp }keyline-${ dir }-${ name }::before`]: {
-            [`border-${ property }-color`]: color
+          [`.${bp}${prefixString}keyline-${dir}-${name}::before`]: {
+            [`border-${property}-color`]: color
           }
         });
       });
       // add hiding classes
       arr.push({
-        [`.${ bp }keyline-${ dir }-0::before`]: {
-          [`border-${ property }-color`]: 'transparent'
+        [`.${bp}${prefixString}keyline-${dir}-0::before`]: {
+          [`border-${property}-color`]: 'transparent'
         }
       });
       arr.push({
-        [`.${ bp }keyline-0::before`]: {
-          [`border-${ property }-color`]: 'transparent'
+        [`.${bp}${prefixString}keyline-0::before`]: {
+          [`border-${property}-color`]: 'transparent'
         }
       });
     });
@@ -59,13 +60,15 @@ module.exports = function({ addComponents, theme }) {
 
   const directionStyles = generateDirectionStyles();
 
-  const bpStyles = Object.keys(breakpoints).map(bp => {
+  const bpStyles = Object.keys(breakpoints).map((bp) => {
     return {
       [`@screen ${bp}`]: generateDirectionStyles(bp)
-    }
+    };
   });
 
   styles = styles.concat(directionStyles, bpStyles);
 
-  addComponents(styles);
+  addUtilities(styles, {
+    respectPrefix: false
+  });
 };
