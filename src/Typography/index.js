@@ -1,4 +1,4 @@
-module.exports = function({ addBase, theme }) {
+module.exports = function({ addBase, theme, prefix }) {
   const breakpoints = theme('screens', {});
   const fontFamilies = theme('fontFamilies', {});
   const typesets = theme('typesets', {});
@@ -15,14 +15,20 @@ module.exports = function({ addBase, theme }) {
 
   const typoStyles = Object.entries(typesets).map((a) => {
     const [name, typo] = a;
-    const className = `.f-${name}`;
+    const className = prefix(`.f-${name}`);
     let setBoldWeight = false;
 
     return Object.entries(typo).map((b) => {
       const [bp, settings] = b;
 
-      if (settings['font-size'] && (typeof settings['font-size'] === 'number' || settings['font-size'].match(/[0-9]$/ig) || settings['font-size'].match(/px$/ig))) {
-        settings['font-size'] = (parseInt(settings['font-size'], 10) / 16) + 'rem';
+      if (
+        settings['font-size'] &&
+        (typeof settings['font-size'] === 'number' ||
+          settings['font-size'].match(/[0-9]$/gi) ||
+          settings['font-size'].match(/px$/gi))
+      ) {
+        settings['font-size'] =
+          parseInt(settings['font-size'], 10) / 16 + 'rem';
       }
 
       if (settings['font-smoothing']) {
@@ -39,8 +45,8 @@ module.exports = function({ addBase, theme }) {
 
       if (settings['bold-weight']) {
         settings['--bold-weight'] = settings['bold-weight'];
-          setBoldWeight = true;
-          delete settings['bold-weight'];
+        setBoldWeight = true;
+        delete settings['bold-weight'];
       } else {
         setBoldWeight = false;
       }
