@@ -1,116 +1,117 @@
-module.exports = function({ addComponents, theme }) {
+module.exports = function({ addUtilities, theme, prefix, config }) {
   const breakpoints = theme('screens');
   const firstBp = Object.keys(breakpoints)[0];
   const columnCount = theme('columnCount', {});
   const maxCols = theme('maxGridCols', columnCount);
   const maxColAmount = Math.max.apply(Math, Object.values(maxCols));
+  const prefixString = config('prefix');
 
   const styles = [
     {
-      '.cols-container': {
-        'display': 'flex',
+      [prefix('.cols-container')]: {
+        display: 'flex',
         'flex-flow': 'row wrap',
-        'margin-left': 'calc(var(--inner-gutter) * -1)',
+        'margin-left': 'calc(var(--inner-gutter) * -1)'
       },
-      ['.cols-container > [class*="cols-"]']: {
-        'width': 'calc(100% - var(--inner-gutter))',
+      [prefix('.cols-container > [class*="cols-"]')]: {
+        width: 'calc(100% - var(--inner-gutter))',
         'margin-left': 'var(--inner-gutter)'
       },
-      ['.cols-container > .cols-ml-reset']: {
+      [prefix('.cols-container > .cols-ml-reset')]: {
         'margin-left': 0
       }
     }
   ];
 
   function coreCalc(inContainer, cols, bump) {
-    let calc = `((${ cols } / var(--grid-columns)) * 100%) - (var(--inner-gutter) - (${ cols } / var(--grid-columns) * var(--inner-gutter)))`;
+    let calc = `((${cols} / var(--grid-columns)) * 100%) - (var(--inner-gutter) - (${cols} / var(--grid-columns) * var(--inner-gutter)))`;
 
     if (inContainer) {
-      calc = `((${ cols } / var(--grid-columns)) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (${ cols } / var(--grid-columns) * var(--inner-gutter)))`;
+      calc = `((${cols} / var(--grid-columns)) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (${cols} / var(--grid-columns) * var(--inner-gutter)))`;
     }
 
     if (bump) {
-      calc = `(${ calc }) + ${ bump }`;
+      calc = `(${calc}) + ${bump}`;
     }
 
-    return `calc(${ calc })`;
+    return `calc(${calc})`;
   }
 
-  [...Array(maxColAmount).keys()].forEach(n => {
+  [...Array(maxColAmount).keys()].forEach((n) => {
     const colStyles = {
-      [`.cols-${ n }`]: {
-        'width': coreCalc(false, n)
+      [prefix(`.cols-${n}`)]: {
+        width: coreCalc(false, n)
       },
-      [`.cols-container > .cols-${ n }`]: {
-        'width': coreCalc(true, n)
+      [prefix(`.cols-container > .cols-${n}`)]: {
+        width: coreCalc(true, n)
       },
-      [`.push-${ n }`]: {
+      [prefix(`.push-${n}`)]: {
         'margin-left': coreCalc(false, n, 'var(--inner-gutter)')
       },
-      [`.push-r-${ n }`]: {
+      [prefix(`.push-r-${n}`)]: {
         'margin-right': coreCalc(false, n, 'var(--inner-gutter)')
       },
-      [`.cols-container > .push-${ n }`]: {
+      [prefix(`.cols-container > .push-${n}`)]: {
         'margin-left': coreCalc(true, n, 'var(--inner-gutter)')
       },
-      [`.cols-container > .push-r-${ n }`]: {
+      [prefix(`.cols-container > .push-r-${n}`)]: {
         'margin-right': coreCalc(true, n, 'var(--inner-gutter)')
       },
-      [`.push-${ n }-gutter`]: {
+      [prefix(`.push-${n}-gutter`)]: {
         'margin-left': coreCalc(false, n, '(var(--inner-gutter) * 2)')
       },
-      [`.push-r-${ n }-gutter`]: {
+      [prefix(`.push-r-${n}-gutter`)]: {
         'margin-right': coreCalc(false, n, '(var(--inner-gutter) * 2)')
       },
-      [`.cols-container > .push-${ n }-gutter`]: {
+      [prefix(`.cols-container > .push-${n}-gutter`)]: {
         'margin-left': coreCalc(true, n, '(var(--inner-gutter) * 2)')
       },
-      [`.cols-container > .push-r-${ n }-gutter`]: {
+      [prefix(`.cols-container > .push-r-${n}-gutter`)]: {
         'margin-right': coreCalc(true, n, '(var(--inner-gutter) * 2)')
       }
-    }
+    };
     styles.push(colStyles);
   });
 
-  Object.keys(breakpoints).forEach(bp => {
+  Object.keys(breakpoints).forEach((bp) => {
     const bpStyles = [
       {
-        [`.${ bp }\\:cols-container`]: {
-          'display': 'flex',
+        [`.${bp}\\:${prefixString}cols-container`]: {
+          display: 'flex',
           'flex-flow': 'row wrap',
           'margin-left': 'calc(var(--inner-gutter) * -1)'
         },
-        [`.${ bp }\\:cols-container > [class*="cols-"]`]: {
-          'width': '100%',
+        [`.${bp}\\:${prefixString}cols-container > [class*="cols-"]`]: {
+          width: '100%',
           'margin-left': 'var(--inner-gutter)'
         },
-        [`.${ bp }\\:cols-container > .cols-ml-reset`]: {
+        [`.${bp}\\:${prefixString}cols-container > .${prefixString}cols-ml-reset`]: {
           'margin-left': 0
         }
       }
     ];
 
-    [...Array(maxColAmount).keys()].forEach(n => {
+    [...Array(maxColAmount).keys()].forEach((n) => {
       const colStyles = {
-        [`.${ bp }\\:cols-${ n }`]: {
-          'width': coreCalc(false, n)
+        [`.${bp}\\:${prefixString}cols-${n}`]: {
+          width: coreCalc(false, n)
         },
-        [`.cols-container > .${ bp }\\:cols-${ n }`]: {
-          'width': coreCalc(true, n)
+        [`.${prefixString}cols-container > .${bp}\\:${prefixString}cols-${n}`]: {
+          width: coreCalc(true, n)
         },
-        [`.${ bp }\\:push-${ n }`]: {
+        [`.${bp}\\:${prefixString}push-${n}`]: {
           'margin-left': coreCalc(false, n, 'var(--inner-gutter)')
         },
-        [`.cols-container > .${ bp }\\:push-${ n }`]: {
+        [`.${prefixString}cols-container > .${bp}\\:${prefixString}push-${n}`]: {
           'margin-left': coreCalc(true, n, 'var(--inner-gutter)')
         },
-        [`.${ bp }\\:push-${ n }-gutter`]: {
+        [`.${bp}\\:${prefixString}push-${n}-gutter`]: {
           'margin-left': coreCalc(false, n, '(var(--inner-gutter) * 2)')
         },
-        [`.cols-container > .${ bp }\\:push-${ n }-gutter`]: {
+        [`.${prefixString}cols-container > .${bp}\\:${prefixString}push-${n}-gutter`]: {
           'margin-left': coreCalc(true, n, '(var(--inner-gutter) * 2)')
         }
-      }
+      };
       bpStyles.push(colStyles);
     });
 
@@ -119,5 +120,7 @@ module.exports = function({ addComponents, theme }) {
     });
   });
 
-  addComponents(styles);
+  addUtilities(styles, {
+    respectPrefix: false
+  });
 };
