@@ -1,5 +1,5 @@
 // A17 tailwind plugins
-const { Setup, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, SpacingTokens, Spacing, Typography, ColorTokens, ApplyColorVariables } = require('a17-tailwind');
+const { Setup, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, SpacingTokens, Spacing, Typography, ColorTokens, ApplyColorVariables } = require('@area17/a17-tailwind-plugins');
 
 // conf
 const feConfig = require('./frontend.config.json');
@@ -19,7 +19,7 @@ module.exports = {
     typesets: feConfig.typography.typesets,
     spacingGroups: feConfig.spacing.groups,
     spacing: SpacingTokens(feConfig.spacing.tokens),
-    colorTokens: feConfig.color.tokens,
+    colors: feConfig.color.tokens,
     borderColor: ApplyColorVariables(feConfig.color.tokens, feConfig.color.borderColor),
     textColor: ApplyColorVariables(feConfig.color.tokens, feConfig.color.textColor),
     backgroundColor: ApplyColorVariables(feConfig.color.tokens, feConfig.color.backgroundColor),
