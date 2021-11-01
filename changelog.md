@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.3] - 2021-11-01
+
+### Summary of main changes
+
+Adds refactored `RatioBox` and `GridLine` plugins
+
+#### Fixed
+
+- fix sample config JSON fixed breakpoint outer gutter
+- fix sample config include and color token name
+
+#### Changed
+
+- added refactored RatioBox with new expandable box and ratio freer classes
+- add refactored gridline plugin
+  - allows prefix and more consistent results across breakpoints
+
 ## [2.1.2] - 2021-09-07
 
 #### Fixed
