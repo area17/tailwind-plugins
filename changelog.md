@@ -5,11 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [2.1.5] - 2021-11-30
+
+### Summary of main changes
+
+`package.json` updated to include repository and homepage info.
+
+
 ## [2.1.4] - 2021-11-30
 
 ### Summary of main changes
 
-Read me updated to point to remote docs: http://tailwind-plugins.dev.area17.com/
+Readme updated to point to remote docs: http://tailwind-plugins.dev.area17.com/
 Moved repo to GitHub.
 
 
