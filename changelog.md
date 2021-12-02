@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [2.2.0] - 2021-12-02
+
+### Summary of main changes
+
+Fixes some responsive bugs with `Layout` and adds `pull` and `left`/`right` classes for absolute positioning.
+
+#### Fixed
+
+- `Layout` plugin
+  - using Tailwind native `prefix()` function to fix responsive bugs when using `cols-container` only at larger breakpoints
+  - no longer makes `cols-0` and correctly makes a class for the largest column
+
+#### Added
+
+- `Layout` plugin
+  - added `pull`, `pull-r`, `left` and `right` classes for more layout options based on design columns
+
+
 ## [2.1.5] - 2021-11-30
 
 ### Summary of main changes
