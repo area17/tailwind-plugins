@@ -1,4 +1,4 @@
-module.exports = function({ addUtilities, theme, prefix, config }) {
+module.exports = function({ addComponents, theme, prefix, config }) {
   const breakpoints = theme('screens');
   const firstBp = Object.keys(breakpoints)[0];
   const columnCount = theme('columnCount', {});
@@ -113,7 +113,7 @@ module.exports = function({ addUtilities, theme, prefix, config }) {
     styles.push(colStyles);
   });
 
-  addUtilities(styles, {
+  addComponents(styles, {
     respectPrefix: false
   });
 };
