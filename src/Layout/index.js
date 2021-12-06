@@ -1,10 +1,11 @@
-module.exports = function({ addComponents, theme, prefix, config }) {
+module.exports = function({ addComponents, theme, e, prefix, config }) {
   const breakpoints = theme('screens');
   const firstBp = Object.keys(breakpoints)[0];
   const columnCount = theme('columnCount', {});
   const maxCols = theme('maxGridCols', columnCount);
   const maxColAmount = Math.max.apply(Math, Object.values(maxCols));
   const prefixString = config('prefix');
+  const fractions = ['1/2', '1/3', '1/4', '2/3', '3/4'];
 
   function coreCalc(inContainer, cols, bump, pull) {
     let calc = `((${cols} / var(--grid-columns)) * 100%) - (var(--inner-gutter) - (${cols} / var(--grid-columns) * var(--inner-gutter)))`;
@@ -24,6 +25,143 @@ module.exports = function({ addComponents, theme, prefix, config }) {
     return `calc(${calc})`;
   }
 
+  function generateByFraction(fraction) {
+    const splitFraction = fraction.split('/');
+    const numeric = Math.floor((splitFraction[0] / splitFraction[1]) * 1000) / 1000;
+    const oneMinusNumeric = Math.floor((1 - (splitFraction[0] / splitFraction[1])) * 1000) / 1000;
+    const percent = Math.floor((splitFraction[0] / splitFraction[1]) * 100000) / 1000;
+
+    const classes = [
+      {
+        name: 'cols',
+        attribute: 'width'
+      },
+      {
+        name: 'push',
+        attribute: 'margin-left',
+        addGutter: true
+      },
+      {
+        name: 'push-r',
+        attribute: 'margin-right',
+        addGutter: true
+      },
+      {
+        name: 'pull',
+        attribute: 'margin-left',
+        inverse: true,
+        addGutter: true
+      },
+      {
+        name: 'pull-r',
+        attribute: 'margin-right',
+        inverse: true,
+        addGutter: true
+      },
+      {
+        name: 'mr',
+        suffix: '-cols',
+        attribute: 'margin-right',
+        addGutter: true
+      },
+      {
+        name: 'ml',
+        suffix: '-cols',
+        attribute: 'margin-left',
+        addGutter: true
+      },
+      {
+        name: 'mx',
+        suffix: '-cols',
+        attribute: ['margin-right', 'margin-left'],
+        addGutter: true
+      },
+      {
+        name: '-mr',
+        suffix: '-cols',
+        attribute: 'margin-right',
+        inverse: true,
+        addGutter: true
+      },
+      {
+        name: '-ml',
+        suffix: '-cols',
+        attribute: 'margin-left',
+        inverse: true,
+        addGutter: true
+      },
+      {
+        name: '-mx',
+        suffix: '-cols',
+        attribute: ['margin-right', 'margin-left'],
+        inverse: true,
+        addGutter: true
+      },
+      {
+        name: 'pr',
+        suffix: '-cols',
+        attribute: 'padding-right',
+        addGutter: true
+      },
+      {
+        name: 'pl',
+        suffix: '-cols',
+        attribute: 'padding-left',
+        addGutter: true
+      },
+      {
+        name: 'px',
+        suffix: '-cols',
+        attribute: ['padding-right', 'padding-left'],
+        addGutter: true
+      },
+      {
+        name: 'left',
+        suffix: '-cols',
+        attribute: 'left',
+        addGutter: true
+      },
+      {
+        name: 'right',
+        suffix: '-cols',
+        attribute: 'right',
+        addGutter: true
+      },
+    ];
+
+    classes.forEach(obj => {
+      let calc = `${ percent }% - (var(--inner-gutter) * ${ oneMinusNumeric })`;
+      let containerCalc = `${ percent }% - var(--inner-gutter)`;
+      let attrs = {};
+      let cAttrs = {};
+
+      if (obj.addGutter) {
+        calc = `((${ calc }) + var(--inner-gutter))`;
+        containerCalc = `((${ containerCalc }) + (2 * var(--inner-gutter)))`;
+      }
+
+      if (obj.inverse) {
+        calc = `(${ calc }) * -1`;
+        containerCalc = `(${ containerCalc }) * -1`;
+      }
+
+      if (Array.isArray(obj.attribute)) {
+        obj.attribute.forEach(attr => {
+          attrs[attr] = `calc(${ calc })`;
+          cAttrs[attr] = `calc(${ containerCalc })`;
+        });
+      } else {
+        attrs[obj.attribute] = `calc(${ calc })`;
+        cAttrs[obj.attribute] = `calc(${ containerCalc })`;
+      }
+
+      styles.push({
+        [`${ prefix('.' + e(obj.name + '-' + fraction + (obj.suffix || ''))) }`]: attrs,
+        [`${ prefix('.cols-container') } > ${ prefix('.' + e(obj.name + '-' + fraction + (obj.suffix || ''))) }`]: cAttrs,
+      });
+    });
+  }
+
   const styles = [
     {
       [prefix('.cols-container')]: {
@@ -36,18 +174,27 @@ module.exports = function({ addComponents, theme, prefix, config }) {
       },
       [`${ prefix('.cols-container') } > ${ prefix('.cols-ml-reset') }`]: {
         'margin-left': 0
-      }
+      },
+      [`${ prefix('.cols-container') } > ${ prefix('.ml-0') }`]: {
+        'margin-left': 0
+      },
     }
   ];
 
   [...Array(maxColAmount).keys()].forEach((n) => {
     const num = n + 1;
     const colStyles = {
-      [prefix(`.cols-${ num }`)]: {
+      [`${ prefix('.cols') }-${ num }`]: {
         width: coreCalc(false, num)
+      },
+      [`${ prefix('.cols') }-${ num } > *`]: {
+        '--grid-columns': `${ num }`
       },
       [`${ prefix('.cols-container') } > ${ prefix('.cols') }-${ num }`]: {
         width: coreCalc(true, num)
+      },
+      [`${ prefix('.cols-container') } > ${ prefix('.cols') }-${ num } > *`]: {
+        '--grid-columns': `${ num }`
       },
       [prefix(`.push-${ num }`)]: {
         'margin-left': coreCalc(false, num, 'var(--inner-gutter)')
@@ -111,6 +258,10 @@ module.exports = function({ addComponents, theme, prefix, config }) {
       },
     };
     styles.push(colStyles);
+  });
+
+  fractions.forEach(fraction => {
+    generateByFraction(fraction);
   });
 
   addComponents(styles, {
