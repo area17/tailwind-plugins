@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2021-12-07
+
+### Summary of main changes
+
+Refactored Layout plugin, generates more classes which are closer aligned to Tailwind classes.
+
+### Changed
+
+- Layout plugin has been totally re-factored
+  - added ability to nest
+  - fractional values can now also be used, eg: `w-1/2-cols`
+  - now generates Tailwind like `w-N-cols` type classes for widths
+  - `m?-` margin classes for push/pulls: `ml-N-cols`, `mr-N-cols`, `mx-N-cols`, `-ml-N-cols`, `-mr-N-cols`, `-mx-N-cols`
+  - `p?-` padding classes: `pl-N-cols`, `pr-N-cols`, `px-N-cols`
+  - margins, paddings and positioning assume added inner gutters, a full series of gutter-less versions are also generated
+  - the generated class names in the Layout plugin **have been changed** to align them closer to Tailwind. [See the migration notes](http://tailwind-plugins.dev.area17.com/Layout.php#v3-0-0)
+
+
 
 ## [2.2.1] - 2021-12-03
 

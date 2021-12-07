@@ -73,3 +73,8 @@ module.exports = {
 * [PseudoElements](http://tailwind-plugins.dev.area17.com/PseudoElements.php) - adds additional pseudo classes
 
 * [RatioBox](http://tailwind-plugins.dev.area17.com/RatioBox.php) - generates ratio box utilities
+
+
+### Breaking changes to Layout in `v3.0.0`
+
+The generated class names in the Layout plugin have been changed to align them closer to Tailwind. [See the migration notes](http://tailwind-plugins.dev.area17.com/Layout.php#v3-0-0) and also [see the changelog](https://github.com/area17/tailwind-plugins/blob/main/changelog.md#300---2021-12-07).
