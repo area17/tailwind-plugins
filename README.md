@@ -23,7 +23,7 @@ $ npm install @area17/a17-tailwind-plugins
 Or, add package to `package.json` dependencies
 
 ```json
-"@area17/a17-tailwind-plugins": "^2.0.0"
+"@area17/a17-tailwind-plugins": "^3.0.1"
 ```
 
 2. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
