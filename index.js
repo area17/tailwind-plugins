@@ -12,6 +12,7 @@ const GridLine = require('./src/GridLine');
 const Setup = require('./src/Setup');
 const ColorTokens = require('./src/ColorTokens');
 const ApplyColorVariables = require('./src/ApplyColorVariables');
+const Underline = require('./src/Underline');
 
 module.exports = {
   Container,
@@ -27,5 +28,6 @@ module.exports = {
   GridLine,
   Setup,
   ColorTokens,
-  ApplyColorVariables
+  ApplyColorVariables,
+  Underline
 };

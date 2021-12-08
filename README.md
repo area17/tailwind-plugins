@@ -44,7 +44,7 @@ module.exports = {
 
 * [tailwind.config.js](https://code.area17.com/a17/tailwind-plugins/-/blob/v2/sample/tailwind.config.js)
 * [frontend.config.json](https://code.area17.com/a17/tailwind-plugins/-/blob/v2/sample/frontend.config.json)
-* [walk through of our set up](http://tailwind-plugins.dev.area17.com/Setup.php)
+* [Walk through of our set up](http://tailwind-plugins.dev.area17.com/Setup.php)
 
 
 ## Documentation and demos
@@ -73,6 +73,8 @@ module.exports = {
 * [PseudoElements](http://tailwind-plugins.dev.area17.com/PseudoElements.php) - adds additional pseudo classes
 
 * [RatioBox](http://tailwind-plugins.dev.area17.com/RatioBox.php) - generates ratio box utilities
+
+* [Underline](http://tailwind-plugins.dev.area17.com/Underline.php) - generates text underline styling utilities (new in `v3.1.0`)
 
 
 ### Breaking changes to Layout in `v3.0.0`
