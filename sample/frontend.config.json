@@ -235,5 +235,51 @@
         }
       }
     }
+  },
+  "components": {
+    ".copy": {
+      "breakpoints": {
+        "md": {
+          "selectors": {
+            "> *:not(pre)": {
+              "attributes": {
+                "max-width": "80%"
+              }
+            }
+          }
+        },
+        "lg": {
+          "selectors": {
+            "> *:not(pre)": {
+              "attributes": {
+                "max-width": "60%"
+              }
+            }
+          }
+        }
+      },
+      "selectors": {
+        "h1": "f-h1",
+        "h2": "f-h2 mt-40",
+        "h3": "f-h3 mt-40",
+        "h4": "f-h4 mt-40",
+        "p": "f-body mt-20",
+        "ul": "f-body mt-20 list-disc pl-16",
+        "ul ul": "mt-0",
+        "code": "inline-block f-code text-code bg-code px-4 py-2 mt-20",
+        "* code": "inline-block mt-0",
+        "pre": "block mt-20 f-code text-code bg-code p-8 max-h-400 overflow-y-scroll",
+        "code + pre": "mt-0",
+        "a": {
+          "apply": "text-accent underline",
+          "selectors": {
+            ":hover, :focus": {
+              "apply": "text-primary"
+            }
+          }
+        },
+        "hr": "border-tertiary my-40"
+      }
+    }
   }
 }

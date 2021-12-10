@@ -1,5 +1,5 @@
 // A17 tailwind plugins
-const { Setup, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, SpacingTokens, Spacing, Typography, ColorTokens, ApplyColorVariables, Underline } = require('@area17/a17-tailwind-plugins');
+const { Setup, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, SpacingTokens, Spacing, Typography, ColorTokens, ApplyColorVariables, Underline, Components, CssInJs } = require('@area17/a17-tailwind-plugins');
 
 // conf
 const feConfig = require('./frontend.config.json');
@@ -8,7 +8,7 @@ module.exports = {
   corePlugins: {
     container: false
   },
-  plugins: [Setup, Typography, Spacing, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, ColorTokens, Underline],
+  plugins: [Setup, Typography, Spacing, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, ColorTokens, Underline, Components, CssInJs],
   theme: {
     screens: feConfig.structure.breakpoints,
     mainColWidths: feConfig.structure.container,
@@ -24,6 +24,8 @@ module.exports = {
     textColor: ApplyColorVariables(feConfig.color.tokens, feConfig.color.textColor),
     backgroundColor: ApplyColorVariables(feConfig.color.tokens, feConfig.color.backgroundColor),
     ratios: feConfig.ratios,
+    components: feConfig.components,
+    css: feConfig.css,
     extend: {
       spacing: {
         'safe-top': 'env(safe-area-inset-top)',

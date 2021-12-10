@@ -23,7 +23,7 @@ $ npm install @area17/a17-tailwind-plugins
 Or, add package to `package.json` dependencies
 
 ```json
-"@area17/a17-tailwind-plugins": "^3.0.1"
+"@area17/a17-tailwind-plugins": "^3.2.0"
 ```
 
 2. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
@@ -75,6 +75,9 @@ module.exports = {
 * [RatioBox](http://tailwind-plugins.dev.area17.com/RatioBox.php) - generates ratio box utilities
 
 * [Underline](http://tailwind-plugins.dev.area17.com/Underline.php) - generates text underline styling utilities (new in `v3.1.0`)
+
+* [CssInJs](http://tailwind-plugins.dev.area17.com/CssInJs.php) - allows you to pass through CSS from your Tailwind config (new in `v3.2.0`)
+* [Components](http://tailwind-plugins.dev.area17.com/Components.php) - allows you to generate component CSS from your Tailwind config (new in `v3.2.0`)
 
 
 ### Breaking changes to Layout in `v3.0.0`

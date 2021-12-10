@@ -13,6 +13,8 @@ const Setup = require('./src/Setup');
 const ColorTokens = require('./src/ColorTokens');
 const ApplyColorVariables = require('./src/ApplyColorVariables');
 const Underline = require('./src/Underline');
+const Components = require('./src/Components');
+const CssInJs = require('./src/CssInJs');
 
 module.exports = {
   Container,
@@ -29,5 +31,7 @@ module.exports = {
   Setup,
   ColorTokens,
   ApplyColorVariables,
-  Underline
+  Underline,
+  Components,
+  CssInJs
 };
