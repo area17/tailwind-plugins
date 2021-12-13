@@ -1,6 +1,6 @@
 {
   "name": "@area17/a17-tailwind-plugins",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "author": "A17 <dev@area17.com> (https://area17.com/)",
   "description": "A collection of Tailwind plugins to help build responsive design systems in collaboration with A17 design and development build methodologies",
   "main": "index.js",
