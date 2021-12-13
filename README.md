@@ -11,6 +11,7 @@ We also wanted to include a few utility classes that would simplify some common 
 ## Requirements
 
 * [TailwindCSS](https://tailwindcss.com/)
+  * tested in Tailwind <code>2.x.x</code> (with and without JIT) and <code>3.0.x</code>
 
 ## Setup
 
@@ -23,18 +24,18 @@ $ npm install @area17/a17-tailwind-plugins
 Or, add package to `package.json` dependencies
 
 ```json
-"@area17/a17-tailwind-plugins": "^3.2.0"
+"@area17/a17-tailwind-plugins": "^3.2.1"
 ```
 
 2. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
 
 ```javascript
-const { Container, SpacingTokens, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements, GridGap } = require('@area17/a17-tailwind-plugins');
+const { Setup, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, SpacingTokens, Spacing, Typography, ColorTokens, ApplyColorVariables, Underline, Components, CssInJs } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
   ...
 
-  plugins: [Setup, Container, SpacingTokens, Spacing, Typography, RatioBox, Layout, Keyline, PseudoElements, GridGap, GridLine]
+  plugins: [Setup, Typography, Spacing, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, ColorTokens, Underline, Components, CssInJs],
 
   ...
 };
