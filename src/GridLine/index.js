@@ -242,7 +242,6 @@ module.exports = function({ addComponents, theme, config }) {
       let mq = stylesToReturn[`@screen ${bp}`];
       styles.forEach(style => {
         for (const [key, value] of Object.entries(style)) {
-          console.log(key, key.replace(regEx, '\n', `${ bp }\\:`), '\n\n');
           mq[key.replace(regEx, `${ bp }\\:`)] = value;
         }
       });
