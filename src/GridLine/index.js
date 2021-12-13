@@ -187,7 +187,12 @@ module.exports = function({ addComponents, theme, config }) {
     });
     // horizontal last row, hide bottom border
     styles.push({
-      [`.${ bpString + prefixString }grid-cols-${i}[class*="${ prefixString }grid-line-x"] > *:nth-child(${i}n+1):nth-last-child(-n+${i})::before, .${ bpString + prefixString }grid-cols-${i}[class*="${ prefixString }grid-line-x"] > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ *::before`]: {
+      [`.${ bpString + prefixString }grid-cols-${i}[class*="${ prefixString }grid-line-x"] > *:nth-child(${i}n+1):nth-last-child(-n+${i})::before`]: {
+        'border-bottom-width': '0'
+      }
+    });
+    styles.push({
+      [`.${ bpString + prefixString }grid-cols-${i}[class*="${ prefixString }grid-line-x"] > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ *::before`]: {
         'border-bottom-width': '0'
       }
     });
@@ -213,7 +218,12 @@ module.exports = function({ addComponents, theme, config }) {
       });
       // vertical lines, fix bottom position of last row
       styles.push({
-        [`.${ bpString + prefixString }grid-cols-${i}[class*="${ prefixString }grid-line-y"][class*="${ prefixString }grid-line-y"] > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after, .${ bpString + prefixString }grid-cols-${i}[class*="${ prefixString }grid-line-y"][class*="${ prefixString }grid-line-y"] > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ li::after`]: {
+        [`.${ bpString + prefixString }grid-cols-${i}[class*="${ prefixString }grid-line-y"][class*="${ prefixString }grid-line-y"] > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
+          bottom: '0'
+        }
+      });
+      styles.push({
+        [`.${ bpString + prefixString }grid-cols-${i}[class*="${ prefixString }grid-line-y"][class*="${ prefixString }grid-line-y"] > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ li::after`]: {
           bottom: '0'
         }
       });
@@ -232,6 +242,7 @@ module.exports = function({ addComponents, theme, config }) {
       let mq = stylesToReturn[`@screen ${bp}`];
       styles.forEach(style => {
         for (const [key, value] of Object.entries(style)) {
+          console.log(key, key.replace(regEx, '\n', `${ bp }\\:`), '\n\n');
           mq[key.replace(regEx, `${ bp }\\:`)] = value;
         }
       });
