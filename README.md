@@ -24,7 +24,7 @@ $ npm install @area17/a17-tailwind-plugins
 Or, add package to `package.json` dependencies
 
 ```json
-"@area17/a17-tailwind-plugins": "^3.2.1"
+"@area17/a17-tailwind-plugins": "^3.3.0"
 ```
 
 2. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
@@ -64,6 +64,7 @@ module.exports = {
 
 * [Container](http://tailwind-plugins.dev.area17.com/Container.php) - generates a custom container class based on supplied config
 * [Layout](http://tailwind-plugins.dev.area17.com/Layout.php) - generates utility classes to set elements onto the design grid
+* [GridLayout](http://tailwind-plugins.dev.area17.com/GridLayout.php) - generates CSS grid utility classes to set elements onto the design grid (new in `v3.3.0`)
 * [GridGap](http://tailwind-plugins.dev.area17.com/GridGap.php) - generates grid gap utilities based on the configured grid
 
 * [Typography](http://tailwind-plugins.dev.area17.com/Typography.php) - generates responsive typography classes

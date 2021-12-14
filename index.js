@@ -15,6 +15,7 @@ const ApplyColorVariables = require('./src/ApplyColorVariables');
 const Underline = require('./src/Underline');
 const Components = require('./src/Components');
 const CssInJs = require('./src/CssInJs');
+const GridLayout = require('./src/GridLayout');
 
 module.exports = {
   Container,
@@ -33,5 +34,6 @@ module.exports = {
   ApplyColorVariables,
   Underline,
   Components,
-  CssInJs
+  CssInJs,
+  GridLayout
 };
