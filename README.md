@@ -24,18 +24,18 @@ $ npm install @area17/a17-tailwind-plugins
 Or, add package to `package.json` dependencies
 
 ```json
-"@area17/a17-tailwind-plugins": "^3.3.0"
+"@area17/a17-tailwind-plugins": "^3.4.0"
 ```
 
 2. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
 
 ```javascript
-const { Setup, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, SpacingTokens, Spacing, Typography, ColorTokens, ApplyColorVariables, Underline, Components, CssInJs } = require('@area17/a17-tailwind-plugins');
+const { Setup, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, Spacing, Typography, ColorTokens, ApplyColorVariables, Underline, Components, CssInJs, GridLayout, SpacingTokens } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
   ...
 
-  plugins: [Setup, Typography, Spacing, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, ColorTokens, Underline, Components, CssInJs],
+  plugins: [Setup, Typography, Spacing, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, ColorTokens, Underline, Components, CssInJs, GridLayout],
 
   ...
 };
@@ -59,7 +59,7 @@ module.exports = {
 * [ColorTokens](http://tailwind-plugins.dev.area17.com/ColorTokens.php) - generates colour variables
 * [ApplyColourVariables](http://tailwind-plugins.dev.area17.com/ApplyColourVariables.php) - generates utility classes
 
-* [SpacingTokens](http://tailwind-plugins.dev.area17.com/SpacingTokens.php) - generates rem based spacing tokens based on pixel based inputs
+* [SpacingTokens](http://tailwind-plugins.dev.area17.com/SpacingTokens.php) - generates `rem` based spacing tokens based on pixel based scales or inputs (updated in `v3.4.0`)
 * [Spacing](http://tailwind-plugins.dev.area17.com/Spacing.php) - generates responsive spacing classes
 
 * [Container](http://tailwind-plugins.dev.area17.com/Container.php) - generates a custom container class based on supplied config

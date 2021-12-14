@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.4.0] - 2021-12-14
+
+### Summary of main changes
+
+Updated `SpacingTokens` plugin to auto generate spacing tokens.
+
+### Changed
+
+- `SpacingTokens` plugin re-written
+  - can now auto generate a spacing token scale based on multiples of 5
+  - generates arbitrary 0 - 10px spaces
+  - can specify the scale to use
+  - can specify other arbitrary values
+  - can still specify a full scale as before (no breaking change)
+
 
 ## [3.3.0] - 2021-12-14
 
