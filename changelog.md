@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.0] - 2021-12-16
+
+### Summary of main changes
+
+Documentation ported from dedicated repository to live inside the main plugins repository.
+
+### Added
+
+- Added `docs` folder with a collection of PHP files, Tailwind config files and CSS files. And a `README` to explain how to run the documentation locally.
+- Added code of conduct
+
+### Changed
+
+- `package.json` now as dependencies for generating the Tailwind documentation
+  - `@area17/a17-tailwind-plugins` to use the plugins in the docs
+  - updated versions of `postCSS` and `tailwindcss`
+  - added `browser-sync` and updated version of `dotenv`
+- Sample config file have been moved to the `docs` folder, these are now actual config files styling the documentation build
+
+
 ## [3.4.0] - 2021-12-14
 
 ### Summary of main changes

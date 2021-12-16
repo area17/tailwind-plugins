@@ -5,7 +5,7 @@ const { Setup, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Co
 const feConfig = require('./frontend.config.json');
 
 module.exports = {
-  content: ['./public/**/*.php', './public/*.php'],
+  content: ['./docs/**/*.php', './docs/*.php'],
   corePlugins: {
     container: false
   },
