@@ -82,15 +82,15 @@ The generated class names in the Layout plugin have been changed to align them c
 
 ## Contribution
 
-## Code of Conduct
+### Code of Conduct
 
 AREA 17 is dedicated to building a welcoming, diverse, safe community. We expect everyone participating in the AREA 17 community to abide by our [Code of Conduct](CODE_OF_CONDUCT.md). Please read it. Please follow it.
 
-## Adding a new plugin
+### Adding a new plugin
 
 See [adding a new plugin](https://github.com/area17/tailwind-plugins/tree/main/docs#adding-a-new-plugin)
 
-## Bug reports and features submission
+### Bug reports and features submission
 
 To submit an issue or request a feature, please do so on [Github](https://github.com/area17/tailwind-plugins/issues).
 
@@ -98,7 +98,7 @@ If you file a bug report, your issue should contain a title and a clear descript
 
 Remember, bug reports are created in the hope that others with the same problem will be able to collaborate with you on solving it. Do not expect that the bug report will automatically see any activity or that others will jump to fix it. Creating a bug report serves to help yourself and others start on the path of fixing the problem.
 
-# Versioning scheme
+## Versioning scheme
 
 Our Tailwind Plugins follows [Semantic Versioning](https://semver.org/). Major releases are released only when breaking changes are necessary, while minor and patch releases may be released as often as every week. Minor and patch releases should never contain breaking changes.
 
