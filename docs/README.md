@@ -38,7 +38,22 @@ For local development, you'll likely just run:
 $ npm run watch
 ```
 
-And you'll be good to know.
+You'll see an output in terminal like:
+
+```bash
+[Browsersync] Proxying: http://tailwind-plugins.dev
+[Browsersync] Access URLs:
+ -------------------------------------
+       Local: http://localhost:3000
+    External: http://192.168.0.1:3000
+ -------------------------------------
+          UI: http://localhost:3001
+ UI External: http://localhost:3001
+ -------------------------------------
+[Browsersync] Watching files...
+```
+
+If you open the `Local` url, in this case `http://localhost:3000` in your web browser, you should see the documentation.
 
 ## Adding a new plugin
 
