@@ -45,11 +45,13 @@ module.exports = {
 
 </div>
 
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-20 mt-20">
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
+<div class="show-grid">
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-20 mt-20">
+    <div class="h-40 bg-column"></div>
+    <div class="h-40 bg-column"></div>
+    <div class="h-40 bg-column"></div>
+    <div class="h-40 bg-column"></div>
+  </div>
 </div>
 
 <div class="copy">
@@ -66,11 +68,13 @@ module.exports = {
   <p>Much like Tailwind's <a href="https://tailwindcss.com/docs/gap" target="_blank">grid-gap</a>, you can prefix these classes per breakpoint, state etc.</p>
 </div>
 
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-0 md:gap-x-gutter lg:gap-x-0 xl:gap-x-gutter gap-y-20 mt-20">
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
+<div class="show-grid">
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-0 md:gap-x-gutter lg:gap-x-0 xl:gap-x-gutter gap-y-20 mt-20">
+    <div class="h-40 bg-column"></div>
+    <div class="h-40 bg-column"></div>
+    <div class="h-40 bg-column"></div>
+    <div class="h-40 bg-column"></div>
+  </div>
 </div>
 
 <div class="copy">

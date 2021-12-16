@@ -3405,6 +3405,33 @@ Ensure the default browser behavior of the `hidden` attribute.
   --red-01: #f00;
 }
 
+.show-grid {
+  position: relative;
+  --grid-column-bg: rgba(0, 0, 0, 0.05);
+}
+
+.show-grid::after {
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  margin: 0 auto;
+  background: repeating-linear-gradient(
+        90deg,
+        var(--grid-column-bg),
+        var(--grid-column-bg) calc((100% - (((var(--grid-columns) - 1) * var(--inner-gutter)))) / var(--grid-columns)),
+        rgba(0,0,0,0) calc((100% - (((var(--grid-columns) - 1) * var(--inner-gutter)))) / var(--grid-columns)),
+        rgba(0,0,0,0) calc((100% - (((var(--grid-columns) - 1) * var(--inner-gutter)))) / var(--grid-columns) + var(--inner-gutter))
+      );
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  --tw-content: '';
+  content: var(--tw-content);
+}
+
 .code-example {
   display: block;
   background-color: var(--grey-90);

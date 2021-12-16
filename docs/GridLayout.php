@@ -93,21 +93,22 @@ module.exports = {
 
 </div>
 
-<div class="grid-layout mt-40">
-  <div class="grid-col-span-1 h-40 bg-column"></div>
-  <div class="grid-col-span-1 h-40 bg-column"></div>
-  <div class="grid-col-span-1 h-40 bg-column"></div>
-  <div class="grid-col-span-1 h-40 bg-column"></div>
-  <div class="grid-col-span-1 h-40 bg-column"></div>
-  <div class="grid-col-span-1 h-40 bg-column"></div>
-  <div class="grid-col-span-1 h-40 bg-column"></div>
-  <div class="grid-col-span-1 h-40 bg-column"></div>
-  <div class="grid-col-span-1 h-40 bg-column"></div>
-  <div class="grid-col-span-1 h-40 bg-column"></div>
-  <div class="grid-col-span-1 h-40 bg-column"></div>
-  <div class="grid-col-span-1 h-40 bg-column"></div>
+<div class="show-grid">
+  <div class="grid-layout mt-40">
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+  </div>
 </div>
-
 
 <div class="copy">
   <figure class="code-example">
@@ -135,14 +136,16 @@ module.exports = {
   <p>If you use <code>grid-col-span-N</code> classes for your grid column spanning, then any nested <code>grid-layout</code>, or <code>w-N-cols</code> classes will key off the design grid at each breakpoint:</p>
 </div>
 
-<div class="grid-layout mt-40">
-  <div class="grid-col-span-2 h-40 bg-column"></div>
-  <div class="grid-col-span-8 grid-layout h-100 pt-20 bg-column">
-    <div class="grid-col-span-6 grid-layout h-80 pt-20 bg-column-alt">
-      <div class="grid-col-span-2 h-40 bg-column"></div>
-      <div class="grid-col-span-2 h-40 bg-column"></div>
+<div class="show-grid">
+  <div class="grid-layout mt-40">
+    <div class="grid-col-span-2 h-40 bg-column"></div>
+    <div class="grid-col-span-8 grid-layout h-100 pt-20 bg-column">
+      <div class="grid-col-span-6 grid-layout h-80 pt-20 bg-column-alt">
+        <div class="grid-col-span-2 h-40 bg-column"></div>
+        <div class="grid-col-span-2 h-40 bg-column"></div>
+      </div>
+      <div class="grid-col-span-1 h-40 bg-column-alt"></div>
     </div>
-    <div class="grid-col-span-1 h-40 bg-column-alt"></div>
   </div>
 </div>
 
@@ -168,9 +171,11 @@ module.exports = {
   <p>As both plugins use the same set of <code>:root</code> variables, they can be nested inside of each other:</p>
 </div>
 
-<div class="grid-layout mt-40">
-  <div class="grid-col-span-9 h-80 pt-20 bg-column">
-    <div class="w-5-cols h-40 bg-column-alt text-inverse">w-5-cols inside grid-col-span-9</div>
+<div class="show-grid">
+  <div class="grid-layout mt-40">
+    <div class="grid-col-span-9 h-80 pt-20 bg-column">
+      <div class="w-5-cols h-40 bg-column-alt text-inverse">w-5-cols inside grid-col-span-9</div>
+    </div>
   </div>
 </div>
 
@@ -191,9 +196,11 @@ module.exports = {
   <p>A full set of responsive classes are generated:</p>
 </div>
 
-<div class="grid-layout mt-40">
-  <div class="grid-col-span-2 md:grid-col-span-2 lg:grid-col-span-4 h-40 bg-column">grid-span-2 md:grid-span-2 lg:grid-span-4</div>
-  <div class="grid-col-span-1 md:grid-col-span-4 lg:grid-col-span-6 h-40 bg-column">grid-span-1 md:grid-span-4 lg:grid-span-6</div>
+<div class="show-grid">
+  <div class="grid-layout mt-40">
+    <div class="grid-col-span-2 md:grid-col-span-2 lg:grid-col-span-4 h-40 bg-column">grid-span-2 md:grid-span-2 lg:grid-span-4</div>
+    <div class="grid-col-span-1 md:grid-col-span-4 lg:grid-col-span-6 h-40 bg-column">grid-span-1 md:grid-span-4 lg:grid-span-6</div>
+  </div>
 </div>
 
 <div class="copy">
@@ -212,10 +219,12 @@ module.exports = {
   <p>For full and complete grid layouts, you will want use Tailwind native classes such as <code>row-span-*</code> (<a href="https://tailwindcss.com/docs/grid-row" target="_blank">Row spanning on Tailwind)</a>. This plugin doesn't re-create or usurp all Tailwind grid classes, just provides extra classes to work with your design grid.</p>
 </div>
 
-<div class="grid-layout mt-40">
-  <div class="grid-col-span-6 grid-col-start-4 row-span-full min-h-40 bg-column"></div>
-  <div class="grid-col-span-3 grid-col-start-1 row-span-3 min-h-40 bg-column"></div>
-  <div class="grid-col-span-3 grid-col-end-13 row-end-3 min-h-40 bg-column"></div>
+<div class="show-grid">
+  <div class="grid-layout mt-40">
+    <div class="grid-col-span-6 grid-col-start-4 row-span-full min-h-40 bg-column"></div>
+    <div class="grid-col-span-3 grid-col-start-1 row-span-3 min-h-40 bg-column"></div>
+    <div class="grid-col-span-3 grid-col-end-13 row-end-3 min-h-40 bg-column"></div>
+  </div>
 </div>
 
 <div class="copy">
@@ -228,6 +237,5 @@ module.exports = {
 &lt;/div></code></pre>
   </figure>
 </div>
-
 
 <?php include 'includes/_footer.php'; ?>

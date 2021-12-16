@@ -165,18 +165,20 @@ module.exports = {
 
 </div>
 
-<div class="w-1-cols h-40 bg-column mt-20">w-1-cols</div>
-<div class="w-2-cols h-40 bg-column mt-20">w-2-cols</div>
-<div class="w-3-cols h-40 bg-column mt-20">w-3-cols</div>
-<div class="w-4-cols h-40 bg-column mt-20">w-4-cols</div>
-<div class="w-5-cols h-40 bg-column mt-20">w-5-cols</div>
-<div class="w-6-cols h-40 bg-column mt-20">w-6-cols</div>
-<div class="w-7-cols h-40 bg-column mt-20">w-7-cols</div>
-<div class="w-8-cols h-40 bg-column mt-20">w-8-cols</div>
-<div class="w-9-cols h-40 bg-column mt-20">w-9-cols</div>
-<div class="w-10-cols h-40 bg-column mt-20">w-10-cols</div>
-<div class="w-11-cols h-40 bg-column mt-20">w-11-cols</div>
-<div class="w-12-cols h-40 bg-column mt-20">w-12-cols</div>
+<div class="show-grid">
+  <div class="w-1-cols h-40 bg-column mt-20">w-1-cols</div>
+  <div class="w-2-cols h-40 bg-column mt-20">w-2-cols</div>
+  <div class="w-3-cols h-40 bg-column mt-20">w-3-cols</div>
+  <div class="w-4-cols h-40 bg-column mt-20">w-4-cols</div>
+  <div class="w-5-cols h-40 bg-column mt-20">w-5-cols</div>
+  <div class="w-6-cols h-40 bg-column mt-20">w-6-cols</div>
+  <div class="w-7-cols h-40 bg-column mt-20">w-7-cols</div>
+  <div class="w-8-cols h-40 bg-column mt-20">w-8-cols</div>
+  <div class="w-9-cols h-40 bg-column mt-20">w-9-cols</div>
+  <div class="w-10-cols h-40 bg-column mt-20">w-10-cols</div>
+  <div class="w-11-cols h-40 bg-column mt-20">w-11-cols</div>
+  <div class="w-12-cols h-40 bg-column mt-20">w-12-cols</div>
+</div>
 
 <div class="copy">
   <figure class="code-example">
@@ -206,11 +208,13 @@ module.exports = {
   <p><strong>Note</strong> Fractions are consistent across all breakpoints. So, <code>1/2</code> will be 50% minus some inner gutter on all breakpoints set, unlike setting via columns whose apparent width will change if the total number of design columns at a breakpoint changes.</p>
 </div>
 
-<div class="w-1/4-cols h-40 bg-column mt-20">w-1/4-cols</div>
-<div class="w-1/3-cols h-40 bg-column mt-20">w-1/3-cols</div>
-<div class="w-1/2-cols h-40 bg-column mt-20">w-1/2-cols</div>
-<div class="w-2/3-cols h-40 bg-column mt-20">w-2/3-cols</div>
-<div class="w-3/4-cols h-40 bg-column mt-20">w-3/4-cols</div>
+<div class="show-grid">
+  <div class="w-1/4-cols h-40 bg-column mt-20">w-1/4-cols</div>
+  <div class="w-1/3-cols h-40 bg-column mt-20">w-1/3-cols</div>
+  <div class="w-1/2-cols h-40 bg-column mt-20">w-1/2-cols</div>
+  <div class="w-2/3-cols h-40 bg-column mt-20">w-2/3-cols</div>
+  <div class="w-3/4-cols h-40 bg-column mt-20">w-3/4-cols</div>
+</div>
 
 <div class="copy">
   <figure class="code-example">
@@ -231,7 +235,9 @@ module.exports = {
   <p>Which will be 4 design columns wide until the <code>lg</code> breakpoint, when it will become 10 columns wide:</p>
 </div>
 
-<div class="w-4-cols lg:w-10-cols h-40 bg-column mt-20">w-4-cols lg:w-10-cols</div>
+<div class="show-grid">
+  <div class="w-4-cols lg:w-10-cols h-40 bg-column mt-20">w-4-cols lg:w-10-cols</div>
+</div>
 
 <div class="copy">
   <figure class="code-example">
@@ -242,7 +248,9 @@ module.exports = {
   <p>And of course, can assign different sizes at all of your breakpoints:</p>
 </div>
 
-<div class="w-4-cols sm:w-3-cols md:w-6-cols lg:w-10-cols xl:w-8-cols xxl:w-6-cols h-40 bg-column mt-20">w-4-cols sm:w-3-cols md:w-6-cols lg:w-10-cols xl:w-8-cols xxl:w-6-cols</div>
+<div class="show-grid">
+  <div class="w-4-cols sm:w-3-cols md:w-6-cols lg:w-10-cols xl:w-8-cols xxl:w-6-cols h-40 bg-column mt-20">w-4-cols sm:w-3-cols md:w-6-cols lg:w-10-cols xl:w-8-cols xxl:w-6-cols</div>
+</div>
 
 <div class="copy">
   <figure class="code-example">
@@ -254,8 +262,9 @@ module.exports = {
 
 </div>
 
-<div class="w-3/4-cols md:w-1/2-cols lg:w-2/3-cols xl:w-1/2-cols h-40 bg-column mt-20">w-3/4-cols md:w-1/2-cols lg:w-2/3-cols xl:w-1/2-cols</div>
-
+<div class="show-grid">
+  <div class="w-3/4-cols md:w-1/2-cols lg:w-2/3-cols xl:w-1/2-cols h-40 bg-column mt-20">w-3/4-cols md:w-1/2-cols lg:w-2/3-cols xl:w-1/2-cols</div>
+</div>
 
 <div class="copy">
   <figure class="code-example">
@@ -271,9 +280,11 @@ module.exports = {
 
 </div>
 
-<div class="w-8-cols h-120 bg-column mt-20 py-20">
-  <div class="w-6-cols h-80 bg-column-alt py-20">
-    <div class="w-4-cols h-40 bg-column">w-4-cols inside w-6-cols inside w-8-cols</div>
+<div class="show-grid">
+  <div class="w-8-cols h-120 bg-column mt-20 py-20">
+    <div class="w-6-cols h-80 bg-column-alt py-20">
+      <div class="w-4-cols h-40 bg-column">w-4-cols inside w-6-cols inside w-8-cols</div>
+    </div>
   </div>
 </div>
 
@@ -292,8 +303,10 @@ module.exports = {
   <p>Nesting fractions inside fractions will work, but instead halving the breakpoint's total columns, you'll the containers total columns. And so, if you have 12 design columns and you insert <code>w-1/2-cols</code> inside <code>w-1/2-cols</code>, you'll get one 6 design column wide element wrapping a 3 design column wide element:</p>
 </div>
 
-<div class="w-1/2-cols h-80 bg-column-alt mt-20 py-20">
-  <div class="w-1/2-cols h-40 bg-column">w-1/2-cols inside w-1/2-cols</div>
+<div class="show-grid">
+  <div class="w-1/2-cols h-80 bg-column-alt mt-20 py-20">
+    <div class="w-1/2-cols h-40 bg-column">w-1/2-cols inside w-1/2-cols</div>
+  </div>
 </div>
 
 <div class="copy">
@@ -307,8 +320,10 @@ module.exports = {
   <p>Mixing and matching <code>N</code> cols widths and fractional widths when nesting may give you unexpected results. A fraction as a child of a <code>N</code> cols width will work as expected:</p>
 </div>
 
-<div class="w-8-cols h-80 bg-column-alt mt-20 py-20">
-  <div class="w-1/2-cols h-40 bg-column">w-1/2-cols inside w-8-cols</div>
+<div class="show-grid">
+  <div class="w-8-cols h-80 bg-column-alt mt-20 py-20">
+    <div class="w-1/2-cols h-40 bg-column">w-1/2-cols inside w-8-cols</div>
+  </div>
 </div>
 
 <div class="copy">
@@ -322,8 +337,10 @@ module.exports = {
   <p><strong>But</strong>, placing a <code>N</code> cols widths inside a fractional width column will not work as fractional widths work cross breakpoint regardless of column count and so don't set/reset the columns total inside themselves. In this scenario, the <code>N</code> cols width assumes the fractional width column container has total columns at that breakpoint. So, if you have 12 design columns and you set a <code>w-3-cols</code> inside of <code>w-1/2-cols</code>, you'll end up with a 1.5 column wide child column:</p>
 </div>
 
-<div class="w-1/2-cols h-80 bg-column-alt mt-20 py-20">
-  <div class="w-3-cols h-40 bg-column">w-1/2-cols inside w-8-cols</div>
+<div class="show-grid">
+  <div class="w-1/2-cols h-80 bg-column-alt mt-20 py-20">
+    <div class="w-3-cols h-40 bg-column">w-1/2-cols inside w-8-cols</div>
+  </div>
 </div>
 
 <div class="copy">
@@ -344,11 +361,13 @@ module.exports = {
 
 </div>
 
-<div class="w-8-cols bg-column mt-20">
-  <div class="grid-layout">
-    <div class="grid-col-span-2 h-40 bg-column-alt"></div>
-    <div class="grid-col-span-3 h-40 bg-column-alt"></div>
-    <div class="grid-col-span-1 h-40 bg-column-alt"></div>
+<div class="show-grid">
+  <div class="w-8-cols bg-column mt-20">
+    <div class="grid-layout">
+      <div class="grid-col-span-2 h-40 bg-column-alt"></div>
+      <div class="grid-col-span-3 h-40 bg-column-alt"></div>
+      <div class="grid-col-span-1 h-40 bg-column-alt"></div>
+    </div>
   </div>
 </div>
 
@@ -371,11 +390,13 @@ module.exports = {
   <p>If you want to make layout grids, using flex as opposed to CSS Grid, you may want to use <code>.cols-container</code>. This adds some auto gutter margins to <code>.w-N-cols</code> children:</p>
 </div>
 
-<div class="cols-container mt-20">
-  <div class="w-1-cols h-40 bg-column"></div>
-  <div class="w-1-cols h-40 bg-column"></div>
-  <div class="w-1-cols h-40 bg-column"></div>
-  <div class="w-1-cols h-40 bg-column"></div>
+<div class="show-grid">
+  <div class="cols-container mt-20">
+    <div class="w-1-cols h-40 bg-column"></div>
+    <div class="w-1-cols h-40 bg-column"></div>
+    <div class="w-1-cols h-40 bg-column"></div>
+    <div class="w-1-cols h-40 bg-column"></div>
+  </div>
 </div>
 
 <div class="copy">
@@ -394,9 +415,11 @@ module.exports = {
   <p>If you need to zero out the margin left for some reason, you can use <code>ml-0</code>:</p>
 </div>
 
-<div class="cols-container mt-20">
-  <div class="w-1-cols h-40 bg-column"></div>
-  <div class="w-2-cols ml-0 h-40 bg-column-alt"></div>
+<div class="show-grid">
+  <div class="cols-container mt-20">
+    <div class="w-1-cols h-40 bg-column"></div>
+    <div class="w-2-cols ml-0 h-40 bg-column-alt"></div>
+  </div>
 </div>
 
 <div class="copy">
@@ -417,8 +440,10 @@ module.exports = {
   <p>Classes for <code>.ml-</code>, <code>.mr-</code> and <code>.mx-</code>, and their negative equivilants (<code>.-ml-</code>, <code>.-mr-</code>, <code>.-mx-</code>) are also generated:</p>
 </div>
 
-<div class="cols-container mt-20">
-  <div class="w-1-cols ml-2-cols h-40 bg-column"></div>
+<div class="show-grid">
+  <div class="cols-container mt-20">
+    <div class="w-1-cols ml-2-cols h-40 bg-column"></div>
+  </div>
 </div>
 
 <div class="copy">
@@ -432,8 +457,10 @@ module.exports = {
   <p>If your content is aligned right, say with <code>justify-end</code> and you want to push items away from the right, you can use <code>mr-N-cols</code>:</p>
 </div>
 
-<div class="flex flex-row justify-end">
-  <div class="w-1-cols mr-1-cols h-40 bg-column"></div>
+<div class="show-grid">
+  <div class="flex flex-row justify-end">
+    <div class="w-1-cols mr-1-cols h-40 bg-column"></div>
+  </div>
 </div>
 
 <div class="copy">
@@ -447,8 +474,10 @@ module.exports = {
   <p>You can also push by fractions, which by their design, account for gutters:</p>
 </div>
 
-<div class="flex flex-row mt-20">
-  <div class="w-1/3-cols ml-2/3-cols h-40 bg-column">w-1/3-cols ml-2/3-cols</div>
+<div class="show-grid">
+  <div class="flex flex-row mt-20">
+    <div class="w-1/3-cols ml-2/3-cols h-40 bg-column">w-1/3-cols ml-2/3-cols</div>
+  </div>
 </div>
 
 <div class="copy">
@@ -463,8 +492,10 @@ module.exports = {
   <p>And, within <code>.cols-container</code>:</p>
 </div>
 
-<div class="cols-container mt-20">
-  <div class="w-1/2-cols ml-1/4-cols h-40 bg-column">w-1/2-cols ml-1/4-cols</div>
+<div class="show-grid">
+  <div class="cols-container mt-20">
+    <div class="w-1/2-cols ml-1/4-cols h-40 bg-column">w-1/2-cols ml-1/4-cols</div>
+  </div>
 </div>
 
 <div class="copy">
@@ -482,8 +513,10 @@ module.exports = {
   <p>Much like margins, padding classes are also generated: <code>.pl-</code>, <code>.pr-</code> and <code>.px-</code></p>
 </div>
 
-<div class="pl-2-cols pr-4-cols bg-column-alt h-80 pt-20 mt-20">
-  <div class="bg-column h-40">100% wide inside of pl-2-cols pr-4-cols</div>
+<div class="show-grid">
+  <div class="pl-2-cols pr-4-cols bg-column-alt h-80 pt-20 mt-20">
+    <div class="bg-column h-40">100% wide inside of pl-2-cols pr-4-cols</div>
+  </div>
 </div>
 
 <div class="copy">
@@ -497,8 +530,10 @@ module.exports = {
   <p>Padding and nesting do not mix very well, as the padded amount isn't accounted for in the width calc. Fractional widths will still align to the grid:</p>
 </div>
 
-<div class="pl-2-cols bg-column-alt h-80 pt-20 mt-20">
-  <div class="w-1/2-cols bg-column h-40">w-1/2-cols inside of pl-2-cols</div>
+<div class="show-grid">
+  <div class="pl-2-cols bg-column-alt h-80 pt-20 mt-20">
+    <div class="w-1/2-cols bg-column h-40">w-1/2-cols inside of pl-2-cols</div>
+  </div>
 </div>
 
 <div class="copy">
@@ -520,9 +555,11 @@ module.exports = {
   <p>Fractions and responsive work as expected and nesting will work, if you apply a <code>w-N-cols</code> class.</p>
 </div>
 
-<div class="relative h-96 mt-20">
-  <div class="w-3-cols h-40 bg-column absolute top-0 left-1-cols">w-3-cols left-1-cols</div>
-  <div class="w-1/3-cols h-40 bg-column absolute top-56 left-1/3-cols">w-1/3-cols left-1/3-cols</div>
+<div class="show-grid">
+  <div class="relative h-96 mt-20">
+    <div class="w-3-cols h-40 bg-column absolute top-0 left-1-cols">w-3-cols left-1-cols</div>
+    <div class="w-1/3-cols h-40 bg-column absolute top-56 left-1/3-cols">w-1/3-cols left-1/3-cols</div>
+  </div>
 </div>
 
 <div class="copy">
@@ -537,9 +574,11 @@ module.exports = {
   <p>Push and pull classes, with or without gutters, will also work:</p>
 </div>
 
-<div class="relative h-80 mt-20">
-  <div class="w-2-cols h-40 bg-column absolute top-0 left-0 ml-2-cols">left-0 ml-2-cols</div>
-  <div class="w-2-cols h-40 bg-column absolute top-40 right-0 mr-2-cols">right-0 mr-2-cols</div>
+<div class="show-grid">
+  <div class="relative h-80 mt-20">
+    <div class="w-2-cols h-40 bg-column absolute top-0 left-0 ml-2-cols">left-0 ml-2-cols</div>
+    <div class="w-2-cols h-40 bg-column absolute top-40 right-0 mr-2-cols">right-0 mr-2-cols</div>
+  </div>
 </div>
 
 <div class="copy">
@@ -556,8 +595,10 @@ module.exports = {
   <p>Margin, padding and positioning classes also have gutter-less versions. That is, you can position things to the edge of the preceding column rather than the following column:</p>
 </div>
 
-<div class="cols-container mt-20">
-  <div class="w-3-cols ml-2-cols-no-gutter h-40 bg-column">w-3-cols ml-2-cols-no-gutter</div>
+<div class="show-grid">
+  <div class="cols-container mt-20">
+    <div class="w-3-cols ml-2-cols-no-gutter h-40 bg-column">w-3-cols ml-2-cols-no-gutter</div>
+  </div>
 </div>
 
 <div class="copy">
@@ -567,8 +608,6 @@ module.exports = {
   &lt;div class="w-3-cols ml-2-cols-no-gutter">&lt;/div>
 &lt;/div></code></pre>
   </figure>
-
-
 </div>
 
 <?php include 'includes/_footer.php'; ?>
