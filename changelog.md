@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.1] - 2021-12-20
+
+### Summary of main changes
+
+Updated `Underline` plugin to add utility classes from Tailwind config theme colours and a dedicated them underline colour list.
+
+### Changed
+
+- `Underline` plugin
+  - adds utility classes from `theme.colors` (not name spaced)
+  - adds utility classes from `theme.underlineColor` (not name spaced)
+  - retains utility classes from `theme.textColor`, `theme.borderColor` and `theme.backgroundColor` (name spaced as before)
+- `docs/Underline` 
+  - updated to document changes to plugin
+  
+
 ## [3.5.0] - 2021-12-16
 
 ### Summary of main changes

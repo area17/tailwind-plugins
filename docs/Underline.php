@@ -40,24 +40,30 @@ module.exports = {
   ...
   plugins: [Underline],
   theme: {
+    colors: {
+      grey-15: "#d9d9d9",
+      grey-54: "#757575",
+      grey-90: "#1a1a1a",
+      black: "#000",
+      blue-03: "#004F91"
+    },
+    underlineColor: {
+      primary: "#757575",
+      secondary: "#004F91"
+    },
     borderColor: ApplyColorVariables(colors, {
-        primary: "#757575",
-        secondary: "#f00",
-        tertiary: "#d9d9d9"
+        primary: "#000",
+        secondary: "#d9d9d9"
       }
     ),
     textColor: ApplyColorVariables(colors, {
-        title: "#000",
         primary: "#1a1a1a",
         secondary: "#757575",
-        accent: "#004F91",
+        accent: "#004F91"
       }
     ),
     backgroundColor: ApplyColorVariables(colors, {
-        banner: "grey-90",
         accent: "#004F91",
-        column: #81EEF3",
-        column-alt: "#313BFB"
       }
     )
   }
@@ -66,6 +72,8 @@ module.exports = {
   </figure>
 
   <p>Requires <code>theme.textColor</code>, <code>theme.borderColor</code> and/or <code>theme.backgroundColor</code> configured.</p>
+
+  <p><strong>Note:</strong> <code>theme.colors</code> and <code>theme.underlineColor</code> are only parsed by this plugin after version <code>3.5.1</code>.</p>
 
   <h2 id="output">Output</h2>
 
@@ -402,11 +410,13 @@ module.exports = {
 
   <h3 id="color">Underline color (<code>text-decoration-color</code>)</h3>
 
-  <p>Underline colour takes its values from your Tailwind config <code>theme.textColor</code>, <code>theme.borderColor</code> and/or <code>theme.backgroundColor</code> values.</p>
+  <p>Underline colour takes its values from your Tailwind config colors. It creates classes from <code>theme.colors</code> and <code>theme.underlineColor</code> and also name spaced classes from <code>theme.textColor</code>, <code>theme.borderColor</code> and/or <code>theme.backgroundColor</code>.</p>
+
+  <p>From <code>theme.underlineColor</code>, using the config in this document:</p>
 </div>
 
 <?php
-  $styles = ['underline-text-title', 'underline-text-primary', 'underline-text-secondary', 'underline-text-accent', 'underline-border-primary', 'underline-border-secondary', 'underline-border-tertiary', 'underline-bg-header', 'underline-bg-banner', 'underline-bg-accent', 'underline-bg-column', 'underline-bg-column-alt'];
+  $styles = ['underline-primary', 'underline-secondary'];
   $i = 0;
 
   foreach ($styles as &$value) {
@@ -427,6 +437,44 @@ module.exports = {
   }
 ?></code></pre>
   </figure>
+
+  <p>From <code>theme.colors</code>, using the config in this document:</p>
 </div>
+
+<?php
+  $styles = ['underline-grey-15', 'underline-grey-54', 'underline-grey-90', 'underline-black', 'underline-blue-03'];
+  $i = 0;
+
+  foreach ($styles as &$value) {
+    echo '<span class="block f-h2 '.($i == 0 ? 'mt-40' : 'mt-20').' underline-solid underline-thickness-2 '.$value.'">'.$value.'</span>';
+    $i++;
+  }
+?>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre class="code-example-code"><code class="language-html"><?php
+  $i = 0;
+
+  foreach ($styles as &$value) {
+    echo '&lt;span class="underline-solid underline-thickness-2 '.$value.'">'.$value.'&lt;/span>&#13;';
+    $i++;
+  }
+?></code></pre>
+  </figure>
+
+  <p>And finally, from <code>theme.textColor</code>, <code>theme.borderColor</code> and/or <code>theme.backgroundColor</code>, using the config in this document:</p>
+</div>
+
+<?php
+  $styles = ['underline-text-primary', 'underline-text-secondary', 'underline-text-accent', 'underline-border-primary', 'underline-border-secondary', 'underline-bg-accent'];
+  $i = 0;
+
+  foreach ($styles as &$value) {
+    echo '<span class="block f-h2 '.($i == 0 ? 'mt-40' : 'mt-20').' underline-solid underline-thickness-2 '.$value.'">'.$value.'</span>';
+    $i++;
+  }
+?>
 
 <?php include 'includes/_footer.php'; ?>

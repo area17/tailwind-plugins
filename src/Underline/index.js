@@ -1,15 +1,11 @@
 module.exports = function({ addUtilities, theme }) {
 
   const colors = {
-    'text': {
-      ...theme('textColor', theme('color', {}))
-    },
-    'bg': {
-      ...theme('backgroundColor', theme('color', {}))
-    },
-    'border': {
-      ...theme('borderColor', theme('color', {}))
-    }
+    'underline': theme('underlineColor', {}),
+    'token': theme('colors', {}),
+    'text': theme('textColor', {}),
+    'bg': theme('backgroundColor', {}),
+    'border': theme('borderColor', {})
   };
 
   const styles = {
@@ -71,7 +67,12 @@ module.exports = function({ addUtilities, theme }) {
     const [type, obj] = a;
     Object.entries(obj).map((b) => {
       const [name, color] = b;
-      styles[`.underline-${ type }-${ name }`] = {
+      let className = '.underline-';
+      if (type !== 'token' && type !== 'underline') {
+        className += `${ type }-`;
+      }
+      className += name;
+      styles[className] = {
         'text-decoration-color': color
       }
     });

@@ -89,13 +89,13 @@
       "blue-05": "#81EEF3",
       "red-01": "#f00"
     },
-    "borderColor": {
+    "border": {
       "primary": "black",
       "secondary": "grey-15",
       "tertiary": "grey-54",
       "code-example-filename": "blue-05"
     },
-    "textColor": {
+    "text": {
       "title": "black",
       "primary": "grey-90",
       "inverse": "white",
@@ -105,7 +105,7 @@
       "code-example": "grey-3",
       "code-example-filename": "blue-05"
     },
-    "backgroundColor": {
+    "background": {
       "primary": "white",
       "header": "grey-10",
       "footer": "grey-10",
@@ -115,6 +115,10 @@
       "column-alt": "blue-04",
       "code": "grey-10",
       "code-example": "grey-90"
+    },
+    "underline": {
+      "primary": "grey-54",
+      "secondary": "blue-03"
     }
   },
   "typography": {

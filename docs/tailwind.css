@@ -4826,9 +4826,39 @@ Ensure the default browser behavior of the `hidden` attribute.
   text-underline-offset: -1em;
 }
 
-.underline-text-title {
-  -webkit-text-decoration-color: var(--black);
-          text-decoration-color: var(--black);
+.underline-primary {
+  -webkit-text-decoration-color: var(--grey-54);
+          text-decoration-color: var(--grey-54);
+}
+
+.underline-secondary {
+  -webkit-text-decoration-color: var(--blue-03);
+          text-decoration-color: var(--blue-03);
+}
+
+.underline-grey-15 {
+  -webkit-text-decoration-color: #d9d9d9;
+          text-decoration-color: #d9d9d9;
+}
+
+.underline-grey-54 {
+  -webkit-text-decoration-color: #757575;
+          text-decoration-color: #757575;
+}
+
+.underline-grey-90 {
+  -webkit-text-decoration-color: #1a1a1a;
+          text-decoration-color: #1a1a1a;
+}
+
+.underline-black {
+  -webkit-text-decoration-color: #000;
+          text-decoration-color: #000;
+}
+
+.underline-blue-03 {
+  -webkit-text-decoration-color: #004F91;
+          text-decoration-color: #004F91;
 }
 
 .underline-text-primary {
@@ -4846,29 +4876,9 @@ Ensure the default browser behavior of the `hidden` attribute.
           text-decoration-color: var(--blue-03);
 }
 
-.underline-bg-header {
-  -webkit-text-decoration-color: var(--grey-10);
-          text-decoration-color: var(--grey-10);
-}
-
-.underline-bg-banner {
-  -webkit-text-decoration-color: var(--grey-90);
-          text-decoration-color: var(--grey-90);
-}
-
 .underline-bg-accent {
   -webkit-text-decoration-color: var(--blue-03);
           text-decoration-color: var(--blue-03);
-}
-
-.underline-bg-column {
-  -webkit-text-decoration-color: var(--blue-05);
-          text-decoration-color: var(--blue-05);
-}
-
-.underline-bg-column-alt {
-  -webkit-text-decoration-color: var(--blue-04);
-          text-decoration-color: var(--blue-04);
 }
 
 .underline-border-primary {
