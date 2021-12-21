@@ -199,9 +199,10 @@ module.exports = function({ addComponents, theme, e, prefix, config }) {
   ];
 
   // makes CSS classes with calcs
-  function generateClasses(variant, obj, calc, cCalc) {
+  function generateClasses(variant, obj, calc, cCalc, vwCalc) {
     let attrs = {};
     let cAttrs = {};
+    let vwAttrs = {};
 
     if (obj.addGutter) {
       calc = `((${ calc }) + var(--inner-gutter))`;
@@ -217,21 +218,25 @@ module.exports = function({ addComponents, theme, e, prefix, config }) {
     if (obj.inverse) {
       calc = `(${ calc }) * -1`;
       cCalc = `(${ cCalc }) * -1`;
+      vwCalc = `(${ vwCalc }) * -1`;
     }
 
     if (Array.isArray(obj.attribute)) {
       obj.attribute.forEach(attr => {
         attrs[attr] = `calc(${ calc })`;
         cAttrs[attr] = `calc(${ cCalc })`;
+        vwAttrs[attr] = `calc(${ vwCalc })`;
       });
     } else {
       attrs[obj.attribute] = `calc(${ calc })`;
       cAttrs[obj.attribute] = `calc(${ cCalc })`;
+      vwAttrs[obj.attribute] = `calc(${ vwCalc })`;
     }
 
     styles.push({
       [`${ prefix('.' + e(obj.name + '-' + variant + (obj.suffix || ''))) }`]: attrs,
       [`${ prefix('.cols-container') } > ${ prefix('.' + e(obj.name + '-' + variant + (obj.suffix || ''))) }`]: cAttrs,
+      [`${ prefix('.' + e(obj.name + '-' + variant + (obj.suffix || ''))) }-vw`]: vwAttrs,
     });
   }
 
@@ -240,8 +245,9 @@ module.exports = function({ addComponents, theme, e, prefix, config }) {
     classes.forEach(obj => {
       let calc = `((${cols} / var(--grid-columns)) * 100%) - (var(--inner-gutter) - (${cols} / var(--grid-columns) * var(--inner-gutter)))`;
       let cCalc = `((${cols} / var(--grid-columns)) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (${cols} / var(--grid-columns) * var(--inner-gutter)))`;
+      let vwCalc = `calc((((var(--container-width, (100vw - var(--scroll-bar-width, 0px))) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * (${cols})) + ((${cols} - 1) * var(--inner-gutter)))`;
 
-      generateClasses(cols, obj, calc, cCalc);
+      generateClasses(cols, obj, calc, cCalc, vwCalc);
     });
   }
 

@@ -22,6 +22,29 @@
       <div class="dev-tools-grid" hidden></div>
     </div>
 
+    <script>
+      let scrollbox = document.createElement('div');
+      scrollbox.style.overflow = 'scroll';
+      document.body.appendChild(scrollbox);
+
+      // Measure inner width of box
+      const scrollBarWidth = scrollbox.offsetWidth - scrollbox.clientWidth;
+
+      document.body.removeChild(scrollbox);
+      document.documentElement.style.setProperty('--scroll-bar-width', `${ scrollBarWidth }px`);
+
+      // test is scroll bar is visible
+      function setScrollBarVisible() {
+        const scrollBarVisible = document.documentElement.scrollHeight > document.documentElement.clientHeight;
+        const overflowYSet = window.getComputedStyle(document.documentElement, null).getPropertyValue('overflow-y') === 'scroll';
+        document.documentElement.style.setProperty('--scroll-bar-visible-width', `${ scrollBarVisible || overflowYSet ? scrollBarWidth : 0 }px`);
+      }
+
+      window.addEventListener('load', setScrollBarVisible, false);
+      window.addEventListener('resized', setScrollBarVisible, false);
+      setScrollBarVisible();
+    </script>
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
 </body>

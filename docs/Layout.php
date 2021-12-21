@@ -1,6 +1,92 @@
 <?php $title = 'Layout'; ?>
 <?php include 'includes/_header.php'; ?>
 
+
+<ul class="flex flex-row flex-nowrap overflow-x-auto gap-gutter">
+  <li class="w-1-cols h-40 bg-column flex-none"></li>
+  <li class="w-2-cols h-40 bg-column flex-none"></li>
+  <li class="w-3-cols h-40 bg-column flex-none"></li>
+  <li class="w-4-cols h-40 bg-column flex-none"></li>
+  <li class="w-5-cols h-40 bg-column flex-none"></li>
+  <li class="w-6-cols h-40 bg-column flex-none"></li>
+  <li class="w-7-cols h-40 bg-column flex-none"></li>
+  <li class="w-8-cols h-40 bg-column flex-none"></li>
+</ul>
+
+<ul class="flex flex-row flex-nowrap overflow-x-auto gap-gutter lg:grid lg:grid-cols-4">
+  <li class="w-1-cols h-40 bg-column flex-none lg:w-auto"></li>
+  <li class="w-2-cols h-40 bg-column flex-none lg:w-auto"></li>
+  <li class="w-3-cols h-40 bg-column flex-none lg:w-auto"></li>
+  <li class="w-4-cols h-40 bg-column flex-none lg:w-auto"></li>
+  <li class="w-5-cols h-40 bg-column flex-none lg:w-auto"></li>
+  <li class="w-6-cols h-40 bg-column flex-none lg:w-auto"></li>
+  <li class="w-7-cols h-40 bg-column flex-none lg:w-auto"></li>
+  <li class="w-8-cols h-40 bg-column flex-none lg:w-auto"></li>
+</ul>
+
+<div class="breakout bg-header my-40">
+  <ul class="full-bleed-scoller">
+    <li class="w-1-cols-vw h-40 bg-column"></li>
+    <li class="w-2-cols-vw h-40 bg-column"></li>
+    <li class="w-3-cols-vw h-40 bg-column"></li>
+    <li class="w-4-cols-vw h-40 bg-column"></li>
+    <li class="w-5-cols-vw h-40 bg-column"></li>
+    <li class="w-6-cols-vw h-40 bg-column"></li>
+    <li class="w-7-cols-vw h-40 bg-column"></li>
+    <li class="w-8-cols-vw h-40 bg-column"></li>
+  </ul>
+</div>
+
+<div class="breakout md:unbreakout bg-header my-40">
+  <ul class="full-bleed-scoller before:hidden after:hidden">
+    <li class="w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
+    <li class="w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
+    <li class="w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
+    <li class="w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
+    <li class="w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
+    <li class="w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
+    <li class="w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
+    <li class="w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
+  </ul>
+</div>
+
+<div class="breakout md:unbreakout bg-header my-40">
+  <ul class="full-bleed-scoller md:full-bleed-scoller-reset md:grid md:gap-gutter md:grid-cols-2 lg:grid-cols-3">
+    <li class="w-3-cols-vw md:w-auto h-40 bg-column"></li>
+    <li class="w-3-cols-vw md:w-auto h-40 bg-column"></li>
+    <li class="w-3-cols-vw md:w-auto h-40 bg-column"></li>
+    <li class="w-3-cols-vw md:w-auto h-40 bg-column"></li>
+    <li class="w-3-cols-vw md:w-auto h-40 bg-column"></li>
+    <li class="w-3-cols-vw md:w-auto h-40 bg-column"></li>
+    <li class="w-3-cols-vw md:w-auto h-40 bg-column"></li>
+    <li class="w-3-cols-vw md:w-auto h-40 bg-column"></li>
+  </ul>
+</div>
+
+<div class="breakout bg-header my-40 px-outer-gutter">
+  <div class="bg-column h-40"></div>
+</div>
+
+<div class="breakout bg-header my-40">
+  <div class="bg-column h-40 px-outer-gutter">
+    <div class="bg-header h-40"></div>
+  </div>
+</div>
+
+<div class="breakout bg-header my-40">
+  <div class="container bg-column h-40">
+  </div>
+</div>
+
+<div class="breakout bg-header my-40 flex flex-row justify-between">
+  <div class="bg-column h-40 w-outer-gutter"></div>
+  <div class="bg-column h-40 w-outer-gutter"></div>
+</div>
+
+<div class="breakout">
+  <div class="container md:uncontain bg-column h-40"></div>
+</div>
+
 <div class="copy">
   <h2 id="description">Description</h2>
 

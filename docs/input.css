@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+
+  .full-bleed-scoller {
+    @apply flex flex-row flex-nowrap overflow-x-auto before:content-[''] before:flex-none before:w-outer-gutter after:content-[''] after:flex-none after:w-outer-gutter xxl:before:w-outer-gutter xxl:after:w-outer-gutter;
+  }
+
+  .full-bleed-scoller > * {
+    @apply flex-none ml-gutter first:ml-0;
+  }
+
+  .full-bleed-scoller-reset {
+    display: unset;
+    flex-flow: unset;
+    flex-wrap: unset;
+    overflow-x: unset;
+  }
+
+  .full-bleed-scoller-reset::before,
+  .full-bleed-scoller-reset::after {
+    content: none;
+    flex: unset;
+    width: unset;
+  }
+
+  .full-bleed-scoller-reset > * {
+    flex: unset;
+    margin-left: unset;
+  }
+}
+

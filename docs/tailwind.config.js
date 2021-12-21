@@ -1,5 +1,7 @@
 // A17 tailwind plugins
-const { Setup, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, Spacing, Typography, ColorTokens, ApplyColorVariables, Components, CssInJs, GridLayout, SpacingTokens, Underline } = require('@area17/a17-tailwind-plugins');
+const { Setup, RatioBox, GridLine, PseudoElements, DevTools, GridGap, Keyline, Spacing, Typography, ColorTokens, ApplyColorVariables, Components, CssInJs, GridLayout, SpacingTokens, Underline } = require('@area17/a17-tailwind-plugins');
+const Container = require('../src/Container/index.js');
+const Layout = require('../src/Layout/index.js');
 
 // conf
 const feConfig = require('./frontend.config.json');
@@ -36,7 +38,7 @@ module.exports = {
         'safe-left': 'env(safe-area-inset-left)',
         'safe-right': 'env(safe-area-inset-right)',
         'gutter': 'var(--inner-gutter)',
-        'outer-gutter': 'var(--outer-gutter)'
+        'outer-gutter': 'var(--outer-gutter, 0px)'
       }
     }
   }

@@ -739,6 +739,97 @@ Ensure the default browser behavior of the `hidden` attribute.
        column-gap: var(--inner-gutter);
 }
 
+.container {
+  width: calc(var(--container-width, 100%) - (2 * var(--outer-gutter, 0)));
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.breakout {
+  --breakout-outer-gutter: max(var(--outer-gutter), calc((100% - var(--container-width, 100%)) / 2));
+  position: relative;
+  left: 50%;
+  width: calc(100vw - var(--scroll-bar-visible-width, 0px));
+  margin-left: calc((100vw - var(--scroll-bar-visible-width, 0px)) / -2);
+}
+
+.breakout.px-outer-gutter, .breakout > .px-outer-gutter {
+  padding-left: var(--breakout-outer-gutter);
+  padding-right: var(--breakout-outer-gutter);
+}
+
+.breakout.pr-outer-gutter, .breakout > .pr-outer-gutter {
+  padding-right: var(--breakout-outer-gutter);
+}
+
+.breakout.pl-outer-gutter, .breakout > .pl-outer-gutter {
+  padding-left: var(--breakout-outer-gutter);
+}
+
+.breakout > .w-outer-gutter {
+  width: var(--breakout-outer-gutter);
+}
+
+.full-bleed-scoller {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.breakout > .full-bleed-scoller::after {
+  width: var(--breakout-outer-gutter);
+}
+
+.full-bleed-scoller::after {
+  width: var(--outer-gutter, 0px);
+  flex: none;
+  --tw-content: '';
+  content: var(--tw-content);
+}
+
+.breakout > .full-bleed-scoller::before {
+  width: var(--breakout-outer-gutter);
+}
+
+.full-bleed-scoller::before {
+  width: var(--outer-gutter, 0px);
+  flex: none;
+  --tw-content: '';
+  content: var(--tw-content);
+}
+
+@media (min-width: 1520px) {
+   {
+    width: var(--breakout-outer-gutter);
+  }
+
+  .full-bleed-scoller::after {
+    width: var(--outer-gutter, 0px);
+  }
+
+   {
+    width: var(--breakout-outer-gutter);
+  }
+
+  .full-bleed-scoller::before {
+    width: var(--outer-gutter, 0px);
+  }
+}
+
+.full-bleed-scoller > * {
+  margin-left: var(--inner-gutter);
+  flex: none;
+}
+
+.cols-container > .full-bleed-scoller > *:first-child {
+  margin-left: 0;
+}
+
+.full-bleed-scoller > *:first-child {
+  margin-left: 0rem;
+}
+
 *, ::before, ::after {
   --tw-translate-x: 0;
   --tw-translate-y: 0;
@@ -771,6 +862,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .cols-container > .w-1-cols {
   width: calc(((1 / var(--grid-columns)) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (1 / var(--grid-columns) * var(--inner-gutter))));
+}
+
+.w-1-cols-vw {
+  width: calc(calc((((var(--container-width, (100vw - var(--scroll-bar-width, 0px))) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * (1)) + ((1 - 1) * var(--inner-gutter))));
 }
 
 .mr-1-cols {
@@ -921,6 +1016,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .cols-container > .w-2-cols {
   width: calc(((2 / var(--grid-columns)) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (2 / var(--grid-columns) * var(--inner-gutter))));
+}
+
+.w-2-cols-vw {
+  width: calc(calc((((var(--container-width, (100vw - var(--scroll-bar-width, 0px))) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * (2)) + ((2 - 1) * var(--inner-gutter))));
 }
 
 .mr-2-cols {
@@ -1081,6 +1180,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: calc(((3 / var(--grid-columns)) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (3 / var(--grid-columns) * var(--inner-gutter))));
 }
 
+.w-3-cols-vw {
+  width: calc(calc((((var(--container-width, (100vw - var(--scroll-bar-width, 0px))) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * (3)) + ((3 - 1) * var(--inner-gutter))));
+}
+
 .cols-container > .mr-3-cols {
   margin-right: calc(((((3 / var(--grid-columns)) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (3 / var(--grid-columns) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
@@ -1221,6 +1324,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .cols-container > .w-4-cols {
   width: calc(((4 / var(--grid-columns)) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (4 / var(--grid-columns) * var(--inner-gutter))));
+}
+
+.w-4-cols-vw {
+  width: calc(calc((((var(--container-width, (100vw - var(--scroll-bar-width, 0px))) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * (4)) + ((4 - 1) * var(--inner-gutter))));
 }
 
 .cols-container > .mr-4-cols {
@@ -1369,6 +1476,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: calc(((5 / var(--grid-columns)) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (5 / var(--grid-columns) * var(--inner-gutter))));
 }
 
+.w-5-cols-vw {
+  width: calc(calc((((var(--container-width, (100vw - var(--scroll-bar-width, 0px))) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * (5)) + ((5 - 1) * var(--inner-gutter))));
+}
+
 .cols-container > .mr-5-cols {
   margin-right: calc(((((5 / var(--grid-columns)) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (5 / var(--grid-columns) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
@@ -1509,6 +1620,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .cols-container > .w-6-cols {
   width: calc(((6 / var(--grid-columns)) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (6 / var(--grid-columns) * var(--inner-gutter))));
+}
+
+.w-6-cols-vw {
+  width: calc(calc((((var(--container-width, (100vw - var(--scroll-bar-width, 0px))) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * (6)) + ((6 - 1) * var(--inner-gutter))));
 }
 
 .cols-container > .mr-6-cols {
@@ -1653,6 +1768,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: calc(((7 / var(--grid-columns)) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (7 / var(--grid-columns) * var(--inner-gutter))));
 }
 
+.w-7-cols-vw {
+  width: calc(calc((((var(--container-width, (100vw - var(--scroll-bar-width, 0px))) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * (7)) + ((7 - 1) * var(--inner-gutter))));
+}
+
 .cols-container > .mr-7-cols {
   margin-right: calc(((((7 / var(--grid-columns)) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (7 / var(--grid-columns) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
@@ -1793,6 +1912,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .cols-container > .w-8-cols {
   width: calc(((8 / var(--grid-columns)) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (8 / var(--grid-columns) * var(--inner-gutter))));
+}
+
+.w-8-cols-vw {
+  width: calc(calc((((var(--container-width, (100vw - var(--scroll-bar-width, 0px))) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * (8)) + ((8 - 1) * var(--inner-gutter))));
 }
 
 .cols-container > .mr-8-cols {
@@ -3371,23 +3494,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   bottom: 0;
 }
 
-.container {
-  width: calc(var(--container-width, 100%) - (2 * var(--outer-gutter, 0)));
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.container .container {
-  width: auto;
-}
-
-.breakout {
-  position: relative;
-  left: 50%;
-  width: 100vw;
-  margin-left: -50vw;
-}
-
 :root {
   --white: #fff;
   --grey-3: #f8f8f8;
@@ -3739,6 +3845,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-column-end: 13;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .fixed {
   position: fixed;
 }
@@ -4021,6 +4131,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   min-height: 100vh;
 }
 
+.w-outer-gutter {
+  width: var(--outer-gutter, 0px);
+}
+
 .w-0 {
   width: 0rem;
 }
@@ -4169,6 +4283,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 100%;
 }
 
+.flex-none {
+  flex: none;
+}
+
 .grow {
   flex-grow: 1;
 }
@@ -4223,6 +4341,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .gap-gutter {
   gap: var(--inner-gutter);
 }
@@ -4251,6 +4373,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .gap-y-80 {
   row-gap: 5rem;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
 }
 
 .overflow-x-hidden {
@@ -4340,6 +4466,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-gutter {
   padding-top: var(--inner-gutter);
   padding-bottom: var(--inner-gutter);
+}
+
+.px-outer-gutter {
+  padding-left: var(--outer-gutter, 0px);
+  padding-right: var(--outer-gutter, 0px);
 }
 
 .py-24 {
@@ -4906,6 +5037,14 @@ Ensure the default browser behavior of the `hidden` attribute.
           text-decoration-color: var(--grey-15);
 }
 
+.after\:hidden::after {
+  display: none;
+}
+
+.before\:hidden::before {
+  display: none;
+}
+
 @media (min-width: 544px) {
   .sm\:w-3-cols {
     width: calc(((3 / var(--grid-columns)) * 100%) - (var(--inner-gutter) - (3 / var(--grid-columns) * var(--inner-gutter))));
@@ -4941,10 +5080,67 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 650px) {
+  .md\:gap-gutter {
+    grid-gap: var(--inner-gutter);
+    gap: var(--inner-gutter);
+  }
+
   .md\:gap-x-gutter {
     grid-column-gap: var(--inner-gutter);
     -moz-column-gap: var(--inner-gutter);
          column-gap: var(--inner-gutter);
+  }
+
+  .md\:uncontain {
+    width: unset;
+    margin-right: unset;
+    margin-left: unset;
+  }
+
+  .md\:unbreakout {
+    --breakout-outer-gutter: var(--outer-gutter);
+    position: unset;
+    left: unset;
+    width: unset;
+    margin-left: unset;
+  }
+
+  .md\:full-bleed-scoller-reset {
+    display: unset;
+    flex-flow: unset;
+    flex-wrap: unset;
+    overflow-x: unset;
+  }
+
+  .md\:full-bleed-scoller-reset::before,
+  .full-bleed-scoller-reset::after {
+    content: none;
+    flex: unset;
+    width: unset;
+  }
+
+  .md\:full-bleed-scoller-reset::before,
+  .full-bleed-scoller-reset::after {
+    content: none;
+    flex: unset;
+    width: unset;
+  }
+
+  .md\:full-bleed-scoller-reset > * {
+    flex: unset;
+    margin-left: unset;
+  }
+
+  .md\:w-3-cols {
+    width: calc(((3 / var(--grid-columns)) * 100%) - (var(--inner-gutter) - (3 / var(--grid-columns) * var(--inner-gutter))));
+  }
+
+  .cols-container > .md\:w-3-cols {
+    width: calc(((3 / var(--grid-columns)) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (3 / var(--grid-columns) * var(--inner-gutter))));
+  }
+
+  .md\:w-3-cols > * {
+    --grid-columns: 3;
   }
 
   .md\:w-6-cols {
@@ -4996,6 +5192,51 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:grid-line-x-tertiary[class*="grid-line-x-"] > *::before {
     border-bottom-color: var(--grey-54);
+  }
+
+  .md\:grid-cols-2[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+    border-bottom-width: 1px;
+  }
+
+  .md\:grid-cols-2[class*="grid-line-xfull"] > *:nth-child(n)::before {
+    left: calc(var(--inner-gutter) / -2);
+    right: calc(var(--inner-gutter) / -2);
+  }
+
+  .md\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1)::before {
+    left: 0;
+  }
+
+  .md\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+2)::before {
+    right: 0;
+  }
+
+  .md\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+    border-bottom-width: 0;
+  }
+
+  .md\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+    border-bottom-width: 0;
+  }
+
+  .md\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+    border-right-width: 1px;
+  }
+
+  .md\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+2)::after {
+    border-right-width: 0;
+  }
+
+  .md\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+2)::after {
+    top: 0;
+  }
+
+  .md\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+    bottom: 0;
+  }
+
+  .md\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+1):nth-last-child(-n+2) ~ li::after {
+    bottom: 0;
   }
 
   .md\:grid-cols-3[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
@@ -5057,8 +5298,24 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-top: 3.75rem;
   }
 
+  .md\:grid {
+    display: grid;
+  }
+
+  .md\:w-auto {
+    width: auto;
+  }
+
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:gap-gutter {
+    gap: var(--inner-gutter);
   }
 
   .md\:gap-x-gutter {
@@ -5145,6 +5402,51 @@ Ensure the default browser behavior of the `hidden` attribute.
     border-right-color: var(--grey-15);
   }
 
+  .lg\:grid-cols-3[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+    border-bottom-width: 1px;
+  }
+
+  .lg\:grid-cols-3[class*="grid-line-xfull"] > *:nth-child(n)::before {
+    left: calc(var(--inner-gutter) / -2);
+    right: calc(var(--inner-gutter) / -2);
+  }
+
+  .lg\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1)::before {
+    left: 0;
+  }
+
+  .lg\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+3)::before {
+    right: 0;
+  }
+
+  .lg\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+    border-bottom-width: 0;
+  }
+
+  .lg\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+    border-bottom-width: 0;
+  }
+
+  .lg\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+    border-right-width: 1px;
+  }
+
+  .lg\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+3)::after {
+    border-right-width: 0;
+  }
+
+  .lg\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+3)::after {
+    top: 0;
+  }
+
+  .lg\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+    bottom: 0;
+  }
+
+  .lg\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+1):nth-last-child(-n+3) ~ li::after {
+    bottom: 0;
+  }
+
   .lg\:grid-cols-4[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
     border-bottom-width: 1px;
   }
@@ -5200,8 +5502,20 @@ Ensure the default browser behavior of the `hidden` attribute.
     grid-column: span 6 / span 6;
   }
 
+  .lg\:grid {
+    display: grid;
+  }
+
+  .lg\:w-auto {
+    width: auto;
+  }
+
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .lg\:gap-x-0 {
@@ -5325,3 +5639,4 @@ Ensure the default browser behavior of the `hidden` attribute.
     --grid-columns: 6;
   }
 }
+
