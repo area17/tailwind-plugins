@@ -1,4 +1,4 @@
-
+      </div> <!-- close .container -->
     </main>
 
     <footer class="mt-60 py-24 border-t border-primary">

@@ -47,4 +47,5 @@
       </div>
     </header>
 
-    <main class="container mt-40 md:mt-60">
+    <main class="mt-40 md:mt-60">
+      <div class="container">

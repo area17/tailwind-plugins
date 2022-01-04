@@ -6,7 +6,7 @@ module.exports = function({ addBase }) {
       'margin-right': 'auto',
       'margin-left': 'auto'
     },
-    '.uncontain': {
+    '.container-reset': {
       'width': 'unset',
       'margin-right': 'unset',
       'margin-left': 'unset'
@@ -31,7 +31,7 @@ module.exports = function({ addBase }) {
     '.breakout > .w-outer-gutter': {
       'width': 'var(--breakout-outer-gutter)',
     },
-    '.unbreakout': {
+    '.breakout-reset': {
       '--breakout-outer-gutter': 'var(--outer-gutter)',
       'position': 'unset',
       'left': 'unset',
