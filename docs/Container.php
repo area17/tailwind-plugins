@@ -247,7 +247,7 @@ window.addEventListener('resized', setScrollBarVisible, false);
 setScrollBarVisible();</code></pre>
   </figure>
 
-  <p>This also makes sure than any <a href="/Layout.php">Layout</a> type classes (<code>.w-2-cols</code>, <code>.ml-2-cols</code> etc.) will work correctly inside of <code>.breakout</code> content.</p>
+  <p>This also makes sure than any <code>.*-vw</code> type <a href="/Layout.php">Layout</a> classes (<code>.w-2-cols-vw</code>, <code>.ml-2-cols-vw</code> etc.) will work correctly inside of none <code>.container</code> width content.</p>
 </div>
 
 <?php include 'includes/_footer.php'; ?>

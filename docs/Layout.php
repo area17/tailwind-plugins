@@ -1,92 +1,6 @@
 <?php $title = 'Layout'; ?>
 <?php include 'includes/_header.php'; ?>
 
-
-<ul class="flex flex-row flex-nowrap overflow-x-auto gap-gutter">
-  <li class="w-1-cols h-40 bg-column flex-none"></li>
-  <li class="w-2-cols h-40 bg-column flex-none"></li>
-  <li class="w-3-cols h-40 bg-column flex-none"></li>
-  <li class="w-4-cols h-40 bg-column flex-none"></li>
-  <li class="w-5-cols h-40 bg-column flex-none"></li>
-  <li class="w-6-cols h-40 bg-column flex-none"></li>
-  <li class="w-7-cols h-40 bg-column flex-none"></li>
-  <li class="w-8-cols h-40 bg-column flex-none"></li>
-</ul>
-
-<ul class="flex flex-row flex-nowrap overflow-x-auto gap-gutter lg:grid lg:grid-cols-4">
-  <li class="w-1-cols h-40 bg-column flex-none lg:w-auto"></li>
-  <li class="w-2-cols h-40 bg-column flex-none lg:w-auto"></li>
-  <li class="w-3-cols h-40 bg-column flex-none lg:w-auto"></li>
-  <li class="w-4-cols h-40 bg-column flex-none lg:w-auto"></li>
-  <li class="w-5-cols h-40 bg-column flex-none lg:w-auto"></li>
-  <li class="w-6-cols h-40 bg-column flex-none lg:w-auto"></li>
-  <li class="w-7-cols h-40 bg-column flex-none lg:w-auto"></li>
-  <li class="w-8-cols h-40 bg-column flex-none lg:w-auto"></li>
-</ul>
-
-<div class="breakout bg-header my-40">
-  <ul class="full-bleed-scoller">
-    <li class="w-1-cols-vw h-40 bg-column"></li>
-    <li class="w-2-cols-vw h-40 bg-column"></li>
-    <li class="w-3-cols-vw h-40 bg-column"></li>
-    <li class="w-4-cols-vw h-40 bg-column"></li>
-    <li class="w-5-cols-vw h-40 bg-column"></li>
-    <li class="w-6-cols-vw h-40 bg-column"></li>
-    <li class="w-7-cols-vw h-40 bg-column"></li>
-    <li class="w-8-cols-vw h-40 bg-column"></li>
-  </ul>
-</div>
-
-<div class="breakout md:unbreakout bg-header my-40">
-  <ul class="full-bleed-scoller before:hidden after:hidden">
-    <li class="w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
-    <li class="w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
-    <li class="w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
-    <li class="w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
-    <li class="w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
-    <li class="w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
-    <li class="w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
-    <li class="w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
-  </ul>
-</div>
-
-<div class="breakout md:unbreakout bg-header my-40">
-  <ul class="full-bleed-scoller md:full-bleed-scoller-reset md:grid md:gap-gutter md:grid-cols-2 lg:grid-cols-3">
-    <li class="w-3-cols-vw md:w-auto h-40 bg-column"></li>
-    <li class="w-3-cols-vw md:w-auto h-40 bg-column"></li>
-    <li class="w-3-cols-vw md:w-auto h-40 bg-column"></li>
-    <li class="w-3-cols-vw md:w-auto h-40 bg-column"></li>
-    <li class="w-3-cols-vw md:w-auto h-40 bg-column"></li>
-    <li class="w-3-cols-vw md:w-auto h-40 bg-column"></li>
-    <li class="w-3-cols-vw md:w-auto h-40 bg-column"></li>
-    <li class="w-3-cols-vw md:w-auto h-40 bg-column"></li>
-  </ul>
-</div>
-
-<div class="breakout bg-header my-40 px-outer-gutter">
-  <div class="bg-column h-40"></div>
-</div>
-
-<div class="breakout bg-header my-40">
-  <div class="bg-column h-40 px-outer-gutter">
-    <div class="bg-header h-40"></div>
-  </div>
-</div>
-
-<div class="breakout bg-header my-40">
-  <div class="container bg-column h-40">
-  </div>
-</div>
-
-<div class="breakout bg-header my-40 flex flex-row justify-between">
-  <div class="bg-column h-40 w-outer-gutter"></div>
-  <div class="bg-column h-40 w-outer-gutter"></div>
-</div>
-
-<div class="breakout">
-  <div class="container md:uncontain bg-column h-40"></div>
-</div>
-
 <div class="copy">
   <h2 id="description">Description</h2>
 
@@ -94,6 +8,7 @@
 
   <p>Where <code>N</code> can be a number of columns, up to the largest amount of columns defined or a fraction (<code>1/2</code>, <code>1/3</code>, <code>1/4</code>, <code>2/3</code> or <code>3/4</code>)</p>
 
+  <h3>For use inside <code>.container</code> or a descendant of <code>.container</code></h3>
   <ul>
     <li>
       <strong><a href="#demo">Element width:</a></strong>
@@ -141,7 +56,7 @@
       </ul>
     </li>
     <li class="mt-20">
-      And finally, <strong><a href="#gutterless">gutter-less spacing</a></strong> variants:
+      <strong><a href="#gutterless">gutter-less spacing</a></strong> variants:
       <ul>
         <li><code>.ml-N-cols-no-gutter</code> on child, sets a <code>margin-left</code>of <code>N</code> columns wide minus an inner gutter</li>
         <li><code>.mr-N-cols-no-gutter</code> on child, sets a <code>margin-right</code> of <code>N</code> columns minus an inner gutter</li>
@@ -162,6 +77,16 @@
         <li class="mt-20"><code>.-left-N-cols-no-gutter</code> sets negative <code>left</code> to <code>N</code> columns minus an inner gutter</li>
         <li><code>.-right-N-cols-no-gutter</code> sets negative <code>right</code> to <code>N</code> columns minus an inner gutter</li>
         <li><code>.-inset-x-N-cols-no-gutter</code> sets negative <code>left</code> and <code>right</code> to <code>N</code> columns minus an inner gutter</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>For use outside of <code>.container</code>, or <code>.breakout</code> or some other width of container (added in <code>v3.6.0</code>)</h3>
+  <ul>
+    <li>
+      <strong><a href="#vwvariants">viewwidth calc</a></strong> variants:
+      <ul>
+        <li><code>.*-vw</code> where <code>*</code> is any of the above classes, eg: <code>.w-4-cols-vw</code>, <code>.mr-2-cols-vw</code> etc. useful if your element's container is not </li>
       </ul>
     </li>
   </ul>
@@ -694,6 +619,76 @@ module.exports = {
   &lt;div class="w-3-cols ml-2-cols-no-gutter">&lt;/div>
 &lt;/div></code></pre>
   </figure>
+
+  <h2 id="vwvariants"><code>vw</code> calc variants</h2>
+
+  <p>Added in <code>v3.6.0</code></p>
+
+  <p>Regular layout classes <code>w-3-cols</code> use a CSS <code>calc()</code> based on <code>100%</code> container width and a <code>--grid-columns</code> variable to split the container width as required.</p>
+
+  <p>Sometimes, you might need to set an element on the grid, where you container is some other width, such as inside <code>.breakout</code>'s or perhaps inside a carousel. In these case the standard <code>w-3-cols</code> type classes may not work, and you may need to use <code>vw</code> based alternatives.</p>
 </div>
+
+<div class="show-grid">
+  <div class="breakout mt-20">
+    <div class="w-4-cols ml-outer-gutter bg-column">
+      <p>using <code>w-4-cols</code> ❌ - too wide</p>
+    </div>
+
+    <div class="w-4-cols-vw ml-outer-gutter bg-column mt-20">
+      <p>using <code>w-4-cols-vw</code> ✅ - on grid</p>
+    </div>
+  </div>
+</div>
+
+<div class="copy">
+    <figure class="code-example">
+      <figcaption class="code-example-filename">document.html</figcaption>
+      <pre class="code-example-code"><code class="language-html">&lt;div class="breakout">
+  &lt;div class="w-4-cols ml-outer-gutter">
+    &lt;p>using &lt;code>w-4-cols&lt;/code> ❌ - too wide&lt;/p>
+  &lt;/div>
+
+  &lt;div class="w-4-cols-vw ml-outer-gutter">
+    &lt;p>using &lt;code>w-4-cols-vw&lt;/code> ✅ - on grid&lt;/p>
+  &lt;/div>
+&lt;/div></code></pre>
+    </figure>
+
+  <p><code>w-4-cols</code> draws the <code>div</code> too wide, as the parent container is wider than <code>.container</code>. The suffix of <code>-vw</code> alters the calc to base the calcs off of <code>100vw</code>.</p>
+
+  <p>But, to make this work, we need to account for the scroll bar width.</p>
+
+  <h3 id="scrollbarwidth">Additional set up for working with gutters inside <code>.breakout</code></h3>
+
+  <p>The <code>.*-vw</code> type classes uses <code>100vw</code> as its base, which, frustratingly is likely wider than the document as the document can take up <code>100vw</code> minus the scroll bar width. So, to use <code>.*-vw</code> type classes, we need to account for the scrollbar width:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">application.js</figcaption>
+    <pre class="code-example-code"><code class="language-javascript">const scrollbox = document.createElement('div');
+scrollbox.style.overflow = 'scroll';
+document.body.appendChild(scrollbox);
+
+// Compare inner and out widths of the box to determine scroll bar width
+const scrollBarWidth = scrollbox.offsetWidth - scrollbox.clientWidth;
+
+document.body.removeChild(scrollbox);
+document.documentElement.style.setProperty('--scroll-bar-width', `${ scrollBarWidth }px`);
+
+// test is scroll bar is visible
+function setScrollBarVisible() {
+  const scrollBarVisible = document.documentElement.scrollHeight > document.documentElement.clientHeight;
+  const overflowYSet = window.getComputedStyle(document.documentElement, null).getPropertyValue('overflow-y') === 'scroll';
+  document.documentElement.style.setProperty('--scroll-bar-visible-width', `${ scrollBarVisible || overflowYSet ? scrollBarWidth : 0 }px`);
+}
+
+window.addEventListener('load', setScrollBarVisible, false);
+window.addEventListener('resized', setScrollBarVisible, false);
+setScrollBarVisible();</code></pre>
+  </figure>
+
+  <p>This also makes sure the <code>.p?-outer-gutter</code> type <a href="/Container.php">Breakout</a> classes (<code>.w-2-cols-vw</code>, <code>.ml-2-cols-vw</code> etc.) will work correctly inside of <code>.breakout</code> type content.</p>
+</div>
+
 
 <?php include 'includes/_footer.php'; ?>

@@ -24,8 +24,8 @@
     <li><a href="/ApplyColourVariables.php">ApplyColourVariables</a> - generates utility classes</li>
     <li class="mt-28"><a href="/SpacingTokens.php">SpacingTokens</a> - generates <code>rem</code> based spacing tokens based on pixel based scales or inputs (updated in <code>v3.4.0</code>)</li>
     <li><a href="/Spacing.php">Spacing</a> - generates responsive spacing classes</li>
-    <li class="mt-28"><a href="/Container.php">Container</a> - generates a custom container class based on supplied config</li>
-    <li><a href="/Layout.php">Layout</a> - generates utility classes to set elements onto the design grid</li>
+    <li class="mt-28"><a href="/Container.php">Container</a> - generates a custom container class based on supplied config (resets and more useful breakout styles added in <code>v3.6.0</code>)</li>
+    <li><a href="/Layout.php">Layout</a> - generates utility classes to set elements onto the design grid (<code>vw</code> based calcs variants added in <code>v3.6.0</code>)</li>
     <li><a href="/GridLayout.php">GridLayout</a> - creates classes to handle css grid layouts</li>
     <li><a href="/GridGap.php">GridGap</a> - generates grid gap utilities based on the configured grid</li>
     <li class="mt-28"><a href="/Typography.php">Typography</a> - generates responsive typography classes</li>
