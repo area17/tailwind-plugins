@@ -804,6 +804,25 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: calc(var(--breakout-outer-gutter, var(--outer-gutter, 0px)) - var(--inner-gutter, 0px));
 }
 
+.full-bleed-scroller-reset {
+  display: unset;
+  flex-flow: unset;
+  flex-wrap: unset;
+  overflow-x: unset;
+}
+
+.full-bleed-scroller-reset::before {
+  content: none;
+  flex: unset;
+  width: unset;
+}
+
+.full-bleed-scroller-reset::after {
+  content: none;
+  flex: unset;
+  width: unset;
+}
+
 *, ::before, ::after {
   --tw-translate-x: 0;
   --tw-translate-y: 0;
@@ -1008,12 +1027,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: calc(((((2 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (2 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
+.mr-2-cols-vw {
+  margin-right: calc((((var(--container-width, 100vw - var(--scroll-bar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 2) + (1 * var(--inner-gutter)));
+}
+
 .ml-2-cols {
   margin-left: calc(((((2 / var(--container-grid-columns, var(--grid-columns))) * 100%) - (var(--inner-gutter) - (2 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + var(--inner-gutter)));
 }
 
 .cols-container > .ml-2-cols {
   margin-left: calc(((((2 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (2 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+}
+
+.ml-2-cols-vw {
+  margin-left: calc((((var(--container-width, 100vw - var(--scroll-bar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 2) + (1 * var(--inner-gutter)));
 }
 
 .cols-container > .mx-2-cols {
@@ -3957,6 +3984,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 1rem;
 }
 
+.ml-outer-gutter {
+  margin-left: var(--outer-gutter, 0px);
+}
+
 .block {
   display: block;
 }
@@ -5091,6 +5122,14 @@ Ensure the default browser behavior of the `hidden` attribute.
     grid-column-gap: var(--inner-gutter);
     -moz-column-gap: var(--inner-gutter);
          column-gap: var(--inner-gutter);
+  }
+
+  .md\:breakout-reset {
+    --breakout-outer-gutter: var(--outer-gutter);
+    position: unset;
+    left: unset;
+    width: unset;
+    margin-left: unset;
   }
 
   .md\:full-bleed-scroller-reset {

@@ -12,6 +12,13 @@
 
   <p>From <code>v3.6.0</code> we have a <code>.container-reset</code>, <code>.breakout-reset</code> and there are changes to <code>.breakout</code> to make it more useful.</p>
 
+  <ul>
+    <li><code>.container</code> makes a container that conforms to your <code>theme.mainColWidths</code> taking into account your <code>theme.outerGutters</code></li>
+    <li><code>.breakout</code> breaks out of a <code>.container</code>, to make your element <code>100vw</code> wide</li>
+    <li><code>.container-reset</code> resets a <code>.container</code> (from <code>v3.6.0</code>)</li>
+    <li><code>.breakout-reset</code> resets a <code>.breakout</code> (from <code>v3.6.0</code>)</li>
+  </ul>
+
   <h2 id="setup">Setup</h2>
 
   <figure class="code-example">
@@ -47,6 +54,10 @@ module.exports = {
   </figure>
 
   <p>Requires <code>Setup</code> plugin with <code>theme.mainColWidths</code> and <code>theme.outerGutters</code> configured.</p>
+
+  <p><strong>Note:</strong> if your <code>mainColWidth</code> is set to a fixed number, as it is in the <code>xxl</code> breakpoint above, then your corresponding <code>outerGutter</code> <strong>needs</strong> to be <code>0px</code>.</p>
+
+  <p>When you have a fixed container, the outer gutter is essentially <code>window.width - mainColWidth</code> - setting <code>outerGutter</code> to be anything but <code>0px</code> breaks the internal CSS <code>calc()</code> maths.</p>
 
   <h2 id="demo">Demo</h2>
 
