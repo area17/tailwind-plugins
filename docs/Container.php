@@ -48,36 +48,6 @@ module.exports = {
 
   <p>Requires <code>Setup</code> plugin with <code>theme.mainColWidths</code> and <code>theme.outerGutters</code> configured.</p>
 
-  <h3 id="scrollbarwidth">Additional set up for working with gutters inside <code>.breakout</code></h3>
-
-  <p>The <code>.breakout</code> class uses <code>100vw</code> as its base, which, frustratingly is likely wider than the document as the document can take up <code>100vw</code> minus the scroll bar width. So, to use <code>p?-outer-gutter</code> type classes on, or within <code>.breakout</code> elements, we need to account for the scrollbar width:</p>
-
-  <figure class="code-example">
-    <figcaption class="code-example-filename">application.js</figcaption>
-    <pre class="code-example-code"><code class="language-javascript">const scrollbox = document.createElement('div');
-scrollbox.style.overflow = 'scroll';
-document.body.appendChild(scrollbox);
-
-// Compare inner and out widths of the box to determine scroll bar width
-const scrollBarWidth = scrollbox.offsetWidth - scrollbox.clientWidth;
-
-document.body.removeChild(scrollbox);
-document.documentElement.style.setProperty('--scroll-bar-width', `${ scrollBarWidth }px`);
-
-// test is scroll bar is visible
-function setScrollBarVisible() {
-  const scrollBarVisible = document.documentElement.scrollHeight > document.documentElement.clientHeight;
-  const overflowYSet = window.getComputedStyle(document.documentElement, null).getPropertyValue('overflow-y') === 'scroll';
-  document.documentElement.style.setProperty('--scroll-bar-visible-width', `${ scrollBarVisible || overflowYSet ? scrollBarWidth : 0 }px`);
-}
-
-window.addEventListener('load', setScrollBarVisible, false);
-window.addEventListener('resized', setScrollBarVisible, false);
-setScrollBarVisible();</code></pre>
-  </figure>
-
-  <p>This also makes sure than any <a href="/Layout.php">Layout</a> type classes (<code>.w-2-cols</code>, <code>.ml-2-cols</code> etc.) will work correctly inside of <code>.breakout</code> content.</p>
-
   <h2 id="demo">Demo</h2>
 
   <h3 id="container">Container</h3>
@@ -246,6 +216,38 @@ setScrollBarVisible();</code></pre>
   &lt;div class="flex-none w-outer-gutter">&lt;/div>
 &lt;/div></code></pre>
   </figure>
+
+  <hr>
+
+  <h3 id="scrollbarwidth">Additional set up for working with gutters inside <code>.breakout</code></h3>
+
+  <p>The <code>.breakout</code> class uses <code>100vw</code> as its base, which, frustratingly is likely wider than the document as the document can take up <code>100vw</code> minus the scroll bar width. So, to use <code>p?-outer-gutter</code> type classes on, or within <code>.breakout</code> elements, we need to account for the scrollbar width:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">application.js</figcaption>
+    <pre class="code-example-code"><code class="language-javascript">const scrollbox = document.createElement('div');
+scrollbox.style.overflow = 'scroll';
+document.body.appendChild(scrollbox);
+
+// Compare inner and out widths of the box to determine scroll bar width
+const scrollBarWidth = scrollbox.offsetWidth - scrollbox.clientWidth;
+
+document.body.removeChild(scrollbox);
+document.documentElement.style.setProperty('--scroll-bar-width', `${ scrollBarWidth }px`);
+
+// test is scroll bar is visible
+function setScrollBarVisible() {
+  const scrollBarVisible = document.documentElement.scrollHeight > document.documentElement.clientHeight;
+  const overflowYSet = window.getComputedStyle(document.documentElement, null).getPropertyValue('overflow-y') === 'scroll';
+  document.documentElement.style.setProperty('--scroll-bar-visible-width', `${ scrollBarVisible || overflowYSet ? scrollBarWidth : 0 }px`);
+}
+
+window.addEventListener('load', setScrollBarVisible, false);
+window.addEventListener('resized', setScrollBarVisible, false);
+setScrollBarVisible();</code></pre>
+  </figure>
+
+  <p>This also makes sure than any <a href="/Layout.php">Layout</a> type classes (<code>.w-2-cols</code>, <code>.ml-2-cols</code> etc.) will work correctly inside of <code>.breakout</code> content.</p>
 </div>
 
 <?php include 'includes/_footer.php'; ?>
