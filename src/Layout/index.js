@@ -243,9 +243,13 @@ module.exports = function({ addComponents, theme, e, prefix, config }) {
   // loops the classes we want to generate, provides the base CSS calcs to generateClasses for N cols wide classes
   function generateByColumn(cols) {
     classes.forEach(obj => {
-      let calc = `((${cols} / var(--grid-columns)) * 100%) - (var(--inner-gutter) - (${cols} / var(--grid-columns) * var(--inner-gutter)))`;
-      let cCalc = `((${cols} / var(--grid-columns)) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (${cols} / var(--grid-columns) * var(--inner-gutter)))`;
-      let vwCalc = `calc((((var(--container-width, (100vw - var(--scroll-bar-width, 0px))) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * (${cols})) + ((${cols} - 1) * var(--inner-gutter)))`;
+      let calc = `((${cols} / var(--container-grid-columns, var(--grid-columns))) * 100%) - (var(--inner-gutter) - (${cols} / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))`;
+      let cCalc = `((${cols} / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (${cols} / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))`;
+      let vwCalc = `((var(--container-width, 100vw - var(--scroll-bar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns)))`;
+      if (cols > 1) {
+        vwCalc = `${ vwCalc } * ${ cols }`;
+        vwCalc = `(${ vwCalc }) + (${ cols - 1 } * var(--inner-gutter))`;
+      }
 
       generateClasses(cols, obj, calc, cCalc, vwCalc);
     });
@@ -255,7 +259,10 @@ module.exports = function({ addComponents, theme, e, prefix, config }) {
   function fixNesting(cols) {
     styles.push({
       [`${ prefix('.w') }-${ cols }-cols > *`]: {
-        '--grid-columns': `${ cols }`
+        '--container-grid-columns': `${ cols }`
+      },
+      [`${ prefix('.w') }-${ cols }-cols-vw > *`]: {
+        '--container-grid-columns': `${ cols }`
       }
     });
   }
