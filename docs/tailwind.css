@@ -3878,6 +3878,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-column-end: 13;
 }
 
+.pointer-events-none {
+  pointer-events: none;
+}
+
 .visible {
   visibility: visible;
 }
@@ -4320,6 +4324,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   max-width: 100%;
 }
 
+.max-w-400 {
+  max-width: 25rem;
+}
+
 .flex-none {
   flex: none;
 }
@@ -4410,6 +4418,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .gap-y-80 {
   row-gap: 5rem;
+}
+
+.overflow-x-auto {
+  overflow-x: auto;
 }
 
 .overflow-x-hidden {
@@ -4530,6 +4542,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pt-20 {
   padding-top: 1.25rem;
+}
+
+.pb-20 {
+  padding-bottom: 1.25rem;
 }
 
 .pt-40 {
@@ -5076,6 +5092,61 @@ Ensure the default browser behavior of the `hidden` attribute.
 .focus\:underline-border-secondary:focus {
   -webkit-text-decoration-color: var(--grey-15);
           text-decoration-color: var(--grey-15);
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-thin {
+  --scroll-bar-width: 4px;
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: var(--scroll-bar-width, unset);
+  height: var(--scroll-bar-width, unset);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-fg, darkgrey);
+}
+
+[class*='scrollbar-track-'],
+[class*='scrollbar-thumb-'] {
+  --scrollbar-bg: unset;
+  --scrollbar-fg: unset;
+  scrollbar-color: var(--scrollbar-fg) var(--scrollbar-bg);
+}
+
+[class*='scrollbar-track-']::-webkit-scrollbar,
+[class*='scrollbar-thumb-']::-webkit-scrollbar {
+  width: var(--scroll-bar-width, unset);
+  height: var(--scroll-bar-width, unset);
+}
+
+[class*='scrollbar-track-']::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg);
+}
+
+[class*='scrollbar-track-']::-webkit-scrollbar-thumb,
+[class*='scrollbar-thumb-']::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-fg, darkgrey);
+}
+
+.scrollbar-track-orange {
+  --scrollbar-bg: orange;
+}
+
+.scrollbar-thumb-red {
+  --scrollbar-fg: red;
 }
 
 @media (min-width: 544px) {
@@ -5673,3 +5744,4 @@ Ensure the default browser behavior of the `hidden` attribute.
     --container-grid-columns: 6;
   }
 }
+

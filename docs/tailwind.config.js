@@ -35,6 +35,7 @@ module.exports = {
     css: feConfig.css,
     extend: {
       minHeight: ({ theme }) => theme('spacing'),
+      maxWidth: ({ theme }) => theme('spacing'),
       spacing: {
         'safe-top': 'env(safe-area-inset-top)',
         'safe-bottom': 'env(safe-area-inset-bottom)',

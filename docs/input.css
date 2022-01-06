@@ -1,3 +1,63 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.scrollbar-none {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+.scrollbar-thin {
+  --scroll-bar-width: 4px;
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: var(--scroll-bar-width, unset);
+  height: var(--scroll-bar-width, unset);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-fg, darkgrey);
+}
+
+
+
+[class*='scrollbar-track-'],
+[class*='scrollbar-thumb-'] {
+    --scrollbar-bg: unset;
+    --scrollbar-fg: unset;
+    scrollbar-color: var(--scrollbar-fg) var(--scrollbar-bg);
+}
+
+[class*='scrollbar-track-']::-webkit-scrollbar,
+[class*='scrollbar-thumb-']::-webkit-scrollbar {
+  width: var(--scroll-bar-width, unset);
+  height: var(--scroll-bar-width, unset);
+}
+
+[class*='scrollbar-track-']::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg);
+}
+
+[class*='scrollbar-track-']::-webkit-scrollbar-thumb,
+[class*='scrollbar-thumb-']::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-fg, darkgrey);
+}
+
+.scrollbar-track-orange {
+    --scrollbar-bg: orange;
+}
+
+.scrollbar-thumb-red {
+    --scrollbar-fg: red;
+}
+
