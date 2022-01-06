@@ -36,7 +36,8 @@
     <li class="mt-28"><a href="/Underline.php">Underline</a> - generates text underline styling classes (added in <code>v3.1.0</code>)</li>
     <li class="mt-28"><a href="/CssInJs.php">CssInJs</a> - allows you to pass through CSS from your Tailwind config (added in <code>v3.2.0</code>)</li>
     <li><a href="/Components.php">Components</a> - allows you to generate component CSS from your Tailwind config (added in <code>v3.2.0</code>)</li>
-    <li class="mt-28"><a href="/FullBleedScroller.php">FullBleedScroller</a> - ... (added in <code>v3.6.0</code>)</li>
+    <li class="mt-28"><a href="/FullBleedScroller.php">FullBleedScroller</a> - easy full bleed `overflow-x: auto` scrolling containers (added in <code>v3.6.0</code>)</li>
+    <li class="mt-28"><a href="/InteractionMediaQueries.php">InteractionMediaQueries</a> - adds interaction based media queries, think targeting devices with hover capability (added in <code>v3.6.0</code>)</li>
   </ul>
 
   <p>For AREA 17 staffers used to the legacy <a href="https://code.area17.com/a17/fe-boilerplate/-/tree/main" target="_blank">A17 Boilerplate</a> - these classes bring into Tailwind some of the useful classes from there (and in return, some of the Tailwind classes have been taken back to the A17 SCSS set up).</p>

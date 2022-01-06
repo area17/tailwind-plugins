@@ -4,6 +4,7 @@ const Container = require('../src/Container/index.js');
 const Layout = require('../src/Layout/index.js');
 
 const FullBleedScroller = require('../src/FullBleedScroller/index.js');
+const InteractionMediaQueries = require('../src/InteractionMediaQueries/index.js');
 
 // conf
 const feConfig = require('./frontend.config.json');
@@ -13,7 +14,7 @@ module.exports = {
   corePlugins: {
     container: false
   },
-  plugins: [Setup, Typography, Spacing, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, ColorTokens, Underline, Components, CssInJs, GridLayout, FullBleedScroller],
+  plugins: [Setup, Typography, Spacing, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, ColorTokens, Underline, Components, CssInJs, GridLayout, FullBleedScroller, InteractionMediaQueries],
   theme: {
     screens: feConfig.structure.breakpoints,
     mainColWidths: feConfig.structure.container,

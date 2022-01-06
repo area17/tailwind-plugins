@@ -3960,6 +3960,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 0rem;
 }
 
+.ml-outer-gutter {
+  margin-left: var(--outer-gutter, 0px);
+}
+
 .mt-4 {
   margin-top: 0.25rem;
 }
@@ -3982,10 +3986,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mt-16 {
   margin-top: 1rem;
-}
-
-.ml-outer-gutter {
-  margin-left: var(--outer-gutter, 0px);
 }
 
 .block {
@@ -4168,6 +4168,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   min-height: 100vh;
 }
 
+.w-outer-gutter {
+  width: var(--outer-gutter, 0px);
+}
+
 .w-0 {
   width: 0rem;
 }
@@ -4310,10 +4314,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-600 {
   width: 37.5rem;
-}
-
-.w-outer-gutter {
-  width: var(--outer-gutter, 0px);
 }
 
 .max-w-full {
@@ -4460,12 +4460,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: var(--grey-10);
 }
 
-.bg-column-alt {
-  background-color: var(--blue-04);
-}
-
 .bg-primary {
   background-color: var(--white);
+}
+
+.bg-column-alt {
+  background-color: var(--blue-04);
 }
 
 .p-8 {
@@ -4496,6 +4496,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 1.25rem;
 }
 
+.px-outer-gutter {
+  padding-left: var(--outer-gutter, 0px);
+  padding-right: var(--outer-gutter, 0px);
+}
+
 .py-gutter {
   padding-top: var(--inner-gutter);
   padding-bottom: var(--inner-gutter);
@@ -4511,13 +4516,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.75rem;
 }
 
-.px-outer-gutter {
-  padding-left: var(--outer-gutter, 0px);
+.pl-16 {
+  padding-left: 1rem;
+}
+
+.pr-outer-gutter {
   padding-right: var(--outer-gutter, 0px);
 }
 
-.pl-16 {
-  padding-left: 1rem;
+.pl-outer-gutter {
+  padding-left: var(--outer-gutter, 0px);
 }
 
 .pt-20 {
@@ -4538,14 +4546,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pt-60 {
   padding-top: 3.75rem;
-}
-
-.pr-outer-gutter {
-  padding-right: var(--outer-gutter, 0px);
-}
-
-.pl-outer-gutter {
-  padding-left: var(--outer-gutter, 0px);
 }
 
 .text-center {
@@ -5347,11 +5347,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     row-gap: 4rem;
   }
 
-  .md\:px-0 {
-    padding-left: 0rem;
-    padding-right: 0rem;
-  }
-
   .md\:pt-80 {
     padding-top: 5rem;
   }
@@ -5560,11 +5555,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .lg\:gap-x-0 {
     -moz-column-gap: 0rem;
          column-gap: 0rem;
-  }
-
-  .lg\:px-0 {
-    padding-left: 0rem;
-    padding-right: 0rem;
   }
 
   .lg\:pt-100 {

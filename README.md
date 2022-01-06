@@ -75,7 +75,9 @@ module.exports = {
 * [CssInJs](http://tailwind-plugins.dev.area17.com/CssInJs.php) - allows you to pass through CSS from your Tailwind config (new in `v3.2.0`)
 * [Components](http://tailwind-plugins.dev.area17.com/Components.php) - allows you to generate component CSS from your Tailwind config (new in `v3.2.0`)
 
-* [FullBleedScroller](http://tailwind-plugins.dev.area17.com/FullBleedScroller.php) - ... (new in `v3.6.0`)
+* [FullBleedScroller](http://tailwind-plugins.dev.area17.com/FullBleedScroller.php) - easy full bleed `overflow-x: auto` scrolling containers (new in `v3.6.0`)
+
+* [InteractionMediaQueries](http://tailwind-plugins.dev.area17.com/InteractionMediaQueries.php) - adds interaction based media queries, think targeting devices with hover capability (new in `v3.6.0`)
 
 
 ### Breaking changes to Layout in `v3.0.0`
