@@ -28,6 +28,13 @@ module.exports = {
   </figure>
 </div>
 
+<ul class="flex flex-row gap-gutter overflow-x-auto pb-20 mt-40 max-w-400">
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+</ul>
 
 <ul class="flex flex-row gap-gutter overflow-x-auto pb-20 mt-40 max-w-400 scrollbar-thin">
   <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
@@ -53,7 +60,31 @@ module.exports = {
   <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
 </ul>
 
+<ul class="flex flex-row gap-gutter overflow-x-auto pb-20 mt-40 max-w-400 scrollbar-track-orange scrollbar-thumb-red">
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+</ul>
+
 <ul class="flex flex-row gap-gutter overflow-x-auto pb-20 mt-40 max-w-400 scrollbar-thin scrollbar-track-orange scrollbar-thumb-red">
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+</ul>
+
+<ul class="flex flex-row gap-gutter overflow-x-auto pb-20 mt-40 max-w-400 scrollbar-thin-collapse">
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+  <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
+</ul>
+
+<ul class="flex flex-row gap-gutter overflow-x-auto pb-20 mt-40 max-w-400 scrollbar-thin-collapse scrollbar-track-orange scrollbar-thumb-red">
   <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
   <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
   <li class="flex-none bg-column pointer-events-none w-100 h-40"></li>
