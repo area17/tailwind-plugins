@@ -1,11 +1,5 @@
 // A17 tailwind plugins
-const { Setup, RatioBox, GridLine, PseudoElements, DevTools, GridGap, Keyline, Spacing, Typography, ColorTokens, ApplyColorVariables, Components, CssInJs, GridLayout, SpacingTokens, Underline } = require('@area17/a17-tailwind-plugins');
-const Container = require('../src/Container/index.js');
-const Layout = require('../src/Layout/index.js');
-
-const FullBleedScroller = require('../src/FullBleedScroller/index.js');
-const InteractionMediaQueries = require('../src/InteractionMediaQueries/index.js');
-const Scrollbar = require('../src/Scrollbar/index.js');
+const { Setup, ColorTokens, Components, Container, CssInJs, DevTools, FullBleedScroller, GridGap, GridLayout, GridLine, InteractionMediaQueries, Keyline, Layout, PseudoElements, RatioBox, Scrollbar, Spacing, Typography, Underline } = require('@area17/a17-tailwind-plugins');
 
 // conf
 const feConfig = require('./frontend.config.json');
@@ -15,7 +9,7 @@ module.exports = {
   corePlugins: {
     container: false
   },
-  plugins: [Setup, Typography, Spacing, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, ColorTokens, Underline, Components, CssInJs, GridLayout, FullBleedScroller, InteractionMediaQueries, Scrollbar],
+  plugins: [Setup, ColorTokens, Components, Container, CssInJs, DevTools, FullBleedScroller, GridGap, GridLayout, GridLine, InteractionMediaQueries, Keyline, Layout, PseudoElements, RatioBox, Scrollbar, Spacing, Typography, Underline],
   theme: {
     screens: feConfig.structure.breakpoints,
     mainColWidths: feConfig.structure.container,

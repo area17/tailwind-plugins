@@ -16,6 +16,9 @@ const Underline = require('./src/Underline');
 const Components = require('./src/Components');
 const CssInJs = require('./src/CssInJs');
 const GridLayout = require('./src/GridLayout');
+const FullBleedScroller = require('./src/FullBleedScroller');
+const InteractionMediaQueries = require('./src/InteractionMediaQueries');
+const Scrollbar = require('./src/Scrollbar');
 
 module.exports = {
   Container,
@@ -35,5 +38,8 @@ module.exports = {
   Underline,
   Components,
   CssInJs,
-  GridLayout
+  GridLayout,
+  FullBleedScroller,
+  InteractionMediaQueries,
+  Scrollbar,
 };
