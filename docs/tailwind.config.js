@@ -1,5 +1,5 @@
 // A17 tailwind plugins
-const { Setup, ColorTokens, Components, Container, CssInJs, DevTools, FullBleedScroller, GridGap, GridLayout, GridLine, InteractionMediaQueries, Keyline, Layout, PseudoElements, RatioBox, Scrollbar, Spacing, Typography, Underline } = require('@area17/a17-tailwind-plugins');
+const { Setup, ApplyColorVariables, ColorTokens, Components, Container, CssInJs, DevTools, FullBleedScroller, GridGap, GridLayout, GridLine, InteractionMediaQueries, Keyline, Layout, PseudoElements, RatioBox, Scrollbar, Spacing, SpacingTokens, Typography, Underline } = require('@area17/a17-tailwind-plugins');
 
 // conf
 const feConfig = require('./frontend.config.json');
