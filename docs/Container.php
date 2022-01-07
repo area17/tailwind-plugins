@@ -65,6 +65,32 @@ module.exports = {
 
   <p>This site has its content wrapped in <code>&lt;div class="container"></code>. You'll see it is fluid with outer margins set to the <code>frontend.config.json</code> <code>structure.gutters.outer</code> for each breakpoint. At then, when the window is wider than 1520px wide (<code>structure.breakpoints.xxl</code>) the main column is a fixed width of 1440px (<code>structure.breakpoints.container.xxl</code>) and centered within the window.</p>
 
+  <h4 id="container-nesting">Container nesting</h4>
+
+  <p>Introduced in <code>v3.6.0</code>.</p>
+
+</div>
+
+<div class="container bg-column mt-20 py-20">
+  <div class="container bg-header py-20 copy">
+    <p><code>.container > .container > .container</code>  </p>
+  </div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre class="code-example-code"><code class="language-html">&lt;div class="container">
+  &lt;div class="container">
+    ...
+  &lt;/div>
+&lt;/div></code></pre>
+  </figure>
+
+  <p>(which lives inside of the main page <code>.container</code>)</p>
+
+  <p>Nesting of <code>.container</code> inside of <code>.breakout</code>, <code>.breakout-reset</code> and <code>.container-reset</code> should <a href="/container-nesting-tests.php">all work as expected</a>.</p>
+
   <h3 id="container_reset">Container Reset</h3>
 
   <p>Introduced in <code>v3.6.0</code>.</p>
@@ -144,8 +170,6 @@ module.exports = {
 <div class="breakout mt-20 bg-column py-20">
   <div class="container bg-header py-20">
     <p>...</p>
-    <div class="w-8-cols bg-primary">...</div>
-    <div class="w-8-cols-vw bg-primary">...</div>
   </div>
 </div>
 
@@ -158,6 +182,8 @@ module.exports = {
   &lt;/div>
 &lt;/div></code></pre>
   </figure>
+
+  <p>Nesting of <code>.container</code> inside of <code>.breakout</code>, <code>.breakout-reset</code> and <code>.container-reset</code> should <a href="/container-nesting-tests.php">all work as expected</a>.</p>
 
   <h4>Add outer gutter padding to <code>.breakout</code>:</h4>
 

@@ -740,9 +740,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .container {
-  width: calc(var(--container-width, 100%) - (2 * var(--outer-gutter, 0)));
+  width: calc(var(--container-width, 100%) - (2 * var(--breakout-container-outer-gutter, var(--container-outer-gutter, var(--outer-gutter, 0)))));
   margin-right: auto;
   margin-left: auto;
+}
+
+.container > * {
+  --container-outer-gutter: 0;
+  --breakout-container-outer-gutter: 0;
 }
 
 .container-reset {
@@ -751,8 +756,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: unset;
 }
 
+.container-reset > * {
+  --container-outer-gutter: var(--outer-gutter, 0);
+  --breakout-container-outer-gutter: inherit;
+}
+
 .breakout {
   --breakout-outer-gutter: max(var(--outer-gutter), calc((100% - var(--container-width, 100%)) / 2));
+  --breakout-container-outer-gutter: var(--outer-gutter);
   position: relative;
   left: 50%;
   width: calc(100vw - var(--scroll-bar-visible-width, 0px));
@@ -778,6 +789,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .breakout-reset {
   --breakout-outer-gutter: var(--outer-gutter);
+  --breakout-container-outer-gutter: 0;
   position: unset;
   left: unset;
   width: unset;
@@ -3939,6 +3951,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 2.5rem;
 }
 
+.my-20 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
 .mx-40 {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
@@ -4176,6 +4193,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: var(--outer-gutter, 0px);
 }
 
+.w-100 {
+  width: 6.25rem;
+}
+
 .w-0 {
   width: 0rem;
 }
@@ -4306,10 +4327,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-96 {
   width: 6rem;
-}
-
-.w-100 {
-  width: 6.25rem;
 }
 
 .w-400 {
@@ -4496,6 +4513,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-2 {
   padding-top: 0.125rem;
   padding-bottom: 0.125rem;
+}
+
+.py-40 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .py-20 {
@@ -5195,8 +5217,20 @@ Ensure the default browser behavior of the `hidden` attribute.
          column-gap: var(--inner-gutter);
   }
 
+  .md\:container-reset {
+    width: unset;
+    margin-right: unset;
+    margin-left: unset;
+  }
+
+  .md\:container-reset > * {
+    --container-outer-gutter: var(--outer-gutter, 0);
+    --breakout-container-outer-gutter: inherit;
+  }
+
   .md\:breakout-reset {
     --breakout-outer-gutter: var(--outer-gutter);
+    --breakout-container-outer-gutter: 0;
     position: unset;
     left: unset;
     width: unset;
@@ -5466,8 +5500,14 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-left: unset;
   }
 
+  .lg\:container-reset > * {
+    --container-outer-gutter: var(--outer-gutter, 0);
+    --breakout-container-outer-gutter: inherit;
+  }
+
   .lg\:breakout-reset {
     --breakout-outer-gutter: var(--outer-gutter);
+    --breakout-container-outer-gutter: 0;
     position: unset;
     left: unset;
     width: unset;
