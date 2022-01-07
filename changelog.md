@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [3.6.0] - 2022-01-07
+
+### Summary of main changes
+
+New plugins, `FullBleedScroller`, `InteractionMediaQueries` and `Scrollbar`, updates to `Container` to make it more useful and `vw` additions to `Layout`.
+
+### Added
+
+- `FullBleedScroller` - easy full bleed `overflow-x: auto` scrolling containers
+- `InteractionMediaQueries` - adds interaction based media queries, think targeting devices with hover capability
+- `Scrollbar` - scrollbar styling, unifies the CSS standard and non-standard scrollbar styling
+
+### Changed
+
+- `Container` has been refactored to
+  - allow nesting of `.container`
+  - `.breakout` controls gutters to be inline with `.container` if need be
+  - `.container-reset` and `.breakout-reset` styles added
+- `Layout` has additional `vw` calc based width/spacing options
+
+
 ## [3.5.1] - 2021-12-20
 
 ### Summary of main changes
