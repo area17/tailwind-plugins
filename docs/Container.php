@@ -187,7 +187,7 @@ module.exports = {
 
   <h4>Add outer gutter padding to <code>.breakout</code>:</h4>
 
-  <p><strong>Note:</strong> requires <code>--scroll-bar-visible-width</code> - see <a href="#scrollbarwidth">Additional set up for working with gutters inside <code>.breakout</code></a></p>
+  <p><strong>Note:</strong> requires <code>--scrollbar-visible-width</code> - see <a href="#scrollbarwidth">Additional set up for working with gutters inside <code>.breakout</code></a></p>
 </div>
 
 <div class="breakout mt-20 bg-column py-20 px-outer-gutter">
@@ -208,7 +208,7 @@ module.exports = {
 
   <h4>Add outer gutter padding to a child of <code>.breakout</code>:</h4>
 
-  <p><strong>Note:</strong> requires <code>--scroll-bar-visible-width</code> - see <a href="#scrollbarwidth">Additional set up for working with gutters inside <code>.breakout</code></a></p>
+  <p><strong>Note:</strong> requires <code>--scrollbar-visible-width</code> - see <a href="#scrollbarwidth">Additional set up for working with gutters inside <code>.breakout</code></a></p>
 </div>
 
 <div class="breakout mt-20 bg-column py-20">
@@ -231,7 +231,7 @@ module.exports = {
 
   <h4>Use outer gutter width shims on either side of the content of <code>.breakout</code>:</h4>
 
-  <p><strong>Note:</strong> requires <code>--scroll-bar-visible-width</code> - see <a href="#scrollbarwidth">Additional set up for working with gutters inside <code>.breakout</code></a></p>
+  <p><strong>Note:</strong> requires <code>--scrollbar-visible-width</code> - see <a href="#scrollbarwidth">Additional set up for working with gutters inside <code>.breakout</code></a></p>
 </div>
 
 <div class="breakout flex flex-row flex-nowrap mt-20 bg-column py-20">
@@ -270,13 +270,13 @@ document.body.appendChild(scrollbox);
 const scrollBarWidth = scrollbox.offsetWidth - scrollbox.clientWidth;
 
 document.body.removeChild(scrollbox);
-document.documentElement.style.setProperty('--scroll-bar-width', `${ scrollBarWidth }px`);
+document.documentElement.style.setProperty('--scrollbar-width', `${ scrollBarWidth }px`);
 
 // test is scroll bar is visible
 function setScrollBarVisible() {
   const scrollBarVisible = document.documentElement.scrollHeight > document.documentElement.clientHeight;
   const overflowYSet = window.getComputedStyle(document.documentElement, null).getPropertyValue('overflow-y') === 'scroll';
-  document.documentElement.style.setProperty('--scroll-bar-visible-width', `${ scrollBarVisible || overflowYSet ? scrollBarWidth : 0 }px`);
+  document.documentElement.style.setProperty('--scrollbar-visible-width', `${ scrollBarVisible || overflowYSet ? scrollBarWidth : 0 }px`);
 }
 
 window.addEventListener('load', setScrollBarVisible, false);

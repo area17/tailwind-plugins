@@ -24,8 +24,8 @@ module.exports = function({ addBase }) {
       '--breakout-container-outer-gutter': 'var(--outer-gutter)',
       'position': 'relative',
       'left': '50%',
-      'width': 'calc(100vw - var(--scroll-bar-visible-width, 0px))',
-      'margin-left': 'calc((100vw - var(--scroll-bar-visible-width, 0px)) / -2)'
+      'width': 'calc(100vw - var(--scrollbar-visible-width, 0px))',
+      'margin-left': 'calc((100vw - var(--scrollbar-visible-width, 0px)) / -2)'
     },
     ['.breakout.px-outer-gutter, .breakout > .px-outer-gutter']: {
       'padding-left': 'var(--breakout-outer-gutter)',

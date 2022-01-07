@@ -766,8 +766,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   --breakout-container-outer-gutter: var(--outer-gutter);
   position: relative;
   left: 50%;
-  width: calc(100vw - var(--scroll-bar-visible-width, 0px));
-  margin-left: calc((100vw - var(--scroll-bar-visible-width, 0px)) / -2);
+  width: calc(100vw - var(--scrollbar-visible-width, 0px));
+  margin-left: calc((100vw - var(--scrollbar-visible-width, 0px)) / -2);
 }
 
 .breakout.px-outer-gutter, .breakout > .px-outer-gutter {
@@ -835,6 +835,129 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: unset;
 }
 
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-thin, .scrollbar-thin-collapse {
+  --scrollbar-width: 10px;
+  --scrollbar-padding: 2px;
+  --scrollbar-bg: #fafafa;
+  --scrollbar-fg: #c1c1c1;
+  --scrollbar-border: #e8e8e8;
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin-collapse {
+  --scrollbar-width: 6px;
+  --scrollbar-padding: 0px;
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar, .scrollbar-thin-collapse::-webkit-scrollbar {
+  width: var(--scrollbar-width, unset);
+  height: var(--scrollbar-width, unset);
+}
+
+.scrollbar-thin::-webkit-scrollbar-track, .scrollbar-thin-collapse::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg);
+}
+
+.scrollbar-thin::-webkit-scrollbar-track:horizontal, .scrollbar-thin-collapse::-webkit-scrollbar-track:horizontal {
+  border-top: 1px solid var(--scrollbar-border);
+  border-bottom: 1px solid var(--scrollbar-border);
+}
+
+.scrollbar-thin::-webkit-scrollbar-track:vertical, .scrollbar-thin-collapse::-webkit-scrollbar-track:vertical {
+  border-left: 1px solid var(--scrollbar-border);
+  border-right: 1px solid var(--scrollbar-border);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb, .scrollbar-thin-collapse::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-fg);
+  border-radius: 20px;
+  border: var(--scrollbar-padding) solid transparent;
+  background-clip: content-box;
+}
+
+[class*='scrollbar-track-'], [class*='scrollbar-thumb-'] {
+  --scrollbar-bg: #fafafa;
+  --scrollbar-fg: #c1c1c1;
+  --scrollbar-border: #e8e8e8;
+  scrollbar-color: var(--scrollbar-fg) var(--scrollbar-bg);
+}
+
+[class*='scrollbar-track-']::-webkit-scrollbar, [class*='scrollbar-thumb-']::-webkit-scrollbar {
+  width: var(--scrollbar-width, 15px);
+  height: var(--scrollbar-width, 15px);
+}
+
+[class*='scrollbar-track-']::-webkit-scrollbar-track, [class*='scrollbar-thumb-']::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg);
+}
+
+[class*='scrollbar-track-']::-webkit-scrollbar-track:horizontal, [class*='scrollbar-thumb-']::-webkit-scrollbar-track:horizontal {
+  border-top: 1px solid var(--scrollbar-border);
+  border-bottom: 1px solid var(--scrollbar-border);
+}
+
+[class*='scrollbar-track-']::-webkit-scrollbar-track:vertical, [class*='scrollbar-thumb-']::-webkit-scrollbar-track:vertical {
+  border-left: 1px solid var(--scrollbar-border);
+  border-right: 1px solid var(--scrollbar-border);
+}
+
+[class*='scrollbar-track-']::-webkit-scrollbar-thumb, [class*='scrollbar-thumb-']::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-fg);
+  border-radius: 20px;
+  border: var(--scrollbar-padding, 4px) solid transparent;
+  background-clip: content-box;
+}
+
+.scrollbar-track-primary {
+  --scrollbar-bg: var(--blue-06);
+  --scrollbar-border: var(--scrollbar-bg);
+}
+
+.scrollbar-track-grey-5 {
+  --scrollbar-bg: #f2f2f2;
+  --scrollbar-border: var(--scrollbar-bg);
+}
+
+.scrollbar-track-grey-15 {
+  --scrollbar-bg: #d9d9d9;
+  --scrollbar-border: var(--scrollbar-bg);
+}
+
+.scrollbar-track-bg-column {
+  --scrollbar-bg: var(--blue-05);
+  --scrollbar-border: var(--scrollbar-bg);
+}
+
+.scrollbar-thumb-primary {
+  --scrollbar-fg: var(--blue-03);
+}
+
+.scrollbar-thumb-grey-54 {
+  --scrollbar-fg: #757575;
+}
+
+.scrollbar-thumb-grey-90 {
+  --scrollbar-fg: #1a1a1a;
+}
+
+.scrollbar-thumb-red-01 {
+  --scrollbar-fg: #f00;
+}
+
+.scrollbar-thumb-bg-column-alt {
+  --scrollbar-fg: var(--blue-04);
+}
+
 *, ::before, ::after {
   --tw-translate-x: 0;
   --tw-translate-y: 0;
@@ -870,7 +993,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .w-1-cols-vw {
-  width: calc(((var(--container-width, 100vw - var(--scroll-bar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))));
+  width: calc(((var(--container-width, 100vw - var(--scrollbar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))));
 }
 
 .mr-1-cols {
@@ -1028,7 +1151,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .w-2-cols-vw {
-  width: calc((((var(--container-width, 100vw - var(--scroll-bar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 2) + (1 * var(--inner-gutter)));
+  width: calc((((var(--container-width, 100vw - var(--scrollbar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 2) + (1 * var(--inner-gutter)));
 }
 
 .mr-2-cols {
@@ -1040,7 +1163,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .mr-2-cols-vw {
-  margin-right: calc((((var(--container-width, 100vw - var(--scroll-bar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 2) + (1 * var(--inner-gutter)));
+  margin-right: calc((((var(--container-width, 100vw - var(--scrollbar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 2) + (1 * var(--inner-gutter)));
 }
 
 .ml-2-cols {
@@ -1052,7 +1175,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .ml-2-cols-vw {
-  margin-left: calc((((var(--container-width, 100vw - var(--scroll-bar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 2) + (1 * var(--inner-gutter)));
+  margin-left: calc((((var(--container-width, 100vw - var(--scrollbar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 2) + (1 * var(--inner-gutter)));
 }
 
 .cols-container > .mx-2-cols {
@@ -1202,7 +1325,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .w-3-cols-vw {
-  width: calc((((var(--container-width, 100vw - var(--scroll-bar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 3) + (2 * var(--inner-gutter)));
+  width: calc((((var(--container-width, 100vw - var(--scrollbar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 3) + (2 * var(--inner-gutter)));
 }
 
 .cols-container > .mr-3-cols {
@@ -1352,7 +1475,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .w-4-cols-vw {
-  width: calc((((var(--container-width, 100vw - var(--scroll-bar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 4) + (3 * var(--inner-gutter)));
+  width: calc((((var(--container-width, 100vw - var(--scrollbar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 4) + (3 * var(--inner-gutter)));
 }
 
 .cols-container > .mr-4-cols {
@@ -1506,7 +1629,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .w-5-cols-vw {
-  width: calc((((var(--container-width, 100vw - var(--scroll-bar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 5) + (4 * var(--inner-gutter)));
+  width: calc((((var(--container-width, 100vw - var(--scrollbar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 5) + (4 * var(--inner-gutter)));
 }
 
 .cols-container > .mr-5-cols {
@@ -1656,7 +1779,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .w-6-cols-vw {
-  width: calc((((var(--container-width, 100vw - var(--scroll-bar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 6) + (5 * var(--inner-gutter)));
+  width: calc((((var(--container-width, 100vw - var(--scrollbar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 6) + (5 * var(--inner-gutter)));
 }
 
 .cols-container > .mr-6-cols {
@@ -1806,7 +1929,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .w-7-cols-vw {
-  width: calc((((var(--container-width, 100vw - var(--scroll-bar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 7) + (6 * var(--inner-gutter)));
+  width: calc((((var(--container-width, 100vw - var(--scrollbar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 7) + (6 * var(--inner-gutter)));
 }
 
 .cols-container > .mr-7-cols {
@@ -1956,7 +2079,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .w-8-cols-vw {
-  width: calc((((var(--container-width, 100vw - var(--scroll-bar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 8) + (7 * var(--inner-gutter)));
+  width: calc((((var(--container-width, 100vw - var(--scrollbar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns))) * 8) + (7 * var(--inner-gutter)));
 }
 
 .cols-container > .mr-8-cols {
@@ -3553,6 +3676,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   --blue-03: #004F91;
   --blue-04: #313BFB;
   --blue-05: #81EEF3;
+  --blue-06: #ADD8E6;
   --red-01: #f00;
 }
 
@@ -3580,6 +3704,72 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: absolute;
   width: 100%;
   --tw-content: '';
+  content: var(--tw-content);
+}
+
+.blockquote {
+  background-color: var(--grey-5);
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.blockquote blockquote {
+  display: block;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 650px) {
+  .blockquote blockquote {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.blockquote blockquote p {
+  font-style: italic;
+}
+
+.blockquote blockquote p:first-child {
+  position: relative;
+  margin-top: 0rem;
+}
+
+.blockquote blockquote p:first-child::before {
+  position: absolute;
+  top: 0rem;
+  right: 100%;
+  left: -0.5rem;
+  --tw-content: open-quote;
+  content: var(--tw-content);
+}
+
+.blockquote blockquote p:last-child::after {
+  --tw-content: close-quote;
+  content: var(--tw-content);
+}
+
+.blockquote figcaption {
+  margin-top: 0.5rem;
+  display: block;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 650px) {
+  .blockquote figcaption {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.blockquote cite {
+  font-style: normal;
+}
+
+.blockquote cite::before {
+  margin-right: 0.5rem;
+  --tw-content: '—';
   content: var(--tw-content);
 }
 
@@ -3826,6 +4016,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: var(--grey-15);
 }
 
+.copy .blockquote {
+  margin-top: 1.25rem;
+}
+
 @media (min-width: 650px) {
   .copy > *:not(.code-example,.copy h2,.copy hr) {
     max-width: 80%;
@@ -3954,6 +4148,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mx-40 {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
+}
+
+.my-20 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 .mt-40 {
@@ -4430,6 +4629,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .gap-y-80 {
   row-gap: 5rem;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-scroll {
+  overflow: scroll;
 }
 
 .overflow-x-auto {
@@ -5109,103 +5316,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .focus\:underline-border-secondary:focus {
   -webkit-text-decoration-color: var(--grey-15);
           text-decoration-color: var(--grey-15);
-}
-
-.scrollbar-none {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
-}
-
-.scrollbar-none::-webkit-scrollbar {
-  display: none;
-}
-
-.scrollbar-thin,
-.scrollbar-thin-collapse {
-  --scrollbar-width: 10px;
-  --scrollbar-padding: 2px;
-  --scrollbar-bg: #fafafa;
-  --scrollbar-fg: #c1c1c1;
-  --scrollbar-border: #e8e8e8;
-  scrollbar-width: thin;
-}
-
-.scrollbar-thin-collapse {
-  --scrollbar-width: 6px;
-  --scrollbar-padding: 0px;
-  scrollbar-width: thin;
-}
-
-.scrollbar-thin::-webkit-scrollbar,
-.scrollbar-thin-collapse::-webkit-scrollbar {
-  width: var(--scrollbar-width, unset);
-  height: var(--scrollbar-width, unset);
-}
-
-.scrollbar-thin::-webkit-scrollbar-track,
-.scrollbar-thin-collapse::-webkit-scrollbar-track {
-  background: var(--scrollbar-bg);
-}
-
-.scrollbar-thin::-webkit-scrollbar-track:horizontal,
-.scrollbar-thin-collapse::-webkit-scrollbar-track:horizontal {
-  border-top: 1px solid var(--scrollbar-border);
-  border-bottom: 1px solid var(--scrollbar-border);
-}
-
-.scrollbar-thin::-webkit-scrollbar-track:vertical,
-.scrollbar-thin-collapse::-webkit-scrollbar-track:vertical {
-  border-left: 1px solid var(--scrollbar-border);
-  border-right: 1px solid var(--scrollbar-border);
-}
-
-.scrollbar-thin::-webkit-scrollbar-thumb,
-.scrollbar-thin-collapse::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-fg);
-  border-radius: 20px;
-  border: var(--scrollbar-padding) solid transparent;
-  background-clip: content-box;
-}
-
-[class*='scrollbar-track-'],
-[class*='scrollbar-thumb-'] {
-  --scrollbar-bg: #fafafa;
-  --scrollbar-fg: #c1c1c1;
-  --scrollbar-border: #e8e8e8;
-  scrollbar-color: var(--scrollbar-fg) var(--scrollbar-bg);
-}
-
-[class*='scrollbar-track-']::-webkit-scrollbar,
-[class*='scrollbar-thumb-']::-webkit-scrollbar {
-  width: var(--scrollbar-width, var(--scroll-bar-width, 15px));
-  height: var(--scrollbar-width, var(--scroll-bar-width, 15px));
-}
-
-[class*='scrollbar-track-']::-webkit-scrollbar-track,
-[class*='scrollbar-thumb-']::-webkit-scrollbar-track {
-  background: var(--scrollbar-bg);
-}
-
-[class*='scrollbar-track-']::-webkit-scrollbar-track:horizontal,
-[class*='scrollbar-thumb-']::-webkit-scrollbar-track:horizontal {
-  border-top: 1px solid var(--scrollbar-border);
-  border-bottom: 1px solid var(--scrollbar-border);
-}
-
-[class*='scrollbar-track-']::-webkit-scrollbar-track:vertical,
-[class*='scrollbar-thumb-']::-webkit-scrollbar-track:vertical {
-  border-left: 1px solid var(--scrollbar-border);
-  border-right: 1px solid var(--scrollbar-border);
-}
-
-[class*='scrollbar-track-']::-webkit-scrollbar-thumb,
-[class*='scrollbar-thumb-']::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-fg);
-  border-radius: 20px;
-  border: var(--scrollbar-padding, 4px) solid transparent;
-  background-clip: content-box;
 }
 
 .scrollbar-track-orange {

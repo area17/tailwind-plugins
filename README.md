@@ -79,6 +79,8 @@ module.exports = {
 
 * [InteractionMediaQueries](http://tailwind-plugins.dev.area17.com/InteractionMediaQueries.php) - adds interaction based media queries, think targeting devices with hover capability (new in `v3.6.0`)
 
+* [Scrollbar](http://tailwind-plugins.dev.area17.com/Scrollbar.php) - scrollbar styling, unifies the CSS standard and non-standard scrollbar styling (new in `v3.6.0`)
+
 
 ### Breaking changes to Layout in `v3.0.0`
 

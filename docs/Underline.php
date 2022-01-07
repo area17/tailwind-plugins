@@ -41,11 +41,11 @@ module.exports = {
   plugins: [Underline],
   theme: {
     colors: {
-      grey-15: "#d9d9d9",
-      grey-54: "#757575",
-      grey-90: "#1a1a1a",
+      "grey-15": "#d9d9d9",
+      "grey-54": "#757575",
+      "grey-90": "#1a1a1a",
       black: "#000",
-      blue-03: "#004F91"
+      'blue-03': "#004F91"
     },
     underlineColor: {
       primary: "#757575",

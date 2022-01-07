@@ -32,7 +32,7 @@
         <?php if (isset($index)) { ?>
         <li class="f-body sm:mr-auto"><a href="https://area17.com/" target="_blank">AREA 17</a></li>
         <?php } else { ?>
-        <li class="f-body sm:mr-auto"><a href="https://area17.com/" target="_blank">AREA 17 - Tailwind Plugins</a></li>
+        <li class="f-body sm:mr-auto"><a href="/">AREA 17 - Tailwind Plugins</a></li>
         <li class="f-body mt-20 sm:mt-0 sm:mr-20"><a href="/">← back</a></li>
         <?php } ?>
         <li class="f-body mt-20 sm:mt-0">

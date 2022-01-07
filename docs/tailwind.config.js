@@ -5,6 +5,7 @@ const Layout = require('../src/Layout/index.js');
 
 const FullBleedScroller = require('../src/FullBleedScroller/index.js');
 const InteractionMediaQueries = require('../src/InteractionMediaQueries/index.js');
+const Scrollbar = require('../src/Scrollbar/index.js');
 
 // conf
 const feConfig = require('./frontend.config.json');
@@ -14,7 +15,7 @@ module.exports = {
   corePlugins: {
     container: false
   },
-  plugins: [Setup, Typography, Spacing, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, ColorTokens, Underline, Components, CssInJs, GridLayout, FullBleedScroller, InteractionMediaQueries],
+  plugins: [Setup, Typography, Spacing, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, ColorTokens, Underline, Components, CssInJs, GridLayout, FullBleedScroller, InteractionMediaQueries, Scrollbar],
   theme: {
     screens: feConfig.structure.breakpoints,
     mainColWidths: feConfig.structure.container,
@@ -30,6 +31,10 @@ module.exports = {
     textColor: ApplyColorVariables(feConfig.color.tokens, feConfig.color.text),
     backgroundColor: ApplyColorVariables(feConfig.color.tokens, feConfig.color.background),
     underlineColor: ApplyColorVariables(feConfig.color.tokens, feConfig.color.underline),
+    scrollbarColor: {
+      track: ApplyColorVariables(feConfig.color.tokens, feConfig.color.scrollbar.track),
+      thumb: ApplyColorVariables(feConfig.color.tokens, feConfig.color.scrollbar.thumb)
+    },
     ratios: feConfig.ratios,
     components: feConfig.components,
     css: feConfig.css,

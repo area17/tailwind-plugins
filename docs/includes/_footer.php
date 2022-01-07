@@ -31,13 +31,13 @@
       const scrollBarWidth = scrollbox.offsetWidth - scrollbox.clientWidth;
 
       document.body.removeChild(scrollbox);
-      document.documentElement.style.setProperty('--scroll-bar-width', `${ scrollBarWidth }px`);
+      document.documentElement.style.setProperty('--scrollbar-width', `${ scrollBarWidth }px`);
 
       // test is scroll bar is visible
       function setScrollBarVisible() {
         const scrollBarVisible = document.documentElement.scrollHeight > document.documentElement.clientHeight;
         const overflowYSet = window.getComputedStyle(document.documentElement, null).getPropertyValue('overflow-y') === 'scroll';
-        document.documentElement.style.setProperty('--scroll-bar-visible-width', `${ scrollBarVisible || overflowYSet ? scrollBarWidth : 0 }px`);
+        document.documentElement.style.setProperty('--scrollbar-visible-width', `${ scrollBarVisible || overflowYSet ? scrollBarWidth : 0 }px`);
       }
 
       window.addEventListener('load', setScrollBarVisible, false);

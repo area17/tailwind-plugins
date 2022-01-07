@@ -87,6 +87,7 @@
       "blue-03": "#004F91",
       "blue-04": "#313BFB",
       "blue-05": "#81EEF3",
+      "blue-06": "#ADD8E6",
       "red-01": "#f00"
     },
     "border": {
@@ -114,11 +115,20 @@
       "column": "blue-05",
       "column-alt": "blue-04",
       "code": "grey-10",
-      "code-example": "grey-90"
+      "code-example": "grey-90",
+      "quote": "grey-5"
     },
     "underline": {
       "primary": "grey-54",
       "secondary": "blue-03"
+    },
+    "scrollbar": {
+      "track": {
+        "primary": "blue-06"
+      },
+      "thumb": {
+        "primary": "blue-03"
+      }
     }
   },
   "typography": {
@@ -230,6 +240,19 @@
         "::after": "dev-tools-grid absolute w-full content-['']"
       }
     },
+    ".blockquote": {
+      "apply": "bg-quote py-20",
+      "selectors": {
+        "blockquote": "block px-20 md:px-40",
+        "blockquote p": "italic",
+        "blockquote p:first-child": "mt-0 relative",
+        "blockquote p:first-child::before": "content-[open-quote] absolute top-0 right-full -left-8",
+        "blockquote p:last-child::after": "content-[close-quote]",
+        "figcaption": "block mt-8 px-20 md:px-40",
+        "cite": "not-italic",
+        "cite::before": "content-['—'] mr-8"
+      }
+    },
     ".code-example": {
       "apply": "block bg-code-example",
       "selectors": {
@@ -311,7 +334,8 @@
             }
           }
         },
-        "hr": "border-secondary my-40"
+        "hr": "border-secondary my-40",
+        ".blockquote": "mt-20"
       }
     }
   }
