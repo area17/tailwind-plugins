@@ -36,6 +36,20 @@ module.exports = {
     <li><code>.any-hover-on-demand:foo</code> generates <code>@media (any-hover: on-demand){ ... }</code></li>
     <li><code>.any-hover-none:foo</code> generates <code>@media (any-hover: none){ ... }</code></li>
   </ul>
+
+  <h2 id="demo">Demo</h2>
+
+  <p>The following, totally pointless example, will have a dark blue background colour on devices where the primary pointer device is a mouse or stylus and a light blue background colour on devices where the primary pointer device is something, such as a finger.</p>
+</div>
+
+<div class="bg-column hover-hover:bg-column-alt h-80 mt-20">
+</div>
+
+<div class="copy">
+    <figure class="code-example">
+      <figcaption class="code-example-filename">document.html</figcaption>
+      <pre class="code-example-code"><code class="language-html">&lt;div class="bg-column hover-hover:bg-column-alt">...&lt;/div></code></pre>
+    </figure>
 </div>
 
 <?php include 'includes/_footer.php'; ?>
