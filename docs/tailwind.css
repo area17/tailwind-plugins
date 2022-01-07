@@ -923,11 +923,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --scrollbar-border: var(--scrollbar-bg);
 }
 
-.scrollbar-track-grey-5 {
-  --scrollbar-bg: #f2f2f2;
-  --scrollbar-border: var(--scrollbar-bg);
-}
-
 .scrollbar-track-grey-15 {
   --scrollbar-bg: #d9d9d9;
   --scrollbar-border: var(--scrollbar-bg);
@@ -940,14 +935,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .scrollbar-thumb-primary {
   --scrollbar-fg: var(--blue-03);
-}
-
-.scrollbar-thumb-grey-54 {
-  --scrollbar-fg: #757575;
-}
-
-.scrollbar-thumb-grey-90 {
-  --scrollbar-fg: #1a1a1a;
 }
 
 .scrollbar-thumb-red-01 {
@@ -4150,11 +4137,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: 2.5rem;
 }
 
-.my-20 {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-}
-
 .mt-40 {
   margin-top: 2.5rem;
 }
@@ -4629,14 +4611,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .gap-y-80 {
   row-gap: 5rem;
-}
-
-.overflow-auto {
-  overflow: auto;
-}
-
-.overflow-scroll {
-  overflow: scroll;
 }
 
 .overflow-x-auto {
@@ -5318,13 +5292,10 @@ Ensure the default browser behavior of the `hidden` attribute.
           text-decoration-color: var(--grey-15);
 }
 
-.scrollbar-track-orange {
-  --scrollbar-bg: orange;
-  --scrollbar-border: var(--scrollbar-bg);
-}
-
-.scrollbar-thumb-red {
-  --scrollbar-fg: red;
+@media (hover: hover) {
+  .hover-hover\:bg-column-alt {
+    background-color: var(--blue-04);
+  }
 }
 
 @media (min-width: 544px) {
@@ -5940,4 +5911,3 @@ Ensure the default browser behavior of the `hidden` attribute.
     --container-grid-columns: 6;
   }
 }
-
