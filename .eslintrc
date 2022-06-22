@@ -7,11 +7,7 @@
   },
   "parserOptions": {
     "ecmaVersion": 2019,
-    "sourceType": "module",
-    "parser": "babel-eslint",
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true
-    }
+    "sourceType": "module"
   },
   "extends": ["prettier", "plugin:prettier/recommended"],
   "plugins": ["prettier"],
