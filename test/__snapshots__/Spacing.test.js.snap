@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`spacing plugin generates correct css 1`] = `
+":root {
+    --spacing-outer-1: 1rem
+}
+@media (min-width: 1024px) {
+    :root {
+        --spacing-outer-1: 2rem
+    }
+}
+.mx-outer-1 {
+    margin-left: var(--spacing-outer-1);
+    margin-right: var(--spacing-outer-1)
+}
+.-mx-outer-1 {
+    margin-left: calc(var(--spacing-outer-1) * -1);
+    margin-right: calc(var(--spacing-outer-1) * -1)
+}
+.pt-outer-1 {
+    padding-top: var(--spacing-outer-1)
+}
+@media (min-width: 1024px) {
+    .lg\\\\:mt-outer-1 {
+        margin-top: var(--spacing-outer-1)
+    }
+}"
+`;
