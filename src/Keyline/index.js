@@ -1,4 +1,4 @@
-module.exports = function({ addUtilities, theme, config }) {
+module.exports = function ({ addUtilities, theme, config }) {
   const breakpoints = theme('screens');
   const colors = theme('borderColor', theme('color', {}));
   const directions = { l: 'left', r: 'right' };
@@ -7,7 +7,7 @@ module.exports = function({ addUtilities, theme, config }) {
   let styles = [
     {
       ['[class*="keyline-"]']: {
-        position: 'relative'
+        position: 'relative',
       },
       ['[class*="keyline-"]::before']: {
         content: 'attr(👻)',
@@ -18,13 +18,13 @@ module.exports = function({ addUtilities, theme, config }) {
         top: 0,
         bottom: 0,
         border: '1px solid transparent',
-        'pointer-events': 'none'
+        'pointer-events': 'none',
       },
       ['[class*="keyline-0"]::before']: {
         'border-right-color': 'transparent',
-        'border-left-color': 'transparent'
-      }
-    }
+        'border-left-color': 'transparent',
+      },
+    },
   ];
 
   function generateDirectionStyles(bp) {
@@ -38,20 +38,20 @@ module.exports = function({ addUtilities, theme, config }) {
         const [name, color] = b;
         arr.push({
           [`.${bp}${prefixString}keyline-${dir}-${name}::before`]: {
-            [`border-${property}-color`]: color
-          }
+            [`border-${property}-color`]: color,
+          },
         });
       });
       // add hiding classes
       arr.push({
         [`.${bp}${prefixString}keyline-${dir}-0::before`]: {
-          [`border-${property}-color`]: 'transparent'
-        }
+          [`border-${property}-color`]: 'transparent',
+        },
       });
       arr.push({
         [`.${bp}${prefixString}keyline-0::before`]: {
-          [`border-${property}-color`]: 'transparent'
-        }
+          [`border-${property}-color`]: 'transparent',
+        },
       });
     });
 
@@ -62,13 +62,13 @@ module.exports = function({ addUtilities, theme, config }) {
 
   const bpStyles = Object.keys(breakpoints).map((bp) => {
     return {
-      [`@screen ${bp}`]: generateDirectionStyles(bp)
+      [`@screen ${bp}`]: generateDirectionStyles(bp),
     };
   });
 
   styles = styles.concat(directionStyles, bpStyles);
 
   addUtilities(styles, {
-    respectPrefix: false
+    respectPrefix: false,
   });
 };

@@ -10,13 +10,13 @@ describe('spacing plugin', () => {
     return generatePluginCss(RatioBox, {
       theme: {
         screens: {
-          lg: '1024px'
+          lg: '1024px',
         },
         ratios: {
           '1x1': '1:1',
-          '16x9': '16:9'
-        }
-      }
+          '16x9': '16:9',
+        },
+      },
     }).then((css) => {
       expect(css).toMatchSnapshot();
     });

@@ -1,4 +1,4 @@
-module.exports = function({ addBase, theme, prefix }) {
+module.exports = function ({ addBase, theme, prefix }) {
   const spacingGroups = theme('spacingGroups', {});
   const themeCssSpacingProps = theme('spacingGroupProperties', {});
   const cssSpacingProps = {
@@ -31,7 +31,7 @@ module.exports = function({ addBase, theme, prefix }) {
   const breakpoints = theme('screens');
   const firstBp = Object.keys(breakpoints)[0];
   const rootStyles = {
-    ':root': {}
+    ':root': {},
   };
   const spacingStyles = {};
 

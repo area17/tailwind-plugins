@@ -1,4 +1,4 @@
-module.exports = function(tokens, colors) {
+module.exports = function (tokens, colors) {
   if (!colors) return;
 
   Object.entries(colors).forEach((item) => {
