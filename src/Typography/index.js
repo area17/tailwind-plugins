@@ -1,4 +1,4 @@
-module.exports = function({ addBase, theme, prefix }) {
+module.exports = function ({ addBase, theme, prefix }) {
   const breakpoints = theme('screens', {});
   const fontFamilies = theme('fontFamilies', {});
   const typesets = theme('typesets', {});
@@ -8,8 +8,8 @@ module.exports = function({ addBase, theme, prefix }) {
     const [name, family] = a;
     return {
       ':root': {
-        [`--${name}`]: family
-      }
+        [`--${name}`]: family,
+      },
     };
   });
 
@@ -53,11 +53,11 @@ module.exports = function({ addBase, theme, prefix }) {
 
       let styles = {};
       styles[className] = {
-        ...settings
+        ...settings,
       };
       if (setBoldWeight) {
         styles[`${className} b, ${className} strong`] = {
-          'font-weight': 'var(--bold-weight)'
+          'font-weight': 'var(--bold-weight)',
         };
       }
 
@@ -66,8 +66,8 @@ module.exports = function({ addBase, theme, prefix }) {
       } else {
         return {
           [`@screen ${bp}`]: {
-            ...styles
-          }
+            ...styles,
+          },
         };
       }
     });

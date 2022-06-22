@@ -7,36 +7,40 @@ describe('container plugin', () => {
   });
 
   test('generates correct css', () => {
-    return generatePluginCss(Container, {
-      theme: {
-        screens: {
-          xs: { max: '543px' },
-          sm: '544px',
-          lg: '1024px',
+    return generatePluginCss(
+      Container,
+      {
+        theme: {
+          screens: {
+            xs: { max: '543px' },
+            sm: '544px',
+            lg: '1024px',
+          },
+          mainColWidths: {
+            xs: 'fluid',
+            sm: 'fluid',
+            lg: 'fluid',
+          },
+          outerGutters: {
+            xs: '16px',
+            sm: '16px',
+            lg: '36px',
+          },
         },
-        mainColWidths: {
-          xs: 'fluid',
-          sm: 'fluid',
-          lg: 'fluid',
-        },
-        outerGutters: {
-          xs: '16px',
-          sm: '16px',
-          lg: '36px',
-        }
+      },
+      {
+        safelist: [
+          'container',
+          'container-reset',
+          'breakout',
+          'breakout-reset',
+          'lg:container',
+          'lg:container-reset',
+          'lg:breakout',
+          'lg:breakout-reset',
+        ],
       }
-    }, {
-      safelist: [
-        'container',
-        'container-reset',
-        'breakout',
-        'breakout-reset',
-        'lg:container',
-        'lg:container-reset',
-        'lg:breakout',
-        'lg:breakout-reset',
-      ]
-    }).then((css) => {
+    ).then((css) => {
       expect(css).toMatchSnapshot();
     });
   });

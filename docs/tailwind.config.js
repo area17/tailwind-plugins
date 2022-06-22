@@ -1,5 +1,27 @@
 // A17 tailwind plugins
-const { Setup, ApplyColorVariables, ColorTokens, Components, Container, CssInJs, DevTools, FullBleedScroller, GridGap, GridLayout, GridLine, InteractionMediaQueries, Keyline, Layout, PseudoElements, RatioBox, Scrollbar, Spacing, SpacingTokens, Typography, Underline } = require('@area17/a17-tailwind-plugins');
+const {
+  Setup,
+  ApplyColorVariables,
+  ColorTokens,
+  Components,
+  Container,
+  CssInJs,
+  DevTools,
+  FullBleedScroller,
+  GridGap,
+  GridLayout,
+  GridLine,
+  InteractionMediaQueries,
+  Keyline,
+  Layout,
+  PseudoElements,
+  RatioBox,
+  Scrollbar,
+  Spacing,
+  SpacingTokens,
+  Typography,
+  Underline,
+} = require('@area17/a17-tailwind-plugins');
 
 // conf
 const feConfig = require('./frontend.config.json');
@@ -7,9 +29,29 @@ const feConfig = require('./frontend.config.json');
 module.exports = {
   content: ['./docs/**/*.php', './docs/*.php'],
   corePlugins: {
-    container: false
+    container: false,
   },
-  plugins: [Setup, ColorTokens, Components, Container, CssInJs, DevTools, FullBleedScroller, GridGap, GridLayout, GridLine, InteractionMediaQueries, Keyline, Layout, PseudoElements, RatioBox, Scrollbar, Spacing, Typography, Underline],
+  plugins: [
+    Setup,
+    ColorTokens,
+    Components,
+    Container,
+    CssInJs,
+    DevTools,
+    FullBleedScroller,
+    GridGap,
+    GridLayout,
+    GridLine,
+    InteractionMediaQueries,
+    Keyline,
+    Layout,
+    PseudoElements,
+    RatioBox,
+    Scrollbar,
+    Spacing,
+    Typography,
+    Underline,
+  ],
   theme: {
     screens: feConfig.structure.breakpoints,
     mainColWidths: feConfig.structure.container,
@@ -21,13 +63,28 @@ module.exports = {
     spacingGroups: feConfig.spacing.groups,
     spacing: SpacingTokens(feConfig.spacing.tokens),
     colors: feConfig.color.tokens,
-    borderColor: ApplyColorVariables(feConfig.color.tokens, feConfig.color.border),
+    borderColor: ApplyColorVariables(
+      feConfig.color.tokens,
+      feConfig.color.border
+    ),
     textColor: ApplyColorVariables(feConfig.color.tokens, feConfig.color.text),
-    backgroundColor: ApplyColorVariables(feConfig.color.tokens, feConfig.color.background),
-    underlineColor: ApplyColorVariables(feConfig.color.tokens, feConfig.color.underline),
+    backgroundColor: ApplyColorVariables(
+      feConfig.color.tokens,
+      feConfig.color.background
+    ),
+    underlineColor: ApplyColorVariables(
+      feConfig.color.tokens,
+      feConfig.color.underline
+    ),
     scrollbarColor: {
-      track: ApplyColorVariables(feConfig.color.tokens, feConfig.color.scrollbar.track),
-      thumb: ApplyColorVariables(feConfig.color.tokens, feConfig.color.scrollbar.thumb)
+      track: ApplyColorVariables(
+        feConfig.color.tokens,
+        feConfig.color.scrollbar.track
+      ),
+      thumb: ApplyColorVariables(
+        feConfig.color.tokens,
+        feConfig.color.scrollbar.thumb
+      ),
     },
     ratios: feConfig.ratios,
     components: feConfig.components,
@@ -40,9 +97,9 @@ module.exports = {
         'safe-bottom': 'env(safe-area-inset-bottom)',
         'safe-left': 'env(safe-area-inset-left)',
         'safe-right': 'env(safe-area-inset-right)',
-        'gutter': 'var(--inner-gutter)',
-        'outer-gutter': 'var(--outer-gutter, 0px)'
-      }
-    }
-  }
-}
+        gutter: 'var(--inner-gutter)',
+        'outer-gutter': 'var(--outer-gutter, 0px)',
+      },
+    },
+  },
+};

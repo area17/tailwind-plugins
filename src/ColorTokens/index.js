@@ -1,4 +1,4 @@
-module.exports = function({ addComponents, theme }) {
+module.exports = function ({ addComponents, theme }) {
   const tokens = theme('colors', {});
 
   let styles = {};
