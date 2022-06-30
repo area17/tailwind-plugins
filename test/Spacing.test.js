@@ -1,10 +1,5 @@
 const generatePluginCss = require('./generatePluginCss');
-const cssMatcher = require('jest-matcher-css');
 const { Spacing } = require('../index');
-
-expect.extend({
-  toMatchCss: cssMatcher
-});
 
 describe('spacing plugin', () => {
   it('exists', () => {
@@ -17,30 +12,30 @@ describe('spacing plugin', () => {
         screens: {
           xs: { max: '543px' },
           sm: '544px',
-          md: '768px',
           lg: '1024px',
-          xl: '1440px'
         },
-
-        spacingGroups: (theme) => ({
+        spacingGroups: {
           'outer-1': {
             xs: 16,
-            md: '32px',
-            lg: 48,
-            xl: '56px'
-          },
-        })
+            lg: '32px',
+          }
+        }
       }
+    }, {
+      safelist: [
+        'pt-outer-1',
+        'lg:mt-outer-1',
+        'mx-outer-1',
+        '-mx-outer-1'
+      ]
     }).then((css) => {
-      expect(css).toMatchCss(`.mt-outer-1 {
-  margin-top: var(--spacing-outer-1);
-}`);
+      expect(css).toMatchSnapshot();
     });
   });
 
   test("doesn't output anything when no options set", () => {
     return generatePluginCss(Spacing, {}).then((css) => {
-      expect(css).toMatchCss(``);
+      expect(css).toMatch('');
     });
   });
 });
