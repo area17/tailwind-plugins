@@ -350,7 +350,7 @@ module.exports = {
 
 <div class="show-grid">
   <div class="w-1/2-cols h-80 bg-column-alt mt-20 py-20">
-    <div class="w-3-cols h-40 bg-column">w-1/2-cols inside w-8-cols</div>
+    <div class="w-3-cols h-40 bg-column">w-3-cols inside w-1/2-cols</div>
   </div>
 </div>
 
