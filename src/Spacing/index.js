@@ -1,5 +1,6 @@
 module.exports = function({ addBase, theme, prefix }) {
   const spacingGroups = theme('spacingGroups', {});
+  const themeCssSpacingProps = theme('spacingGroupProperties', {});
   const cssSpacingProps = {
     m: ['margin'],
     mt: ['margin-top'],
@@ -14,7 +15,18 @@ module.exports = function({ addBase, theme, prefix }) {
     pr: ['padding-right'],
     pl: ['padding-left'],
     px: ['padding-left', 'padding-right'],
-    py: ['padding-top', 'padding-bottom']
+    py: ['padding-top', 'padding-bottom'],
+    gap: ['gap'],
+    'gap-x': ['column-gap'],
+    'gap-y': ['row-gap'],
+    top: ['top'],
+    bottom: ['bottom'],
+    left: ['left'],
+    right: ['right'],
+    inset: ['inset'],
+    'inset-x': ['inset-x'],
+    'inset-y': ['inset-y'],
+    ...themeCssSpacingProps
   };
   const breakpoints = theme('screens');
   const firstBp = Object.keys(breakpoints)[0];
