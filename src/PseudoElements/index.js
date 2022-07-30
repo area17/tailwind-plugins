@@ -8,10 +8,10 @@ const pseudoElements = [
   'grammar-error ',
   'marker ',
   'placeholder ',
-  'selection'
+  'selection',
 ];
 
-module.exports = function({ addVariant, e }) {
+module.exports = function ({ addVariant, e }) {
   const escape = e || ((x) => x);
   pseudoElements.forEach((pseudo) => {
     addVariant(pseudo, ({ modifySelectors, separator }) => {

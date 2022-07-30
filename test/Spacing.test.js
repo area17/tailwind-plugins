@@ -7,28 +7,27 @@ describe('spacing plugin', () => {
   });
 
   test('generates correct css', () => {
-    return generatePluginCss(Spacing, {
-      theme: {
-        screens: {
-          xs: { max: '543px' },
-          sm: '544px',
-          lg: '1024px',
+    return generatePluginCss(
+      Spacing,
+      {
+        theme: {
+          screens: {
+            xs: { max: '543px' },
+            sm: '544px',
+            lg: '1024px',
+          },
+          spacingGroups: {
+            'outer-1': {
+              xs: 16,
+              lg: '32px',
+            },
+          },
         },
-        spacingGroups: {
-          'outer-1': {
-            xs: 16,
-            lg: '32px',
-          }
-        }
+      },
+      {
+        safelist: ['pt-outer-1', 'lg:mt-outer-1', 'mx-outer-1', '-mx-outer-1'],
       }
-    }, {
-      safelist: [
-        'pt-outer-1',
-        'lg:mt-outer-1',
-        'mx-outer-1',
-        '-mx-outer-1'
-      ]
-    }).then((css) => {
+    ).then((css) => {
       expect(css).toMatchSnapshot();
     });
   });

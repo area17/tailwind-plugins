@@ -1,14 +1,13 @@
-module.exports = function({ addComponents, theme }) {
-
+module.exports = function ({ addComponents, theme }) {
   const components = theme('components', {});
-  const breakpoints = theme('screens', {})
+  const breakpoints = theme('screens', {});
 
   const styles = {};
 
   function clearEmpties(o) {
     for (var k in o) {
-      if (!o[k] || typeof o[k] !== "object") {
-        continue // If null or not an object, skip to the next iteration
+      if (!o[k] || typeof o[k] !== 'object') {
+        continue; // If null or not an object, skip to the next iteration
       }
 
       // The property is an object
@@ -28,43 +27,44 @@ module.exports = function({ addComponents, theme }) {
   }
 
   function processSelector(selector, settings, base, breakpoint) {
-
     // sort out CSS selector
     let componentStyles = {};
     let selectors = selector.split(',');
     if (base) {
-      selectors = selectors.map(n => {
+      selectors = selectors.map((n) => {
         n = n.trim();
         if (n.indexOf(':') === 0) {
-          return `${ base }${ n }`;
+          return `${base}${n}`;
         } else {
-          return `${ base } ${ n }`;
+          return `${base} ${n}`;
         }
       });
     } else {
-      selectors = selectors.map(n => n = `${ n.trim() }`);
+      selectors = selectors.map((n) => (n = `${n.trim()}`));
     }
     selector = selectors.join(',');
 
     if (breakpoint) {
       styles[selector] = styles[selector] || {};
       let stylesSelector = styles[selector];
-      stylesSelector[`@media (min-width: ${ breakpoints[breakpoint] })`] = stylesSelector[`@media (min-width: ${ breakpoints[breakpoint] })`] || {};
-       componentStyles = stylesSelector[`@media (min-width: ${ breakpoints[breakpoint] })`];
+      stylesSelector[`@media (min-width: ${breakpoints[breakpoint]})`] =
+        stylesSelector[`@media (min-width: ${breakpoints[breakpoint]})`] || {};
+      componentStyles =
+        stylesSelector[`@media (min-width: ${breakpoints[breakpoint]})`];
     } else {
       styles[selector] = styles[selector] || {};
       componentStyles = styles[selector];
     }
 
     // if settings is a string, apply them
-    if (typeof(settings) === 'string') {
-      componentStyles[`@apply ${ settings }`] = '';
+    if (typeof settings === 'string') {
+      componentStyles[`@apply ${settings}`] = '';
       return;
     }
 
     // apply anything to this selector
     if (settings.apply) {
-      componentStyles[`@apply ${ settings.apply }`] = '';
+      componentStyles[`@apply ${settings.apply}`] = '';
     }
 
     // apply any attributes to this selector
@@ -77,7 +77,7 @@ module.exports = function({ addComponents, theme }) {
 
     // loop this selectors children
     if (settings.selectors) {
-      selector.split(',').forEach(s => {
+      selector.split(',').forEach((s) => {
         loopSelectors(settings.selectors, s, breakpoint);
       });
     }
@@ -96,8 +96,15 @@ module.exports = function({ addComponents, theme }) {
     if (settings.variants) {
       Object.entries(settings.variants).map((v) => {
         const [variantName, variantSettings] = v;
-        variantSelectors = selectors.map(n => n = `${ n.trim() }-${ variantName }`);
-        processSelector(variantSelectors.join(','), variantSettings, base, breakpoint)
+        variantSelectors = selectors.map(
+          (n) => (n = `${n.trim()}-${variantName}`)
+        );
+        processSelector(
+          variantSelectors.join(','),
+          variantSettings,
+          base,
+          breakpoint
+        );
       });
     }
   }
