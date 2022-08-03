@@ -10,19 +10,20 @@
     "watch:dev": "npx tailwindcss -i ./docs/input.css -o ./docs/tailwind.css --watch",
     "prod": "NODE_ENV=production npx tailwindcss -i ./docs/input.css -o ./docs/tailwind.css --minify",
     "sync": "browser-sync start --config bs-config.js --no-open",
-    "watch": "npm run sync & npm run watch:dev"
+    "watch": "npm run sync & npm run watch:dev",
+    "eslint": "eslint .",
+    "prettier": "prettier . --write"
   },
   "license": "MIT",
   "devDependencies": {
     "@area17/a17-tailwind-plugins": "^3.6.1",
     "autoprefixer": "^10.4.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-prettier": "^3.1.1",
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "jest": "^28.1.0",
     "postcss": "^8.4.5",
-    "prettier": "^1.19.1",
+    "prettier": "2.7.1",
     "tailwindcss": "^3.1.6"
   },
   "dependencies": {

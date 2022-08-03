@@ -1,16 +1,15 @@
-module.exports = function({ addUtilities, theme }) {
-
+module.exports = function ({ addUtilities, theme }) {
   const colors = {
-    'underline': theme('underlineColor', {}),
-    'token': theme('colors', {}),
-    'text': theme('textColor', {}),
-    'bg': theme('backgroundColor', {}),
-    'border': theme('borderColor', {})
+    underline: theme('underlineColor', {}),
+    token: theme('colors', {}),
+    text: theme('textColor', {}),
+    bg: theme('backgroundColor', {}),
+    border: theme('borderColor', {}),
   };
 
   const styles = {
     '[class*=underline-]': {
-      'text-decoration-line': 'underline'
+      'text-decoration-line': 'underline',
     },
     '.underline-solid': {
       'text-decoration-style': 'solid',
@@ -45,21 +44,21 @@ module.exports = function({ addUtilities, theme }) {
   };
 
   for (let i = 1; i < 21; i++) {
-    styles[`.underline-thickness-${ i }`] = {
-      'text-decoration-thickness': `${ i }px`
+    styles[`.underline-thickness-${i}`] = {
+      'text-decoration-thickness': `${i}px`,
     };
   }
 
   styles[`.underline-offset-0`] = {
-    'text-underline-offset': `0`
+    'text-underline-offset': `0`,
   };
 
   for (let i = 1; i < 21; i++) {
-    styles[`.underline-offset-${ i }`] = {
-      'text-underline-offset': `${ i / 20 }em`
+    styles[`.underline-offset-${i}`] = {
+      'text-underline-offset': `${i / 20}em`,
     };
-    styles[`.-underline-offset-${ i }`] = {
-      'text-underline-offset': `${ i / -20 }em`
+    styles[`.-underline-offset-${i}`] = {
+      'text-underline-offset': `${i / -20}em`,
     };
   }
 
@@ -69,12 +68,12 @@ module.exports = function({ addUtilities, theme }) {
       const [name, color] = b;
       let className = '.underline-';
       if (type !== 'token' && type !== 'underline') {
-        className += `${ type }-`;
+        className += `${type}-`;
       }
       className += name;
       styles[className] = {
-        'text-decoration-color': color
-      }
+        'text-decoration-color': color,
+      };
     });
   });
 
