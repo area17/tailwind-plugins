@@ -4,6 +4,34 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.6.2] - 2022-08-03
+
+### Summary of main changes
+
+Merged PRs:
+
+- Spacing Group Updates - [5](https://github.com/area17/tailwind-plugins/pull/5)
+- Update test snapshot and docs css with tailwind-3.1.6 - [4](https://github.com/area17/tailwind-plugins/pull/4)
+- Update Github link - [3](https://github.com/area17/tailwind-plugins/pull/3)
+- Prettier and ESLint upgrades - [2](https://github.com/area17/tailwind-plugins/pull/2)
+
+## Added
+
+- Added gap and positioning properties to spacing plugin - [5](https://github.com/area17/tailwind-plugins/pull/5)
+- Added prettier and eslint as npm scripts - [2](https://github.com/area17/tailwind-plugins/pull/2)
+
+### Changed
+
+- Tailwind version of docs updated to latest - [5](https://github.com/area17/tailwind-plugins/pull/5)
+- Container and Typography tests updated - [4](https://github.com/area17/tailwind-plugins/pull/4)
+- Update Github link in docs [3](https://github.com/area17/tailwind-plugins/pull/3)
+- Upgraded prettier and eslint (and corresponding plugins) to latest stable versions - [2](https://github.com/area17/tailwind-plugins/pull/2)
+- Set `trailingComma = es5`, as it looked like that was already been used in most places - [2](https://github.com/area17/tailwind-plugins/pull/2)
+
+### Removed
+
+- Removed deprecated config from `.eslintrc` - [2](https://github.com/area17/tailwind-plugins/pull/2)
+
 ## [3.6.1] - 2022-01-07
 
 ### Summary of main changes
