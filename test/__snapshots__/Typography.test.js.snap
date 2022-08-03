@@ -29,10 +29,7 @@ exports[`typography plugin generates correct css 1`] = `
         -webkit-font-smoothing: antialiased;
         --bold-weight: 500
     }
-    .lg\\\\:f-h1 b, .f-h1 strong {
-        font-weight: var(--bold-weight)
-    }
-    .lg\\\\:f-h1 b, .f-h1 strong {
+    .lg\\\\:f-h1 b,.lg\\\\:f-h1 strong {
         font-weight: var(--bold-weight)
     }
     @media (min-width: 1024px) {

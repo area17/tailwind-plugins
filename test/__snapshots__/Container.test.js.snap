@@ -75,24 +75,14 @@ exports[`container plugin generates correct css 1`] = `
         width: calc(100vw - var(--scrollbar-visible-width, 0px));
         margin-left: calc((100vw - var(--scrollbar-visible-width, 0px)) / -2)
     }
-    .lg\\\\:breakout.px-outer-gutter, .breakout > .px-outer-gutter {
+    .lg\\\\:breakout.px-outer-gutter,.lg\\\\:breakout > .px-outer-gutter {
         padding-left: var(--breakout-outer-gutter);
         padding-right: var(--breakout-outer-gutter)
     }
-    .lg\\\\:breakout.px-outer-gutter, .breakout > .px-outer-gutter {
-        padding-left: var(--breakout-outer-gutter);
+    .lg\\\\:breakout.pr-outer-gutter,.lg\\\\:breakout > .pr-outer-gutter {
         padding-right: var(--breakout-outer-gutter)
     }
-    .lg\\\\:breakout.pr-outer-gutter, .breakout > .pr-outer-gutter {
-        padding-right: var(--breakout-outer-gutter)
-    }
-    .lg\\\\:breakout.pr-outer-gutter, .breakout > .pr-outer-gutter {
-        padding-right: var(--breakout-outer-gutter)
-    }
-    .lg\\\\:breakout.pl-outer-gutter, .breakout > .pl-outer-gutter {
-        padding-left: var(--breakout-outer-gutter)
-    }
-    .lg\\\\:breakout.pl-outer-gutter, .breakout > .pl-outer-gutter {
+    .lg\\\\:breakout.pl-outer-gutter,.lg\\\\:breakout > .pl-outer-gutter {
         padding-left: var(--breakout-outer-gutter)
     }
     .lg\\\\:breakout > .w-outer-gutter {
