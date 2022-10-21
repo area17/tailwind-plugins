@@ -26,7 +26,7 @@ module.exports = function ({ addBase, theme, prefix }) {
     inset: ['inset'],
     'inset-x': ['inset-x'],
     'inset-y': ['inset-y'],
-    ...themeCssSpacingProps
+    ...themeCssSpacingProps,
   };
   const breakpoints = theme('screens');
   const firstBp = Object.keys(breakpoints)[0];
