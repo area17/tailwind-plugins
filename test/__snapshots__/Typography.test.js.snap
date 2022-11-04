@@ -20,7 +20,7 @@ exports[`typography plugin generates correct css 1`] = `
     .f-h1 {
         font-size: 3rem
     }
-    .lg\\\\:f-h1 {
+    .lg\\:f-h1 {
         font-family: var(--sans);
         font-size: 2rem;
         line-height: 1.2;
@@ -29,11 +29,11 @@ exports[`typography plugin generates correct css 1`] = `
         -webkit-font-smoothing: antialiased;
         --bold-weight: 500
     }
-    .lg\\\\:f-h1 b,.lg\\\\:f-h1 strong {
+    .lg\\:f-h1 b,.lg\\:f-h1 strong {
         font-weight: var(--bold-weight)
     }
     @media (min-width: 1024px) {
-        .lg\\\\:f-h1 {
+        .lg\\:f-h1 {
             font-size: 3rem
         }
     }
