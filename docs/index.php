@@ -43,7 +43,7 @@
 
   <p>For AREA 17 staffers used to the legacy <a href="https://code.area17.com/a17/fe-boilerplate/-/tree/main" target="_blank">A17 Boilerplate</a> - these classes bring into Tailwind some of the useful classes from there (and in return, some of the Tailwind classes have been taken back to the A17 SCSS set up).</p>
 
-  <p>Tested in Tailwind <code>2.x.x</code> (with and without JIT) and <code>3.0.x</code>.</p>
+  <p>Tested in Tailwind <code>2.x.x</code> (with and without JIT) and <code>3.2.x</code>.</p>
 </div>
 
 <?php include 'includes/_footer.php'; ?>
