@@ -4,7 +4,7 @@ To view these in a browser, visit [tailwind-plugins.dev.area17.com](http://tailw
 
 To view these locally and for local development of plugins and their documentation you will need to install a few dependencies and have an Apache web server running locally.
 
-Firstly, you'll need Node version `v14.15.5`. If you have NVM installed it should have detected the `.nvmrc` file and switched you, if not, we'd recommend you [install NVM](https://github.com/nvm-sh/nvm#installing-and-updating).
+Firstly, you'll need Node version `v14.17.0`. If you have NVM installed it should have detected the `.nvmrc` file and switched you, if not, we'd recommend you [install NVM](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 And then:
 
