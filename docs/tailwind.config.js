@@ -21,7 +21,7 @@ const {
   SpacingTokens,
   Typography,
   Underline,
-} = require('@area17/a17-tailwind-plugins');
+} = require('../index');
 
 // conf
 const feConfig = require('./frontend.config.json');
