@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.7.1] - 2022-12-13
+
+### Fixed
+- Clean and lock dependencies version - [f844563](https://github.com/area17/tailwind-plugins/pull/7)
+
 ## [3.6.2] - 2022-08-03
 
 ### Summary of main changes
