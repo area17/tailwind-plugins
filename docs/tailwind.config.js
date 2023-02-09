@@ -27,7 +27,7 @@ const {
 const feConfig = require('./frontend.config.json');
 
 module.exports = {
-  content: ['./docs/**/*.php', './docs/*.php'],
+  content: ['./docs/**/*.html', './docs/*.html'],
   corePlugins: {
     container: false,
   },

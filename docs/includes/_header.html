@@ -3,38 +3,20 @@
 <head>
     <meta charset="utf-8">
     <title>A17 Tailwind Plugins</title>
-    <style>
-      @font-face {
-        font-family: 'SuisseIntl';
-        src: url('/assets/fonts/SuisseIntl-Regular-WebXL.woff2') format('woff2'),
-          url('/assets/fonts/SuisseIntl-Regular-WebXL.woff') format('woff');
-        font-style: normal;
-        font-weight: normal;
-        font-display: fallback;
-      }
-      @font-face {
-        font-family: 'SuisseIntl';
-        src: url('/assets/fonts/SuisseIntl-Medium-WebXL.woff2') format('woff2'),
-          url('/assets/fonts/SuisseIntl-Medium-WebXL.woff') format('woff');
-        font-style: normal;
-        font-weight: 500;
-        font-display: fallback;
-      }
-    </style>
-    <link media="all" rel="stylesheet" href="/tailwind.css">
-    <link media="all" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/sunburst.min.css">
-    <link rel="icon" href="/assets/images/favicon.png" sizes="any" type="image/png">
+    <link media="all" rel="stylesheet" href="./tailwind.css">
+    <link media="all" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/sunburst.min.css">
+    <link rel="icon" href="./assets/images/favicon.png" sizes="any" type="image/png">
 </head>
 <body class="text-primary bg-primary overflow-x-hidden min-h-screen flex flex-nowrap flex-col">
 
     <header id="a17" class="border-b border-primary">
       <ul class="container py-12 sm:flex sm:flex-row">
-        <?php if (isset($index)) { ?>
+        {% if page.index %}
         <li class="f-body sm:mr-auto"><a href="https://area17.com/" target="_blank">AREA 17</a></li>
-        <?php } else { ?>
-        <li class="f-body sm:mr-auto"><a href="/">AREA 17 - Tailwind Plugins</a></li>
-        <li class="f-body mt-20 sm:mt-0 sm:mr-20"><a href="/">← back</a></li>
-        <?php } ?>
+        {% else %}
+        <li class="f-body sm:mr-auto"><a href="./">AREA 17 - Tailwind Plugins</a></li>
+        <li class="f-body mt-20 sm:mt-0 sm:mr-20"><a href="./">← back</a></li>
+        {% endif %}
         <li class="f-body mt-20 sm:mt-0">
           <a href="https://github.com/area17/tailwind-plugins">
             GitHub
@@ -43,7 +25,7 @@
         </li>
       </ul>
       <div class="container pb-40 pt-60 md:pt-80 lg:pt-100">
-        <h1 class="f-h1"><?php echo (isset($title) ? $title : '--') ?></h1>
+        <h1 class="f-h1">{{ page.title ?? '--' }}</h1>
       </div>
     </header>
 

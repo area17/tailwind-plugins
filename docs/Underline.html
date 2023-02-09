@@ -1,5 +1,7 @@
-<?php $title = 'Underline'; ?>
-<?php include 'includes/_header.php'; ?>
+---
+title: Underline
+---
+{% include_relative includes/_header.html %}
 
 <div class="copy">
   <h2 id="description">Description</h2>
@@ -243,27 +245,20 @@ module.exports = {
   <h3 id="style">Underline style (<code>text-decoration-style</code>)</h3>
 </div>
 
-<?php
-  $styles = ['underline-solid', 'underline-double', 'underline-dotted', 'underline-dashed', 'underline-wavy'];
-  $i = 0;
-
-  foreach($styles as $value) {
-    echo '<span class="block f-h2 '.($i == 0 ? 'mt-40' : 'mt-20').' '.$value.'">'.$value.'</span>';
-    $i++;
-  }
-?>
+{% assign styles = "underline-solid,underline-double,underline-dotted,underline-dashed,underline-wavy" | split: ',' %}
+{% for style in styles %}
+  {% if first %}
+  <span class="block f-h2 mt-40 {{ style }}">{{ style }}</span>
+  {% else %}
+  <span class="block f-h2 mt-20 {{ style }}">{{ style }}</span>
+  {% endif %}
+{% endfor %}
 
 <div class="copy">
   <figure class="code-example">
     <figcaption class="code-example-filename">document.html</figcaption>
-    <pre class="code-example-code"><code class="language-html"><?php
-  $i = 0;
-
-  foreach ($styles as &$value) {
-    echo '&lt;span class="'.$value.'">'.$value.'&lt;/span<br>';
-    $i++;
-  }
-?></code></pre>
+    <pre class="code-example-code"><code class="language-html">{% for style in styles %}&lt;span class="{{ style }}">{{ style }}&lt;/span><br>
+{% endfor %}</code></pre>
   </figure>
 
   <hr>
@@ -271,27 +266,20 @@ module.exports = {
   <h3 id="skip">Underline skip (<code>text-decoration-skip-ink</code>)</h3>
 </div>
 
-<?php
-  $styles = ['underline-skip-none', 'underline-skip-auto', 'underline-skip-all'];
-  $i = 0;
-
-  foreach ($styles as &$value) {
-    echo '<span class="block f-h2 '.($i == 0 ? 'mt-40' : 'mt-20').' underline-solid '.$value.'">'.$value.'</span>';
-    $i++;
-  }
-?>
+{% assign styles = "underline-skip-none,underline-skip-auto,underline-skip-all" | split: ',' %}
+{% for style in styles %}
+  {% if first %}
+  <span class="block f-h2 mt-40 underline-solid {{ style }}">{{ style }}</span>
+  {% else %}
+  <span class="block f-h2 mt-20 underline-solid {{ style }}">{{ style }}</span>
+  {% endif %}
+{% endfor %}
 
 <div class="copy">
   <figure class="code-example">
     <figcaption class="code-example-filename">document.html</figcaption>
-    <pre class="code-example-code"><code class="language-html"><?php
-  $i = 0;
-
-  foreach ($styles as &$value) {
-    echo '&lt;span class="underline-solid '.$value.'">'.$value.'&lt;/span>&#13;';
-    $i++;
-  }
-?></code></pre>
+    <pre class="code-example-code"><code class="language-html">{% for style in styles %}&lt;span class="underline-solid {{ style }}">{{ style }}&lt;/span><br>
+{% endfor %}</code></pre>
   </figure>
 
   <hr>
@@ -301,27 +289,20 @@ module.exports = {
   <h4 id="thickness-keywords">Thickness keywords</h4>
 </div>
 
-<?php
-  $styles = ['underline-thickness-auto', 'underline-thickness-from-font'];
-  $i = 0;
-
-  foreach ($styles as &$value) {
-    echo '<span class="block f-h2 '.($i == 0 ? 'mt-40' : 'mt-20').' underline-solid '.$value.'">'.$value.'</span>';
-    $i++;
-  }
-?>
+{% assign styles = "underline-thickness-auto,underline-thickness-from-font" | split: ',' %}
+{% for style in styles %}
+  {% if first %}
+  <span class="block f-h2 mt-40 underline-solid {{ style }}">{{ style }}</span>
+  {% else %}
+  <span class="block f-h2 mt-20 underline-solid {{ style }}">{{ style }}</span>
+  {% endif %}
+{% endfor %}
 
 <div class="copy">
   <figure class="code-example">
     <figcaption class="code-example-filename">document.html</figcaption>
-    <pre class="code-example-code"><code class="language-html"><?php
-  $i = 0;
-
-  foreach ($styles as &$value) {
-    echo '&lt;span class="underline-solid '.$value.'">'.$value.'&lt;/span>&#13;';
-    $i++;
-  }
-?></code></pre>
+    <pre class="code-example-code"><code class="language-html">{% for style in styles %}&lt;span class="underline-solid {{ style }}">{{ style }}&lt;/span><br>
+{% endfor %}</code></pre>
   </figure>
 
   <hr>
@@ -329,27 +310,20 @@ module.exports = {
   <h4 id="thickness-scale">Thickness scale (in <code>px</code>)</h4>
 </div>
 
-<?php
-  $styles = ['underline-thickness-1', 'underline-thickness-2', 'underline-thickness-3', 'underline-thickness-4', 'underline-thickness-5', 'underline-thickness-6', 'underline-thickness-7', 'underline-thickness-8', 'underline-thickness-9', 'underline-thickness-10', 'underline-thickness-11', 'underline-thickness-12', 'underline-thickness-13', 'underline-thickness-14', 'underline-thickness-15', 'underline-thickness-16', 'underline-thickness-17', 'underline-thickness-18', 'underline-thickness-19', 'underline-thickness-20'];
-  $i = 0;
-
-  foreach ($styles as &$value) {
-    echo '<span class="block f-h2 '.($i == 0 ? 'mt-40' : 'mt-20').' underline-solid '.$value.'">'.$value.'</span>';
-    $i++;
-  }
-?>
+{% assign styles = "underline-thickness-1,underline-thickness-2,underline-thickness-3,underline-thickness-4,underline-thickness-5,underline-thickness-6,underline-thickness-7,underline-thickness-8,underline-thickness-9,underline-thickness-10,underline-thickness-11,underline-thickness-12,underline-thickness-13,underline-thickness-14,underline-thickness-15,underline-thickness-16,underline-thickness-17,underline-thickness-18,underline-thickness-19,underline-thickness-20" | split: ',' %}
+{% for style in styles %}
+  {% if first %}
+  <span class="block f-h2 mt-40 underline-solid {{ style }}">{{ style }}</span>
+  {% else %}
+  <span class="block f-h2 mt-20 underline-solid {{ style }}">{{ style }}</span>
+  {% endif %}
+{% endfor %}
 
 <div class="copy mt-60">
   <figure class="code-example">
     <figcaption class="code-example-filename">document.html</figcaption>
-    <pre class="code-example-code"><code class="language-html"><?php
-  $i = 0;
-
-  foreach ($styles as &$value) {
-    echo '&lt;span class="underline-solid '.$value.'">'.$value.'&lt;/span>&#13;';
-    $i++;
-  }
-?></code></pre>
+    <pre class="code-example-code"><code class="language-html">{% for style in styles %}&lt;span class="underline-solid {{ style }}">{{ style }}&lt;/span><br>
+{% endfor %}</code></pre>
   </figure>
 
   <hr>
@@ -357,53 +331,40 @@ module.exports = {
   <h3 id="offset">Underline offset (<code>text-underline-offset</code>)</h3>
 </div>
 
-<?php
-  $styles = ['underline-offset-0', 'underline-offset-1', 'underline-offset-2', 'underline-offset-3', 'underline-offset-4', 'underline-offset-5', 'underline-offset-6', 'underline-offset-7', 'underline-offset-8', 'underline-offset-9', 'underline-offset-10', 'underline-offset-11', 'underline-offset-12', 'underline-offset-13', 'underline-offset-14', 'underline-offset-15', 'underline-offset-16', 'underline-offset-17', 'underline-offset-18', 'underline-offset-19', 'underline-offset-20'];
-  $i = 0;
+{% assign styles = "underline-offset-0,underline-offset-1,underline-offset-2,underline-offset-3,underline-offset-4,underline-offset-5,underline-offset-6,underline-offset-7,underline-offset-8,underline-offset-9,underline-offset-10,underline-offset-11,underline-offset-12,underline-offset-13,underline-offset-14,underline-offset-15,underline-offset-16,underline-offset-17,underline-offset-18,underline-offset-19,underline-offset-20" | split: ',' %}
+{% for style in styles %}
+  {% if first %}
+  <span class="block f-h2 mt-40 underline-solid {{ style }}">{{ style }}</span>
+  {% else %}
+  <span class="block f-h2 mt-20 underline-solid {{ style }}">{{ style }}</span>
+  {% endif %}
+{% endfor %}
 
-  foreach ($styles as &$value) {
-    echo '<span class="block f-h2 '.($i == 0 ? 'mt-40' : 'mt-20').' underline-solid '.$value.'">'.$value.'</span>';
-    $i++;
-  }
-?>
 
 <div class="copy mt-60">
   <figure class="code-example">
     <figcaption class="code-example-filename">document.html</figcaption>
-    <pre class="code-example-code"><code class="language-html"><?php
-  $i = 0;
-
-  foreach ($styles as &$value) {
-    echo '&lt;span class="underline-solid '.$value.'">'.$value.'&lt;/span>&#13;';
-    $i++;
-  }
-?></code></pre>
+    <pre class="code-example-code"><code class="language-html">{% for style in styles %}&lt;span class="underline-solid {{ style }}">{{ style }}&lt;/span><br>
+{% endfor %}</code></pre>
   </figure>
 
   <h4>Negative offsets</h4>
 </div>
 
-<?php
-  $styles = ['-underline-offset-20', '-underline-offset-19', '-underline-offset-18', '-underline-offset-17', '-underline-offset-16', '-underline-offset-15', '-underline-offset-14', '-underline-offset-13', '-underline-offset-12', '-underline-offset-11', '-underline-offset-10', '-underline-offset-9', '-underline-offset-8', '-underline-offset-7', '-underline-offset-6', '-underline-offset-5', '-underline-offset-4', '-underline-offset-3', '-underline-offset-2', '-underline-offset-1'];
-  $i = 0;
-
-  foreach ($styles as &$value) {
-    echo '<span class="block f-h2 '.($i == 0 ? 'mt-40' : 'mt-20').' underline-solid '.$value.'">'.$value.'</span>';
-    $i++;
-  }
-?>
+{% assign styles = "-underline-offset-20,-underline-offset-19,-underline-offset-18,-underline-offset-17,-underline-offset-16,-underline-offset-15,-underline-offset-14,-underline-offset-13,-underline-offset-12,-underline-offset-11,-underline-offset-10,-underline-offset-9,-underline-offset-8,-underline-offset-7,-underline-offset-6,-underline-offset-5,-underline-offset-4,-underline-offset-3,-underline-offset-2,-underline-offset-1" | split: ',' %}
+{% for style in styles %}
+  {% if first %}
+  <span class="block f-h2 mt-40 underline-solid {{ style }}">{{ style }}</span>
+  {% else %}
+  <span class="block f-h2 mt-20 underline-solid {{ style }}">{{ style }}</span>
+  {% endif %}
+{% endfor %}
 
 <div class="copy">
   <figure class="code-example">
     <figcaption class="code-example-filename">document.html</figcaption>
-    <pre class="code-example-code"><code class="language-html"><?php
-  $i = 0;
-
-  foreach ($styles as &$value) {
-    echo '&lt;span class="underline-solid '.$value.'">'.$value.'&lt;/span>&#13;';
-    $i++;
-  }
-?></code></pre>
+    <pre class="code-example-code"><code class="language-html">{% for style in styles %}&lt;span class="underline-solid {{ style }}">{{ style }}&lt;/span><br>
+{% endfor %}</code></pre>
   </figure>
 
   <hr>
@@ -415,66 +376,59 @@ module.exports = {
   <p>From <code>theme.underlineColor</code>, using the config in this document:</p>
 </div>
 
-<?php
-  $styles = ['underline-primary', 'underline-secondary'];
-  $i = 0;
-
-  foreach ($styles as &$value) {
-    echo '<span class="block f-h2 '.($i == 0 ? 'mt-40' : 'mt-20').' underline-solid underline-thickness-2 '.$value.'">'.$value.'</span>';
-    $i++;
-  }
-?>
+{% assign styles = "underline-primary,underline-secondary" | split: ',' %}
+{% for style in styles %}
+  {% if first %}
+  <span class="block f-h2 mt-40 underline-solid underline-thickness-2 {{ style }}">{{ style }}</span>
+  {% else %}
+  <span class="block f-h2 mt-20 underline-solid underline-thickness-2 {{ style }}">{{ style }}</span>
+  {% endif %}
+{% endfor %}
 
 <div class="copy">
   <figure class="code-example">
     <figcaption class="code-example-filename">document.html</figcaption>
-    <pre class="code-example-code"><code class="language-html"><?php
-  $i = 0;
-
-  foreach ($styles as &$value) {
-    echo '&lt;span class="underline-solid underline-thickness-2 '.$value.'">'.$value.'&lt;/span>&#13;';
-    $i++;
-  }
-?></code></pre>
+    <pre class="code-example-code"><code class="language-html">{% for style in styles %}&lt;span class="underline-solid underline-thickness-2 {{ style }}">{{ style }}&lt;/span><br>
+{% endfor %}</code></pre>
   </figure>
 
   <p>From <code>theme.colors</code>, using the config in this document:</p>
 </div>
 
-<?php
-  $styles = ['underline-grey-15', 'underline-grey-54', 'underline-grey-90', 'underline-black', 'underline-blue-03'];
-  $i = 0;
-
-  foreach ($styles as &$value) {
-    echo '<span class="block f-h2 '.($i == 0 ? 'mt-40' : 'mt-20').' underline-solid underline-thickness-2 '.$value.'">'.$value.'</span>';
-    $i++;
-  }
-?>
+{% assign styles = "underline-grey-15,underline-grey-54,underline-grey-90,underline-black,underline-blue-03" | split: ',' %}
+{% for style in styles %}
+  {% if first %}
+  <span class="block f-h2 mt-40 underline-solid underline-thickness-2 {{ style }}">{{ style }}</span>
+  {% else %}
+  <span class="block f-h2 mt-20 underline-solid underline-thickness-2 {{ style }}">{{ style }}</span>
+  {% endif %}
+{% endfor %}
 
 <div class="copy">
   <figure class="code-example">
     <figcaption class="code-example-filename">document.html</figcaption>
-    <pre class="code-example-code"><code class="language-html"><?php
-  $i = 0;
-
-  foreach ($styles as &$value) {
-    echo '&lt;span class="underline-solid underline-thickness-2 '.$value.'">'.$value.'&lt;/span>&#13;';
-    $i++;
-  }
-?></code></pre>
+    <pre class="code-example-code"><code class="language-html">{% for style in styles %}&lt;span class="underline-solid underline-thickness-2 {{ style }}">{{ style }}&lt;/span><br>
+{% endfor %}</code></pre>
   </figure>
 
   <p>And finally, from <code>theme.textColor</code>, <code>theme.borderColor</code> and/or <code>theme.backgroundColor</code>, using the config in this document:</p>
 </div>
 
-<?php
-  $styles = ['underline-text-primary', 'underline-text-secondary', 'underline-text-accent', 'underline-border-primary', 'underline-border-secondary', 'underline-bg-accent'];
-  $i = 0;
+{% assign styles = "underline-text-primary,underline-text-secondary,underline-text-accent,underline-border-primary,underline-border-secondary,underline-bg-accent" | split: ',' %}
+{% for style in styles %}
+  {% if first %}
+  <span class="block f-h2 mt-40 underline-solid underline-thickness-2 {{ style }}">{{ style }}</span>
+  {% else %}
+  <span class="block f-h2 mt-20 underline-solid underline-thickness-2 {{ style }}">{{ style }}</span>
+  {% endif %}
+{% endfor %}
 
-  foreach ($styles as &$value) {
-    echo '<span class="block f-h2 '.($i == 0 ? 'mt-40' : 'mt-20').' underline-solid underline-thickness-2 '.$value.'">'.$value.'</span>';
-    $i++;
-  }
-?>
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre class="code-example-code"><code class="language-html">{% for style in styles %}&lt;span class="underline-solid underline-thickness-2 {{ style }}">{{ style }}&lt;/span><br>
+{% endfor %}</code></pre>
+  </figure>
+</div>
 
-<?php include 'includes/_footer.php'; ?>
+{% include_relative includes/_footer.html %}

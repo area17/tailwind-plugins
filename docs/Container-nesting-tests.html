@@ -1,5 +1,7 @@
-<?php $title = 'Container nesting tests'; ?>
-<?php include 'includes/_header.php'; ?>
+---
+title: Container nesting tests
+---
+{% include_relative includes/_header.html %}
 
 <div class="container bg-column h-40 my-40 copy">
   <p>container > container</p>
@@ -89,4 +91,4 @@
 <!-- reopen container for rest of page content  -->
 <div class="container">
 
-<?php include 'includes/_footer.php'; ?>
+{% include_relative includes/_footer.html %}

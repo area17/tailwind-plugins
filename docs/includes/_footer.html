@@ -4,10 +4,10 @@
     <footer class="mt-60 py-24 border-t border-primary">
       <ul class="container sm:flex sm:flex-row">
         <li class="f-body sm:mr-auto"><a href="https://area17.com/" target="_blank">Copyright &copy; AREA 17</a></li>
-        <?php if (!isset($index)) { ?>
+        {% if page.index %}
         <li class="f-body mt-20 sm:mt-0 sm:mr-20"><a href="#a17">↑ top</a></li>
-        <li class="f-body mt-20 sm:mt-0 sm:mr-20"><a href="/">← back</a></li>
-        <?php } ?>
+        <li class="f-body mt-20 sm:mt-0 sm:mr-20"><a href="./">← back</a></li>
+        {% endif %}
         <li class="f-body mt-20 sm:mt-0">
           <a href="https://github.com/area17/tailwind-plugins">
             GitHub
@@ -45,7 +45,7 @@
       setScrollBarVisible();
     </script>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
 </body>
 </html>
