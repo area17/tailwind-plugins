@@ -13,3 +13,6 @@ yarn-error.log*
 #IDE
 .vscode
 .idea
+
+docs/_site
+docs/_.jekyll-cache
