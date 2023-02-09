@@ -2,7 +2,7 @@
 
 The documentation is made using [Jekyll](https://jekyllrb.com/) to compile [Liquid](https://shopify.github.io/liquid/) templates. 
 
-To view these in a browser, visit [tailwind-plugins.dev.area17.com](http://tailwind-plugins.dev.area17.com/).
+To view these in a browser, visit [area17.github.io/tailwind-plugins/](https://area17.github.io/tailwind-plugins/).
 
 To view these locally and for local development of plugins and their documentation you will need to install a few dependencies. See [docs.github.com - building-your-site-locally](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll#building-your-site-locally)
 

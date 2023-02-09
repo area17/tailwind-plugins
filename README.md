@@ -39,52 +39,52 @@ module.exports = {
 
 * [tailwind.config.js](https://github.com/area17/tailwind-plugins/blob/main/docs/tailwind.config.js)
 * [frontend.config.json](https://github.com/area17/tailwind-plugins/blob/main/docs/frontend.config.json)
-* [Walk through of our set up](http://tailwind-plugins.dev.area17.com/Setup.php)
+* [Walk through of our set up](https://area17.github.io/tailwind-plugins/Setup.html)
 
 
 ## Documentation and demos
 
-* [tailwind-plugins.dev.area17.com](http://tailwind-plugins.dev.area17.com/)
+* [area17.github.io/tailwind-plugins/](https://area17.github.io/tailwind-plugins/)
 
 ### The plugins
 
-* [DevTools](http://tailwind-plugins.dev.area17.com/DevTools.php) - generates the CSS for the grid helper (in the bottom left corner of the page)
+* [DevTools](https://area17.github.io/tailwind-plugins/DevTools.html) - generates the CSS for the grid helper (in the bottom left corner of the page)
 
-* [ColorTokens](http://tailwind-plugins.dev.area17.com/ColorTokens.php) - generates colour variables
-* [ApplyColourVariables](http://tailwind-plugins.dev.area17.com/ApplyColourVariables.php) - generates utility classes
+* [ColorTokens](https://area17.github.io/tailwind-plugins/ColorTokens.html) - generates colour variables
+* [ApplyColourVariables](https://area17.github.io/tailwind-plugins/ApplyColourVariables.html) - generates utility classes
 
-* [SpacingTokens](http://tailwind-plugins.dev.area17.com/SpacingTokens.php) - generates `rem` based spacing tokens based on pixel based scales or inputs (updated in `v3.4.0`)
-* [Spacing](http://tailwind-plugins.dev.area17.com/Spacing.php) - generates responsive spacing classes
+* [SpacingTokens](https://area17.github.io/tailwind-plugins/SpacingTokens.html) - generates `rem` based spacing tokens based on pixel based scales or inputs (updated in `v3.4.0`)
+* [Spacing](https://area17.github.io/tailwind-plugins/Spacing.html) - generates responsive spacing classes
 
-* [Container](http://tailwind-plugins.dev.area17.com/Container.php) - generates a custom container class based on supplied config
-* [Layout](http://tailwind-plugins.dev.area17.com/Layout.php) - generates utility classes to set elements onto the design grid
-* [GridLayout](http://tailwind-plugins.dev.area17.com/GridLayout.php) - generates CSS grid utility classes to set elements onto the design grid (new in `v3.3.0`)
-* [GridGap](http://tailwind-plugins.dev.area17.com/GridGap.php) - generates grid gap utilities based on the configured grid
+* [Container](https://area17.github.io/tailwind-plugins/Container.html) - generates a custom container class based on supplied config
+* [Layout](https://area17.github.io/tailwind-plugins/Layout.html) - generates utility classes to set elements onto the design grid
+* [GridLayout](https://area17.github.io/tailwind-plugins/GridLayout.html) - generates CSS grid utility classes to set elements onto the design grid (new in `v3.3.0`)
+* [GridGap](https://area17.github.io/tailwind-plugins/GridGap.html) - generates grid gap utilities based on the configured grid
 
-* [Typography](http://tailwind-plugins.dev.area17.com/Typography.php) - generates responsive typography classes
+* [Typography](https://area17.github.io/tailwind-plugins/Typography.html) - generates responsive typography classes
 
-* [GridLine](http://tailwind-plugins.dev.area17.com/GridLine.php) - generates vertical and horizontal grid line/stroke classes (borders in the gutters between elements)
-* [Keyline](http://tailwind-plugins.dev.area17.com/Keyline.php) - generates keylines in the gutter between elements
+* [GridLine](https://area17.github.io/tailwind-plugins/GridLine.html) - generates vertical and horizontal grid line/stroke classes (borders in the gutters between elements)
+* [Keyline](https://area17.github.io/tailwind-plugins/Keyline.html) - generates keylines in the gutter between elements
 
-* [PseudoElements](http://tailwind-plugins.dev.area17.com/PseudoElements.php) - adds additional pseudo classes
+* [PseudoElements](https://area17.github.io/tailwind-plugins/PseudoElements.html) - adds additional pseudo classes
 
-* [RatioBox](http://tailwind-plugins.dev.area17.com/RatioBox.php) - generates ratio box utilities
+* [RatioBox](https://area17.github.io/tailwind-plugins/RatioBox.html) - generates ratio box utilities
 
-* [Underline](http://tailwind-plugins.dev.area17.com/Underline.php) - generates text underline styling utilities (new in `v3.1.0`)
+* [Underline](https://area17.github.io/tailwind-plugins/Underline.html) - generates text underline styling utilities (new in `v3.1.0`)
 
-* [CssInJs](http://tailwind-plugins.dev.area17.com/CssInJs.php) - allows you to pass through CSS from your Tailwind config (new in `v3.2.0`)
-* [Components](http://tailwind-plugins.dev.area17.com/Components.php) - allows you to generate component CSS from your Tailwind config (new in `v3.2.0`)
+* [CssInJs](https://area17.github.io/tailwind-plugins/CssInJs.html) - allows you to pass through CSS from your Tailwind config (new in `v3.2.0`)
+* [Components](https://area17.github.io/tailwind-plugins/Components.html) - allows you to generate component CSS from your Tailwind config (new in `v3.2.0`)
 
-* [FullBleedScroller](http://tailwind-plugins.dev.area17.com/FullBleedScroller.php) - easy full bleed `overflow-x: auto` scrolling containers (new in `v3.6.0`)
+* [FullBleedScroller](https://area17.github.io/tailwind-plugins/FullBleedScroller.html) - easy full bleed `overflow-x: auto` scrolling containers (new in `v3.6.0`)
 
-* [InteractionMediaQueries](http://tailwind-plugins.dev.area17.com/InteractionMediaQueries.php) - adds interaction based media queries, think targeting devices with hover capability (new in `v3.6.0`)
+* [InteractionMediaQueries](https://area17.github.io/tailwind-plugins/InteractionMediaQueries.html) - adds interaction based media queries, think targeting devices with hover capability (new in `v3.6.0`)
 
-* [Scrollbar](http://tailwind-plugins.dev.area17.com/Scrollbar.php) - scrollbar styling, unifies the CSS standard and non-standard scrollbar styling (new in `v3.6.0`)
+* [Scrollbar](https://area17.github.io/tailwind-plugins/Scrollbar.html) - scrollbar styling, unifies the CSS standard and non-standard scrollbar styling (new in `v3.6.0`)
 
 
 ### Breaking changes to Layout in `v3.0.0`
 
-The generated class names in the Layout plugin have been changed to align them closer to Tailwind. [See the migration notes](http://tailwind-plugins.dev.area17.com/Layout.php#v3-0-0) and also [see the changelog](https://github.com/area17/tailwind-plugins/blob/main/changelog.md#300---2021-12-07).
+The generated class names in the Layout plugin have been changed to align them closer to Tailwind. [See the migration notes](https://area17.github.io/tailwind-plugins/Layout.html#v3-0-0) and also [see the changelog](https://github.com/area17/tailwind-plugins/blob/main/changelog.md#300---2021-12-07).
 
 ## Contribution
 

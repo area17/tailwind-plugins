@@ -202,7 +202,7 @@ Refactored Layout plugin, generates more classes which are closer aligned to Tai
   - `m?-` margin classes for push/pulls: `ml-N-cols`, `mr-N-cols`, `mx-N-cols`, `-ml-N-cols`, `-mr-N-cols`, `-mx-N-cols`
   - `p?-` padding classes: `pl-N-cols`, `pr-N-cols`, `px-N-cols`
   - margins, paddings and positioning assume added inner gutters, a full series of gutter-less versions are also generated
-  - the generated class names in the Layout plugin **have been changed** to align them closer to Tailwind. [See the migration notes](http://tailwind-plugins.dev.area17.com/Layout.php#v3-0-0)
+  - the generated class names in the Layout plugin **have been changed** to align them closer to Tailwind. [See the migration notes](http://tailwind-plugins.dev.area17.com/Layout.html#v3-0-0)
 
 
 

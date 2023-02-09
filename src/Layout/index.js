@@ -1,5 +1,5 @@
 module.exports = function ({ addComponents, theme, e, prefix, config }) {
-  // docs: http://tailwind-plugins.dev.area17.com/Layout.php
+  // docs: http://tailwind-plugins.dev.area17.com/Layout.html
 
   const breakpoints = theme('screens');
   const firstBp = Object.keys(breakpoints)[0];
