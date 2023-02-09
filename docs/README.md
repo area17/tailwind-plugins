@@ -1,28 +1,28 @@
 # AREA 17 Tailwind Plugins - Documentation
 
+The documentation is made using [Jekyll](https://jekyllrb.com/) to compile [Liquid](https://shopify.github.io/liquid/) templates. 
+
 To view these in a browser, visit [tailwind-plugins.dev.area17.com](http://tailwind-plugins.dev.area17.com/).
 
-To view these locally and for local development of plugins and their documentation you will need to install a few dependencies and have an Apache web server running locally.
+To view these locally and for local development of plugins and their documentation you will need to install a few dependencies. See [docs.github.com - building-your-site-locally](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll#building-your-site-locally)
 
-Firstly, you'll need Node version `v14.17.0`. If you have NVM installed it should have detected the `.nvmrc` file and switched you, if not, we'd recommend you [install NVM](https://github.com/nvm-sh/nvm#installing-and-updating).
+Once everything is installed, `cd` into the `docs` folder and run: 
 
-And then:
+```bash
+$ bundle install
+$ bundle exec jekyll serve
+```
+
+The site should now be available in a browser at http://localhost:4000
+
+And then open a new terminal tab, `cd` to the root of the project and run:
 
 ```bash
 $ npm install
+$ npm run watch
 ```
 
-You'll need to make an `.env` with a `PROXY` key set to your local web server. This tells browser-sync which URL to proxy.
-
-```bash
-$ cp .env.example .env
-```
-
-Open `.env` and update:
-
-```yml
-PROXY=tailwind-plugins.dev
-```
+The site should now be available in a browser at http://localhost:3000 with browser-sync live reloading.
 
 Scripts available to run are:
 
@@ -32,28 +32,6 @@ Scripts available to run are:
 * `npm run sync` - starts browser-sync proxying the documentation and watching for changes for live reload
 * `npm run watch` - runs both `npm run watch:dev` and `npm run sync` (and possibly only works on Linux based systems, you may have to run those tasks in separate Terminal tabs on your system)
 
-For local development, you'll likely just run:
-
-```bash
-$ npm run watch
-```
-
-You'll see an output in terminal like:
-
-```bash
-[Browsersync] Proxying: http://tailwind-plugins.dev
-[Browsersync] Access URLs:
- -------------------------------------
-       Local: http://localhost:3000
-    External: http://192.168.0.1:3000
- -------------------------------------
-          UI: http://localhost:3001
- UI External: http://localhost:3001
- -------------------------------------
-[Browsersync] Watching files...
-```
-
-If you open the `Local` url, in this case `http://localhost:3000` in your web browser, you should see the documentation.
 
 ## Adding a new plugin
 
@@ -62,16 +40,18 @@ Every plugin needs documentation, with config options and/or output demonstrated
 First step is to create a PHP file, with the name of your new plugin in the `docs` folder:
 
 ```bash
-touch docs/Foo.php
+touch docs/Foo.html
 ```
 
 If you open any of the other plugin docs, you'll see the basic structure of:
 
-```PHP
-<?php $title = 'TITLE'; ?>
-<?php include 'includes/_header.php'; ?>
+```HTML
+---
+title: TITLE
+---
+{% include_relative includes/_header.html %}
   <!-- content -->
-<?php include 'includes/_footer.php'; ?>
+{% include_relative includes/_footer.html %}
 ```
 
 The content is made up of `<div class="copy">...</div>` blocks and in between any demonstration HTML needed. `.copy` blocks have styles for `h2` to `h4`, paragraphs, lists, nested lists, code, links and HR's. You'll see the structure of them is easy to replicate.
@@ -86,7 +66,7 @@ Code example blocks are inserted like:
   </figure>
 ```
 
-Too add your work-in-progress plugin, you'll want to add a folder for your plugin to the `src` folder with the name of your plugin and add an `index.js`:
+Too add your work-in-progress plugin, you'll want to add a folder for your plugin to the `src` folder with the name of your plugin and add an `index.js` in the root of this repository:
 
 ```bash
 mkdir -p src/Foo && touch $_/index.js
