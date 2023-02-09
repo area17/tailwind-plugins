@@ -1,5 +1,7 @@
-<?php $title = 'Layout'; ?>
-<?php include 'includes/_header.php'; ?>
+---
+title: Layout
+---
+{% include_relative includes/_header.html %}
 
 <div class="copy">
   <h2 id="description">Description</h2>
@@ -687,8 +689,8 @@ window.addEventListener('resized', setScrollBarVisible, false);
 setScrollBarVisible();</code></pre>
   </figure>
 
-  <p>This also makes sure the <code>.p?-outer-gutter</code> type <a href="/Container.php">Breakout</a> classes (<code>.w-2-cols-vw</code>, <code>.ml-2-cols-vw</code> etc.) will work correctly inside of <code>.breakout</code> type content.</p>
+  <p>This also makes sure the <code>.p?-outer-gutter</code> type <a href="/Container.html">Breakout</a> classes (<code>.w-2-cols-vw</code>, <code>.ml-2-cols-vw</code> etc.) will work correctly inside of <code>.breakout</code> type content.</p>
 </div>
 
 
-<?php include 'includes/_footer.php'; ?>
+{% include_relative includes/_footer.html %}

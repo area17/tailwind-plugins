@@ -1,5 +1,7 @@
-<?php $title = 'Full Bleed Scroller'; ?>
-<?php include 'includes/_header.php'; ?>
+---
+title: Full Bleed Scroller
+---
+{% include_relative includes/_header.html %}
 
 <div class="copy">
   <h2 id="description">Description</h2>
@@ -106,9 +108,9 @@ module.exports = {
 &lt;/div></code></pre>
   </figure>
 
-  <p>Using a <code>.breakout</code> class (from <a href="/Container.php#breakout">Container#breakout</a>) to get a <code>100vw</code> container. <br><code>full-bleed-scroller</code> by default sets <code>display: flex; flex-flow: row nowrap; gap: var(--inner-gutter);</code>.</p>
+  <p>Using a <code>.breakout</code> class (from <a href="/Container.html#breakout">Container#breakout</a>) to get a <code>100vw</code> container. <br><code>full-bleed-scroller</code> by default sets <code>display: flex; flex-flow: row nowrap; gap: var(--inner-gutter);</code>.</p>
 
-  <p>Note the children use <code>.*-vw</code> type <a href="/Layout.php#vwvariants">Layout</a>width classes, this is because the container here is wider that <code>.container</code>. Also note that each child has <code>flex-none</code> set, so the width is controlled by the width class and not the child content.</p>
+  <p>Note the children use <code>.*-vw</code> type <a href="/Layout.html#vwvariants">Layout</a>width classes, this is because the container here is wider that <code>.container</code>. Also note that each child has <code>flex-none</code> set, so the width is controlled by the width class and not the child content.</p>
 
   <h3>Full bleed scroller on smaller screens, constrained by container width at <code>md</code> breakpoint and up</h3>
 </div>
@@ -186,4 +188,4 @@ module.exports = {
 
 </div>
 
-<?php include 'includes/_footer.php'; ?>
+{% include_relative includes/_footer.html %}

@@ -1,5 +1,7 @@
-<?php $title = 'Tailwind Setup'; ?>
-<?php include 'includes/_header.php'; ?>
+---
+title: Tailwind Setup
+---
+{% include_relative includes/_header.html %}
 
 <div class="copy">
   <p>Our general Tailwind setup involves a <code>frontend.config.json</code> and the usual <code>tailwind.config.js</code> file.</p>
@@ -12,7 +14,7 @@
 
   <figure class="code-example">
     <figcaption class="code-example-filename">tailwind.config.js</figcaption>
-      <pre class="code-example-code"><code class="language-javascript"><?php echo file_get_contents('./tailwind.config.js') ?></code></pre>
+      <pre class="code-example-code"><code class="language-javascript">{% include_relative tailwind.config.js %}</code></pre>
   </figure>
 
   <p>Breaking that down a little. Firstly require the plugins and then bring in the front end config file. Then set up Tailwind, JIT if you prefer.</p>
@@ -81,9 +83,9 @@
 
   <figure class="code-example">
     <figcaption class="code-example-filename">frontend.config.json</figcaption>
-    <pre class="code-example-code"><code class="language-json"><?php echo file_get_contents('./frontend.config.json') ?></code></pre>
+    <pre class="code-example-code"><code class="language-json">{% include_relative frontend.config.json %}</code></pre>
   </figure>
 
 </div>
 
-<?php include 'includes/_footer.php'; ?>
+{% include_relative includes/_footer.html %}
