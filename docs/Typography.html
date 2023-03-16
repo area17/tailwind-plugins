@@ -1,20 +1,34 @@
 ---
 title: Typography
 ---
+
 {% include_relative includes/_header.html %}
 
 <div class="copy">
   <h2 id="description">Description</h2>
 
-  <p>This plugin generates classes for responsive typography sets. The idea being that instead of giving text styles with multiple Tailwind classes and manually overriding at different breakpoints - you would instead have a responsive system set up.</p>
+  <p>
+    This plugin generates classes for responsive typography sets. The idea being
+    that instead of giving text styles with multiple Tailwind classes and
+    manually overriding at different breakpoints - you would instead have a
+    responsive system set up.
+  </p>
 
-  <p>Similiar to responsive spacing, at AREA 17 we like responsive typesets classes so that the type across a site can be known and predictable. We define our type system and then use them consistently across a site. We never have a unique type style or a unique style at a breakpoint - everything is part of the system.</p>
+  <p>
+    Similiar to responsive spacing, at AREA 17 we like responsive typesets
+    classes so that the type across a site can be known and predictable. We
+    define our type system and then use them consistently across a site. We
+    never have a unique type style or a unique style at a breakpoint -
+    everything is part of the system.
+  </p>
 
   <h2 id="setup">Setup</h2>
 
   <figure class="code-example">
     <figcaption class="code-example-filename">tailwind.config.js</figcaption>
-    <pre class="code-example-code"><code class="language-javascript">const { Typography } = require('@area17/a17-tailwind-plugins');
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { Typography } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
   ...
@@ -73,20 +87,36 @@ module.exports = {
 
   <h3 id="props">Settable type properties</h3>
 
-  <p>You can set any CSS key/value type for fonts/text styles and also two some special, none standard font properties you can set:</p>
+  <p>
+    You can set any CSS key/value type for fonts/text styles and also two some
+    special, none standard font properties you can set:
+  </p>
 
   <ul>
-    <li><code>bold-weight</code> - sets a variable of <code>--bold-weight</code> and sets any <code>b</code> or <code>strong</code> children of the element to use <code>font-weight: var(--bold-weight);</code> to give you control over the font weights</li>
-    <li><code>font-smoothing</code> - <code>true</code> or <code>false</code>, equivalent to Tailwind's <code>antialiased</code> and <code>subpixel-antialiased</code> classes</li>
+    <li>
+      <code>bold-weight</code> - sets a variable of
+      <code>--bold-weight</code> and sets any <code>b</code> or
+      <code>strong</code> children of the element to use
+      <code>font-weight: var(--bold-weight);</code> to give you control over the
+      font weights
+    </li>
+    <li>
+      <code>font-smoothing</code> - <code>true</code> or <code>false</code>,
+      equivalent to Tailwind's <code>antialiased</code> and
+      <code>subpixel-antialiased</code> classes
+    </li>
   </ul>
 
   <h2 id="output">Output</h2>
 
-  <p>Based on the reference config mentioned in this guide, for the typeset named <code>h1</code> we'd get the following in our CSS:</p>
+  <p>
+    Based on the reference config mentioned in this guide, for the typeset named
+    <code>h1</code> we'd get the following in our CSS:
+  </p>
 
   <figure class="code-example">
-  <figcaption class="code-example-filename">app.css</figcaption>
-  <pre class="code-example-code"><code class="language-css">.f-h1 {
+    <figcaption class="code-example-filename">app.css</figcaption>
+    <pre class="code-example-code"><code class="language-css">.f-h1 {
   font-family: var(--sans);
   font-size: 2rem;
   line-height: 1.2;
@@ -113,11 +143,18 @@ module.exports = {
 }</code></pre>
   </figure>
 
-  <p>Similarly for the typeset named <code>h1</code> we would get classes for each of the other typesets - in this guide that would include <code>f-h2</code>, <code>f-body</code> etc.</p>
+  <p>
+    Similarly for the typeset named <code>h1</code> we would get classes for
+    each of the other typesets - in this guide that would include
+    <code>f-h2</code>, <code>f-body</code> etc.
+  </p>
 
   <h2 id="demo">Demo</h2>
 
-  <p>Based on the reference config mentioned in this guide, we would get the following in our CSS:</p>
+  <p>
+    Based on the reference config mentioned in this guide, we would get the
+    following in our CSS:
+  </p>
 </div>
 
 <p class="f-h1 mt-20">f-h1 The quick brown fox jumps over the lazy dog</p>
@@ -127,7 +164,9 @@ module.exports = {
 <div class="copy">
   <figure class="code-example">
     <figcaption class="code-example-filename">document.html</figcaption>
-    <pre class="code-example-code"><code class="language-html">&lt;p class="f-h1">f-h1 The quick brown fox jumps over the lazy dog&lt;/p>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;p class="f-h1">f-h1 The quick brown fox jumps over the lazy dog&lt;/p>
 &lt;p class="f-h2">f-h2 The quick brown fox jumps over the lazy dog&lt;/p>
 &lt;p class="f-body">f-body The quick brown fox jumps over the lazy dog&lt;/p>
 </code></pre>

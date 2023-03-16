@@ -1,18 +1,25 @@
 ---
 title: Setup
 ---
+
 {% include_relative includes/_header.html %}
 
 <div class="copy">
   <h2 id="description">Description</h2>
 
-  <p>Takes <code>structure</code> information from the config and generates a series of <code>:root</code> variables which are used by other A17 Tailwind Plugins.</p>
+  <p>
+    Takes <code>structure</code> information from the config and generates a
+    series of <code>:root</code> variables which are used by other A17 Tailwind
+    Plugins.
+  </p>
 
   <h2 id="setup">Setup</h2>
 
   <figure class="code-example">
     <figcaption class="code-example-filename">tailwind.config.js</figcaption>
-    <pre class="code-example-code"><code class="language-javascript">const { Setup } = require('@area17/a17-tailwind-plugins');
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { Setup } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
   ...
@@ -65,7 +72,10 @@ module.exports = {
 
   <h2 id="output">Output</h2>
 
-  <p>Based on the reference config mentioned in this guide, we would get the following in our CSS:</p>
+  <p>
+    Based on the reference config mentioned in this guide, we would get the
+    following in our CSS:
+  </p>
 
   <figure class="code-example">
     <figcaption class="code-example-filename">app.css</figcaption>
@@ -144,11 +154,17 @@ module.exports = {
 
   <p>Which means <code>Setup</code> is required for each of those.</p>
 
-  <p>As these variables are on the <code>:root</code>, they are easily read by JavaScript. For example to know which is the currently active CSS breakpoint in JavaScript, you could read the <code>--breakpoint</code> variable:</p>
+  <p>
+    As these variables are on the <code>:root</code>, they are easily read by
+    JavaScript. For example to know which is the currently active CSS breakpoint
+    in JavaScript, you could read the <code>--breakpoint</code> variable:
+  </p>
 
   <figure class="code-example">
     <figcaption class="code-example-filename">application.js</figcaption>
-    <pre class="code-example-code"><code class="language-javascript">window.getComputedStyle(document.body).getPropertyValue('--breakpoint');</code></pre>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">window.getComputedStyle(document.body).getPropertyValue('--breakpoint');</code></pre>
   </figure>
 </div>
 

@@ -1,6 +1,7 @@
 ---
 title: GridGap
 ---
+
 {% include_relative includes/_header.html %}
 
 <div class="copy">
@@ -14,13 +15,18 @@ title: GridGap
     <li><code>.gap-x-gutter</code></li>
   </ul>
 
-  <p>Which are responsive CSS grid gutters to complement Tailwind's <a href="https://tailwindcss.com/docs/gap" target="_blank">grid-gap</a>.</p>
+  <p>
+    Which are responsive CSS grid gutters to complement Tailwind's
+    <a href="https://tailwindcss.com/docs/gap" target="_blank">grid-gap</a>.
+  </p>
 
   <h2 id="setup">Setup</h2>
 
   <figure class="code-example">
     <figcaption class="code-example-filename">tailwind.config.js</figcaption>
-    <pre class="code-example-code"><code class="language-javascript">const { Setup, GridGap } = require('@area17/a17-tailwind-plugins');
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { Setup, GridGap } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
   ...
@@ -39,16 +45,23 @@ module.exports = {
 };</code></pre>
   </figure>
 
-  <p>Requires <code>Setup</code> plugin with <code>theme.innerGutters</code> configured.</p>
+  <p>
+    Requires <code>Setup</code> plugin with
+    <code>theme.innerGutters</code> configured.
+  </p>
 
   <h2 id="demo">Demo</h2>
 
-  <p>Mixing in with standard Tailwind grid type classes, we use <code>gap-x-gutter</code> to set the grid's column gutter:</p>
-
+  <p>
+    Mixing in with standard Tailwind grid type classes, we use
+    <code>gap-x-gutter</code> to set the grid's column gutter:
+  </p>
 </div>
 
 <div class="show-grid">
-  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-20 mt-20">
+  <div
+    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-20 mt-20"
+  >
     <div class="h-40 bg-column"></div>
     <div class="h-40 bg-column"></div>
     <div class="h-40 bg-column"></div>
@@ -59,7 +72,9 @@ module.exports = {
 <div class="copy">
   <figure class="code-example">
     <figcaption class="code-example-filename">document.html</figcaption>
-    <pre class="code-example-code"><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-20  gap-x-gutter">
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-20  gap-x-gutter">
   &lt;div>&lt;/div>
   &lt;div>&lt;/div>
   &lt;div>&lt;/div>
@@ -67,11 +82,17 @@ module.exports = {
 &lt;/div></code></pre>
   </figure>
 
-  <p>Much like Tailwind's <a href="https://tailwindcss.com/docs/gap" target="_blank">grid-gap</a>, you can prefix these classes per breakpoint, state etc.</p>
+  <p>
+    Much like Tailwind's
+    <a href="https://tailwindcss.com/docs/gap" target="_blank">grid-gap</a>, you
+    can prefix these classes per breakpoint, state etc.
+  </p>
 </div>
 
 <div class="show-grid">
-  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-0 md:gap-x-gutter lg:gap-x-0 xl:gap-x-gutter gap-y-20 mt-20">
+  <div
+    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-0 md:gap-x-gutter lg:gap-x-0 xl:gap-x-gutter gap-y-20 mt-20"
+  >
     <div class="h-40 bg-column"></div>
     <div class="h-40 bg-column"></div>
     <div class="h-40 bg-column"></div>
@@ -82,7 +103,9 @@ module.exports = {
 <div class="copy">
   <figure class="code-example">
     <figcaption class="code-example-filename">document.html</figcaption>
-    <pre class="code-example-code"><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-20 gap-x-0 md:gap-x-gutter lg:gap-x-0 xl:gap-x-gutter">
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-20 gap-x-0 md:gap-x-gutter lg:gap-x-0 xl:gap-x-gutter">
   &lt;div>&lt;/div>
   &lt;div>&lt;/div>
   &lt;div>&lt;/div>

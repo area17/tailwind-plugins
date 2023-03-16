@@ -1,6 +1,7 @@
 ---
 title: Components
 ---
+
 {% include_relative includes/_header.html %}
 
 <div class="copy rich-text">
@@ -14,7 +15,9 @@ title: Components
 
   <figure class="code-example">
     <figcaption class="code-example-filename">tailwind.config.js</figcaption>
-    <pre class="code-example-code"><code class="language-javascript">const { Components } = require('@area17/a17-tailwind-plugins');
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { Components } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
   ...
@@ -47,7 +50,13 @@ module.exports = {
 
   <h2 id="keys">Config object keys</h2>
 
-  <p><code>theme.components</code> is essentially a object of <code>selectors</code>. Each entry can either be set to a string of classes to <code>@apply</code>, or an object containing <code>apply</code>, <code>attributes</code>, <code>selectors</code>, <code>breakpoints</code> and <code>variants</code> keys:</p>
+  <p>
+    <code>theme.components</code> is essentially a object of
+    <code>selectors</code>. Each entry can either be set to a string of classes
+    to <code>@apply</code>, or an object containing <code>apply</code>,
+    <code>attributes</code>, <code>selectors</code>,
+    <code>breakpoints</code> and <code>variants</code> keys:
+  </p>
 
   <figure class="code-example">
     <figcaption class="code-example-filename">tailwind.config.js</figcaption>
@@ -59,13 +68,22 @@ module.exports = {
 }</code></pre>
   </figure>
 
-  <p>Every child selector can also be set to a string of classes to <code>@apply</code>, or an object containing <code>apply</code>, <code>attributes</code>, <code>selectors</code>, <code>breakpoints</code> and <code>variants</code> keys.</p>
+  <p>
+    Every child selector can also be set to a string of classes to
+    <code>@apply</code>, or an object containing <code>apply</code>,
+    <code>attributes</code>, <code>selectors</code>,
+    <code>breakpoints</code> and <code>variants</code> keys.
+  </p>
 
-  <p>Comma separated values and psuedo selectors will also be correctly parsed:</p>
+  <p>
+    Comma separated values and psuedo selectors will also be correctly parsed:
+  </p>
 
   <figure class="code-example">
     <figcaption class="code-example-filename">tailwind.config.js</figcaption>
-    <pre class="code-example-code"><code class="language-javascript">components: {
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">components: {
   ".rich-text, .wysiwyg": {
     selectors: {
       a: "text-accent underline",
@@ -81,7 +99,9 @@ module.exports = {
 
   <figure class="code-example">
     <figcaption class="code-example-filename">tailwind.config.js</figcaption>
-    <pre class="code-example-code"><code class="language-javascript">components: {
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">components: {
   ".rich-text": {
     selectors: {
       p: "f-body mt-20",
@@ -136,7 +156,9 @@ module.exports = {
 
   <figure class="code-example">
     <figcaption class="code-example-filename">tailwind.config.js</figcaption>
-    <pre class="code-example-code"><code class="language-javascript">components: {
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">components: {
   ".rich-text": {
     selectors: {
       p: "f-body mt-20",
@@ -155,7 +177,9 @@ module.exports = {
 
   <figure class="code-example">
     <figcaption class="code-example-filename">tailwind.config.js</figcaption>
-    <pre class="code-example-code"><code class="language-javascript">components: {
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">components: {
   ".btn": {
     apply: "f-body flex justify-center items-center m-0 border-2 appearance-none",
     attributes: {
@@ -284,9 +308,15 @@ module.exports = {
 }</code></pre>
   </figure>
 
-  <p>Your Tailwind build will error out if you <code>@apply</code> classes that aren't defined or if you use <code>@screen</code> with breakpoints that don't exist.</p>
+  <p>
+    Your Tailwind build will error out if you <code>@apply</code> classes that
+    aren't defined or if you use <code>@screen</code> with breakpoints that
+    don't exist.
+  </p>
 
-  <p><strong>Note:</strong> this plugin doesn't attempt to validate your input.</p>
+  <p>
+    <strong>Note:</strong> this plugin doesn't attempt to validate your input.
+  </p>
 </div>
 
 {% include_relative includes/_footer.html %}

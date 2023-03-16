@@ -1,24 +1,44 @@
 ---
 title: ApplyColourVariables
 ---
+
 {% include_relative includes/_header.html %}
 
 <div class="copy">
   <h2 id="description">Description</h2>
 
-  <p>This plugin maps <code>:root</code> CSS colour variables, made with the <code>ColorTokens</code> plugin, to Tailwind text, background and border colours (or which ever Tailwind colour classes you set).</p>
+  <p>
+    This plugin maps <code>:root</code> CSS colour variables, made with the
+    <code>ColorTokens</code> plugin, to Tailwind text, background and border
+    colours (or which ever Tailwind colour classes you set).
+  </p>
 
-  <p>The CSS output is standard <code>text-</code>/<code>bg-</code>/<code>border-</code> classes, only the values are mapped to CSS variables.</p>
+  <p>
+    The CSS output is standard <code>text-</code>/<code>bg-</code>/<code
+      >border-</code
+    >
+    classes, only the values are mapped to CSS variables.
+  </p>
 
   <h2 id="setup">Setup</h2>
 
-  <p>Essentially you set your colours in the <code>theme</code> as you would when overriding Tailwind colours as normal. <br>But, you assign each colour type to the <code>ApplyColourVariables</code> function passing in 2 objects, the first of the colour tokens and the second being your chosen colour mappings.</p>
+  <p>
+    Essentially you set your colours in the <code>theme</code> as you would when
+    overriding Tailwind colours as normal. <br />But, you assign each colour
+    type to the <code>ApplyColourVariables</code> function passing in 2 objects,
+    the first of the colour tokens and the second being your chosen colour
+    mappings.
+  </p>
 
-  <p>The colour mappings are in abstract usage key to CSS variable name value:</p>
+  <p>
+    The colour mappings are in abstract usage key to CSS variable name value:
+  </p>
 
   <figure class="code-example">
     <figcaption class="code-example-filename">tailwind.config.js</figcaption>
-    <pre class="code-example-code"><code class="language-javascript">backgroundColor: ApplyColorVariables(colors, {
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">backgroundColor: ApplyColorVariables(colors, {
     banner: "grey-90",
   }
 )</code></pre>
@@ -37,7 +57,9 @@ title: ApplyColourVariables
 
   <figure class="code-example">
     <figcaption class="code-example-filename">tailwind.config.js</figcaption>
-    <pre class="code-example-code"><code class="language-javascript">const { ColorTokens, ApplyColorVariables } = require('@area17/a17-tailwind-plugins');
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { ColorTokens, ApplyColorVariables } = require('@area17/a17-tailwind-plugins');
 
 const colors = {
   "white": "#fff",
@@ -89,7 +111,10 @@ module.exports = {
 };</code></pre>
   </figure>
 
-  <p>You can also apply arbitrary Hex, RGB, RGBA, HSL, colour name or any valid CSS colour value instead of a CSS variable name:</p>
+  <p>
+    You can also apply arbitrary Hex, RGB, RGBA, HSL, colour name or any valid
+    CSS colour value instead of a CSS variable name:
+  </p>
 
   <figure class="code-example">
     <figcaption class="code-example-filename">tailwind.config.js</figcaption>
@@ -103,7 +128,10 @@ backgroundColor: ApplyColorVariables(colors, {
   </figure>
 
   <h2 id="output">Output</h2>
-  <p>Based on the reference config mentioned in this guide, we would get the following in our CSS:</p>
+  <p>
+    Based on the reference config mentioned in this guide, we would get the
+    following in our CSS:
+  </p>
 
   <figure class="code-example">
     <figcaption class="code-example-filename">app.css</figcaption>
@@ -116,12 +144,23 @@ backgroundColor: ApplyColorVariables(colors, {
 }</code></pre>
   </figure>
 
-  <p><strong>Note:</strong> This isn't all the output, just indicative. The output classes themselves are very much standard Tailwind type colour classes - the <strong>only</strong> difference is they're mapped to CSS variables.</p>
+  <p>
+    <strong>Note:</strong> This isn't all the output, just indicative. The
+    output classes themselves are very much standard Tailwind type colour
+    classes - the <strong>only</strong> difference is they're mapped to CSS
+    variables.
+  </p>
 
   <h2 id="notes">Notes</h2>
 
-  <p>This could be considered step 2 of abstracting colour tokens from colour usage. The first step is generating colour variables with the <code>ColorTokens</code> plugin. Although you could name your text, background and border colours anything, its <strong>important</strong> to name by abstract usage and not by the hue of the colour itself. It will be far easier to update these and expand these in the future if you do this.</p>
-
+  <p>
+    This could be considered step 2 of abstracting colour tokens from colour
+    usage. The first step is generating colour variables with the
+    <code>ColorTokens</code> plugin. Although you could name your text,
+    background and border colours anything, its <strong>important</strong> to
+    name by abstract usage and not by the hue of the colour itself. It will be
+    far easier to update these and expand these in the future if you do this.
+  </p>
 </div>
 
 {% include_relative includes/_footer.html %}
