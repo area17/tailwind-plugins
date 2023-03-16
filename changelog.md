@@ -4,6 +4,50 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.7.2] - 2023-03-16
+
+## Added
+
+Docs have been added to this repo, using GitHub pages, see `/docs/README.md`.
+
+### Fixed
+- update `ApplyColorVariables` to handle `-` in token names better - [e2bbb75](https://github.com/area17/tailwind-plugins/pull/8)
+
+Can now handle:
+
+```
+"color": {
+  "tokens": {
+    "grey-950": "#0D0C0C",
+    "grey-900": "#1B1918",
+    "grey-850": "#282525",
+    "grey-700": "#ADADAD",
+    "grey-100": "#D3D3D3",
+    "green": "#4BB543",
+    "red": {
+      "100": "#D3B2C0",
+      "400": "#EF4637",
+      "500": "#EE3523",
+      "700": "#772848",
+      "800": "#6C002C"
+    },
+    "purple": "#793CB8",
+    "purple-light": "rgba(121, 60, 184, 0.1)"
+  },
+  "text": {
+    "text": "grey-700",
+    "go": "green",
+    "danger": "red-400",
+    "tag": "purple",
+    "tip": "purple-light",
+    "custom": "#00f"
+  }
+}
+
+```
+
+Previously the `text-tip` would be incorrectly set to `var(--purple)` and not `var(--purple-light)` as the `ApplyColorVariables` func would find `purple` before `purple-light`.
+
 ## [3.7.1] - 2022-12-13
 
 ### Fixed
