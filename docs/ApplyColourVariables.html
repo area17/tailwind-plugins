@@ -74,7 +74,15 @@ const colors = {
   "blue-03": "#004F91",
   "blue-04": "#313BFB",
   "blue-05": "#81EEF3",
-  "red-01": "#f00"
+  "red": {
+    "100": "#D3B2C0",
+    "400": "#EF4637",
+    "500": "#EE3523",
+    "700": "#772848",
+    "800": "#6C002C"
+  },
+  "purple": "#793CB8",
+  "purple-light": "rgba(121, 60, 184, 0.1)"
 };
 
 module.exports = {
@@ -94,7 +102,11 @@ module.exports = {
         inverse: "white",
         secondary: "grey-54",
         accent: "blue-03",
-        code: "black"
+        code: "black",
+        "danger": "red-400",
+        "tag": "purple",
+        "tip": "purple-light",
+        "custom": "#00f"
       }
     ),
     backgroundColor: ApplyColorVariables(colors, {
@@ -139,9 +151,23 @@ backgroundColor: ApplyColorVariables(colors, {
   color: var(--grey-90);
 }
 
+.text-danger {
+  color: var(--red-400);
+}
+
+.text-tag {
+  color: var(--purple);
+}
+
+.text-custom {
+  color: #00f;
+}
+
 .bg-column {
   background-color: var(--blue-05);
-}</code></pre>
+}
+
+etc.</code></pre>
   </figure>
 
   <p>
