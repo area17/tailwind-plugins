@@ -9,6 +9,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## Added
 
 - `BackgroundFill` - draws a 100vw background colour pseudo layer
+- `StrokeFull` - draws a 100vw stroke pseudo layer
+
+### Changed
+
+Re-arranged `index.html` to group plugins.
 
 ## [3.7.2] - 2023-03-16
 
