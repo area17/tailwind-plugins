@@ -2,6 +2,7 @@
 const {
   Setup,
   ApplyColorVariables,
+  BackgroundFill,
   ColorTokens,
   Components,
   Container,
@@ -19,6 +20,7 @@ const {
   Scrollbar,
   Spacing,
   SpacingTokens,
+  StrokeFull,
   Typography,
   Underline,
 } = require('../index');
@@ -35,6 +37,7 @@ module.exports = {
     Setup,
     ColorTokens,
     Components,
+    BackgroundFill,
     Container,
     CssInJs,
     DevTools,
@@ -49,6 +52,7 @@ module.exports = {
     RatioBox,
     Scrollbar,
     Spacing,
+    StrokeFull,
     Typography,
     Underline,
   ],

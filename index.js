@@ -1,3 +1,4 @@
+const BackgroundFill = require('./src/BackgroundFill');
 const Container = require('./src/Container');
 const Keyline = require('./src/Keyline');
 const Layout = require('./src/Layout');
@@ -19,8 +20,10 @@ const GridLayout = require('./src/GridLayout');
 const FullBleedScroller = require('./src/FullBleedScroller');
 const InteractionMediaQueries = require('./src/InteractionMediaQueries');
 const Scrollbar = require('./src/Scrollbar');
+const StrokeFull = require('./src/StrokeFull');
 
 module.exports = {
+  BackgroundFill,
   Container,
   Keyline,
   Layout,
@@ -42,4 +45,5 @@ module.exports = {
   FullBleedScroller,
   InteractionMediaQueries,
   Scrollbar,
+  StrokeFull,
 };
