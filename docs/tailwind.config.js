@@ -2,6 +2,7 @@
 const {
   Setup,
   ApplyColorVariables,
+  BackgroundFill,
   ColorTokens,
   Components,
   Container,
@@ -35,6 +36,7 @@ module.exports = {
     Setup,
     ColorTokens,
     Components,
+    BackgroundFill,
     Container,
     CssInJs,
     DevTools,

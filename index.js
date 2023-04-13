@@ -1,3 +1,4 @@
+const BackgroundFill = require('./src/BackgroundFill');
 const Container = require('./src/Container');
 const Keyline = require('./src/Keyline');
 const Layout = require('./src/Layout');
@@ -21,6 +22,7 @@ const InteractionMediaQueries = require('./src/InteractionMediaQueries');
 const Scrollbar = require('./src/Scrollbar');
 
 module.exports = {
+  BackgroundFill,
   Container,
   Keyline,
   Layout,
