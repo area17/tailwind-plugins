@@ -15,72 +15,23 @@ We also wanted to include a few utility classes that would simplify some common 
 
 ## Setup
 
-1. Install via npm:
+Install via npm:
 
 ```shell
 $ npm install @area17/a17-tailwind-plugins
 ```
 
-2. Include plugins in `tailwind.config.js`. Configs for each plugin can be found below.
-
-```javascript
-const { Setup, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, Spacing, Typography, ColorTokens, ApplyColorVariables, Underline, Components, CssInJs, GridLayout, SpacingTokens } = require('@area17/a17-tailwind-plugins');
-
-module.exports = {
-  ...
-
-  plugins: [Setup, Typography, Spacing, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, ColorTokens, Underline, Components, CssInJs, GridLayout],
-
-  ...
-};
-```
+Include plugins in `tailwind.config.js`:
+* [Walk through of our set up](https://area17.github.io/tailwind-plugins/Setup.html)
 
 ## Sample set up files
 
 * [tailwind.config.js](https://github.com/area17/tailwind-plugins/blob/main/docs/tailwind.config.js)
 * [frontend.config.json](https://github.com/area17/tailwind-plugins/blob/main/docs/frontend.config.json)
-* [Walk through of our set up](https://area17.github.io/tailwind-plugins/Setup.html)
-
 
 ## Documentation and demos
 
 * [area17.github.io/tailwind-plugins/](https://area17.github.io/tailwind-plugins/)
-
-### The plugins
-
-* [DevTools](https://area17.github.io/tailwind-plugins/DevTools.html) - generates the CSS for the grid helper (in the bottom left corner of the page)
-
-* [ColorTokens](https://area17.github.io/tailwind-plugins/ColorTokens.html) - generates colour variables
-* [ApplyColourVariables](https://area17.github.io/tailwind-plugins/ApplyColourVariables.html) - generates utility classes
-
-* [SpacingTokens](https://area17.github.io/tailwind-plugins/SpacingTokens.html) - generates `rem` based spacing tokens based on pixel based scales or inputs (updated in `v3.4.0`)
-* [Spacing](https://area17.github.io/tailwind-plugins/Spacing.html) - generates responsive spacing classes
-
-* [Container](https://area17.github.io/tailwind-plugins/Container.html) - generates a custom container class based on supplied config
-* [Layout](https://area17.github.io/tailwind-plugins/Layout.html) - generates utility classes to set elements onto the design grid
-* [GridLayout](https://area17.github.io/tailwind-plugins/GridLayout.html) - generates CSS grid utility classes to set elements onto the design grid (new in `v3.3.0`)
-* [GridGap](https://area17.github.io/tailwind-plugins/GridGap.html) - generates grid gap utilities based on the configured grid
-
-* [Typography](https://area17.github.io/tailwind-plugins/Typography.html) - generates responsive typography classes
-
-* [GridLine](https://area17.github.io/tailwind-plugins/GridLine.html) - generates vertical and horizontal grid line/stroke classes (borders in the gutters between elements)
-* [Keyline](https://area17.github.io/tailwind-plugins/Keyline.html) - generates keylines in the gutter between elements
-
-* [PseudoElements](https://area17.github.io/tailwind-plugins/PseudoElements.html) - adds additional pseudo classes
-
-* [RatioBox](https://area17.github.io/tailwind-plugins/RatioBox.html) - generates ratio box utilities
-
-* [Underline](https://area17.github.io/tailwind-plugins/Underline.html) - generates text underline styling utilities (new in `v3.1.0`)
-
-* [CssInJs](https://area17.github.io/tailwind-plugins/CssInJs.html) - allows you to pass through CSS from your Tailwind config (new in `v3.2.0`)
-* [Components](https://area17.github.io/tailwind-plugins/Components.html) - allows you to generate component CSS from your Tailwind config (new in `v3.2.0`)
-
-* [FullBleedScroller](https://area17.github.io/tailwind-plugins/FullBleedScroller.html) - easy full bleed `overflow-x: auto` scrolling containers (new in `v3.6.0`)
-
-* [InteractionMediaQueries](https://area17.github.io/tailwind-plugins/InteractionMediaQueries.html) - adds interaction based media queries, think targeting devices with hover capability (new in `v3.6.0`)
-
-* [Scrollbar](https://area17.github.io/tailwind-plugins/Scrollbar.html) - scrollbar styling, unifies the CSS standard and non-standard scrollbar styling (new in `v3.6.0`)
-
 
 ### Breaking changes to Layout in `v3.0.0`
 
