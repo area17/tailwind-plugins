@@ -4,10 +4,10 @@ module.exports = function ({ addBase, theme }) {
 
   let styles = {
     "[class*='background-fill']": {
+      '--background-fill-bg': 'inherit',
       'position': 'relative',
     },
     "[class*='background-fill']::before": {
-      '--background-fill-bg': 'inherit',
       'content': '""',
       'position': 'absolute',
       'z-index': -1,

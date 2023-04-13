@@ -480,11 +480,11 @@ video {
 }
 
 [class*='background-fill'] {
+  --background-fill-bg: inherit;
   position: relative;
 }
 
 [class*='background-fill']::before {
-  --background-fill-bg: inherit;
   content: "";
   position: absolute;
   z-index: -1;
@@ -834,6 +834,67 @@ video {
 
 .pt-inner-1 {
   padding-top: var(--spacing-inner-1);
+}
+
+[class*='stroke-full'] {
+  --stroke-full-thickness: 0.0625em;
+  --stroke-full-style: solid;
+  --stroke-full-color: inherit;
+  position: relative;
+}
+
+[class*='stroke-full-']::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  margin-left: -50vw;
+  pointer-events: none;
+}
+
+.stroke-full-top::after {
+  bottom: 100%;
+  border-bottom: var(--stroke-full-thickness, 0.0625em) var(--stroke-full-style, solid) var(--stroke-full-color, inherit);
+}
+
+.stroke-full-bottom::after {
+  top: 100%;
+  border-top: var(--stroke-full-thickness, 0.0625em) var(--stroke-full-style, solid) var(--stroke-full-color, inherit);
+}
+
+.stroke-full-primary {
+  --stroke-full-color: var(--black);
+}
+
+.stroke-full-secondary {
+  --stroke-full-color: var(--grey-15);
+}
+
+.stroke-full-tertiary {
+  --stroke-full-color: var(--grey-54);
+}
+
+.stroke-full-dotted {
+  --stroke-full-style: dotted;
+}
+
+.stroke-full-dashed {
+  --stroke-full-style: dashed;
+}
+
+.stroke-full-2 {
+  --stroke-full-thickness: 0.125rem;
+}
+
+.stroke-full-4 {
+  --stroke-full-thickness: 0.25rem;
+}
+
+.stroke-full-10 {
+  --stroke-full-thickness: 0.625rem;
 }
 
 :root {
@@ -4259,6 +4320,11 @@ video {
   margin-right: 2.5rem;
 }
 
+.my-60 {
+  margin-top: 3.75rem;
+  margin-bottom: 3.75rem;
+}
+
 .mt-40 {
   margin-top: 2.5rem;
 }
@@ -4297,10 +4363,6 @@ video {
 
 .ml-16 {
   margin-left: 1rem;
-}
-
-.mt-28 {
-  margin-top: 1.75rem;
 }
 
 .mt-16 {
@@ -4663,6 +4725,10 @@ video {
   max-width: 25rem;
 }
 
+.\!max-w-full {
+  max-width: 100% !important;
+}
+
 .flex-none {
   flex: none;
 }
@@ -4779,12 +4845,12 @@ video {
   border-width: 2px;
 }
 
-.border-b {
-  border-bottom-width: 1px;
-}
-
 .border-t {
   border-top-width: 1px;
+}
+
+.border-b {
+  border-bottom-width: 1px;
 }
 
 .border-tertiary {
@@ -4801,6 +4867,10 @@ video {
 
 .border-secondary {
   border-color: var(--grey-15);
+}
+
+.border-t-secondary {
+  border-top-color: var(--grey-15);
 }
 
 .bg-banner {

@@ -20,6 +20,7 @@ const {
   Scrollbar,
   Spacing,
   SpacingTokens,
+  StrokeFull,
   Typography,
   Underline,
 } = require('../index');
@@ -51,6 +52,7 @@ module.exports = {
     RatioBox,
     Scrollbar,
     Spacing,
+    StrokeFull,
     Typography,
     Underline,
   ],
