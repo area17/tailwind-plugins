@@ -901,135 +901,147 @@ video {
   --sans: SuisseIntl, Helvetica, Arial, sans-serif;
   --serif: "Times New Roman", Georgia, serif;
   --mono: "Lucida Console", Courier, monospace;
+  --f-h1-font-family: var(--sans);
+  --f-h1-font-weight: 500;
+  --f-h1-font-size: 2rem;
+  --f-h1-line-height: 1.2;
+  --f-h1-letter-spacing: -0.02em;
+  --f-h1--moz-osx-font-smoothing: grayscale;
+  --f-h1--webkit-font-smoothing: antialiased;
+  --f-h1---bold-weight: 500;
+  --f-h2-font-family: var(--sans);
+  --f-h2-font-weight: 500;
+  --f-h2-font-size: 1.25rem;
+  --f-h2-line-height: 1.2;
+  --f-h2-letter-spacing: -0.02em;
+  --f-h2--moz-osx-font-smoothing: grayscale;
+  --f-h2--webkit-font-smoothing: antialiased;
+  --f-h2---bold-weight: 500;
+  --f-h3-font-family: var(--sans);
+  --f-h3-font-weight: 500;
+  --f-h3-font-size: 1rem;
+  --f-h3-line-height: 1.2;
+  --f-h3-letter-spacing: -0.02em;
+  --f-h3--moz-osx-font-smoothing: grayscale;
+  --f-h3--webkit-font-smoothing: antialiased;
+  --f-h3---bold-weight: 500;
+  --f-h4-font-family: var(--sans);
+  --f-h4-font-weight: 500;
+  --f-h4-font-size: 0.875rem;
+  --f-h4-line-height: 1.2;
+  --f-h4-letter-spacing: -0.02em;
+  --f-h4--moz-osx-font-smoothing: grayscale;
+  --f-h4--webkit-font-smoothing: antialiased;
+  --f-h4---bold-weight: 500;
+  --f-body-font-family: var(--sans);
+  --f-body-font-size: 0.875rem;
+  --f-body-line-height: 1.7;
+  --f-body--moz-osx-font-smoothing: grayscale;
+  --f-body--webkit-font-smoothing: antialiased;
+  --f-body---bold-weight: 500;
+  --f-ui-font-family: var(--sans);
+  --f-ui-font-size: 0.75rem;
+  --f-ui-line-height: 1.2;
+  --f-ui-font-weight: 400;
+  --f-code-font-family: var(--mono);
+  --f-code-font-size: 0.875rem;
+  --f-code-line-height: 1.2;
+  --f-code-font-weight: 400;
 }
 
 .f-h1 {
-  font-family: var(--sans);
-  font-weight: 500;
-  font-size: 2rem;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
-}
-
-.f-h1 b, .f-h1 strong {
-  font-weight: var(--bold-weight);
-}
-
-@media (min-width: 650px) {
-  .f-h1 {
-    font-size: 2.25rem;
-  }
-}
-
-@media (min-width: 990px) {
-  .f-h1 {
-    font-size: 3rem;
-  }
+  font-family: var(--f-h1-font-family);
+  font-weight: var(--f-h1-font-weight);
+  font-size: var(--f-h1-font-size);
+  line-height: var(--f-h1-line-height);
+  letter-spacing: var(--f-h1-letter-spacing);
+  -moz-osx-font-smoothing: var(--f-h1--moz-osx-font-smoothing);
+  -webkit-font-smoothing: var(--f-h1--webkit-font-smoothing);
+  --bold-weight: var(--f-h1---bold-weight);
 }
 
 .f-h2 {
-  font-family: var(--sans);
-  font-weight: 500;
-  font-size: 1.25rem;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
-}
-
-.f-h2 b, .f-h2 strong {
-  font-weight: var(--bold-weight);
-}
-
-@media (min-width: 650px) {
-  .f-h2 {
-    font-size: 1.5rem;
-  }
-}
-
-@media (min-width: 990px) {
-  .f-h2 {
-    font-size: 1.75rem;
-  }
+  font-family: var(--f-h2-font-family);
+  font-weight: var(--f-h2-font-weight);
+  font-size: var(--f-h2-font-size);
+  line-height: var(--f-h2-line-height);
+  letter-spacing: var(--f-h2-letter-spacing);
+  -moz-osx-font-smoothing: var(--f-h2--moz-osx-font-smoothing);
+  -webkit-font-smoothing: var(--f-h2--webkit-font-smoothing);
+  --bold-weight: var(--f-h2---bold-weight);
 }
 
 .f-h3 {
-  font-family: var(--sans);
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
-}
-
-.f-h3 b, .f-h3 strong {
-  font-weight: var(--bold-weight);
-}
-
-@media (min-width: 650px) {
-  .f-h3 {
-    font-size: 1.25rem;
-  }
+  font-family: var(--f-h3-font-family);
+  font-weight: var(--f-h3-font-weight);
+  font-size: var(--f-h3-font-size);
+  line-height: var(--f-h3-line-height);
+  letter-spacing: var(--f-h3-letter-spacing);
+  -moz-osx-font-smoothing: var(--f-h3--moz-osx-font-smoothing);
+  -webkit-font-smoothing: var(--f-h3--webkit-font-smoothing);
+  --bold-weight: var(--f-h3---bold-weight);
 }
 
 .f-h4 {
-  font-family: var(--sans);
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
-}
-
-.f-h4 b, .f-h4 strong {
-  font-weight: var(--bold-weight);
-}
-
-@media (min-width: 650px) {
-  .f-h4 {
-    font-size: 1rem;
-  }
+  font-family: var(--f-h4-font-family);
+  font-weight: var(--f-h4-font-weight);
+  font-size: var(--f-h4-font-size);
+  line-height: var(--f-h4-line-height);
+  letter-spacing: var(--f-h4-letter-spacing);
+  -moz-osx-font-smoothing: var(--f-h4--moz-osx-font-smoothing);
+  -webkit-font-smoothing: var(--f-h4--webkit-font-smoothing);
+  --bold-weight: var(--f-h4---bold-weight);
 }
 
 .f-body {
-  font-family: var(--sans);
-  font-size: 0.875rem;
-  line-height: 1.7;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
-}
-
-.f-body b, .f-body strong {
-  font-weight: var(--bold-weight);
-}
-
-@media (min-width: 650px) {
-  .f-body {
-    font-size: 1rem;
-  }
+  font-family: var(--f-body-font-family);
+  font-size: var(--f-body-font-size);
+  line-height: var(--f-body-line-height);
+  -moz-osx-font-smoothing: var(--f-body--moz-osx-font-smoothing);
+  -webkit-font-smoothing: var(--f-body--webkit-font-smoothing);
+  --bold-weight: var(--f-body---bold-weight);
 }
 
 .f-ui {
-  font-family: var(--sans);
-  font-size: 0.75rem;
-  line-height: 1.2;
-  font-weight: 400;
+  font-family: var(--f-ui-font-family);
+  font-size: var(--f-ui-font-size);
+  line-height: var(--f-ui-line-height);
+  font-weight: var(--f-ui-font-weight);
 }
 
 .f-code {
-  font-family: var(--mono);
-  font-size: 0.875rem;
-  line-height: 1.2;
-  font-weight: 400;
+  font-family: var(--f-code-font-family);
+  font-size: var(--f-code-font-size);
+  line-height: var(--f-code-line-height);
+  font-weight: var(--f-code-font-weight);
+}
+
+.f-h1 b, .f-h1 strong {
+  font-weight: var(--f-h1---bold-weight, bold);
+}
+
+.f-h2 b, .f-h2 strong {
+  font-weight: var(--f-h2---bold-weight, bold);
+}
+
+.f-h3 b, .f-h3 strong {
+  font-weight: var(--f-h3---bold-weight, bold);
+}
+
+.f-h4 b, .f-h4 strong {
+  font-weight: var(--f-h4---bold-weight, bold);
+}
+
+.f-body b, .f-body strong {
+  font-weight: var(--f-body---bold-weight, bold);
+}
+
+.f-ui b, .f-ui strong {
+  font-weight: var(--f-ui---bold-weight, bold);
+}
+
+.f-code b, .f-code strong {
+  font-weight: var(--f-code---bold-weight, bold);
 }
 
 *, ::before, ::after {
@@ -1245,10 +1257,17 @@ video {
 }
 
 .code-example .code-example-filename {
-  font-family: var(--sans);
-  font-size: 0.75rem;
-  line-height: 1.2;
-  font-weight: 400;
+  font-family: var(--f-ui-font-family);
+  font-size: var(--f-ui-font-size);
+  line-height: var(--f-ui-line-height);
+  font-weight: var(--f-ui-font-weight);
+}
+
+.code-example .code-example-filename b,.code-example .code-example-filename strong {
+  font-weight: var(--f-ui---bold-weight, bold);
+}
+
+.code-example .code-example-filename {
   display: inline-block;
   border-bottom-width: 1px;
   border-color: var(--blue-05);
@@ -1262,10 +1281,17 @@ video {
 }
 
 .code-example .code-example-code {
-  font-family: var(--mono);
-  font-size: 0.875rem;
-  line-height: 1.2;
-  font-weight: 400;
+  font-family: var(--f-code-font-family);
+  font-size: var(--f-code-font-size);
+  line-height: var(--f-code-line-height);
+  font-weight: var(--f-code-font-weight);
+}
+
+.code-example .code-example-code b,.code-example .code-example-code strong {
+  font-weight: var(--f-code---bold-weight, bold);
+}
+
+.code-example .code-example-code {
   display: block;
   background-color: var(--grey-90);
   color: var(--grey-3);
@@ -1295,30 +1321,18 @@ video {
 }
 
 .copy h2 {
-  font-family: var(--sans);
-  font-weight: 500;
-  font-size: 1.25rem;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
+  font-family: var(--f-h2-font-family);
+  font-weight: var(--f-h2-font-weight);
+  font-size: var(--f-h2-font-size);
+  line-height: var(--f-h2-line-height);
+  letter-spacing: var(--f-h2-letter-spacing);
+  -moz-osx-font-smoothing: var(--f-h2--moz-osx-font-smoothing);
+  -webkit-font-smoothing: var(--f-h2--webkit-font-smoothing);
+  --bold-weight: var(--f-h2---bold-weight);
 }
 
 .copy h2 b,.copy h2 strong {
-  font-weight: var(--bold-weight);
-}
-
-@media (min-width: 650px) {
-  .copy h2 {
-    font-size: 1.5rem;
-  }
-}
-
-@media (min-width: 990px) {
-  .copy h2 {
-    font-size: 1.75rem;
-  }
+  font-weight: var(--f-h2---bold-weight, bold);
 }
 
 .copy h2:not(:first-child) {
@@ -1329,24 +1343,18 @@ video {
 }
 
 .copy h3 {
-  font-family: var(--sans);
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
+  font-family: var(--f-h3-font-family);
+  font-weight: var(--f-h3-font-weight);
+  font-size: var(--f-h3-font-size);
+  line-height: var(--f-h3-line-height);
+  letter-spacing: var(--f-h3-letter-spacing);
+  -moz-osx-font-smoothing: var(--f-h3--moz-osx-font-smoothing);
+  -webkit-font-smoothing: var(--f-h3--webkit-font-smoothing);
+  --bold-weight: var(--f-h3---bold-weight);
 }
 
 .copy h3 b,.copy h3 strong {
-  font-weight: var(--bold-weight);
-}
-
-@media (min-width: 650px) {
-  .copy h3 {
-    font-size: 1.25rem;
-  }
+  font-weight: var(--f-h3---bold-weight, bold);
 }
 
 .copy h3 {
@@ -1354,24 +1362,18 @@ video {
 }
 
 .copy h4 {
-  font-family: var(--sans);
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
+  font-family: var(--f-h4-font-family);
+  font-weight: var(--f-h4-font-weight);
+  font-size: var(--f-h4-font-size);
+  line-height: var(--f-h4-line-height);
+  letter-spacing: var(--f-h4-letter-spacing);
+  -moz-osx-font-smoothing: var(--f-h4--moz-osx-font-smoothing);
+  -webkit-font-smoothing: var(--f-h4--webkit-font-smoothing);
+  --bold-weight: var(--f-h4---bold-weight);
 }
 
 .copy h4 b,.copy h4 strong {
-  font-weight: var(--bold-weight);
-}
-
-@media (min-width: 650px) {
-  .copy h4 {
-    font-size: 1rem;
-  }
+  font-weight: var(--f-h4---bold-weight, bold);
 }
 
 .copy h4 {
@@ -1379,22 +1381,16 @@ video {
 }
 
 .copy p {
-  font-family: var(--sans);
-  font-size: 0.875rem;
-  line-height: 1.7;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
+  font-family: var(--f-body-font-family);
+  font-size: var(--f-body-font-size);
+  line-height: var(--f-body-line-height);
+  -moz-osx-font-smoothing: var(--f-body--moz-osx-font-smoothing);
+  -webkit-font-smoothing: var(--f-body--webkit-font-smoothing);
+  --bold-weight: var(--f-body---bold-weight);
 }
 
 .copy p b,.copy p strong {
-  font-weight: var(--bold-weight);
-}
-
-@media (min-width: 650px) {
-  .copy p {
-    font-size: 1rem;
-  }
+  font-weight: var(--f-body---bold-weight, bold);
 }
 
 .copy p {
@@ -1406,22 +1402,16 @@ video {
 }
 
 .copy ul {
-  font-family: var(--sans);
-  font-size: 0.875rem;
-  line-height: 1.7;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  --bold-weight: 500;
+  font-family: var(--f-body-font-family);
+  font-size: var(--f-body-font-size);
+  line-height: var(--f-body-line-height);
+  -moz-osx-font-smoothing: var(--f-body--moz-osx-font-smoothing);
+  -webkit-font-smoothing: var(--f-body--webkit-font-smoothing);
+  --bold-weight: var(--f-body---bold-weight);
 }
 
 .copy ul b,.copy ul strong {
-  font-weight: var(--bold-weight);
-}
-
-@media (min-width: 650px) {
-  .copy ul {
-    font-size: 1rem;
-  }
+  font-weight: var(--f-body---bold-weight, bold);
 }
 
 .copy ul {
@@ -1439,10 +1429,17 @@ video {
 }
 
 .copy code:not([class]) {
-  font-family: var(--mono);
-  font-size: 0.875rem;
-  line-height: 1.2;
-  font-weight: 400;
+  font-family: var(--f-code-font-family);
+  font-size: var(--f-code-font-size);
+  line-height: var(--f-code-line-height);
+  font-weight: var(--f-code-font-weight);
+}
+
+.copy code:not([class]) b,.copy code:not([class]) strong {
+  font-weight: var(--f-code---bold-weight, bold);
+}
+
+.copy code:not([class]) {
   background-color: var(--grey-10);
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1452,10 +1449,17 @@ video {
 }
 
 .copy pre:not([class]) {
-  font-family: var(--mono);
-  font-size: 0.875rem;
-  line-height: 1.2;
-  font-weight: 400;
+  font-family: var(--f-code-font-family);
+  font-size: var(--f-code-font-size);
+  line-height: var(--f-code-line-height);
+  font-weight: var(--f-code-font-weight);
+}
+
+.copy pre:not([class]) b,.copy pre:not([class]) strong {
+  font-weight: var(--f-code---bold-weight, bold);
+}
+
+.copy pre:not([class]) {
   margin-top: 1.25rem;
   display: block;
   max-height: 25rem;
@@ -4315,14 +4319,14 @@ video {
   margin-bottom: 2.5rem;
 }
 
-.mx-40 {
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
-}
-
 .my-60 {
   margin-top: 3.75rem;
   margin-bottom: 3.75rem;
+}
+
+.mx-40 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
 }
 
 .mt-40 {
@@ -5555,6 +5559,72 @@ video {
   text-decoration-color: var(--grey-54);
 }
 
+.test {
+  font-family: var(--f-h1-font-family);
+  font-weight: var(--f-h1-font-weight);
+  font-size: var(--f-h1-font-size);
+  line-height: var(--f-h1-line-height);
+  letter-spacing: var(--f-h1-letter-spacing);
+  -moz-osx-font-smoothing: var(--f-h1--moz-osx-font-smoothing);
+  -webkit-font-smoothing: var(--f-h1--webkit-font-smoothing);
+  --bold-weight: var(--f-h1---bold-weight);
+}
+
+.test b,.test strong {
+  font-weight: var(--f-h1---bold-weight, bold);
+}
+
+.test {
+  padding-top: 1.25rem;
+}
+
+@media (min-width: 544px) {
+  .test {
+    font-family: var(--f-h2-font-family);
+    font-weight: var(--f-h2-font-weight);
+    font-size: var(--f-h2-font-size);
+    line-height: var(--f-h2-line-height);
+    letter-spacing: var(--f-h2-letter-spacing);
+    -moz-osx-font-smoothing: var(--f-h2--moz-osx-font-smoothing);
+    -webkit-font-smoothing: var(--f-h2--webkit-font-smoothing);
+    --bold-weight: var(--f-h2---bold-weight);
+  }
+
+  .test b,.test strong {
+    font-weight: var(--f-h2---bold-weight, bold);
+  }
+}
+
+@media (min-width: 650px) {
+  .test {
+    font-family: var(--f-h1-font-family);
+    font-weight: var(--f-h1-font-weight);
+    font-size: var(--f-h1-font-size);
+    line-height: var(--f-h1-line-height);
+    letter-spacing: var(--f-h1-letter-spacing);
+    -moz-osx-font-smoothing: var(--f-h1--moz-osx-font-smoothing);
+    -webkit-font-smoothing: var(--f-h1--webkit-font-smoothing);
+    --bold-weight: var(--f-h1---bold-weight);
+  }
+
+  .test b,.test strong {
+    font-weight: var(--f-h1---bold-weight, bold);
+  }
+}
+
+@media (min-width: 990px) {
+  .test {
+    font-family: var(--f-code-font-family);
+    font-size: var(--f-code-font-size);
+    line-height: var(--f-code-line-height);
+    font-weight: var(--f-code-font-weight);
+  }
+
+  .test b,.test strong {
+    font-weight: var(--f-code---bold-weight, bold);
+  }
+}
+
 .hover\:underline-border-primary:hover {
   text-decoration-color: var(--black);
 }
@@ -5588,6 +5658,21 @@ video {
 
   .sm\:flex-row {
     flex-direction: row;
+  }
+
+  .sm\:f-h2 {
+    font-family: var(--f-h2-font-family);
+    font-weight: var(--f-h2-font-weight);
+    font-size: var(--f-h2-font-size);
+    line-height: var(--f-h2-line-height);
+    letter-spacing: var(--f-h2-letter-spacing);
+    -moz-osx-font-smoothing: var(--f-h2--moz-osx-font-smoothing);
+    -webkit-font-smoothing: var(--f-h2--webkit-font-smoothing);
+    --bold-weight: var(--f-h2---bold-weight);
+  }
+
+  .sm\:f-h2 b,.sm\:f-h2 strong {
+    font-weight: var(--f-h2---bold-weight, bold);
   }
 
   .sm\:w-3-cols {
@@ -5835,6 +5920,21 @@ video {
     padding-top: 5rem;
   }
 
+  .md\:f-h1 {
+    font-family: var(--f-h1-font-family);
+    font-weight: var(--f-h1-font-weight);
+    font-size: var(--f-h1-font-size);
+    line-height: var(--f-h1-line-height);
+    letter-spacing: var(--f-h1-letter-spacing);
+    -moz-osx-font-smoothing: var(--f-h1--moz-osx-font-smoothing);
+    -webkit-font-smoothing: var(--f-h1--webkit-font-smoothing);
+    --bold-weight: var(--f-h1---bold-weight);
+  }
+
+  .md\:f-h1 b,.md\:f-h1 strong {
+    font-weight: var(--f-h1---bold-weight, bold);
+  }
+
   .md\:keyline-l-primary::before {
     border-left-color: var(--black);
   }
@@ -6065,6 +6165,17 @@ video {
 
   .lg\:pt-100 {
     padding-top: 6.25rem;
+  }
+
+  .lg\:f-code {
+    font-family: var(--f-code-font-family);
+    font-size: var(--f-code-font-size);
+    line-height: var(--f-code-line-height);
+    font-weight: var(--f-code-font-weight);
+  }
+
+  .lg\:f-code b,.lg\:f-code strong {
+    font-weight: var(--f-code---bold-weight, bold);
   }
 
   .lg\:keyline-l-secondary::before {

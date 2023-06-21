@@ -1,24 +1,42 @@
-module.exports = function ({ addBase, theme, prefix }) {
+module.exports = function ({ addBase, theme, prefix, e }) {
   const breakpoints = theme('screens', {});
   const fontFamilies = theme('fontFamilies', {});
   const typesets = theme('typesets', {});
   const firstBp = Object.keys(breakpoints)[0];
 
-  const families = Object.entries(fontFamilies).map((a) => {
+  const styles = {};
+  styles[':root'] = {};
+
+  Object.entries(fontFamilies).forEach((a) => {
     const [name, family] = a;
-    return {
-      ':root': {
-        [`--${name}`]: family,
-      },
-    };
+    styles[':root'][`--${name}`] = family;
   });
 
-  const typoStyles = Object.entries(typesets).map((a) => {
+  // make class name objects
+  Object.entries(typesets).forEach((a) => {
     const [name, typo] = a;
-    const className = prefix(`.f-${name}`);
-    let setBoldWeight = false;
+    //const className = prefix(`.f-${name}`);
+    const className = `.f-${name}`;
+    styles[className] = styles[className] || {};
+  });
 
-    return Object.entries(typo).map((b) => {
+  // create root bp keys in bp order
+  Object.keys(breakpoints).forEach((bp) => {
+    if (bp !== firstBp && !styles[`@screen ${bp}`]) {
+      styles[`@screen ${bp}`] = { ':root': {} };
+    }
+  });
+
+  // now start to fill out those class name objects and breakpoints
+  Object.entries(typesets).forEach((a) => {
+    const [name, typo] = a;
+    //const className = prefix(`.f-${name}`);
+    const className = `.f-${name}`;
+    let setBoldWeight = false;
+    let firstBpSettings = {};
+
+    // loop
+    Object.entries(typo).forEach((b) => {
       const [bp, settings] = b;
 
       if (
@@ -51,28 +69,67 @@ module.exports = function ({ addBase, theme, prefix }) {
         setBoldWeight = false;
       }
 
-      let styles = {};
-      styles[className] = {
-        ...settings,
-      };
-      if (setBoldWeight) {
-        styles[`${className} b, ${className} strong`] = {
-          'font-weight': 'var(--bold-weight)',
+      // generate class styles, set first BP settings, rename settings keys to vars
+      Object.entries(settings).forEach((c) => {
+        let [property, setting] = c;
+        if (typeof setting) {
+          // unitless number settings where incorrectly being converted to pixels by Tailwind
+          setting = `${setting}`;
+        }
+        if (bp === firstBp) {
+          styles[className][property] = `var(--f-${name}-${property})`;
+          styles[`${className} b, ${className} strong`] = {
+            'font-weight': `var(--f-${name}---bold-weight, bold)`,
+          };
+          firstBpSettings[property] = `var(--f-${name}-${property})`;
+        }
+        settings[`--f-${name}-${property}`] = setting;
+        delete settings[property];
+      });
+
+      // set styles
+      if (bp === firstBp) {
+        styles[':root'] = {
+          ...styles[':root'],
+          ...settings,
+        };
+      } else {
+        styles[`@screen ${bp}`][':root'] = {
+          ...styles[`@screen ${bp}`][':root'],
+          ...settings,
         };
       }
+    });
 
-      if (bp === firstBp) {
-        return styles;
-      } else {
-        return {
-          [`@screen ${bp}`]: {
-            ...styles,
-          },
+    firstBpSettings[`b, strong`] = {
+      'font-weight': `var(--f-${name}---bold-weight, bold)`,
+    };
+
+    // apply responsive font classes
+    Object.keys(breakpoints).forEach((bp) => {
+      if (bp !== firstBp) {
+        let bpClassName = e(`${bp}:f-${name}`);
+        styles[`@screen ${bp}`][`.${bpClassName}`] = {
+          all: 'initial',
+          '--bold-weight': `var(--f-${name}---bold-weight, bold)`,
+          '--foo': 'bar',
+          ...firstBpSettings,
         };
       }
     });
   });
 
-  addBase(families);
-  addBase(typoStyles);
+  // clean up empty keys
+  Object.keys(styles).forEach((key) => {
+    if (
+      key !== ':root' &&
+      styles[key][':root'] &&
+      Object.keys(styles[key][':root']).length === 0 &&
+      styles[key][':root'].constructor === Object
+    ) {
+      delete styles[key];
+    }
+  });
+
+  addBase(styles);
 };
