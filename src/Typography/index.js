@@ -4,6 +4,21 @@ module.exports = function ({ addBase, theme, prefix, e }) {
   const typesets = theme('typesets', {});
   const firstBp = Object.keys(breakpoints)[0];
 
+  const defaults = {
+    'font-family': 'initial',
+    'font-size': 'initial',
+    'font-stretch': 'initial',
+    'font-style': 'initial',
+    'font-variant': 'initial',
+    'font-weight': 'initial',
+    'line-height': 'initial',
+    'letter-spacing': 'initial',
+    'font-feature-settings': 'initial',
+    '-moz-osx-font-smoothing': 'initial',
+    '-webkit-font-smoothing': 'initial',
+    '--bold-weight': 'initial',
+  };
+
   const styles = {};
   styles[':root'] = {};
 
@@ -30,14 +45,12 @@ module.exports = function ({ addBase, theme, prefix, e }) {
   // now start to fill out those class name objects and breakpoints
   Object.entries(typesets).forEach((a) => {
     const [name, typo] = a;
-    //const className = prefix(`.f-${name}`);
-    const className = `.f-${name}`;
+    const className = prefix(`.f-${name}`);
     let setBoldWeight = false;
-    let firstBpSettings = {};
 
     // loop
     Object.entries(typo).forEach((b) => {
-      const [bp, settings] = b;
+      let [bp, settings] = b;
 
       if (
         settings['font-size'] &&
@@ -69,6 +82,14 @@ module.exports = function ({ addBase, theme, prefix, e }) {
         setBoldWeight = false;
       }
 
+      // merge defaults with settings
+      if (bp === firstBp) {
+        settings = {
+          ...defaults,
+          ...settings,
+        };
+      }
+
       // generate class styles, set first BP settings, rename settings keys to vars
       Object.entries(settings).forEach((c) => {
         let [property, setting] = c;
@@ -81,13 +102,12 @@ module.exports = function ({ addBase, theme, prefix, e }) {
           styles[`${className} b, ${className} strong`] = {
             'font-weight': `var(--f-${name}---bold-weight, bold)`,
           };
-          firstBpSettings[property] = `var(--f-${name}-${property})`;
         }
         settings[`--f-${name}-${property}`] = setting;
         delete settings[property];
       });
 
-      // set styles
+      // set root styles, which describe the actual font settings
       if (bp === firstBp) {
         styles[':root'] = {
           ...styles[':root'],
@@ -97,23 +117,6 @@ module.exports = function ({ addBase, theme, prefix, e }) {
         styles[`@screen ${bp}`][':root'] = {
           ...styles[`@screen ${bp}`][':root'],
           ...settings,
-        };
-      }
-    });
-
-    firstBpSettings[`b, strong`] = {
-      'font-weight': `var(--f-${name}---bold-weight, bold)`,
-    };
-
-    // apply responsive font classes
-    Object.keys(breakpoints).forEach((bp) => {
-      if (bp !== firstBp) {
-        let bpClassName = e(`${bp}:f-${name}`);
-        styles[`@screen ${bp}`][`.${bpClassName}`] = {
-          all: 'initial',
-          '--bold-weight': `var(--f-${name}---bold-weight, bold)`,
-          '--foo': 'bar',
-          ...firstBpSettings,
         };
       }
     });
