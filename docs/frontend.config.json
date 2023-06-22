@@ -189,8 +189,8 @@
       "h4": {
         "xs": {
           "font-family": "var(--sans)",
-          "bold-weight": "500",
-          "font-weight": "500",
+          "bold-weight": "600",
+          "font-weight": "600",
           "font-size": "14px",
           "line-height": "1.2",
           "letter-spacing": "-0.02em",

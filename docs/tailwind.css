@@ -942,13 +942,13 @@ video {
   --f-h4-font-stretch: initial;
   --f-h4-font-style: initial;
   --f-h4-font-variant: initial;
-  --f-h4-font-weight: 500;
+  --f-h4-font-weight: 600;
   --f-h4-line-height: 1.2;
   --f-h4-letter-spacing: -0.02em;
   --f-h4-font-feature-settings: initial;
   --f-h4--moz-osx-font-smoothing: grayscale;
   --f-h4--webkit-font-smoothing: antialiased;
-  --f-h4---bold-weight: 500;
+  --f-h4---bold-weight: 600;
   --f-body-font-family: var(--sans);
   --f-body-font-size: 0.875rem;
   --f-body-font-stretch: initial;
@@ -5988,6 +5988,25 @@ video {
     padding-top: 5rem;
   }
 
+  .md\:f-code {
+    font-family: var(--f-code-font-family);
+    font-size: var(--f-code-font-size);
+    font-stretch: var(--f-code-font-stretch);
+    font-style: var(--f-code-font-style);
+    font-variant: var(--f-code-font-variant);
+    font-weight: var(--f-code-font-weight);
+    line-height: var(--f-code-line-height);
+    letter-spacing: var(--f-code-letter-spacing);
+    font-feature-settings: var(--f-code-font-feature-settings);
+    -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
+    -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
+    --bold-weight: var(--f-code---bold-weight);
+  }
+
+  .md\:f-code b,.md\:f-code strong {
+    font-weight: var(--f-code---bold-weight, bold);
+  }
+
   .md\:keyline-l-primary::before {
     border-left-color: var(--black);
   }
@@ -6218,6 +6237,25 @@ video {
 
   .lg\:pt-100 {
     padding-top: 6.25rem;
+  }
+
+  .lg\:f-code {
+    font-family: var(--f-code-font-family);
+    font-size: var(--f-code-font-size);
+    font-stretch: var(--f-code-font-stretch);
+    font-style: var(--f-code-font-style);
+    font-variant: var(--f-code-font-variant);
+    font-weight: var(--f-code-font-weight);
+    line-height: var(--f-code-line-height);
+    letter-spacing: var(--f-code-letter-spacing);
+    font-feature-settings: var(--f-code-font-feature-settings);
+    -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
+    -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
+    --bold-weight: var(--f-code---bold-weight);
+  }
+
+  .lg\:f-code b,.lg\:f-code strong {
+    font-weight: var(--f-code---bold-weight, bold);
   }
 
   .lg\:keyline-l-secondary::before {
