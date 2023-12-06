@@ -706,9 +706,10 @@ module.exports = {
 
   <p>
     Classes for <code>.ml-</code>, <code>.mr-</code> and <code>.mx-</code>, and
-    their negative equivilants (<code>.-ml-</code>, <code>.-mr-</code>,
-    <code>.-mx-</code>) are also generated:
+    their negative equivalents (<code>.-ml-</code>, <code>.-mr-</code>,
+    <code>.-mx-</code>) are also generated.
   </p>
+  <p>From <code>3.9.10</code>, <code>ms-</code> and <code>me-</code> classes and their negative equivalents <code>-ms-</code> and <code>-me-</code> are also generated (using CSS <code>margin-inline-start</code> and <code>margin-inline-end</code>).</p>
 </div>
 
 <div class="show-grid">
@@ -793,7 +794,46 @@ module.exports = {
 &lt;/div></code></pre>
   </figure>
 
-  <hr />
+  <p>New in <code>3.9.10</code>, <code>margin-inline-start</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin-inline-start" target="_blank">MDN</a>) and <code>margin-inline-end</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin-inline-end" target="_blank">MDN</a>) with <code>ms-N-cols</code> and <code>me-N-cols</code>:</p>
+</div>
+
+<div class="show-grid">
+  <div class="flex flex-row mt-20">
+    <div class="w-4-cols ms-2-cols h-40 bg-column">
+      w-4-cols ms-2-cols
+    </div>
+  </div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="flex flex-row mt-20">
+  &lt;div class="w-4-cols ms-2-cols">&lt;/div>
+&lt;/div></code></pre>
+  </figure>
+
+</div>
+
+<div class="show-grid">
+  <div class="flex flex-row mt-20">
+    <div class="w-4-cols ml-auto me-2-cols h-40 bg-column">
+      w-4-cols ml-auto me-2-cols
+    </div>
+  </div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="flex flex-row mt-20">
+  &lt;div class="w-4-cols ml-auto me-2-cols">&lt;/div>
+&lt;/div></code></pre>
+  </figure>
 
   <h3 id="padding">Padding</h3>
 
@@ -801,6 +841,7 @@ module.exports = {
     Much like margins, padding classes are also generated: <code>.pl-</code>,
     <code>.pr-</code> and <code>.px-</code>
   </p>
+  <p>From <code>3.9.10</code>, <code>ps-</code> and <code>pe-</code> classes are also generated (using CSS <code>padding-inline-start</code> and <code>padding-inline-end</code>).</p>
 </div>
 
 <div class="show-grid">
@@ -848,6 +889,26 @@ module.exports = {
     design columns wide.
   </p>
 
+  <p>New in <code>3.9.10</code>, <code>padding-inline-start</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding-inline-start" target="_blank">MDN</a>) and <code>padding-inline-end</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding-inline-end" target="_blank">MDN</a>) with <code>ps-N-cols</code> and <code>pe-N-cols</code>:</p>
+</div>
+
+<div class="show-grid">
+  <div class="ps-2-cols pe-4-cols bg-column-alt h-80 pt-20 mt-20">
+    <div class="bg-column h-40">100% wide inside of ps-2-cols pe-4-cols</div>
+  </div>
+</div>
+
+<div class="copy">
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="ps-2-cols pe-4-cols">
+  &lt;div>&lt;/div>
+&lt;/div></code></pre>
+  </figure>
+
   <hr />
 
   <h3 id="positioning">Positioning</h3>
@@ -858,6 +919,8 @@ module.exports = {
     <code>position: absolute;</code> type positioning (or maybe with
     <code>position: relative;</code> depending on your use case).
   </p>
+
+  <p>From <code>3.9.10</code>, <code>start-</code> and <code>end-</code> classes and their negative equivalents <code>-start-</code> and <code>-end-</code> are also generated (using CSS <code>inset-inline-start</code> and <code>inset-inline-end</code>).</p>
 
   <p>
     Fractions and responsive work as expected and nesting will work, if you
@@ -911,6 +974,34 @@ module.exports = {
   &lt;div class="w-2-cols h-40 bg-column absolute top-40 right-0 mr-2-cols">&lt;/div>
 &lt;/div></code></pre>
   </figure>
+
+  <p>New in <code>3.9.10</code>, <code>inset-inline-start</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-start" target="_blank">MDN</a>) and <code>inset-inline-end</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-end" target="_blank">MDN</a>) with <code>start-N-cols</code> and <code>end-N-cols</code>:</p>
+</div>
+
+<div class="show-grid">
+  <div class="relative h-80 mt-20">
+    <div class="w-2-cols h-40 bg-column absolute top-0 start-2-cols">
+      start-2-cols
+    </div>
+    <div class="w-2-cols h-40 bg-column absolute top-40 end-4-cols">
+      end-4-cols
+    </div>
+  </div>
+</div>
+
+<div class="copy">
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="relative h-80">
+  &lt;div class="w-2-cols absolute top-0 start-2-cols">&lt;/div>
+  &lt;div class="w-2-cols absolute top-40 end-4-cols">&lt;/div>
+&lt;/div></code></pre>
+  </figure>
+
+  <hr>
 
   <h2 id="gutterless">Gutter-less classes</h2>
 
