@@ -516,7 +516,7 @@ module.exports = {
 &lt;/div></code></pre>
   </figure>
 
-  <h4>Nesting Fractional Columns</h4>
+  <h4>Warning - Nesting Fractional Columns</h4>
 
   <p>
     Nesting fractions inside fractions will work, but instead halving the
@@ -543,6 +543,8 @@ module.exports = {
 &lt;/div></code></pre>
   </figure>
 
+  <h4>Warning - Mixing and matching fractional and <code>N</code> cols widths</h4>
+
   <p>
     Mixing and matching <code>N</code> cols widths and fractional widths when
     nesting may give you unexpected results. A fraction as a child of a
@@ -568,11 +570,7 @@ module.exports = {
 
   <p>
     <strong>But</strong>, placing a <code>N</code> cols widths inside a
-    fractional width column will not work as fractional widths work cross
-    breakpoint regardless of column count and so don't set/reset the columns
-    total inside themselves. In this scenario, the <code>N</code> cols width
-    assumes the fractional width column container has total columns at that
-    breakpoint. So, if you have 12 design columns and you set a
+    fractional width column <strong>will not work</strong> as fractional widths work cross breakpoint regardless of column count and so don't set/reset the columns total inside themselves. In this scenario, the <code>N</code> cols width assumes the fractional width column container has total columns at that breakpoint. So, if you have 12 design columns and you set a
     <code>w-3-cols</code> inside of <code>w-1/2-cols</code>, you'll end up with
     a 1.5 column wide child column:
   </p>

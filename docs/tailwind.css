@@ -960,7 +960,7 @@ video {
   --f-body-font-feature-settings: initial;
   --f-body--moz-osx-font-smoothing: grayscale;
   --f-body--webkit-font-smoothing: antialiased;
-  --f-body---bold-weight: 500;
+  --f-body---bold-weight: 600;
   --f-ui-font-family: var(--sans);
   --f-ui-font-size: 0.75rem;
   --f-ui-font-stretch: initial;
