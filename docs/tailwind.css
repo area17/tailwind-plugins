@@ -6000,6 +6000,11 @@ video {
   margin-right: 2.5rem;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mt-40 {
   margin-top: 2.5rem;
 }
