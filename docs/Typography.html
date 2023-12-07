@@ -22,7 +22,10 @@ title: Typography
     everything is part of the system.
   </p>
 
-  <p>New in <code>v3.9.0</code> - <a href="#overriding">overriding type styles</a>.</p>
+  <p>
+    New in <code>v3.9.0</code> -
+    <a href="#overriding">overriding type styles</a>.
+  </p>
 
   <h2 id="setup">Setup</h2>
 
@@ -202,11 +205,27 @@ module.exports = {
 
   <p>Introduced in <code>v3.9.0</code>.</p>
 
-  <p><a href="https://area17.com/" target="_blank">AREA 17</a> have been using responsive typography classes for a number of years on every build we have done, where the number 1 rule has always been "if its a type style, its that type style at all breakpoints". That is, if its our responsive "h1" class, then its the responsive "h1" class at all breakpoints. This rule was initially frustrating but has become the accepted norm at AREA 17. But, it is occasionally still a frustration - usually when it comes to product listing or article listing designs.</p>
-  <p><code>v3.9.0</code> brings the ability to override type styles at different breakpoints. For example, the following example displays as a <code>f-h4</code> on smaller screens and as <code>f-code</code> at larger screens:</p>
+  <p>
+    <a href="https://area17.com/" target="_blank">AREA 17</a> have been using
+    responsive typography classes for a number of years on every build we have
+    done, where the number 1 rule has always been "if its a type style, its that
+    type style at all breakpoints". That is, if its our responsive "h1" class,
+    then its the responsive "h1" class at all breakpoints. This rule was
+    initially frustrating but has become the accepted norm at AREA 17. But, it
+    is occasionally still a frustration - usually when it comes to product
+    listing or article listing designs.
+  </p>
+  <p>
+    <code>v3.9.0</code> brings the ability to override type styles at different
+    breakpoints. For example, the following example displays as a
+    <code>f-h4</code> on smaller screens and as <code>f-code</code> at larger
+    screens:
+  </p>
 </div>
 
-<p class="f-h4 lg:f-code mt-20">f-h4 lg:f-code The quick brown fox jumps over the lazy dog</p>
+<p class="f-h4 lg:f-code mt-20">
+  f-h4 lg:f-code The quick brown fox jumps over the lazy dog
+</p>
 
 <div class="copy">
   <figure class="code-example">
@@ -218,12 +237,13 @@ module.exports = {
 
   <h3 id="overriding-caveat">Overriding caveat</h3>
 
-  <p>This typography plugin sets common typography values to <code>initial</code>:</p>
+  <p>
+    This typography plugin sets common typography values to
+    <code>initial</code>:
+  </p>
 
   <figure class="code-example">
-    <pre
-      class="code-example-code"
-    ><code class="language-css">.defaults {
+    <pre class="code-example-code"><code class="language-css">.defaults {
   font-family: initial;
   font-size: initial;
   font-stretch: initial;
@@ -239,15 +259,21 @@ module.exports = {
 }</code></pre>
   </figure>
 
-  <p>Only these settings will be overridden when using responsive override classes.</p>
+  <p>
+    Only these settings will be overridden when using responsive override
+    classes.
+  </p>
 
-  <p>It is possible to set other font type attributes such as <code>font-size-adjust</code> when setting up your typography classes:</p>
+  <p>
+    It is possible to set other font type attributes such as
+    <code>font-size-adjust</code> when setting up your typography classes:
+  </p>
 
-    <figure class="code-example">
-      <figcaption class="code-example-filename">tailwind.config.js</figcaption>
-      <pre
-        class="code-example-code"
-      ><code class="language-javascript">const { Typography } = require('@area17/a17-tailwind-plugins');
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { Typography } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
   ...
@@ -266,7 +292,10 @@ module.exports = {
 };</code></pre>
   </figure>
 
-  <p>These more unusual font settings will not be overridden and so you will have to handle these separately.</p>
+  <p>
+    These more unusual font settings will not be overridden and so you will have
+    to handle these separately.
+  </p>
 </div>
 
 {% include_relative includes/_footer.html %}

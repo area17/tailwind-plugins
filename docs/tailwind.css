@@ -5990,6 +5990,11 @@ video {
   margin-bottom: 2.5rem;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .my-60 {
   margin-top: 3.75rem;
   margin-bottom: 3.75rem;
@@ -5998,11 +6003,6 @@ video {
 .mx-40 {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
-}
-
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .mt-40 {
