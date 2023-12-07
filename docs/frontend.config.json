@@ -203,7 +203,7 @@
       "body": {
         "xs": {
           "font-family": "var(--sans)",
-          "bold-weight": "500",
+          "bold-weight": "600",
           "font-size": "14px",
           "line-height": "1.7",
           "font-smoothing": "true"

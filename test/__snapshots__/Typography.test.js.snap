@@ -2,40 +2,59 @@
 
 exports[`typography plugin generates correct css 1`] = `
 ":root {
-    --sans: Helvetica, Arial, sans-serif
+    --sans: Helvetica, Arial, sans-serif;
+    --f-h1-font-family: var(--sans);
+    --f-h1-font-size: 2rem;
+    --f-h1-font-stretch: initial;
+    --f-h1-font-style: initial;
+    --f-h1-font-variant: initial;
+    --f-h1-font-weight: initial;
+    --f-h1-line-height: 1.2;
+    --f-h1-letter-spacing: -0.02em;
+    --f-h1-font-feature-settings: initial;
+    --f-h1--moz-osx-font-smoothing: grayscale;
+    --f-h1--webkit-font-smoothing: antialiased;
+    --f-h1---bold-weight: 500
 }
 .f-h1 {
-    font-family: var(--sans);
-    font-size: 2rem;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    --bold-weight: 500
-}
-.f-h1 b, .f-h1 strong {
-    font-weight: var(--bold-weight)
+    font-family: var(--f-h1-font-family);
+    font-size: var(--f-h1-font-size);
+    font-stretch: var(--f-h1-font-stretch);
+    font-style: var(--f-h1-font-style);
+    font-variant: var(--f-h1-font-variant);
+    font-weight: var(--f-h1-font-weight);
+    line-height: var(--f-h1-line-height);
+    letter-spacing: var(--f-h1-letter-spacing);
+    font-feature-settings: var(--f-h1-font-feature-settings);
+    -moz-osx-font-smoothing: var(--f-h1--moz-osx-font-smoothing);
+    -webkit-font-smoothing: var(--f-h1--webkit-font-smoothing);
+    --bold-weight: var(--f-h1---bold-weight)
 }
 @media (min-width: 1024px) {
-    .f-h1 {
-        font-size: 3rem
+    :root {
+        --f-h1-font-size: 3rem
     }
+}
+.f-h1 b, .f-h1 strong {
+    font-weight: var(--f-h1---bold-weight, bold)
+}
+@media (min-width: 1024px) {
     .lg\\:f-h1 {
-        font-family: var(--sans);
-        font-size: 2rem;
-        line-height: 1.2;
-        letter-spacing: -0.02em;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: antialiased;
-        --bold-weight: 500
+        font-family: var(--f-h1-font-family);
+        font-size: var(--f-h1-font-size);
+        font-stretch: var(--f-h1-font-stretch);
+        font-style: var(--f-h1-font-style);
+        font-variant: var(--f-h1-font-variant);
+        font-weight: var(--f-h1-font-weight);
+        line-height: var(--f-h1-line-height);
+        letter-spacing: var(--f-h1-letter-spacing);
+        font-feature-settings: var(--f-h1-font-feature-settings);
+        -moz-osx-font-smoothing: var(--f-h1--moz-osx-font-smoothing);
+        -webkit-font-smoothing: var(--f-h1--webkit-font-smoothing);
+        --bold-weight: var(--f-h1---bold-weight)
     }
     .lg\\:f-h1 b,.lg\\:f-h1 strong {
-        font-weight: var(--bold-weight)
-    }
-    @media (min-width: 1024px) {
-        .lg\\:f-h1 {
-            font-size: 3rem
-        }
+        font-weight: var(--f-h1---bold-weight, bold)
     }
 }"
 `;
