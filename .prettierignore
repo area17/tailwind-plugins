@@ -1,2 +1,4 @@
 *.md
 /docs/tailwind.css
+_header.html
+_footer.html
