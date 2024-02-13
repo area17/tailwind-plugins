@@ -1,16 +1,15 @@
 module.exports = function ({ addComponents, theme }) {
-  const breakpoints = theme('screens');
+  const classNameLayout = prefix('.grid-layout');
+  const classNameCol = prefix('.grid-col');
 
-  const styles = [
-    {
-      '.grid-layout': {
-        display: 'grid',
-        'grid-template-columns':
-          'repeat(var(--container-grid-columns, var(--grid-columns)), 1fr)',
-        'grid-gap': 'var(--inner-gutter)',
-      },
+  const styles = {
+    [classNameLayout]: {
+      display: 'grid',
+      'grid-template-columns':
+        'repeat(var(--container-grid-columns, var(--grid-columns)), 1fr)',
+      'grid-gap': 'var(--inner-gutter)',
     },
-  ];
+  };
 
   const columnCount = theme('columnCount', {});
   const maxCols = theme('maxGridCols', columnCount);
@@ -18,7 +17,7 @@ module.exports = function ({ addComponents, theme }) {
 
   for (let n = 1; n <= maxColAmount + 1; n++) {
     styles.push({
-      [`.grid-col-span-${n}`]: {
+      [`${classNameCol}-span-${n}`]: {
         '--container-grid-columns': `${n}`,
         'grid-column': `span ${n} / span ${n}`,
       },
@@ -27,10 +26,10 @@ module.exports = function ({ addComponents, theme }) {
 
   for (let n = 1; n <= maxColAmount + 1; n++) {
     styles.push({
-      [`.grid-col-start-${n}`]: {
+      [`${classNameCol}-start-${n}`]: {
         'grid-column-start': `${n}`,
       },
-      [`.grid-col-end-${n}`]: {
+      [`${classNameCol}-end-${n}`]: {
         'grid-column-end': `${n}`,
       },
     });
