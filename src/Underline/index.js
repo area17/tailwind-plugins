@@ -1,4 +1,4 @@
-module.exports = function ({ addUtilities, theme, config }) {
+module.exports = function ({ addUtilities, theme, prefix, config }) {
   const className = prefix('.underline');
   const prefixString = config('prefix');
   const colors = {

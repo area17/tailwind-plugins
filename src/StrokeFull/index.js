@@ -1,4 +1,4 @@
-module.exports = function ({ addBase, theme, config }) {
+module.exports = function ({ addBase, theme, prefix, config }) {
   const className = prefix('.stroke-full');
   const prefixString = config('prefix');
   const borderColors = theme('borderColor', {});

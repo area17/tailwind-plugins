@@ -24,7 +24,7 @@ module.exports = function ({ addBase, prefix, theme }) {
     'pointer-events': 'none',
   };
 
-  styles[`.${classNameBgFill}-none::before`] = {
+  styles[`${classNameBgFill}-none::before`] = {
     content: 'none',
   };
 

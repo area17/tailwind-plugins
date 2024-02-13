@@ -1,4 +1,4 @@
-module.exports = function ({ addComponents, theme }) {
+module.exports = function ({ addComponents, theme, prefix }) {
   const classNameLayout = prefix('.grid-layout');
   const classNameCol = prefix('.grid-col');
 
@@ -16,23 +16,19 @@ module.exports = function ({ addComponents, theme }) {
   const maxColAmount = Math.max.apply(Math, Object.values(maxCols));
 
   for (let n = 1; n <= maxColAmount + 1; n++) {
-    styles.push({
-      [`${classNameCol}-span-${n}`]: {
-        '--container-grid-columns': `${n}`,
-        'grid-column': `span ${n} / span ${n}`,
-      },
-    });
+    styles[`${classNameCol}-span-${n}`] = {
+      '--container-grid-columns': `${n}`,
+      'grid-column': `span ${n} / span ${n}`,
+    };
   }
 
   for (let n = 1; n <= maxColAmount + 1; n++) {
-    styles.push({
-      [`${classNameCol}-start-${n}`]: {
-        'grid-column-start': `${n}`,
-      },
-      [`${classNameCol}-end-${n}`]: {
-        'grid-column-end': `${n}`,
-      },
-    });
+    styles[`${classNameCol}-start-${n}`] = {
+      'grid-column-start': `${n}`,
+    };
+    styles[`${classNameCol}-end-${n}`] = {
+      'grid-column-end': `${n}`,
+    };
   }
 
   addComponents(styles);
