@@ -1,5 +1,6 @@
-module.exports = function ({ addBase, theme, prefix }) {
+module.exports = function ({ addBase, theme, prefix, config }) {
   const classNameScrollbar = prefix('.scrollbar');
+  const prefixString = config('prefix');
   const trackColors = {
     track: theme('scrollbarColor.track', {}),
     token: theme('colors', {}),
@@ -59,32 +60,33 @@ module.exports = function ({ addBase, theme, prefix }) {
         border: 'var(--scrollbar-padding) solid transparent',
         'background-clip': 'content-box',
       },
-    "[class*='scrollbar-track-'], [class*='scrollbar-thumb-']": {
-      '--scrollbar-bg': '#fafafa',
-      '--scrollbar-fg': '#c1c1c1',
-      '--scrollbar-border': '#e8e8e8',
-      'scrollbar-color': 'var(--scrollbar-fg) var(--scrollbar-bg)',
-    },
-    "[class*='scrollbar-track-']::-webkit-scrollbar, [class*='scrollbar-thumb-']::-webkit-scrollbar":
+    [`[class*='${prefixString}scrollbar-track-'], [class*='${prefixString}scrollbar-thumb-']`]:
+      {
+        '--scrollbar-bg': '#fafafa',
+        '--scrollbar-fg': '#c1c1c1',
+        '--scrollbar-border': '#e8e8e8',
+        'scrollbar-color': 'var(--scrollbar-fg) var(--scrollbar-bg)',
+      },
+    [`[class*='${prefixString}scrollbar-track-']::-webkit-scrollbar, [class*='${prefixString}scrollbar-thumb-']::-webkit-scrollbar`]:
       {
         width: 'var(--scrollbar-width, 15px)',
         height: 'var(--scrollbar-width, 15px)',
       },
-    "[class*='scrollbar-track-']::-webkit-scrollbar-track, [class*='scrollbar-thumb-']::-webkit-scrollbar-track":
+    [`[class*='${prefixString}scrollbar-track-']::-webkit-scrollbar-track, [class*='${prefixString}scrollbar-thumb-']::-webkit-scrollbar-track`]:
       {
         background: 'var(--scrollbar-bg)',
       },
-    "[class*='scrollbar-track-']::-webkit-scrollbar-track:horizontal, [class*='scrollbar-thumb-']::-webkit-scrollbar-track:horizontal":
+    [`[class*='${prefixString}scrollbar-track-']::-webkit-scrollbar-track:horizontal, [class*='${prefixString}scrollbar-thumb-']::-webkit-scrollbar-track:horizontal`]:
       {
         'border-top': '1px solid var(--scrollbar-border)',
         'border-bottom': '1px solid var(--scrollbar-border)',
       },
-    "[class*='scrollbar-track-']::-webkit-scrollbar-track:vertical, [class*='scrollbar-thumb-']::-webkit-scrollbar-track:vertical":
+    [`[class*='${prefixString}scrollbar-track-']::-webkit-scrollbar-track:vertical, [class*='${prefixString}scrollbar-thumb-']::-webkit-scrollbar-track:vertical`]:
       {
         'border-left': '1px solid var(--scrollbar-border)',
         'border-right': '1px solid var(--scrollbar-border)',
       },
-    "[class*='scrollbar-track-']::-webkit-scrollbar-thumb, [class*='scrollbar-thumb-']::-webkit-scrollbar-thumb":
+    [`[class*='${prefixString}scrollbar-track-']::-webkit-scrollbar-thumb, [class*='${prefixString}scrollbar-thumb-']::-webkit-scrollbar-thumb`]:
       {
         background: 'var(--scrollbar-fg)',
         'border-radius': '20px',
