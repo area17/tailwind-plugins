@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.12.0] - 2024-01-23
+
+### Changed
+- `npm audit` updated browser sync
+- updated node version to `20.11.0`
+
+## [3.11.1] - 2024-01-22
+
+### Fixed
+
+- `Typography` plugin updated to fix broken typography CSS variable names when making CSS changes whilst using Vite to compile
+  Previously, the responsive CSS variables could get erroneous duplicates of the type style name in the variable name - eg:
+  ```
+  @media (min-width: 990px)
+    :root {
+      --f-h1--f-h1-font-size: 3rem;
+    }
+  }
+  ```
+  The behavior seemed only to manifest itself in Vite 5.
+  An updated deep clone and an update to property naming fixes the issue.
+
 ## [3.11.0] - 2024-01-18
 
 ### Changed

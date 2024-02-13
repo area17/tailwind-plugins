@@ -17,7 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^10.4.17",
-    "browser-sync": "^2.27.12",
+    "browser-sync": "^3.0.2",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "~9.1.0",
     "eslint-plugin-prettier": "~5.1.3",

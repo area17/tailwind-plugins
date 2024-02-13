@@ -1,7 +1,7 @@
 module.exports = function ({ addBase, theme, prefix, e }) {
   const breakpoints = theme('screens', {});
   const fontFamilies = theme('fontFamilies', {});
-  const typesets = theme('typesets', {});
+  const typesets = JSON.parse(JSON.stringify(theme('typesets', {})));
   const firstBp = Object.keys(breakpoints)[0];
 
   const defaults = {
@@ -102,8 +102,11 @@ module.exports = function ({ addBase, theme, prefix, e }) {
             'font-weight': `var(--f-${name}---bold-weight, bold)`,
           };
         }
-        settings[`--f-${name}-${property}`] = setting;
-        delete settings[property];
+        // update property name, if not already updated
+        if (property.indexOf(`--f-${name}-`) === -1) {
+          settings[`--f-${name}-${property}`] = setting;
+          delete settings[property];
+        }
       });
 
       // set root styles, which describe the actual font settings
