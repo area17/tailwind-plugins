@@ -6,7 +6,6 @@ module.exports = function ({ addComponents, theme, e, prefix, config }) {
   const columnCount = theme('columnCount', {});
   const maxCols = theme('maxGridCols', columnCount);
   const maxColAmount = Math.max.apply(Math, Object.values(maxCols));
-  const prefixString = config('prefix');
   // the fractional classes we're going to generate
   const fractions = ['1/2', '1/3', '1/4', '2/3', '3/4'];
   // the classes we want to generate, along with some information to help fill out the CSS calc

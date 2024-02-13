@@ -64,9 +64,8 @@ module.exports = function ({ addBase, theme, prefix }) {
             spacingStyles[classNameNegative] =
               spacingStyles[classNameNegative] || {};
             cssProps.forEach((prop) => {
-              spacingStyles[classNameNegative][
-                prop
-              ] = `calc(var(--spacing-${name}) * -1)`;
+              spacingStyles[classNameNegative][prop] =
+                `calc(var(--spacing-${name}) * -1)`;
             });
           }
         });

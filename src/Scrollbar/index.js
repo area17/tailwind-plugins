@@ -1,4 +1,5 @@
-module.exports = function ({ addBase, theme }) {
+module.exports = function ({ addBase, theme, prefix }) {
+  const classNameScrollbar = prefix('.scrollbar');
   const trackColors = {
     track: theme('scrollbarColor.track', {}),
     token: theme('colors', {}),
@@ -12,14 +13,14 @@ module.exports = function ({ addBase, theme }) {
   };
 
   let styles = {
-    '.scrollbar-none': {
+    [`${classNameScrollbar}-none`]: {
       '-ms-overflow-style': 'none',
       'scrollbar-width': 'none',
     },
-    '.scrollbar-none::-webkit-scrollbar': {
+    [`${classNameScrollbar}-none::-webkit-scrollbar`]: {
       display: 'none',
     },
-    '.scrollbar-thin, .scrollbar-thin-collapse': {
+    [`${classNameScrollbar}-thin, ${classNameScrollbar}-thin-collapse`]: {
       '--scrollbar-width': '10px',
       '--scrollbar-padding': '2px',
       '--scrollbar-bg': '#fafafa',
@@ -27,31 +28,31 @@ module.exports = function ({ addBase, theme }) {
       '--scrollbar-border': '#e8e8e8',
       'scrollbar-width': 'thin',
     },
-    '.scrollbar-thin-collapse': {
+    [`${classNameScrollbar}-thin-collapse`]: {
       '--scrollbar-width': '6px',
       '--scrollbar-padding': '0px',
       'scrollbar-width': 'thin',
     },
-    '.scrollbar-thin::-webkit-scrollbar, .scrollbar-thin-collapse::-webkit-scrollbar':
+    [`${classNameScrollbar}-thin::-webkit-scrollbar, ${classNameScrollbar}-thin-collapse::-webkit-scrollbar`]:
       {
         width: 'var(--scrollbar-width, unset)',
         height: 'var(--scrollbar-width, unset)',
       },
-    '.scrollbar-thin::-webkit-scrollbar-track, .scrollbar-thin-collapse::-webkit-scrollbar-track':
+    [`${classNameScrollbar}-thin::-webkit-scrollbar-track, ${classNameScrollbar}-thin-collapse::-webkit-scrollbar-track`]:
       {
         background: 'var(--scrollbar-bg)',
       },
-    '.scrollbar-thin::-webkit-scrollbar-track:horizontal, .scrollbar-thin-collapse::-webkit-scrollbar-track:horizontal':
+    [`${classNameScrollbar}-thin::-webkit-scrollbar-track:horizontal, ${classNameScrollbar}-thin-collapse::-webkit-scrollbar-track:horizontal`]:
       {
         'border-top': '1px solid var(--scrollbar-border)',
         'border-bottom': '1px solid var(--scrollbar-border)',
       },
-    '.scrollbar-thin::-webkit-scrollbar-track:vertical, .scrollbar-thin-collapse::-webkit-scrollbar-track:vertical':
+    [`${classNameScrollbar}-thin::-webkit-scrollbar-track:vertical, ${classNameScrollbar}-thin-collapse::-webkit-scrollbar-track:vertical`]:
       {
         'border-left': '1px solid var(--scrollbar-border)',
         'border-right': '1px solid var(--scrollbar-border)',
       },
-    '.scrollbar-thin::-webkit-scrollbar-thumb, .scrollbar-thin-collapse::-webkit-scrollbar-thumb':
+    [`${classNameScrollbar}-thin::-webkit-scrollbar-thumb, ${classNameScrollbar}-thin-collapse::-webkit-scrollbar-thumb`]:
       {
         background: 'var(--scrollbar-fg)',
         'border-radius': '20px',
@@ -96,7 +97,7 @@ module.exports = function ({ addBase, theme }) {
     const [type, obj] = a;
     Object.entries(obj).map((b) => {
       const [name, color] = b;
-      let className = '.scrollbar-track-';
+      let className = `${classNameScrollbar}-track-`;
       if (type !== 'token' && type !== 'track') {
         className += `${type}-`;
       }
@@ -112,7 +113,7 @@ module.exports = function ({ addBase, theme }) {
     const [type, obj] = a;
     Object.entries(obj).map((b) => {
       const [name, color] = b;
-      let className = '.scrollbar-thumb-';
+      let className = `${classNameScrollbar}-thumb-`;
       if (type !== 'token' && type !== 'thumb') {
         className += `${type}-`;
       }

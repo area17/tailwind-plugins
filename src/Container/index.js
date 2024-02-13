@@ -17,9 +17,9 @@ module.exports = function ({ addBase, prefix }) {
   };
 
   styles[`${classNameContainer}-reset`] = {
-      width: 'unset',
-      'margin-right': 'unset',
-      'margin-left': 'unset',
+    width: 'unset',
+    'margin-right': 'unset',
+    'margin-left': 'unset',
   };
 
   styles[`${classNameContainer}-reset > *`] = {
