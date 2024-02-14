@@ -11,7 +11,7 @@ We also wanted to include a few utility classes that would simplify some common 
 ## Requirements
 
 * [TailwindCSS](https://tailwindcss.com/)
-  * tested in Tailwind <code>2.x.x</code> (with and without JIT) and <code>3.2.x</code>
+  * tested in Tailwind <code>2.x.x</code> (with and without JIT) and <code>3.4.x</code>
 
 ## Setup
 

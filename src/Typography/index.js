@@ -30,8 +30,7 @@ module.exports = function ({ addBase, theme, prefix, e }) {
   // make class name objects
   Object.entries(typesets).forEach((a) => {
     const [name, typo] = a;
-    //const className = prefix(`.f-${name}`);
-    const className = `.f-${name}`;
+    const className = prefix(`.f-${name}`);
     styles[className] = styles[className] || {};
   });
 

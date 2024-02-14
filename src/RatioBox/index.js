@@ -3,20 +3,20 @@ module.exports = function ({ addUtilities, theme, config }) {
   const prefixString = config('prefix');
 
   let styles = {
-    '.ratio': {
+    [`.${prefixString}ratio`]: {
       '--ratio': '100%',
       display: 'block',
       position: 'relative',
       overflow: 'hidden',
     },
-    '.ratio::before': {
+    [`.${prefixString}ratio::before`]: {
       content: 'attr(👻)',
       display: 'block',
       width: '100%',
       height: '0',
       'padding-bottom': 'var(--ratio)',
     },
-    [`.ratio > [class*="${prefixString}ratio-content"]`]: {
+    [`.${prefixString}ratio > [class*="${prefixString}ratio-content"]`]: {
       position: 'absolute',
       left: '0',
       right: '0',
@@ -25,23 +25,23 @@ module.exports = function ({ addUtilities, theme, config }) {
       width: '100%',
       height: '100%',
     },
-    '.ratio-expandable::before': {
+    [`.${prefixString}ratio-expandable::before`]: {
       float: 'left',
       width: '1px',
       'margin-left': '-1px',
     },
-    '.ratio-expandable::after': {
+    [`.${prefixString}ratio-expandable::after`]: {
       content: 'attr(👻)',
       display: 'table',
       clear: 'both',
     },
-    '.ratio-free::before': {
+    [`.${prefixString}ratio-free::before`]: {
       content: 'unset',
     },
-    '.ratio-free::after': {
+    [`.${prefixString}ratio-free::after`]: {
       content: 'unset',
     },
-    [`.ratio-free > [class*="${prefixString}ratio-content"]`]: {
+    [`.${prefixString}ratio-free > [class*="${prefixString}ratio-content"]`]: {
       position: 'static',
       left: 'auto',
       right: 'auto',
@@ -50,11 +50,11 @@ module.exports = function ({ addUtilities, theme, config }) {
       width: 'auto',
       height: 'auto',
     },
-    [`.ratio-free > [class*="${prefixString}ratio-content"][class*="${prefixString}w-full"]`]:
+    [`.${prefixString}ratio-free > [class*="${prefixString}ratio-content"][class*="${prefixString}w-full"]`]:
       {
         width: '100%',
       },
-    [`.ratio-free > [class*="${prefixString}ratio-content"][class*="${prefixString}h-auto"]`]:
+    [`.${prefixString}ratio-free > [class*="${prefixString}ratio-content"][class*="${prefixString}h-auto"]`]:
       {
         height: 'auto',
       },
@@ -78,7 +78,7 @@ module.exports = function ({ addUtilities, theme, config }) {
     ratioPercent = ratioFloat * 100;
     ratioPercent = Math.round((ratioPercent + Number.EPSILON) * 100) / 100;
 
-    styles[`.ratio-${key}`] = {
+    styles[`.${prefixString}ratio-${key}`] = {
       '--ratio': `${ratioPercent}%`,
     };
   }

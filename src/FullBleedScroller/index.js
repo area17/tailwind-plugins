@@ -1,36 +1,38 @@
-module.exports = function ({ addBase }) {
+module.exports = function ({ addBase, prefix }) {
+  const className = prefix('.full-bleed-scroller');
+
   let styles = {
-    '.full-bleed-scroller': {
+    [className]: {
       display: 'flex',
       'flex-flow': 'row nowrap',
       'overflow-x': 'auto',
       'overflow-y': 'hidden',
       gap: 'var(--inner-gutter)',
     },
-    '.full-bleed-scroller::before': {
+    [`${className}::before`]: {
       content: "''",
       flex: '0 0 auto',
       width:
         'calc(var(--breakout-outer-gutter, var(--outer-gutter, 0px)) - var(--inner-gutter, 0px))',
     },
-    '.full-bleed-scroller::after': {
+    [`${className}::after`]: {
       content: "''",
       flex: '0 0 auto',
       width:
         'calc(var(--breakout-outer-gutter, var(--outer-gutter, 0px)) - var(--inner-gutter, 0px))',
     },
-    '.full-bleed-scroller-reset': {
+    [`${className}-reset`]: {
       display: 'unset',
       'flex-flow': 'unset',
       'flex-wrap': 'unset',
       'overflow-x': 'unset',
     },
-    '.full-bleed-scroller-reset::before': {
+    [`${className}-reset::before`]: {
       content: 'none',
       flex: 'unset',
       width: 'unset',
     },
-    '.full-bleed-scroller-reset::after': {
+    [`${className}-reset::after`]: {
       content: 'none',
       flex: 'unset',
       width: 'unset',

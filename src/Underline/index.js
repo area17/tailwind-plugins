@@ -1,4 +1,6 @@
-module.exports = function ({ addUtilities, theme }) {
+module.exports = function ({ addUtilities, theme, prefix, config }) {
+  const className = prefix('.underline');
+  const prefixString = config('prefix');
   const colors = {
     underline: theme('underlineColor', {}),
     token: theme('colors', {}),
@@ -11,53 +13,53 @@ module.exports = function ({ addUtilities, theme }) {
     '[class*=underline-]': {
       'text-decoration-line': 'underline',
     },
-    '.underline-solid': {
+    [`${className}-solid`]: {
       'text-decoration-style': 'solid',
     },
-    '.underline-dotted': {
+    [`${className}-dotted`]: {
       'text-decoration-style': 'dotted',
     },
-    '.underline-double': {
+    [`${className}-double`]: {
       'text-decoration-style': 'double',
     },
-    '.underline-dashed': {
+    [`${className}-dashed`]: {
       'text-decoration-style': 'dashed',
     },
-    '.underline-wavy': {
+    [`${className}-wavy`]: {
       'text-decoration-style': 'wavy',
     },
-    '.underline-skip-none': {
+    [`${className}-skip-none`]: {
       'text-decoration-skip-ink': 'none',
     },
-    '.underline-skip-auto': {
+    [`${className}-skip-auto`]: {
       'text-decoration-skip-ink': 'auto',
     },
-    '.underline-skip-all': {
+    [`${className}-skip-all`]: {
       'text-decoration-skip-ink': 'all',
     },
-    '.underline-thickness-auto': {
+    [`${className}-thickness-auto`]: {
       'text-decoration-thickness': 'auto',
     },
-    '.underline-thickness-from-font': {
+    [`${className}-thickness-from-font`]: {
       'text-decoration-thickness': 'from-font',
     },
   };
 
   for (let i = 1; i < 21; i++) {
-    styles[`.underline-thickness-${i}`] = {
+    styles[`${className}-thickness-${i}`] = {
       'text-decoration-thickness': `${i}px`,
     };
   }
 
-  styles[`.underline-offset-0`] = {
+  styles[`${className}-offset-0`] = {
     'text-underline-offset': `0`,
   };
 
   for (let i = 1; i < 21; i++) {
-    styles[`.underline-offset-${i}`] = {
+    styles[`${className}-offset-${i}`] = {
       'text-underline-offset': `${i / 20}em`,
     };
-    styles[`.-underline-offset-${i}`] = {
+    styles[`.-${prefixString}underline-offset-${i}`] = {
       'text-underline-offset': `${i / -20}em`,
     };
   }
@@ -66,7 +68,7 @@ module.exports = function ({ addUtilities, theme }) {
     const [type, obj] = a;
     Object.entries(obj).map((b) => {
       const [name, color] = b;
-      let className = '.underline-';
+      let className = `.${prefixString}underline-`;
       if (type !== 'token' && type !== 'underline') {
         className += `${type}-`;
       }

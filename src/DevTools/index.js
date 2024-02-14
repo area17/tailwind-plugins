@@ -1,13 +1,15 @@
-module.exports = function ({ addBase }) {
-  addBase({
-    '.dev-tools': {
+module.exports = function ({ addBase, prefix }) {
+  const className = prefix('.dev-tools');
+
+  let styles = {
+    [className]: {
       position: 'fixed',
       'z-index': '9999999999',
       left: '0',
       bottom: '0',
       'font-size': '0',
     },
-    '.dev-tools::before': {
+    [`${className}::before`]: {
       content: 'var(--breakpoint) " • " var(--env)',
       position: 'absolute',
       'z-index': '2',
@@ -20,7 +22,7 @@ module.exports = function ({ addBase }) {
       'white-space': 'nowrap',
       'pointer-events': 'none',
     },
-    '.dev-tools-toggle': {
+    [`${className}-toggle`]: {
       position: 'relative',
       'z-index': '2',
       width: '30px',
@@ -32,7 +34,7 @@ module.exports = function ({ addBase }) {
       appearance: 'none',
       cursor: 'pointer',
     },
-    '.dev-tools-toggle::before, .dev-tools-toggle::after': {
+    [`${className}-toggle::before, ${className}-toggle::after`]: {
       content: `''`,
       position: 'absolute',
       left: '8px',
@@ -42,18 +44,17 @@ module.exports = function ({ addBase }) {
       'border-left': '1px solid white',
       'border-right': '1px solid white',
     },
-    '.dev-tools-toggle::after': {
+    [`${className}-toggle::after`]: {
       left: '16px',
     },
-    '.dev-tools-grid': {
+    [`${className}-grid`]: {
       position: 'fixed',
       'z-index': '1',
       left: '0',
       right: '0',
       top: '0',
       bottom: '0',
-      width:
-        'calc(var(--container-width, 100%) - (2 * var(--outer-gutter, 0)));',
+      width: 'calc(var(--container-width, 100%) - (2 * var(--outer-gutter, 0)));',
       height: '100%',
       margin: '0 auto',
       background: `repeating-linear-gradient(
@@ -65,5 +66,7 @@ module.exports = function ({ addBase }) {
       )`,
       'pointer-events': 'none',
     },
-  });
+  };
+
+  addBase(styles);
 };

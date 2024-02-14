@@ -1,14 +1,18 @@
-module.exports = function ({ addBase, theme }) {
+module.exports = function ({ addBase, prefix }) {
+  const className = prefix('.gap-gutter');
+  const classNameY = prefix('.gap-y-gutter');
+  const classNameX = prefix('.gap-x-gutter');
+
   let styles = {
-    '.gap-gutter': {
+    [className]: {
       'grid-gap': 'var(--inner-gutter)',
       gap: 'var(--inner-gutter)',
     },
-    '.gap-y-gutter': {
+    [classNameY]: {
       'grid-row-gap': 'var(--inner-gutter)',
       'row-gap': 'var(--inner-gutter)',
     },
-    '.gap-x-gutter': {
+    [classNameX]: {
       'grid-column-gap': 'var(--inner-gutter)',
       'column-gap': 'var(--inner-gutter)',
     },
