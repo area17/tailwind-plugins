@@ -6,10 +6,10 @@ module.exports = function ({ addUtilities, theme, config }) {
 
   let styles = [
     {
-      ['[class*="keyline-"]']: {
+      [`[class*="${prefixString}keyline-"]`]: {
         position: 'relative',
       },
-      ['[class*="keyline-"]::before']: {
+      [`[class*="${prefixString}keyline-"]::before`]: {
         content: 'attr(👻)',
         position: 'absolute',
         'z-index': 0,
@@ -20,7 +20,7 @@ module.exports = function ({ addUtilities, theme, config }) {
         border: '1px solid transparent',
         'pointer-events': 'none',
       },
-      ['[class*="keyline-0"]::before']: {
+      [`[class*="${prefixString}keyline-0"]::before`]: {
         'border-right-color': 'transparent',
         'border-left-color': 'transparent',
       },

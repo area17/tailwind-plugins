@@ -13,7 +13,7 @@ module.exports = function ({ addBase, theme, prefix, config }) {
     bg: theme('backgroundColor', {}),
   };
 
-  let styles = {
+  const styles = {
     [`${classNameScrollbar}-none`]: {
       '-ms-overflow-style': 'none',
       'scrollbar-width': 'none',

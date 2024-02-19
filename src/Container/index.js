@@ -3,7 +3,7 @@ module.exports = function ({ addBase, prefix }) {
   const classNameContainer = prefix('.container');
   const classNameBreakout = prefix('.breakout');
 
-  let styles = {
+  const styles = {
     [classNameContainer]: {
       width:
         'calc(var(--container-width, 100%) - (2 * var(--breakout-container-outer-gutter, var(--container-outer-gutter, var(--outer-gutter, 0)))))',

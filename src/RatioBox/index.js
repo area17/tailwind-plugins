@@ -2,7 +2,7 @@ module.exports = function ({ addUtilities, theme, config }) {
   const ratios = theme('ratios', {});
   const prefixString = config('prefix');
 
-  let styles = {
+  const styles = {
     [`.${prefixString}ratio`]: {
       '--ratio': '100%',
       display: 'block',

@@ -1,7 +1,7 @@
 module.exports = function ({ addBase, prefix }) {
   const className = prefix('.dev-tools');
 
-  let styles = {
+  const styles = {
     [className]: {
       position: 'fixed',
       'z-index': '9999999999',
@@ -54,7 +54,8 @@ module.exports = function ({ addBase, prefix }) {
       right: '0',
       top: '0',
       bottom: '0',
-      width: 'calc(var(--container-width, 100%) - (2 * var(--outer-gutter, 0)));',
+      width:
+        'calc(var(--container-width, 100%) - (2 * var(--outer-gutter, 0)));',
       height: '100%',
       margin: '0 auto',
       background: `repeating-linear-gradient(

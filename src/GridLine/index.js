@@ -1,7 +1,6 @@
 module.exports = function ({ addComponents, theme, config }) {
   const bps = Object.keys(theme('screens', {})) || [];
   const firstBp = bps[0];
-  const bpsWithoutFirstBp = bps.filter((bp) => bp !== firstBp);
   const colors = theme('borderColor', theme('color', {}));
   const spacing = theme('spacing', {});
   const columnCount = theme('columnCount', {});
@@ -12,7 +11,7 @@ module.exports = function ({ addComponents, theme, config }) {
   let stylesToReturn = {};
 
   // set base
-  let styles = [
+  const styles = [
     {
       [`[class*="${prefixString}grid-line-"] > *`]: {
         position: 'relative',

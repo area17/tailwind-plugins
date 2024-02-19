@@ -16,7 +16,7 @@ module.exports = function ({ addBase, theme, prefix, config }) {
   ];
   const borderThicknesses = theme('spacing', {});
 
-  let styles = {
+  const styles = {
     [`[class*='${prefixString}stroke-full']`]: {
       '--stroke-full-thickness': '0.0625em',
       '--stroke-full-style': 'solid',

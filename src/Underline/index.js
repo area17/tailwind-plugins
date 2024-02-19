@@ -1,6 +1,12 @@
 module.exports = function ({ addUtilities, theme, prefix, config }) {
-  const className = prefix('.underline');
-  const prefixString = config('prefix');
+  const className = 'underline';
+  const classNameFull = prefix(`.${className}`);
+  const classNameNoDot = `${config('prefix')}${className}`;
+
+  const decorationStyles = ['solid', 'dotted', 'double', 'dashed', 'wavy'];
+  const decorationSkip = ['none', 'auto', 'all'];
+  const decorationThickness = ['auto', 'from-font'];
+
   const colors = {
     underline: theme('underlineColor', {}),
     token: theme('colors', {}),
@@ -10,56 +16,44 @@ module.exports = function ({ addUtilities, theme, prefix, config }) {
   };
 
   const styles = {
-    '[class*=underline-]': {
+    [`[class*=${classNameNoDot}-]`]: {
       'text-decoration-line': 'underline',
-    },
-    [`${className}-solid`]: {
-      'text-decoration-style': 'solid',
-    },
-    [`${className}-dotted`]: {
-      'text-decoration-style': 'dotted',
-    },
-    [`${className}-double`]: {
-      'text-decoration-style': 'double',
-    },
-    [`${className}-dashed`]: {
-      'text-decoration-style': 'dashed',
-    },
-    [`${className}-wavy`]: {
-      'text-decoration-style': 'wavy',
-    },
-    [`${className}-skip-none`]: {
-      'text-decoration-skip-ink': 'none',
-    },
-    [`${className}-skip-auto`]: {
-      'text-decoration-skip-ink': 'auto',
-    },
-    [`${className}-skip-all`]: {
-      'text-decoration-skip-ink': 'all',
-    },
-    [`${className}-thickness-auto`]: {
-      'text-decoration-thickness': 'auto',
-    },
-    [`${className}-thickness-from-font`]: {
-      'text-decoration-thickness': 'from-font',
     },
   };
 
+  decorationStyles.map((style) => {
+    styles[`${classNameFull}-${style}`] = {
+      'text-decoration-style': style,
+    };
+  });
+
+  decorationSkip.map((skip) => {
+    styles[`${classNameFull}-skip-${skip}`] = {
+      'text-decoration-skip-ink': skip,
+    };
+  });
+
+  decorationThickness.map((thickness) => {
+    styles[`${classNameFull}-thickness-${thickness}`] = {
+      'text-decoration-thickness': thickness,
+    };
+  });
+
   for (let i = 1; i < 21; i++) {
-    styles[`${className}-thickness-${i}`] = {
+    styles[`${classNameFull}-thickness-${i}`] = {
       'text-decoration-thickness': `${i}px`,
     };
   }
 
-  styles[`${className}-offset-0`] = {
+  styles[`${classNameFull}-offset-0`] = {
     'text-underline-offset': `0`,
   };
 
   for (let i = 1; i < 21; i++) {
-    styles[`${className}-offset-${i}`] = {
+    styles[`${classNameFull}-offset-${i}`] = {
       'text-underline-offset': `${i / 20}em`,
     };
-    styles[`.-${prefixString}underline-offset-${i}`] = {
+    styles[`.-${classNameNoDot}-offset-${i}`] = {
       'text-underline-offset': `${i / -20}em`,
     };
   }
@@ -68,7 +62,7 @@ module.exports = function ({ addUtilities, theme, prefix, config }) {
     const [type, obj] = a;
     Object.entries(obj).map((b) => {
       const [name, color] = b;
-      let className = `.${prefixString}underline-`;
+      let className = `.${classNameNoDot}-`;
       if (type !== 'token' && type !== 'underline') {
         className += `${type}-`;
       }

@@ -1,7 +1,7 @@
 module.exports = function ({ addBase, prefix }) {
   const className = prefix('.full-bleed-scroller');
 
-  let styles = {
+  const styles = {
     [className]: {
       display: 'flex',
       'flex-flow': 'row nowrap',
