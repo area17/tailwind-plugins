@@ -50,7 +50,7 @@
   "spacing": {
     "tokens": {
       "scaler": 4,
-      "arbritraries": {
+      "arbitraries": {
         "400": "400px",
         "600": "600px"
       }

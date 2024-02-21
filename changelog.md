@@ -4,7 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [3.14.0] - 2024-02-14
+## [4.0.0] - 2024-02-21
+
+### Changed
+
+- Fix typo in frontend config, this is a **breaking change** as this require updating config file when upgrading to this version :
+
+For Spacing now use "arbitraries" instead of "arbritraries"
+
+## [3.14.0] - 2024-02-18
 
 ### Changed
 
@@ -15,7 +23,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixed
 
 - Fix usage of a global Prefix with the plugins
-  For example by setting up `a17` as prefix, the generated classes will look like this :
+  For example by setting up `a17-` as prefix, the generated classes will look like this :
   ```
   .container => .a17-container
   .f-heading-01 => .a17-f-heading-01
