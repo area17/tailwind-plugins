@@ -927,194 +927,149 @@ video {
   --serif: "Times New Roman", Georgia, serif;
   --mono: "Lucida Console", Courier, monospace;
   --f-h1-font-family: var(--sans);
-  --f-h1-font-size: 2rem;
-  --f-h1-font-stretch: initial;
-  --f-h1-font-style: initial;
-  --f-h1-font-variant: initial;
   --f-h1-font-weight: 500;
+  --f-h1-font-size: 2rem;
   --f-h1-line-height: 1.2;
   --f-h1-letter-spacing: -0.02em;
-  --f-h1-font-feature-settings: initial;
   --f-h1--moz-osx-font-smoothing: grayscale;
   --f-h1--webkit-font-smoothing: antialiased;
   --f-h1---bold-weight: 500;
   --f-h2-font-family: var(--sans);
-  --f-h2-font-size: 1.25rem;
-  --f-h2-font-stretch: initial;
-  --f-h2-font-style: initial;
-  --f-h2-font-variant: initial;
   --f-h2-font-weight: 500;
+  --f-h2-font-size: 1.25rem;
   --f-h2-line-height: 1.2;
   --f-h2-letter-spacing: -0.02em;
-  --f-h2-font-feature-settings: initial;
   --f-h2--moz-osx-font-smoothing: grayscale;
   --f-h2--webkit-font-smoothing: antialiased;
   --f-h2---bold-weight: 500;
   --f-h3-font-family: var(--sans);
-  --f-h3-font-size: 1rem;
-  --f-h3-font-stretch: initial;
-  --f-h3-font-style: initial;
-  --f-h3-font-variant: initial;
   --f-h3-font-weight: 500;
+  --f-h3-font-size: 1rem;
   --f-h3-line-height: 1.2;
   --f-h3-letter-spacing: -0.02em;
-  --f-h3-font-feature-settings: initial;
   --f-h3--moz-osx-font-smoothing: grayscale;
   --f-h3--webkit-font-smoothing: antialiased;
   --f-h3---bold-weight: 500;
   --f-h4-font-family: var(--sans);
-  --f-h4-font-size: 0.875rem;
-  --f-h4-font-stretch: initial;
-  --f-h4-font-style: initial;
-  --f-h4-font-variant: initial;
   --f-h4-font-weight: 600;
+  --f-h4-font-size: 0.875rem;
   --f-h4-line-height: 1.2;
   --f-h4-letter-spacing: -0.02em;
-  --f-h4-font-feature-settings: initial;
   --f-h4--moz-osx-font-smoothing: grayscale;
   --f-h4--webkit-font-smoothing: antialiased;
   --f-h4---bold-weight: 600;
   --f-body-font-family: var(--sans);
   --f-body-font-size: 0.875rem;
-  --f-body-font-stretch: initial;
-  --f-body-font-style: initial;
-  --f-body-font-variant: initial;
-  --f-body-font-weight: initial;
   --f-body-line-height: 1.7;
-  --f-body-letter-spacing: initial;
-  --f-body-font-feature-settings: initial;
   --f-body--moz-osx-font-smoothing: grayscale;
   --f-body--webkit-font-smoothing: antialiased;
   --f-body---bold-weight: 600;
   --f-ui-font-family: var(--sans);
   --f-ui-font-size: 0.75rem;
-  --f-ui-font-stretch: initial;
-  --f-ui-font-style: initial;
-  --f-ui-font-variant: initial;
-  --f-ui-font-weight: 400;
   --f-ui-line-height: 1.2;
-  --f-ui-letter-spacing: initial;
-  --f-ui-font-feature-settings: initial;
-  --f-ui--moz-osx-font-smoothing: initial;
-  --f-ui--webkit-font-smoothing: initial;
-  --f-ui---bold-weight: initial;
+  --f-ui-font-weight: 400;
   --f-code-font-family: var(--mono);
   --f-code-font-size: 0.875rem;
-  --f-code-font-stretch: initial;
-  --f-code-font-style: initial;
-  --f-code-font-variant: initial;
-  --f-code-font-weight: 400;
   --f-code-line-height: 1.2;
-  --f-code-letter-spacing: initial;
-  --f-code-font-feature-settings: initial;
-  --f-code--moz-osx-font-smoothing: initial;
-  --f-code--webkit-font-smoothing: initial;
-  --f-code---bold-weight: initial;
+  --f-code-font-weight: 400;
 }
 
 .f-h1 {
-  font-family: var(--f-h1-font-family);
-  font-size: var(--f-h1-font-size);
-  font-stretch: var(--f-h1-font-stretch);
-  font-style: var(--f-h1-font-style);
-  font-variant: var(--f-h1-font-variant);
-  font-weight: var(--f-h1-font-weight);
-  line-height: var(--f-h1-line-height);
-  letter-spacing: var(--f-h1-letter-spacing);
-  font-feature-settings: var(--f-h1-font-feature-settings);
-  -moz-osx-font-smoothing: var(--f-h1--moz-osx-font-smoothing);
-  -webkit-font-smoothing: var(--f-h1--webkit-font-smoothing);
-  --bold-weight: var(--f-h1---bold-weight);
+  font-family: var(--f-h1-font-family, initial);
+  font-size: var(--f-h1-font-size, initial);
+  font-stretch: var(--f-h1-font-stretch, initial);
+  font-style: var(--f-h1-font-style, initial);
+  font-variant: var(--f-h1-font-variant, initial);
+  font-weight: var(--f-h1-font-weight, initial);
+  line-height: var(--f-h1-line-height, initial);
+  letter-spacing: var(--f-h1-letter-spacing, initial);
+  font-feature-settings: var(--f-h1-font-feature-settings, initial);
+  -moz-osx-font-smoothing: var(--f-h1--moz-osx-font-smoothing, initial);
+  -webkit-font-smoothing: var(--f-h1--webkit-font-smoothing, initial);
 }
 
 .f-h2 {
-  font-family: var(--f-h2-font-family);
-  font-size: var(--f-h2-font-size);
-  font-stretch: var(--f-h2-font-stretch);
-  font-style: var(--f-h2-font-style);
-  font-variant: var(--f-h2-font-variant);
-  font-weight: var(--f-h2-font-weight);
-  line-height: var(--f-h2-line-height);
-  letter-spacing: var(--f-h2-letter-spacing);
-  font-feature-settings: var(--f-h2-font-feature-settings);
-  -moz-osx-font-smoothing: var(--f-h2--moz-osx-font-smoothing);
-  -webkit-font-smoothing: var(--f-h2--webkit-font-smoothing);
-  --bold-weight: var(--f-h2---bold-weight);
+  font-family: var(--f-h2-font-family, initial);
+  font-size: var(--f-h2-font-size, initial);
+  font-stretch: var(--f-h2-font-stretch, initial);
+  font-style: var(--f-h2-font-style, initial);
+  font-variant: var(--f-h2-font-variant, initial);
+  font-weight: var(--f-h2-font-weight, initial);
+  line-height: var(--f-h2-line-height, initial);
+  letter-spacing: var(--f-h2-letter-spacing, initial);
+  font-feature-settings: var(--f-h2-font-feature-settings, initial);
+  -moz-osx-font-smoothing: var(--f-h2--moz-osx-font-smoothing, initial);
+  -webkit-font-smoothing: var(--f-h2--webkit-font-smoothing, initial);
 }
 
 .f-h3 {
-  font-family: var(--f-h3-font-family);
-  font-size: var(--f-h3-font-size);
-  font-stretch: var(--f-h3-font-stretch);
-  font-style: var(--f-h3-font-style);
-  font-variant: var(--f-h3-font-variant);
-  font-weight: var(--f-h3-font-weight);
-  line-height: var(--f-h3-line-height);
-  letter-spacing: var(--f-h3-letter-spacing);
-  font-feature-settings: var(--f-h3-font-feature-settings);
-  -moz-osx-font-smoothing: var(--f-h3--moz-osx-font-smoothing);
-  -webkit-font-smoothing: var(--f-h3--webkit-font-smoothing);
-  --bold-weight: var(--f-h3---bold-weight);
+  font-family: var(--f-h3-font-family, initial);
+  font-size: var(--f-h3-font-size, initial);
+  font-stretch: var(--f-h3-font-stretch, initial);
+  font-style: var(--f-h3-font-style, initial);
+  font-variant: var(--f-h3-font-variant, initial);
+  font-weight: var(--f-h3-font-weight, initial);
+  line-height: var(--f-h3-line-height, initial);
+  letter-spacing: var(--f-h3-letter-spacing, initial);
+  font-feature-settings: var(--f-h3-font-feature-settings, initial);
+  -moz-osx-font-smoothing: var(--f-h3--moz-osx-font-smoothing, initial);
+  -webkit-font-smoothing: var(--f-h3--webkit-font-smoothing, initial);
 }
 
 .f-h4 {
-  font-family: var(--f-h4-font-family);
-  font-size: var(--f-h4-font-size);
-  font-stretch: var(--f-h4-font-stretch);
-  font-style: var(--f-h4-font-style);
-  font-variant: var(--f-h4-font-variant);
-  font-weight: var(--f-h4-font-weight);
-  line-height: var(--f-h4-line-height);
-  letter-spacing: var(--f-h4-letter-spacing);
-  font-feature-settings: var(--f-h4-font-feature-settings);
-  -moz-osx-font-smoothing: var(--f-h4--moz-osx-font-smoothing);
-  -webkit-font-smoothing: var(--f-h4--webkit-font-smoothing);
-  --bold-weight: var(--f-h4---bold-weight);
+  font-family: var(--f-h4-font-family, initial);
+  font-size: var(--f-h4-font-size, initial);
+  font-stretch: var(--f-h4-font-stretch, initial);
+  font-style: var(--f-h4-font-style, initial);
+  font-variant: var(--f-h4-font-variant, initial);
+  font-weight: var(--f-h4-font-weight, initial);
+  line-height: var(--f-h4-line-height, initial);
+  letter-spacing: var(--f-h4-letter-spacing, initial);
+  font-feature-settings: var(--f-h4-font-feature-settings, initial);
+  -moz-osx-font-smoothing: var(--f-h4--moz-osx-font-smoothing, initial);
+  -webkit-font-smoothing: var(--f-h4--webkit-font-smoothing, initial);
 }
 
 .f-body {
-  font-family: var(--f-body-font-family);
-  font-size: var(--f-body-font-size);
-  font-stretch: var(--f-body-font-stretch);
-  font-style: var(--f-body-font-style);
-  font-variant: var(--f-body-font-variant);
-  font-weight: var(--f-body-font-weight);
-  line-height: var(--f-body-line-height);
-  letter-spacing: var(--f-body-letter-spacing);
-  font-feature-settings: var(--f-body-font-feature-settings);
-  -moz-osx-font-smoothing: var(--f-body--moz-osx-font-smoothing);
-  -webkit-font-smoothing: var(--f-body--webkit-font-smoothing);
-  --bold-weight: var(--f-body---bold-weight);
+  font-family: var(--f-body-font-family, initial);
+  font-size: var(--f-body-font-size, initial);
+  font-stretch: var(--f-body-font-stretch, initial);
+  font-style: var(--f-body-font-style, initial);
+  font-variant: var(--f-body-font-variant, initial);
+  font-weight: var(--f-body-font-weight, initial);
+  line-height: var(--f-body-line-height, initial);
+  letter-spacing: var(--f-body-letter-spacing, initial);
+  font-feature-settings: var(--f-body-font-feature-settings, initial);
+  -moz-osx-font-smoothing: var(--f-body--moz-osx-font-smoothing, initial);
+  -webkit-font-smoothing: var(--f-body--webkit-font-smoothing, initial);
 }
 
 .f-ui {
-  font-family: var(--f-ui-font-family);
-  font-size: var(--f-ui-font-size);
-  font-stretch: var(--f-ui-font-stretch);
-  font-style: var(--f-ui-font-style);
-  font-variant: var(--f-ui-font-variant);
-  font-weight: var(--f-ui-font-weight);
-  line-height: var(--f-ui-line-height);
-  letter-spacing: var(--f-ui-letter-spacing);
-  font-feature-settings: var(--f-ui-font-feature-settings);
-  -moz-osx-font-smoothing: var(--f-ui--moz-osx-font-smoothing);
-  -webkit-font-smoothing: var(--f-ui--webkit-font-smoothing);
-  --bold-weight: var(--f-ui---bold-weight);
+  font-family: var(--f-ui-font-family, initial);
+  font-size: var(--f-ui-font-size, initial);
+  font-stretch: var(--f-ui-font-stretch, initial);
+  font-style: var(--f-ui-font-style, initial);
+  font-variant: var(--f-ui-font-variant, initial);
+  font-weight: var(--f-ui-font-weight, initial);
+  line-height: var(--f-ui-line-height, initial);
+  letter-spacing: var(--f-ui-letter-spacing, initial);
+  font-feature-settings: var(--f-ui-font-feature-settings, initial);
+  -moz-osx-font-smoothing: var(--f-ui--moz-osx-font-smoothing, initial);
+  -webkit-font-smoothing: var(--f-ui--webkit-font-smoothing, initial);
 }
 
 .f-code {
-  font-family: var(--f-code-font-family);
-  font-size: var(--f-code-font-size);
-  font-stretch: var(--f-code-font-stretch);
-  font-style: var(--f-code-font-style);
-  font-variant: var(--f-code-font-variant);
-  font-weight: var(--f-code-font-weight);
-  line-height: var(--f-code-line-height);
-  letter-spacing: var(--f-code-letter-spacing);
-  font-feature-settings: var(--f-code-font-feature-settings);
-  -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
-  -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
-  --bold-weight: var(--f-code---bold-weight);
+  font-family: var(--f-code-font-family, initial);
+  font-size: var(--f-code-font-size, initial);
+  font-stretch: var(--f-code-font-stretch, initial);
+  font-style: var(--f-code-font-style, initial);
+  font-variant: var(--f-code-font-variant, initial);
+  font-weight: var(--f-code-font-weight, initial);
+  line-height: var(--f-code-line-height, initial);
+  letter-spacing: var(--f-code-letter-spacing, initial);
+  font-feature-settings: var(--f-code-font-feature-settings, initial);
+  -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing, initial);
+  -webkit-font-smoothing: var(--f-code--webkit-font-smoothing, initial);
 }
 
 @media (min-width: 650px) {
@@ -1381,18 +1336,17 @@ video {
 }
 
 .code-example .code-example-filename {
-  font-family: var(--f-ui-font-family);
-  font-size: var(--f-ui-font-size);
-  font-stretch: var(--f-ui-font-stretch);
-  font-style: var(--f-ui-font-style);
-  font-variant: var(--f-ui-font-variant);
-  font-weight: var(--f-ui-font-weight);
-  line-height: var(--f-ui-line-height);
-  letter-spacing: var(--f-ui-letter-spacing);
-  font-feature-settings: var(--f-ui-font-feature-settings);
-  -moz-osx-font-smoothing: var(--f-ui--moz-osx-font-smoothing);
-  -webkit-font-smoothing: var(--f-ui--webkit-font-smoothing);
-  --bold-weight: var(--f-ui---bold-weight);
+  font-family: var(--f-ui-font-family, initial);
+  font-size: var(--f-ui-font-size, initial);
+  font-stretch: var(--f-ui-font-stretch, initial);
+  font-style: var(--f-ui-font-style, initial);
+  font-variant: var(--f-ui-font-variant, initial);
+  font-weight: var(--f-ui-font-weight, initial);
+  line-height: var(--f-ui-line-height, initial);
+  letter-spacing: var(--f-ui-letter-spacing, initial);
+  font-feature-settings: var(--f-ui-font-feature-settings, initial);
+  -moz-osx-font-smoothing: var(--f-ui--moz-osx-font-smoothing, initial);
+  -webkit-font-smoothing: var(--f-ui--webkit-font-smoothing, initial);
 }
 
 .code-example .code-example-filename b,.code-example .code-example-filename strong {
@@ -1413,18 +1367,17 @@ video {
 }
 
 .code-example .code-example-code {
-  font-family: var(--f-code-font-family);
-  font-size: var(--f-code-font-size);
-  font-stretch: var(--f-code-font-stretch);
-  font-style: var(--f-code-font-style);
-  font-variant: var(--f-code-font-variant);
-  font-weight: var(--f-code-font-weight);
-  line-height: var(--f-code-line-height);
-  letter-spacing: var(--f-code-letter-spacing);
-  font-feature-settings: var(--f-code-font-feature-settings);
-  -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
-  -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
-  --bold-weight: var(--f-code---bold-weight);
+  font-family: var(--f-code-font-family, initial);
+  font-size: var(--f-code-font-size, initial);
+  font-stretch: var(--f-code-font-stretch, initial);
+  font-style: var(--f-code-font-style, initial);
+  font-variant: var(--f-code-font-variant, initial);
+  font-weight: var(--f-code-font-weight, initial);
+  line-height: var(--f-code-line-height, initial);
+  letter-spacing: var(--f-code-letter-spacing, initial);
+  font-feature-settings: var(--f-code-font-feature-settings, initial);
+  -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing, initial);
+  -webkit-font-smoothing: var(--f-code--webkit-font-smoothing, initial);
 }
 
 .code-example .code-example-code b,.code-example .code-example-code strong {
@@ -1461,18 +1414,17 @@ video {
 }
 
 .copy h2 {
-  font-family: var(--f-h2-font-family);
-  font-size: var(--f-h2-font-size);
-  font-stretch: var(--f-h2-font-stretch);
-  font-style: var(--f-h2-font-style);
-  font-variant: var(--f-h2-font-variant);
-  font-weight: var(--f-h2-font-weight);
-  line-height: var(--f-h2-line-height);
-  letter-spacing: var(--f-h2-letter-spacing);
-  font-feature-settings: var(--f-h2-font-feature-settings);
-  -moz-osx-font-smoothing: var(--f-h2--moz-osx-font-smoothing);
-  -webkit-font-smoothing: var(--f-h2--webkit-font-smoothing);
-  --bold-weight: var(--f-h2---bold-weight);
+  font-family: var(--f-h2-font-family, initial);
+  font-size: var(--f-h2-font-size, initial);
+  font-stretch: var(--f-h2-font-stretch, initial);
+  font-style: var(--f-h2-font-style, initial);
+  font-variant: var(--f-h2-font-variant, initial);
+  font-weight: var(--f-h2-font-weight, initial);
+  line-height: var(--f-h2-line-height, initial);
+  letter-spacing: var(--f-h2-letter-spacing, initial);
+  font-feature-settings: var(--f-h2-font-feature-settings, initial);
+  -moz-osx-font-smoothing: var(--f-h2--moz-osx-font-smoothing, initial);
+  -webkit-font-smoothing: var(--f-h2--webkit-font-smoothing, initial);
 }
 
 .copy h2 b,.copy h2 strong {
@@ -1487,18 +1439,17 @@ video {
 }
 
 .copy h3 {
-  font-family: var(--f-h3-font-family);
-  font-size: var(--f-h3-font-size);
-  font-stretch: var(--f-h3-font-stretch);
-  font-style: var(--f-h3-font-style);
-  font-variant: var(--f-h3-font-variant);
-  font-weight: var(--f-h3-font-weight);
-  line-height: var(--f-h3-line-height);
-  letter-spacing: var(--f-h3-letter-spacing);
-  font-feature-settings: var(--f-h3-font-feature-settings);
-  -moz-osx-font-smoothing: var(--f-h3--moz-osx-font-smoothing);
-  -webkit-font-smoothing: var(--f-h3--webkit-font-smoothing);
-  --bold-weight: var(--f-h3---bold-weight);
+  font-family: var(--f-h3-font-family, initial);
+  font-size: var(--f-h3-font-size, initial);
+  font-stretch: var(--f-h3-font-stretch, initial);
+  font-style: var(--f-h3-font-style, initial);
+  font-variant: var(--f-h3-font-variant, initial);
+  font-weight: var(--f-h3-font-weight, initial);
+  line-height: var(--f-h3-line-height, initial);
+  letter-spacing: var(--f-h3-letter-spacing, initial);
+  font-feature-settings: var(--f-h3-font-feature-settings, initial);
+  -moz-osx-font-smoothing: var(--f-h3--moz-osx-font-smoothing, initial);
+  -webkit-font-smoothing: var(--f-h3--webkit-font-smoothing, initial);
 }
 
 .copy h3 b,.copy h3 strong {
@@ -1510,18 +1461,17 @@ video {
 }
 
 .copy h4 {
-  font-family: var(--f-h4-font-family);
-  font-size: var(--f-h4-font-size);
-  font-stretch: var(--f-h4-font-stretch);
-  font-style: var(--f-h4-font-style);
-  font-variant: var(--f-h4-font-variant);
-  font-weight: var(--f-h4-font-weight);
-  line-height: var(--f-h4-line-height);
-  letter-spacing: var(--f-h4-letter-spacing);
-  font-feature-settings: var(--f-h4-font-feature-settings);
-  -moz-osx-font-smoothing: var(--f-h4--moz-osx-font-smoothing);
-  -webkit-font-smoothing: var(--f-h4--webkit-font-smoothing);
-  --bold-weight: var(--f-h4---bold-weight);
+  font-family: var(--f-h4-font-family, initial);
+  font-size: var(--f-h4-font-size, initial);
+  font-stretch: var(--f-h4-font-stretch, initial);
+  font-style: var(--f-h4-font-style, initial);
+  font-variant: var(--f-h4-font-variant, initial);
+  font-weight: var(--f-h4-font-weight, initial);
+  line-height: var(--f-h4-line-height, initial);
+  letter-spacing: var(--f-h4-letter-spacing, initial);
+  font-feature-settings: var(--f-h4-font-feature-settings, initial);
+  -moz-osx-font-smoothing: var(--f-h4--moz-osx-font-smoothing, initial);
+  -webkit-font-smoothing: var(--f-h4--webkit-font-smoothing, initial);
 }
 
 .copy h4 b,.copy h4 strong {
@@ -1533,18 +1483,17 @@ video {
 }
 
 .copy p {
-  font-family: var(--f-body-font-family);
-  font-size: var(--f-body-font-size);
-  font-stretch: var(--f-body-font-stretch);
-  font-style: var(--f-body-font-style);
-  font-variant: var(--f-body-font-variant);
-  font-weight: var(--f-body-font-weight);
-  line-height: var(--f-body-line-height);
-  letter-spacing: var(--f-body-letter-spacing);
-  font-feature-settings: var(--f-body-font-feature-settings);
-  -moz-osx-font-smoothing: var(--f-body--moz-osx-font-smoothing);
-  -webkit-font-smoothing: var(--f-body--webkit-font-smoothing);
-  --bold-weight: var(--f-body---bold-weight);
+  font-family: var(--f-body-font-family, initial);
+  font-size: var(--f-body-font-size, initial);
+  font-stretch: var(--f-body-font-stretch, initial);
+  font-style: var(--f-body-font-style, initial);
+  font-variant: var(--f-body-font-variant, initial);
+  font-weight: var(--f-body-font-weight, initial);
+  line-height: var(--f-body-line-height, initial);
+  letter-spacing: var(--f-body-letter-spacing, initial);
+  font-feature-settings: var(--f-body-font-feature-settings, initial);
+  -moz-osx-font-smoothing: var(--f-body--moz-osx-font-smoothing, initial);
+  -webkit-font-smoothing: var(--f-body--webkit-font-smoothing, initial);
 }
 
 .copy p b,.copy p strong {
@@ -1560,18 +1509,17 @@ video {
 }
 
 .copy ul {
-  font-family: var(--f-body-font-family);
-  font-size: var(--f-body-font-size);
-  font-stretch: var(--f-body-font-stretch);
-  font-style: var(--f-body-font-style);
-  font-variant: var(--f-body-font-variant);
-  font-weight: var(--f-body-font-weight);
-  line-height: var(--f-body-line-height);
-  letter-spacing: var(--f-body-letter-spacing);
-  font-feature-settings: var(--f-body-font-feature-settings);
-  -moz-osx-font-smoothing: var(--f-body--moz-osx-font-smoothing);
-  -webkit-font-smoothing: var(--f-body--webkit-font-smoothing);
-  --bold-weight: var(--f-body---bold-weight);
+  font-family: var(--f-body-font-family, initial);
+  font-size: var(--f-body-font-size, initial);
+  font-stretch: var(--f-body-font-stretch, initial);
+  font-style: var(--f-body-font-style, initial);
+  font-variant: var(--f-body-font-variant, initial);
+  font-weight: var(--f-body-font-weight, initial);
+  line-height: var(--f-body-line-height, initial);
+  letter-spacing: var(--f-body-letter-spacing, initial);
+  font-feature-settings: var(--f-body-font-feature-settings, initial);
+  -moz-osx-font-smoothing: var(--f-body--moz-osx-font-smoothing, initial);
+  -webkit-font-smoothing: var(--f-body--webkit-font-smoothing, initial);
 }
 
 .copy ul b,.copy ul strong {
@@ -1593,18 +1541,17 @@ video {
 }
 
 .copy code:not([class]) {
-  font-family: var(--f-code-font-family);
-  font-size: var(--f-code-font-size);
-  font-stretch: var(--f-code-font-stretch);
-  font-style: var(--f-code-font-style);
-  font-variant: var(--f-code-font-variant);
-  font-weight: var(--f-code-font-weight);
-  line-height: var(--f-code-line-height);
-  letter-spacing: var(--f-code-letter-spacing);
-  font-feature-settings: var(--f-code-font-feature-settings);
-  -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
-  -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
-  --bold-weight: var(--f-code---bold-weight);
+  font-family: var(--f-code-font-family, initial);
+  font-size: var(--f-code-font-size, initial);
+  font-stretch: var(--f-code-font-stretch, initial);
+  font-style: var(--f-code-font-style, initial);
+  font-variant: var(--f-code-font-variant, initial);
+  font-weight: var(--f-code-font-weight, initial);
+  line-height: var(--f-code-line-height, initial);
+  letter-spacing: var(--f-code-letter-spacing, initial);
+  font-feature-settings: var(--f-code-font-feature-settings, initial);
+  -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing, initial);
+  -webkit-font-smoothing: var(--f-code--webkit-font-smoothing, initial);
 }
 
 .copy code:not([class]) b,.copy code:not([class]) strong {
@@ -1621,18 +1568,17 @@ video {
 }
 
 .copy pre:not([class]) {
-  font-family: var(--f-code-font-family);
-  font-size: var(--f-code-font-size);
-  font-stretch: var(--f-code-font-stretch);
-  font-style: var(--f-code-font-style);
-  font-variant: var(--f-code-font-variant);
-  font-weight: var(--f-code-font-weight);
-  line-height: var(--f-code-line-height);
-  letter-spacing: var(--f-code-letter-spacing);
-  font-feature-settings: var(--f-code-font-feature-settings);
-  -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
-  -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
-  --bold-weight: var(--f-code---bold-weight);
+  font-family: var(--f-code-font-family, initial);
+  font-size: var(--f-code-font-size, initial);
+  font-stretch: var(--f-code-font-stretch, initial);
+  font-style: var(--f-code-font-style, initial);
+  font-variant: var(--f-code-font-variant, initial);
+  font-weight: var(--f-code-font-weight, initial);
+  line-height: var(--f-code-line-height, initial);
+  letter-spacing: var(--f-code-letter-spacing, initial);
+  font-feature-settings: var(--f-code-font-feature-settings, initial);
+  -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing, initial);
+  -webkit-font-smoothing: var(--f-code--webkit-font-smoothing, initial);
 }
 
 .copy pre:not([class]) b,.copy pre:not([class]) strong {
@@ -11428,18 +11374,17 @@ video {
   }
 
   .md\:f-code {
-    font-family: var(--f-code-font-family);
-    font-size: var(--f-code-font-size);
-    font-stretch: var(--f-code-font-stretch);
-    font-style: var(--f-code-font-style);
-    font-variant: var(--f-code-font-variant);
-    font-weight: var(--f-code-font-weight);
-    line-height: var(--f-code-line-height);
-    letter-spacing: var(--f-code-letter-spacing);
-    font-feature-settings: var(--f-code-font-feature-settings);
-    -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
-    -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
-    --bold-weight: var(--f-code---bold-weight);
+    font-family: var(--f-code-font-family, initial);
+    font-size: var(--f-code-font-size, initial);
+    font-stretch: var(--f-code-font-stretch, initial);
+    font-style: var(--f-code-font-style, initial);
+    font-variant: var(--f-code-font-variant, initial);
+    font-weight: var(--f-code-font-weight, initial);
+    line-height: var(--f-code-line-height, initial);
+    letter-spacing: var(--f-code-letter-spacing, initial);
+    font-feature-settings: var(--f-code-font-feature-settings, initial);
+    -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing, initial);
+    -webkit-font-smoothing: var(--f-code--webkit-font-smoothing, initial);
   }
 
   .md\:f-code b,.md\:f-code strong {
@@ -11473,18 +11418,17 @@ video {
   }
 
   .lg\:f-code {
-    font-family: var(--f-code-font-family);
-    font-size: var(--f-code-font-size);
-    font-stretch: var(--f-code-font-stretch);
-    font-style: var(--f-code-font-style);
-    font-variant: var(--f-code-font-variant);
-    font-weight: var(--f-code-font-weight);
-    line-height: var(--f-code-line-height);
-    letter-spacing: var(--f-code-letter-spacing);
-    font-feature-settings: var(--f-code-font-feature-settings);
-    -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
-    -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
-    --bold-weight: var(--f-code---bold-weight);
+    font-family: var(--f-code-font-family, initial);
+    font-size: var(--f-code-font-size, initial);
+    font-stretch: var(--f-code-font-stretch, initial);
+    font-style: var(--f-code-font-style, initial);
+    font-variant: var(--f-code-font-variant, initial);
+    font-weight: var(--f-code-font-weight, initial);
+    line-height: var(--f-code-line-height, initial);
+    letter-spacing: var(--f-code-letter-spacing, initial);
+    font-feature-settings: var(--f-code-font-feature-settings, initial);
+    -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing, initial);
+    -webkit-font-smoothing: var(--f-code--webkit-font-smoothing, initial);
   }
 
   .lg\:f-code b,.lg\:f-code strong {

@@ -4,6 +4,8 @@ module.exports = function ({ addBase, theme, prefix, e }) {
   const typesets = JSON.parse(JSON.stringify(theme('typesets', {})));
   const firstBp = Object.keys(breakpoints)[0];
 
+  // note - these font attributes are used, the setting of 'initial' is not
+  // (will be mapped to CSS variables in the output)
   const defaults = {
     'font-family': 'initial',
     'font-size': 'initial',
@@ -81,41 +83,43 @@ module.exports = function ({ addBase, theme, prefix, e }) {
         setBoldWeight = false;
       }
 
-      // merge defaults with settings
-      if (bp === firstBp) {
-        settings = {
-          ...defaults,
-          ...settings,
-        };
-      }
-
-      // generate class styles, set first BP settings, rename settings keys to vars
+      // process settings
       Object.entries(settings).forEach((c) => {
         let [property, setting] = c;
         if (typeof setting) {
           // unitless number settings where incorrectly being converted to pixels by Tailwind
           setting = `${setting}`;
         }
-        if (bp === firstBp) {
-          styles[className][property] = `var(--f-${name}-${property})`;
-          styles[`${className} b, ${className} strong`] = {
-            'font-weight': `var(--f-${name}---bold-weight, bold)`,
-          };
-        }
-        // update property name, if not already updated
+        // update namespace property names
         if (property.indexOf(`--f-${name}-`) === -1) {
           settings[`--f-${name}-${property}`] = setting;
           delete settings[property];
         }
       });
 
-      // set root styles, which describe the actual font settings
       if (bp === firstBp) {
+        // generate root styles
         styles[':root'] = {
           ...styles[':root'],
           ...settings,
         };
+        // generate css classes
+        const classSettings = {
+          ...defaults,
+          ...settings,
+        };
+        Object.entries(classSettings).forEach((c) => {
+          let [property, setting] = c;
+          if (property.startsWith('--')) {
+            return;
+          }
+          styles[className][property] = `var(--f-${name}-${property}, initial)`;
+          styles[`${className} b, ${className} strong`] = {
+            'font-weight': `var(--f-${name}---bold-weight, bold)`,
+          };
+        });
       } else {
+        // generate responsive root styles
         styles[`@screen ${bp}`][':root'] = {
           ...styles[`@screen ${bp}`][':root'],
           ...settings,
