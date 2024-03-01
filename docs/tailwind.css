@@ -927,89 +927,51 @@ video {
   --serif: "Times New Roman", Georgia, serif;
   --mono: "Lucida Console", Courier, monospace;
   --f-h1-font-family: var(--sans);
-  --f-h1-font-size: 2rem;
-  --f-h1-font-stretch: initial;
-  --f-h1-font-style: initial;
-  --f-h1-font-variant: initial;
   --f-h1-font-weight: 500;
+  --f-h1-font-size: 2rem;
   --f-h1-line-height: 1.2;
   --f-h1-letter-spacing: -0.02em;
-  --f-h1-font-feature-settings: initial;
   --f-h1--moz-osx-font-smoothing: grayscale;
   --f-h1--webkit-font-smoothing: antialiased;
   --f-h1---bold-weight: 500;
   --f-h2-font-family: var(--sans);
-  --f-h2-font-size: 1.25rem;
-  --f-h2-font-stretch: initial;
-  --f-h2-font-style: initial;
-  --f-h2-font-variant: initial;
   --f-h2-font-weight: 500;
+  --f-h2-font-size: 1.25rem;
   --f-h2-line-height: 1.2;
   --f-h2-letter-spacing: -0.02em;
-  --f-h2-font-feature-settings: initial;
   --f-h2--moz-osx-font-smoothing: grayscale;
   --f-h2--webkit-font-smoothing: antialiased;
   --f-h2---bold-weight: 500;
   --f-h3-font-family: var(--sans);
-  --f-h3-font-size: 1rem;
-  --f-h3-font-stretch: initial;
-  --f-h3-font-style: initial;
-  --f-h3-font-variant: initial;
   --f-h3-font-weight: 500;
+  --f-h3-font-size: 1rem;
   --f-h3-line-height: 1.2;
   --f-h3-letter-spacing: -0.02em;
-  --f-h3-font-feature-settings: initial;
   --f-h3--moz-osx-font-smoothing: grayscale;
   --f-h3--webkit-font-smoothing: antialiased;
   --f-h3---bold-weight: 500;
   --f-h4-font-family: var(--sans);
-  --f-h4-font-size: 0.875rem;
-  --f-h4-font-stretch: initial;
-  --f-h4-font-style: initial;
-  --f-h4-font-variant: initial;
   --f-h4-font-weight: 600;
+  --f-h4-font-size: 0.875rem;
   --f-h4-line-height: 1.2;
   --f-h4-letter-spacing: -0.02em;
-  --f-h4-font-feature-settings: initial;
   --f-h4--moz-osx-font-smoothing: grayscale;
   --f-h4--webkit-font-smoothing: antialiased;
   --f-h4---bold-weight: 600;
   --f-body-font-family: var(--sans);
   --f-body-font-size: 0.875rem;
-  --f-body-font-stretch: initial;
-  --f-body-font-style: initial;
-  --f-body-font-variant: initial;
-  --f-body-font-weight: initial;
   --f-body-line-height: 1.7;
-  --f-body-letter-spacing: initial;
-  --f-body-font-feature-settings: initial;
   --f-body--moz-osx-font-smoothing: grayscale;
   --f-body--webkit-font-smoothing: antialiased;
   --f-body---bold-weight: 600;
   --f-ui-font-family: var(--sans);
   --f-ui-font-size: 0.75rem;
-  --f-ui-font-stretch: initial;
-  --f-ui-font-style: initial;
-  --f-ui-font-variant: initial;
-  --f-ui-font-weight: 400;
   --f-ui-line-height: 1.2;
-  --f-ui-letter-spacing: initial;
-  --f-ui-font-feature-settings: initial;
-  --f-ui--moz-osx-font-smoothing: initial;
-  --f-ui--webkit-font-smoothing: initial;
-  --f-ui---bold-weight: initial;
+  --f-ui-font-weight: 400;
   --f-code-font-family: var(--mono);
   --f-code-font-size: 0.875rem;
-  --f-code-font-stretch: initial;
-  --f-code-font-style: initial;
-  --f-code-font-variant: initial;
-  --f-code-font-weight: 400;
   --f-code-line-height: 1.2;
-  --f-code-letter-spacing: initial;
-  --f-code-font-feature-settings: initial;
-  --f-code--moz-osx-font-smoothing: initial;
-  --f-code--webkit-font-smoothing: initial;
-  --f-code---bold-weight: initial;
+  --f-code-font-weight: 400;
 }
 
 .f-h1 {
@@ -1024,7 +986,6 @@ video {
   font-feature-settings: var(--f-h1-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-h1--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-h1--webkit-font-smoothing);
-  --bold-weight: var(--f-h1---bold-weight);
 }
 
 .f-h2 {
@@ -1039,7 +1000,6 @@ video {
   font-feature-settings: var(--f-h2-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-h2--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-h2--webkit-font-smoothing);
-  --bold-weight: var(--f-h2---bold-weight);
 }
 
 .f-h3 {
@@ -1054,7 +1014,6 @@ video {
   font-feature-settings: var(--f-h3-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-h3--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-h3--webkit-font-smoothing);
-  --bold-weight: var(--f-h3---bold-weight);
 }
 
 .f-h4 {
@@ -1069,7 +1028,6 @@ video {
   font-feature-settings: var(--f-h4-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-h4--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-h4--webkit-font-smoothing);
-  --bold-weight: var(--f-h4---bold-weight);
 }
 
 .f-body {
@@ -1084,7 +1042,6 @@ video {
   font-feature-settings: var(--f-body-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-body--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-body--webkit-font-smoothing);
-  --bold-weight: var(--f-body---bold-weight);
 }
 
 .f-ui {
@@ -1099,7 +1056,6 @@ video {
   font-feature-settings: var(--f-ui-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-ui--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-ui--webkit-font-smoothing);
-  --bold-weight: var(--f-ui---bold-weight);
 }
 
 .f-code {
@@ -1114,7 +1070,6 @@ video {
   font-feature-settings: var(--f-code-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
-  --bold-weight: var(--f-code---bold-weight);
 }
 
 @media (min-width: 650px) {
@@ -1392,7 +1347,6 @@ video {
   font-feature-settings: var(--f-ui-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-ui--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-ui--webkit-font-smoothing);
-  --bold-weight: var(--f-ui---bold-weight);
 }
 
 .code-example .code-example-filename b,.code-example .code-example-filename strong {
@@ -1424,7 +1378,6 @@ video {
   font-feature-settings: var(--f-code-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
-  --bold-weight: var(--f-code---bold-weight);
 }
 
 .code-example .code-example-code b,.code-example .code-example-code strong {
@@ -1472,7 +1425,6 @@ video {
   font-feature-settings: var(--f-h2-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-h2--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-h2--webkit-font-smoothing);
-  --bold-weight: var(--f-h2---bold-weight);
 }
 
 .copy h2 b,.copy h2 strong {
@@ -1498,7 +1450,6 @@ video {
   font-feature-settings: var(--f-h3-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-h3--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-h3--webkit-font-smoothing);
-  --bold-weight: var(--f-h3---bold-weight);
 }
 
 .copy h3 b,.copy h3 strong {
@@ -1521,7 +1472,6 @@ video {
   font-feature-settings: var(--f-h4-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-h4--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-h4--webkit-font-smoothing);
-  --bold-weight: var(--f-h4---bold-weight);
 }
 
 .copy h4 b,.copy h4 strong {
@@ -1544,7 +1494,6 @@ video {
   font-feature-settings: var(--f-body-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-body--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-body--webkit-font-smoothing);
-  --bold-weight: var(--f-body---bold-weight);
 }
 
 .copy p b,.copy p strong {
@@ -1571,7 +1520,6 @@ video {
   font-feature-settings: var(--f-body-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-body--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-body--webkit-font-smoothing);
-  --bold-weight: var(--f-body---bold-weight);
 }
 
 .copy ul b,.copy ul strong {
@@ -1604,7 +1552,6 @@ video {
   font-feature-settings: var(--f-code-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
-  --bold-weight: var(--f-code---bold-weight);
 }
 
 .copy code:not([class]) b,.copy code:not([class]) strong {
@@ -1632,7 +1579,6 @@ video {
   font-feature-settings: var(--f-code-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
-  --bold-weight: var(--f-code---bold-weight);
 }
 
 .copy pre:not([class]) b,.copy pre:not([class]) strong {
@@ -11439,7 +11385,6 @@ video {
     font-feature-settings: var(--f-code-font-feature-settings);
     -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
     -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
-    --bold-weight: var(--f-code---bold-weight);
   }
 
   .md\:f-code b,.md\:f-code strong {
@@ -11484,7 +11429,6 @@ video {
     font-feature-settings: var(--f-code-font-feature-settings);
     -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
     -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
-    --bold-weight: var(--f-code---bold-weight);
   }
 
   .lg\:f-code b,.lg\:f-code strong {
