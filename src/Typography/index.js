@@ -47,7 +47,6 @@ module.exports = function ({ addBase, theme, prefix, e }) {
   Object.entries(typesets).forEach((a) => {
     const [name, typo] = a;
     const className = prefix(`.f-${name}`);
-    let setBoldWeight = false;
 
     // loop
     Object.entries(typo).forEach((b) => {
@@ -77,10 +76,7 @@ module.exports = function ({ addBase, theme, prefix, e }) {
 
       if (settings['bold-weight']) {
         settings['--bold-weight'] = settings['bold-weight'];
-        setBoldWeight = true;
         delete settings['bold-weight'];
-      } else {
-        setBoldWeight = false;
       }
 
       // process settings
