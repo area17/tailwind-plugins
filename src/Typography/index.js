@@ -31,7 +31,7 @@ module.exports = function ({ addBase, theme, prefix, e }) {
 
   // make class name objects
   Object.entries(typesets).forEach((a) => {
-    const [name, typo] = a;
+    const name = a[0];
     const className = prefix(`.f-${name}`);
     styles[className] = styles[className] || {};
   });
@@ -109,7 +109,7 @@ module.exports = function ({ addBase, theme, prefix, e }) {
           ...settings,
         };
         Object.entries(classSettings).forEach((c) => {
-          let [property, setting] = c;
+          let property = c[0];
           if (property.startsWith('--')) {
             return;
           }
