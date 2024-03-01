@@ -106,6 +106,7 @@ module.exports = function ({ addBase, theme, prefix, e }) {
         };
         Object.entries(classSettings).forEach((c) => {
           let property = c[0];
+          // don't assign variables inside the class
           if (property.startsWith('--')) {
             return;
           }
