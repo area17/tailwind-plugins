@@ -109,7 +109,7 @@ module.exports = function ({ addBase, theme, prefix, e }) {
           if (property.startsWith('--')) {
             return;
           }
-          styles[className][property] = `var(--f-${name}-${property}, initial)`;
+          styles[className][property] = `var(--f-${name}-${property})`;
           styles[`${className} b, ${className} strong`] = {
             'font-weight': `var(--f-${name}---bold-weight, bold)`,
           };
