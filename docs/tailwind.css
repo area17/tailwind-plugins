@@ -976,105 +976,70 @@ video {
 
 .f-h1 {
   font-family: var(--f-h1-font-family);
-  font-size: var(--f-h1-font-size);
-  font-stretch: var(--f-h1-font-stretch);
-  font-style: var(--f-h1-font-style);
-  font-variant: var(--f-h1-font-variant);
   font-weight: var(--f-h1-font-weight);
+  font-size: var(--f-h1-font-size);
   line-height: var(--f-h1-line-height);
   letter-spacing: var(--f-h1-letter-spacing);
-  text-transform: var(--f-h1-text-transform);
-  font-feature-settings: var(--f-h1-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-h1--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-h1--webkit-font-smoothing);
 }
 
 .f-h2 {
   font-family: var(--f-h2-font-family);
-  font-size: var(--f-h2-font-size);
-  font-stretch: var(--f-h2-font-stretch);
-  font-style: var(--f-h2-font-style);
-  font-variant: var(--f-h2-font-variant);
   font-weight: var(--f-h2-font-weight);
+  font-size: var(--f-h2-font-size);
   line-height: var(--f-h2-line-height);
   letter-spacing: var(--f-h2-letter-spacing);
-  text-transform: var(--f-h2-text-transform);
-  font-feature-settings: var(--f-h2-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-h2--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-h2--webkit-font-smoothing);
 }
 
 .f-h3 {
   font-family: var(--f-h3-font-family);
-  font-size: var(--f-h3-font-size);
-  font-stretch: var(--f-h3-font-stretch);
-  font-style: var(--f-h3-font-style);
-  font-variant: var(--f-h3-font-variant);
   font-weight: var(--f-h3-font-weight);
+  font-size: var(--f-h3-font-size);
   line-height: var(--f-h3-line-height);
   letter-spacing: var(--f-h3-letter-spacing);
-  text-transform: var(--f-h3-text-transform);
-  font-feature-settings: var(--f-h3-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-h3--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-h3--webkit-font-smoothing);
 }
 
 .f-h4 {
   font-family: var(--f-h4-font-family);
-  font-size: var(--f-h4-font-size);
-  font-stretch: var(--f-h4-font-stretch);
-  font-style: var(--f-h4-font-style);
-  font-variant: var(--f-h4-font-variant);
   font-weight: var(--f-h4-font-weight);
+  font-size: var(--f-h4-font-size);
   line-height: var(--f-h4-line-height);
   letter-spacing: var(--f-h4-letter-spacing);
-  text-transform: var(--f-h4-text-transform);
-  font-feature-settings: var(--f-h4-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-h4--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-h4--webkit-font-smoothing);
 }
 
 .f-body {
   font-family: var(--f-body-font-family);
-  font-size: var(--f-body-font-size);
-  font-stretch: var(--f-body-font-stretch);
-  font-style: var(--f-body-font-style);
-  font-variant: var(--f-body-font-variant);
   font-weight: var(--f-body-font-weight);
+  font-size: var(--f-body-font-size);
   line-height: var(--f-body-line-height);
   letter-spacing: var(--f-body-letter-spacing);
-  text-transform: var(--f-body-text-transform);
-  font-feature-settings: var(--f-body-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-body--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-body--webkit-font-smoothing);
 }
 
 .f-ui {
   font-family: var(--f-ui-font-family);
-  font-size: var(--f-ui-font-size);
-  font-stretch: var(--f-ui-font-stretch);
-  font-style: var(--f-ui-font-style);
-  font-variant: var(--f-ui-font-variant);
   font-weight: var(--f-ui-font-weight);
+  font-size: var(--f-ui-font-size);
   line-height: var(--f-ui-line-height);
   letter-spacing: var(--f-ui-letter-spacing);
-  text-transform: var(--f-ui-text-transform);
-  font-feature-settings: var(--f-ui-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-ui--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-ui--webkit-font-smoothing);
 }
 
 .f-code {
   font-family: var(--f-code-font-family);
-  font-size: var(--f-code-font-size);
-  font-stretch: var(--f-code-font-stretch);
-  font-style: var(--f-code-font-style);
-  font-variant: var(--f-code-font-variant);
   font-weight: var(--f-code-font-weight);
+  font-size: var(--f-code-font-size);
   line-height: var(--f-code-line-height);
   letter-spacing: var(--f-code-letter-spacing);
-  text-transform: var(--f-code-text-transform);
-  font-feature-settings: var(--f-code-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
 }
@@ -1344,15 +1309,10 @@ video {
 
 .code-example .code-example-filename {
   font-family: var(--f-ui-font-family);
-  font-size: var(--f-ui-font-size);
-  font-stretch: var(--f-ui-font-stretch);
-  font-style: var(--f-ui-font-style);
-  font-variant: var(--f-ui-font-variant);
   font-weight: var(--f-ui-font-weight);
+  font-size: var(--f-ui-font-size);
   line-height: var(--f-ui-line-height);
   letter-spacing: var(--f-ui-letter-spacing);
-  text-transform: var(--f-ui-text-transform);
-  font-feature-settings: var(--f-ui-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-ui--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-ui--webkit-font-smoothing);
 }
@@ -1376,15 +1336,10 @@ video {
 
 .code-example .code-example-code {
   font-family: var(--f-code-font-family);
-  font-size: var(--f-code-font-size);
-  font-stretch: var(--f-code-font-stretch);
-  font-style: var(--f-code-font-style);
-  font-variant: var(--f-code-font-variant);
   font-weight: var(--f-code-font-weight);
+  font-size: var(--f-code-font-size);
   line-height: var(--f-code-line-height);
   letter-spacing: var(--f-code-letter-spacing);
-  text-transform: var(--f-code-text-transform);
-  font-feature-settings: var(--f-code-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
 }
@@ -1424,15 +1379,10 @@ video {
 
 .copy h2 {
   font-family: var(--f-h2-font-family);
-  font-size: var(--f-h2-font-size);
-  font-stretch: var(--f-h2-font-stretch);
-  font-style: var(--f-h2-font-style);
-  font-variant: var(--f-h2-font-variant);
   font-weight: var(--f-h2-font-weight);
+  font-size: var(--f-h2-font-size);
   line-height: var(--f-h2-line-height);
   letter-spacing: var(--f-h2-letter-spacing);
-  text-transform: var(--f-h2-text-transform);
-  font-feature-settings: var(--f-h2-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-h2--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-h2--webkit-font-smoothing);
 }
@@ -1450,15 +1400,10 @@ video {
 
 .copy h3 {
   font-family: var(--f-h3-font-family);
-  font-size: var(--f-h3-font-size);
-  font-stretch: var(--f-h3-font-stretch);
-  font-style: var(--f-h3-font-style);
-  font-variant: var(--f-h3-font-variant);
   font-weight: var(--f-h3-font-weight);
+  font-size: var(--f-h3-font-size);
   line-height: var(--f-h3-line-height);
   letter-spacing: var(--f-h3-letter-spacing);
-  text-transform: var(--f-h3-text-transform);
-  font-feature-settings: var(--f-h3-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-h3--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-h3--webkit-font-smoothing);
 }
@@ -1473,15 +1418,10 @@ video {
 
 .copy h4 {
   font-family: var(--f-h4-font-family);
-  font-size: var(--f-h4-font-size);
-  font-stretch: var(--f-h4-font-stretch);
-  font-style: var(--f-h4-font-style);
-  font-variant: var(--f-h4-font-variant);
   font-weight: var(--f-h4-font-weight);
+  font-size: var(--f-h4-font-size);
   line-height: var(--f-h4-line-height);
   letter-spacing: var(--f-h4-letter-spacing);
-  text-transform: var(--f-h4-text-transform);
-  font-feature-settings: var(--f-h4-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-h4--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-h4--webkit-font-smoothing);
 }
@@ -1496,15 +1436,10 @@ video {
 
 .copy p {
   font-family: var(--f-body-font-family);
-  font-size: var(--f-body-font-size);
-  font-stretch: var(--f-body-font-stretch);
-  font-style: var(--f-body-font-style);
-  font-variant: var(--f-body-font-variant);
   font-weight: var(--f-body-font-weight);
+  font-size: var(--f-body-font-size);
   line-height: var(--f-body-line-height);
   letter-spacing: var(--f-body-letter-spacing);
-  text-transform: var(--f-body-text-transform);
-  font-feature-settings: var(--f-body-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-body--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-body--webkit-font-smoothing);
 }
@@ -1523,15 +1458,10 @@ video {
 
 .copy ul {
   font-family: var(--f-body-font-family);
-  font-size: var(--f-body-font-size);
-  font-stretch: var(--f-body-font-stretch);
-  font-style: var(--f-body-font-style);
-  font-variant: var(--f-body-font-variant);
   font-weight: var(--f-body-font-weight);
+  font-size: var(--f-body-font-size);
   line-height: var(--f-body-line-height);
   letter-spacing: var(--f-body-letter-spacing);
-  text-transform: var(--f-body-text-transform);
-  font-feature-settings: var(--f-body-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-body--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-body--webkit-font-smoothing);
 }
@@ -1556,15 +1486,10 @@ video {
 
 .copy code:not([class]) {
   font-family: var(--f-code-font-family);
-  font-size: var(--f-code-font-size);
-  font-stretch: var(--f-code-font-stretch);
-  font-style: var(--f-code-font-style);
-  font-variant: var(--f-code-font-variant);
   font-weight: var(--f-code-font-weight);
+  font-size: var(--f-code-font-size);
   line-height: var(--f-code-line-height);
   letter-spacing: var(--f-code-letter-spacing);
-  text-transform: var(--f-code-text-transform);
-  font-feature-settings: var(--f-code-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
 }
@@ -1584,15 +1509,10 @@ video {
 
 .copy pre:not([class]) {
   font-family: var(--f-code-font-family);
-  font-size: var(--f-code-font-size);
-  font-stretch: var(--f-code-font-stretch);
-  font-style: var(--f-code-font-style);
-  font-variant: var(--f-code-font-variant);
   font-weight: var(--f-code-font-weight);
+  font-size: var(--f-code-font-size);
   line-height: var(--f-code-line-height);
   letter-spacing: var(--f-code-letter-spacing);
-  text-transform: var(--f-code-text-transform);
-  font-feature-settings: var(--f-code-font-feature-settings);
   -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
   -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
 }
@@ -11391,15 +11311,10 @@ video {
 
   .md\:f-code {
     font-family: var(--f-code-font-family);
-    font-size: var(--f-code-font-size);
-    font-stretch: var(--f-code-font-stretch);
-    font-style: var(--f-code-font-style);
-    font-variant: var(--f-code-font-variant);
     font-weight: var(--f-code-font-weight);
+    font-size: var(--f-code-font-size);
     line-height: var(--f-code-line-height);
     letter-spacing: var(--f-code-letter-spacing);
-    text-transform: var(--f-code-text-transform);
-    font-feature-settings: var(--f-code-font-feature-settings);
     -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
     -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
   }
@@ -11434,19 +11349,28 @@ video {
     margin-left: unset;
   }
 
+  .lg\:f-h1 {
+    font-family: var(--f-h1-font-family);
+    font-weight: var(--f-h1-font-weight);
+    font-size: var(--f-h1-font-size);
+    line-height: var(--f-h1-line-height);
+    letter-spacing: var(--f-h1-letter-spacing);
+    -moz-osx-font-smoothing: var(--f-h1--moz-osx-font-smoothing);
+    -webkit-font-smoothing: var(--f-h1--webkit-font-smoothing);
+  }
+
   .lg\:f-code {
     font-family: var(--f-code-font-family);
-    font-size: var(--f-code-font-size);
-    font-stretch: var(--f-code-font-stretch);
-    font-style: var(--f-code-font-style);
-    font-variant: var(--f-code-font-variant);
     font-weight: var(--f-code-font-weight);
+    font-size: var(--f-code-font-size);
     line-height: var(--f-code-line-height);
     letter-spacing: var(--f-code-letter-spacing);
-    text-transform: var(--f-code-text-transform);
-    font-feature-settings: var(--f-code-font-feature-settings);
     -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
     -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
+  }
+
+  .lg\:f-h1 b,.lg\:f-h1 strong {
+    font-weight: var(--f-h1---bold-weight, bold);
   }
 
   .lg\:f-code b,.lg\:f-code strong {

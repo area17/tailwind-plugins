@@ -3,25 +3,7 @@ module.exports = function ({ addBase, theme, prefix, e }) {
   const fontFamilies = theme('fontFamilies', {});
   const typesets = JSON.parse(JSON.stringify(theme('typesets', {})));
   const firstBp = Object.keys(breakpoints)[0];
-
-  // note - these font attributes are used, the setting of 'initial' is not
-  // (will be mapped to CSS variables in the output)
-  const defaults = {
-    'font-family': 'initial',
-    'font-size': 'initial',
-    'font-stretch': 'initial',
-    'font-style': 'initial',
-    'font-variant': 'initial',
-    'font-weight': 'initial',
-    'line-height': 'initial',
-    'letter-spacing': 'initial',
-    'text-transform': 'initial',
-    'font-feature-settings': 'initial',
-    '-moz-osx-font-smoothing': 'initial',
-    '-webkit-font-smoothing': 'initial',
-    '--bold-weight': 'initial',
-  };
-
+  const defaults = {}; // will be a collection of all used css properties, so we can override
   const styles = {};
   styles[':root'] = {};
 
@@ -44,12 +26,11 @@ module.exports = function ({ addBase, theme, prefix, e }) {
     }
   });
 
-  // now start to fill out those class name objects and breakpoints
+  // process settings
+  // clean up entry, gather all used properties for defaults
   Object.entries(typesets).forEach((a) => {
     const [name, typo] = a;
-    const className = prefix(`.f-${name}`);
 
-    // loop
     Object.entries(typo).forEach((b) => {
       let [bp, settings] = b;
 
@@ -92,7 +73,20 @@ module.exports = function ({ addBase, theme, prefix, e }) {
           settings[`--f-${name}-${property}`] = setting;
           delete settings[property];
         }
+
+        defaults[property] = 'initial';
       });
+    });
+  });
+
+  // now start to fill out those class name objects and breakpoints
+  // make class properties and root properties (for output)
+  Object.entries(typesets).forEach((a) => {
+    const [name, typo] = a;
+    const className = prefix(`.f-${name}`);
+
+    Object.entries(typo).forEach((b) => {
+      let [bp, settings] = b;
 
       if (bp === firstBp) {
         // generate root styles
