@@ -15,6 +15,7 @@ module.exports = function ({ addBase, theme, prefix, e }) {
     'font-weight': 'initial',
     'line-height': 'initial',
     'letter-spacing': 'initial',
+    'text-transform': 'initial',
     'font-feature-settings': 'initial',
     '-moz-osx-font-smoothing': 'initial',
     '-webkit-font-smoothing': 'initial',
