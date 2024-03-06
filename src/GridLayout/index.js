@@ -31,5 +31,7 @@ module.exports = function ({ addComponents, theme, prefix }) {
     };
   }
 
-  addComponents(styles);
+  addComponents(styles, {
+    respectPrefix: false,
+  });
 };

@@ -18,5 +18,7 @@ module.exports = function ({ addBase, prefix }) {
     },
   };
 
-  addBase(styles);
+  addBase(styles, {
+    respectPrefix: false,
+  });
 };
