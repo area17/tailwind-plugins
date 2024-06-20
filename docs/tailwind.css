@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -211,6 +211,8 @@ textarea {
   /* 1 */
   line-height: inherit;
   /* 1 */
+  letter-spacing: inherit;
+  /* 1 */
   color: inherit;
   /* 1 */
   margin: 0;
@@ -234,9 +236,9 @@ select {
 */
 
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+input:where([type='button']),
+input:where([type='reset']),
+input:where([type='submit']) {
   -webkit-appearance: button;
   /* 1 */
   background-color: transparent;
@@ -861,6 +863,10 @@ video {
   padding-top: var(--spacing-inner-1);
 }
 
+.ps-inner-1 {
+  padding-inline-start: var(--spacing-inner-1);
+}
+
 [class*='stroke-full'] {
   --stroke-full-thickness: 0.0625em;
   --stroke-full-style: solid;
@@ -1137,6 +1143,10 @@ video {
   --tw-backdrop-opacity:  ;
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
 }
 
 ::backdrop {
@@ -1187,6 +1197,10 @@ video {
   --tw-backdrop-opacity:  ;
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
+  --tw-contain-size:  ;
+  --tw-contain-layout:  ;
+  --tw-contain-paint:  ;
+  --tw-contain-style:  ;
 }
 
 :root {
@@ -11349,16 +11363,6 @@ video {
     margin-left: unset;
   }
 
-  .lg\:f-h1 {
-    font-family: var(--f-h1-font-family);
-    font-weight: var(--f-h1-font-weight);
-    font-size: var(--f-h1-font-size);
-    line-height: var(--f-h1-line-height);
-    letter-spacing: var(--f-h1-letter-spacing);
-    -moz-osx-font-smoothing: var(--f-h1--moz-osx-font-smoothing);
-    -webkit-font-smoothing: var(--f-h1--webkit-font-smoothing);
-  }
-
   .lg\:f-code {
     font-family: var(--f-code-font-family);
     font-weight: var(--f-code-font-weight);
@@ -11367,10 +11371,6 @@ video {
     letter-spacing: var(--f-code-letter-spacing);
     -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
     -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
-  }
-
-  .lg\:f-h1 b,.lg\:f-h1 strong {
-    font-weight: var(--f-h1---bold-weight, bold);
   }
 
   .lg\:f-code b,.lg\:f-code strong {

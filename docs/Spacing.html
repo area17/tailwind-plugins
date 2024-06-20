@@ -105,11 +105,13 @@ module.exports = {
   </figure>
 
   <p>
-    (<code>.m-</code>, <code>.mx-</code>, <code>my-</code>, <code>mt-</code>,
+    <code>m-</code>, <code>mx-</code>, <code>my-</code>, <code>mt-</code>,
     <code>mb-</code>, <code>ml-</code>, <code>mr-</code>, <code>p-</code>,
     <code>px-</code>, <code>py-</code>, <code>pt-</code>, <code>pb-</code>,
-    <code>pl-</code>, <code>pr-</code> classes will also be created)
+    <code>pl-</code>, <code>pr-</code> classes will also be created, with appropriate negative classes.
   </p>
+
+  <p>From <code>4.0.5</code>, <a href="https://tailwindcss.com/blog/tailwindcss-v3-3#simplified-rtl-support-with-logical-properties" target="_blank">CSS logical property class names are also generated</a> - <code>ms-</code>, <code>me-</code>, <code>ps-</code>, <code>pe-</code>, <code>start-</code> and <code>end-</code>, with appropriate negative classes.</p>
 
   <h2 id="demo">Demo</h2>
 
@@ -122,7 +124,7 @@ module.exports = {
 </div>
 
 <div class="mt-outer-1 p-inner-1 bg-column">
-  <div class="copy">
+  <div class="bg-primary copy ps-inner-1">
     <p>Content</p>
   </div>
 </div>
@@ -133,7 +135,7 @@ module.exports = {
     <pre
       class="code-example-code"
     ><code class="language-html">&lt;div class="mt-outer-1 p-inner-1 bg-column">
-  &lt;div class="copy">
+  &lt;div class="bg-primary copy ps-inner-1">
     &lt;p>Content&lt;/p>
   &lt;/div>
 &lt;/div></code></pre>

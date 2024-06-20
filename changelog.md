@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.5] - 2024-06-20
+
+### Added
+
+- add `ms-`, `me-`, `ps-`, `pe-`, `start-` and `end-` to `Spacing` plugin (to match `Layout` plugin).
+((CSS logical properties)[https://tailwindcss.com/blog/tailwindcss-v3-3#simplified-rtl-support-with-logical-properties])
+
 ## [4.0.4] - 2024-03-06
 
 ### Fixed
@@ -87,7 +94,8 @@ For Spacing now use "arbitraries" instead of "arbritraries"
 
 ## Added
 
-- add `ms-`, `me-`, `ps-`, `pe-`, `start-` and `end-`
+- add `ms-`, `me-`, `ps-`, `pe-`, `start-` and `end-` to `Layout` plugin.
+((CSS logical properties)[https://tailwindcss.com/blog/tailwindcss-v3-3#simplified-rtl-support-with-logical-properties])
 
 ### Fixed
 

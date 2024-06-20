@@ -9,11 +9,15 @@ module.exports = function ({ addBase, theme, prefix }) {
     ml: ['margin-left'],
     mx: ['margin-left', 'margin-right'],
     my: ['margin-top', 'margin-bottom'],
+    ms: ['margin-inline-start'],
+    me: ['margin-inline-end'],
     p: ['padding'],
     pt: ['padding-top'],
     pb: ['padding-bottom'],
     pr: ['padding-right'],
     pl: ['padding-left'],
+    ps: ['padding-inline-start'],
+    pe: ['padding-inline-end'],
     px: ['padding-left', 'padding-right'],
     py: ['padding-top', 'padding-bottom'],
     gap: ['gap'],
@@ -23,6 +27,8 @@ module.exports = function ({ addBase, theme, prefix }) {
     bottom: ['bottom'],
     left: ['left'],
     right: ['right'],
+    start: ['inset-inline-start'],
+    end: ['inset-inline-end'],
     inset: ['inset'],
     'inset-x': ['inset-x'],
     'inset-y': ['inset-y'],
@@ -34,6 +40,7 @@ module.exports = function ({ addBase, theme, prefix }) {
     ':root': {},
   };
   const spacingStyles = {};
+  const negatives = ['m', 'mt', 'mb', 'mr', 'ml', 'mx', 'my', 'ms', 'me', 'top', 'bottom', 'left', 'right', 'start', 'end', 'inset-x', 'inset-y'];
 
   // create root bp keys in bp order
   Object.keys(breakpoints).forEach((bp) => {
@@ -59,7 +66,7 @@ module.exports = function ({ addBase, theme, prefix }) {
             spacingStyles[className][prop] = `var(--spacing-${name})`;
           });
           // negative margins
-          if (propName.indexOf('m') > -1) {
+          if (negatives.includes(propName)) {
             const classNameNegative = prefix(`.-${propName}-${name}`);
             spacingStyles[classNameNegative] =
               spacingStyles[classNameNegative] || {};
