@@ -50,8 +50,8 @@ module.exports = function ({ addBase, theme, prefix, config }) {
       },
     [`${classNameScrollbar}-thin::-webkit-scrollbar-track:vertical, ${classNameScrollbar}-thin-collapse::-webkit-scrollbar-track:vertical`]:
       {
-        'border-left': '1px solid var(--scrollbar-border)',
-        'border-right': '1px solid var(--scrollbar-border)',
+        'border-inline-start': '1px solid var(--scrollbar-border)',
+        'border-inline-end': '1px solid var(--scrollbar-border)',
       },
     [`${classNameScrollbar}-thin::-webkit-scrollbar-thumb, ${classNameScrollbar}-thin-collapse::-webkit-scrollbar-thumb`]:
       {
@@ -83,8 +83,8 @@ module.exports = function ({ addBase, theme, prefix, config }) {
       },
     [`[class*='${prefixString}scrollbar-track-']::-webkit-scrollbar-track:vertical, [class*='${prefixString}scrollbar-thumb-']::-webkit-scrollbar-track:vertical`]:
       {
-        'border-left': '1px solid var(--scrollbar-border)',
-        'border-right': '1px solid var(--scrollbar-border)',
+        'border-inline-start': '1px solid var(--scrollbar-border)',
+        'border-inline-end': '1px solid var(--scrollbar-border)',
       },
     [`[class*='${prefixString}scrollbar-track-']::-webkit-scrollbar-thumb, [class*='${prefixString}scrollbar-thumb-']::-webkit-scrollbar-thumb`]:
       {

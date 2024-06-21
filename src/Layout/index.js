@@ -246,24 +246,24 @@ module.exports = function ({ addComponents, theme, e, prefix, config }) {
     {
       name: 'pe',
       suffix: '-cols',
-      attribute: 'padding-right',
+      attribute: 'padding-inline-end',
       addGutter: true,
     },
     {
       name: 'ps',
       suffix: '-cols',
-      attribute: 'padding-left',
+      attribute: 'padding-inline-start',
       addGutter: true,
     },
     {
       name: 'pe',
       suffix: '-cols-no-gutter',
-      attribute: 'padding-right',
+      attribute: 'padding-inline-end',
     },
     {
       name: 'ps',
       suffix: '-cols-no-gutter',
-      attribute: 'padding-left',
+      attribute: 'padding-inline-start',
     },
     {
       name: 'start',

@@ -515,11 +515,11 @@ video {
   content: "";
   position: absolute;
   z-index: -1;
-  left: 50%;
+  inset-inline-start: 50%;
   top: 0;
   bottom: 0;
   width: 100vw;
-  margin-left: -50vw;
+  margin-inline-start: -50vw;
   background-color: var(--background-fill-bg, inherit);
   pointer-events: none;
 }
@@ -562,22 +562,22 @@ video {
   --breakout-outer-gutter: max(var(--outer-gutter), calc((100% - var(--container-width, 100%)) / 2));
   --breakout-container-outer-gutter: var(--outer-gutter);
   position: relative;
-  left: 50%;
+  inset-inline-start: 50%;
   width: calc(100vw - var(--scrollbar-visible-width, 0px));
-  margin-left: calc((100vw - var(--scrollbar-visible-width, 0px)) / -2);
+  margin-inline-start: calc((100vw - var(--scrollbar-visible-width, 0px)) / -2);
 }
 
 .breakout.px-outer-gutter, .breakout > .px-outer-gutter {
-  padding-left: var(--breakout-outer-gutter);
-  padding-right: var(--breakout-outer-gutter);
+  padding-inline-start: var(--breakout-outer-gutter);
+  padding-inline-end: var(--breakout-outer-gutter);
 }
 
 .breakout.pr-outer-gutter, .breakout > .pr-outer-gutter {
-  padding-right: var(--breakout-outer-gutter);
+  padding-inline-end: var(--breakout-outer-gutter);
 }
 
 .breakout.pl-outer-gutter, .breakout > .pl-outer-gutter {
-  padding-left: var(--breakout-outer-gutter);
+  padding-inline-start: var(--breakout-outer-gutter);
 }
 
 .breakout > .w-outer-gutter {
@@ -588,15 +588,15 @@ video {
   --breakout-outer-gutter: var(--outer-gutter);
   --breakout-container-outer-gutter: 0;
   position: unset;
-  left: unset;
+  inset-inline-start: unset;
   width: unset;
-  margin-left: unset;
+  margin-inline-start: unset;
 }
 
 .dev-tools {
   position: fixed;
   z-index: 9999999999;
-  left: 0;
+  inset-inline-start: 0;
   bottom: 0;
   font-size: 0;
 }
@@ -605,7 +605,7 @@ video {
   content: var(--breakpoint) " • " var(--env);
   position: absolute;
   z-index: 2;
-  left: 0;
+  inset-inline-start: 0;
   bottom: 100%;
   padding: 4px 5px;
   background: green;
@@ -633,23 +633,23 @@ video {
 .dev-tools-toggle::before, .dev-tools-toggle::after {
   content: '';
   position: absolute;
-  left: 8px;
+  inset-inline-start: 8px;
   top: 10px;
   width: 5px;
   height: 10px;
-  border-left: 1px solid white;
-  border-right: 1px solid white;
+  border-inline-start: 1px solid white;
+  border-inline-end: 1px solid white;
 }
 
 .dev-tools-toggle::after {
-  left: 16px;
+  inset-inline-start: 16px;
 }
 
 .dev-tools-grid {
   position: fixed;
   z-index: 1;
-  left: 0;
-  right: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
   top: 0;
   bottom: 0;
   width: calc(var(--container-width, 100%) - (2 * var(--outer-gutter, 0)));;
@@ -759,8 +759,8 @@ video {
 }
 
 .scrollbar-thin::-webkit-scrollbar-track:vertical, .scrollbar-thin-collapse::-webkit-scrollbar-track:vertical {
-  border-left: 1px solid var(--scrollbar-border);
-  border-right: 1px solid var(--scrollbar-border);
+  border-inline-start: 1px solid var(--scrollbar-border);
+  border-inline-end: 1px solid var(--scrollbar-border);
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb, .scrollbar-thin-collapse::-webkit-scrollbar-thumb {
@@ -792,8 +792,8 @@ video {
 }
 
 [class*='scrollbar-track-']::-webkit-scrollbar-track:vertical, [class*='scrollbar-thumb-']::-webkit-scrollbar-track:vertical {
-  border-left: 1px solid var(--scrollbar-border);
-  border-right: 1px solid var(--scrollbar-border);
+  border-inline-start: 1px solid var(--scrollbar-border);
+  border-inline-end: 1px solid var(--scrollbar-border);
 }
 
 [class*='scrollbar-track-']::-webkit-scrollbar-thumb, [class*='scrollbar-thumb-']::-webkit-scrollbar-thumb {
@@ -878,11 +878,11 @@ video {
   content: "";
   position: absolute;
   z-index: -1;
-  left: 50%;
+  inset-inline-start: 50%;
   top: 0;
   bottom: 0;
   width: 100vw;
-  margin-left: -50vw;
+  margin-inline-start: -50vw;
   pointer-events: none;
 }
 
@@ -1229,8 +1229,8 @@ video {
 .show-grid::after {
   position: fixed;
   z-index: 1;
-  left: 0;
-  right: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
   top: 0;
   bottom: 0;
   width: calc(var(--container-width, 100%) - (2 * var(--outer-gutter, 0)));;
@@ -1643,8 +1643,8 @@ video {
 
 .grid-line-x > *::before {
   content: attr(👻);
-  left: 0;
-  right: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
   top: 0;
   bottom: calc(var(--inner-gutter) / -2);
   border-top: 0 solid transparent;
@@ -1653,8 +1653,8 @@ video {
 
 .grid-line-xfull > *::before {
   content: attr(👻);
-  left: calc(var(--inner-gutter) / -2);
-  right: calc(var(--inner-gutter) / -2);
+  inset-inline-start: calc(var(--inner-gutter) / -2);
+  inset-inline-end: calc(var(--inner-gutter) / -2);
   top: 0;
   bottom: calc(var(--inner-gutter) / -2);
   border-top: 0 solid transparent;
@@ -1667,31 +1667,31 @@ video {
 
 .grid-line-y > *::after {
   content: attr(👻);
-  left: 0;
-  right: calc(var(--inner-gutter) / -2);
+  inset-inline-start: 0;
+  inset-inline-end: calc(var(--inner-gutter) / -2);
   top: 0;
   bottom: 0;
-  border-left: 0 solid transparent;
-  border-right: 0 solid transparent;
+  border-inline-start: 0 solid transparent;
+  border-inline-end: 0 solid transparent;
 }
 
 .grid-line-yfull > *::after {
   content: attr(👻);
-  left: 0;
-  right: calc(var(--inner-gutter) / -2);
+  inset-inline-start: 0;
+  inset-inline-end: calc(var(--inner-gutter) / -2);
   top: calc(var(--inner-gutter) / -1);
   bottom: 0;
-  border-left: 0 solid transparent;
-  border-right: 0 solid transparent;
+  border-inline-start: 0 solid transparent;
+  border-inline-end: 0 solid transparent;
 }
 
 .grid-line-yfull[class*="grid-line-x"] > *::after {
-  left: 0;
-  right: calc(var(--inner-gutter) / -2);
+  inset-inline-start: 0;
+  inset-inline-end: calc(var(--inner-gutter) / -2);
   top: calc(var(--inner-gutter) / -2);
   bottom: calc(var(--inner-gutter) / -2);
-  border-left: 0 solid transparent;
-  border-right: 0 solid transparent;
+  border-inline-start: 0 solid transparent;
+  border-inline-end: 0 solid transparent;
 }
 
 .grid-line-y-0 > *::after {
@@ -1730,7 +1730,7 @@ video {
 }
 
 .grid-line-y-primary[class*="grid-line-y-"] > *::after {
-  border-right-color: var(--black);
+  border-inline-end-color: var(--black);
 }
 
 .grid-line-xy-primary[class*="grid-line-xy-"] > *::before {
@@ -1738,7 +1738,7 @@ video {
 }
 
 .grid-line-xy-primary[class*="grid-line-xy-"] > *::after {
-  border-right-color: var(--black);
+  border-inline-end-color: var(--black);
 }
 
 .grid-line-x-secondary[class*="grid-line-x-"] > *::before {
@@ -1750,11 +1750,11 @@ video {
 }
 
 .grid-line-xy-secondary[class*="grid-line-xy-"] > *::after {
-  border-right-color: var(--grey-15);
+  border-inline-end-color: var(--grey-15);
 }
 
 .grid-line-y-tertiary[class*="grid-line-y-"] > *::after {
-  border-right-color: var(--grey-54);
+  border-inline-end-color: var(--grey-54);
 }
 
 .grid-cols-2[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
@@ -1762,16 +1762,16 @@ video {
 }
 
 .grid-cols-2[class*="grid-line-xfull"] > *:nth-child(n)::before {
-  left: calc(var(--inner-gutter) / -2);
-  right: calc(var(--inner-gutter) / -2);
+  inset-inline-start: calc(var(--inner-gutter) / -2);
+  inset-inline-end: calc(var(--inner-gutter) / -2);
 }
 
 .grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1)::before {
-  left: 0;
+  inset-inline-start: 0;
 }
 
 .grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+2)::before {
-  right: 0;
+  inset-inline-end: 0;
 }
 
 .grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2)::before {
@@ -1783,11 +1783,11 @@ video {
 }
 
 .grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-  border-right-width: 1px;
+  border-inline-end-width: 1px;
 }
 
 .grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+2)::after {
-  border-right-width: 0;
+  border-inline-end-width: 0;
 }
 
 .grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+2)::after {
@@ -1816,8 +1816,8 @@ video {
 
   .sm\:grid-line-x > *::before {
     content: attr(👻);
-    left: 0;
-    right: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     top: 0;
     bottom: calc(var(--inner-gutter) / -2);
     border-top: 0 solid transparent;
@@ -1826,8 +1826,8 @@ video {
 
   .sm\:grid-line-xfull > *::before {
     content: attr(👻);
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: 0;
     bottom: calc(var(--inner-gutter) / -2);
     border-top: 0 solid transparent;
@@ -1840,31 +1840,31 @@ video {
 
   .sm\:grid-line-y > *::after {
     content: attr(👻);
-    left: 0;
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: 0;
     bottom: 0;
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
   }
 
   .sm\:grid-line-yfull > *::after {
     content: attr(👻);
-    left: 0;
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: calc(var(--inner-gutter) / -1);
     bottom: 0;
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
   }
 
   .sm\:grid-line-yfull[class*="grid-line-x"] > *::after {
-    left: 0;
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: calc(var(--inner-gutter) / -2);
     bottom: calc(var(--inner-gutter) / -2);
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
   }
 
   .sm\:grid-line-y-0 > *::after {
@@ -2254,7 +2254,7 @@ video {
   }
 
   .sm\:grid-line-y-primary[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--black);
+    border-inline-end-color: var(--black);
   }
 
   .sm\:grid-line-xy-primary[class*="grid-line-xy-"] > *::before {
@@ -2262,7 +2262,7 @@ video {
   }
 
   .sm\:grid-line-xy-primary[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--black);
+    border-inline-end-color: var(--black);
   }
 
   .sm\:grid-line-x-secondary[class*="grid-line-x-"] > *::before {
@@ -2270,7 +2270,7 @@ video {
   }
 
   .sm\:grid-line-y-secondary[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--grey-15);
+    border-inline-end-color: var(--grey-15);
   }
 
   .sm\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::before {
@@ -2278,7 +2278,7 @@ video {
   }
 
   .sm\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--grey-15);
+    border-inline-end-color: var(--grey-15);
   }
 
   .sm\:grid-line-x-tertiary[class*="grid-line-x-"] > *::before {
@@ -2286,7 +2286,7 @@ video {
   }
 
   .sm\:grid-line-y-tertiary[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--grey-54);
+    border-inline-end-color: var(--grey-54);
   }
 
   .sm\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::before {
@@ -2294,7 +2294,7 @@ video {
   }
 
   .sm\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--grey-54);
+    border-inline-end-color: var(--grey-54);
   }
 
   .sm\:grid-line-x-code-example-filename[class*="grid-line-x-"] > *::before {
@@ -2302,7 +2302,7 @@ video {
   }
 
   .sm\:grid-line-y-code-example-filename[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--blue-05);
+    border-inline-end-color: var(--blue-05);
   }
 
   .sm\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::before {
@@ -2310,7 +2310,7 @@ video {
   }
 
   .sm\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--blue-05);
+    border-inline-end-color: var(--blue-05);
   }
 
   .sm\:grid-cols-1[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
@@ -2318,12 +2318,12 @@ video {
   }
 
   .sm\:grid-cols-1[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: 0;
-    right: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
   }
 
   .sm\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .sm\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1):nth-last-child(-n+1)::before {
@@ -2339,16 +2339,16 @@ video {
   }
 
   .sm\:grid-cols-2[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .sm\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .sm\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+2)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .sm\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2)::before {
@@ -2360,11 +2360,11 @@ video {
   }
 
   .sm\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .sm\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+2)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .sm\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+2)::after {
@@ -2384,16 +2384,16 @@ video {
   }
 
   .sm\:grid-cols-3[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .sm\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .sm\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+3)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .sm\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3)::before {
@@ -2405,11 +2405,11 @@ video {
   }
 
   .sm\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .sm\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+3)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .sm\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+3)::after {
@@ -2429,16 +2429,16 @@ video {
   }
 
   .sm\:grid-cols-4[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .sm\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .sm\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+4)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .sm\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4)::before {
@@ -2450,11 +2450,11 @@ video {
   }
 
   .sm\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .sm\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+4)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .sm\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+4)::after {
@@ -2474,16 +2474,16 @@ video {
   }
 
   .sm\:grid-cols-5[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .sm\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .sm\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+5)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .sm\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1):nth-last-child(-n+5)::before {
@@ -2495,11 +2495,11 @@ video {
   }
 
   .sm\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .sm\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+5)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .sm\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+5)::after {
@@ -2519,16 +2519,16 @@ video {
   }
 
   .sm\:grid-cols-6[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .sm\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .sm\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+6)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .sm\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1):nth-last-child(-n+6)::before {
@@ -2540,11 +2540,11 @@ video {
   }
 
   .sm\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .sm\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+6)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .sm\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+6)::after {
@@ -2564,16 +2564,16 @@ video {
   }
 
   .sm\:grid-cols-7[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .sm\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .sm\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+7)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .sm\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1):nth-last-child(-n+7)::before {
@@ -2585,11 +2585,11 @@ video {
   }
 
   .sm\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .sm\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+7)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .sm\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+7)::after {
@@ -2609,16 +2609,16 @@ video {
   }
 
   .sm\:grid-cols-8[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .sm\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .sm\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+8)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .sm\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1):nth-last-child(-n+8)::before {
@@ -2630,11 +2630,11 @@ video {
   }
 
   .sm\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .sm\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+8)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .sm\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+8)::after {
@@ -2664,8 +2664,8 @@ video {
 
   .md\:grid-line-x > *::before {
     content: attr(👻);
-    left: 0;
-    right: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     top: 0;
     bottom: calc(var(--inner-gutter) / -2);
     border-top: 0 solid transparent;
@@ -2674,8 +2674,8 @@ video {
 
   .md\:grid-line-xfull > *::before {
     content: attr(👻);
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: 0;
     bottom: calc(var(--inner-gutter) / -2);
     border-top: 0 solid transparent;
@@ -2688,31 +2688,31 @@ video {
 
   .md\:grid-line-y > *::after {
     content: attr(👻);
-    left: 0;
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: 0;
     bottom: 0;
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
   }
 
   .md\:grid-line-yfull > *::after {
     content: attr(👻);
-    left: 0;
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: calc(var(--inner-gutter) / -1);
     bottom: 0;
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
   }
 
   .md\:grid-line-yfull[class*="grid-line-x"] > *::after {
-    left: 0;
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: calc(var(--inner-gutter) / -2);
     bottom: calc(var(--inner-gutter) / -2);
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
   }
 
   .md\:grid-line-y-0 > *::after {
@@ -3102,7 +3102,7 @@ video {
   }
 
   .md\:grid-line-y-primary[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--black);
+    border-inline-end-color: var(--black);
   }
 
   .md\:grid-line-xy-primary[class*="grid-line-xy-"] > *::before {
@@ -3110,7 +3110,7 @@ video {
   }
 
   .md\:grid-line-xy-primary[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--black);
+    border-inline-end-color: var(--black);
   }
 
   .md\:grid-line-x-secondary[class*="grid-line-x-"] > *::before {
@@ -3118,7 +3118,7 @@ video {
   }
 
   .md\:grid-line-y-secondary[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--grey-15);
+    border-inline-end-color: var(--grey-15);
   }
 
   .md\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::before {
@@ -3126,7 +3126,7 @@ video {
   }
 
   .md\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--grey-15);
+    border-inline-end-color: var(--grey-15);
   }
 
   .md\:grid-line-x-tertiary[class*="grid-line-x-"] > *::before {
@@ -3134,7 +3134,7 @@ video {
   }
 
   .md\:grid-line-y-tertiary[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--grey-54);
+    border-inline-end-color: var(--grey-54);
   }
 
   .md\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::before {
@@ -3142,7 +3142,7 @@ video {
   }
 
   .md\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--grey-54);
+    border-inline-end-color: var(--grey-54);
   }
 
   .md\:grid-line-x-code-example-filename[class*="grid-line-x-"] > *::before {
@@ -3150,7 +3150,7 @@ video {
   }
 
   .md\:grid-line-y-code-example-filename[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--blue-05);
+    border-inline-end-color: var(--blue-05);
   }
 
   .md\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::before {
@@ -3158,7 +3158,7 @@ video {
   }
 
   .md\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--blue-05);
+    border-inline-end-color: var(--blue-05);
   }
 
   .md\:grid-cols-1[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
@@ -3166,12 +3166,12 @@ video {
   }
 
   .md\:grid-cols-1[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: 0;
-    right: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
   }
 
   .md\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .md\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1):nth-last-child(-n+1)::before {
@@ -3187,16 +3187,16 @@ video {
   }
 
   .md\:grid-cols-2[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .md\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .md\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+2)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .md\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2)::before {
@@ -3208,11 +3208,11 @@ video {
   }
 
   .md\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .md\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+2)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .md\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+2)::after {
@@ -3232,16 +3232,16 @@ video {
   }
 
   .md\:grid-cols-3[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .md\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .md\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+3)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .md\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3)::before {
@@ -3253,11 +3253,11 @@ video {
   }
 
   .md\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .md\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+3)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .md\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+3)::after {
@@ -3277,16 +3277,16 @@ video {
   }
 
   .md\:grid-cols-4[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .md\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .md\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+4)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .md\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4)::before {
@@ -3298,11 +3298,11 @@ video {
   }
 
   .md\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .md\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+4)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .md\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+4)::after {
@@ -3322,16 +3322,16 @@ video {
   }
 
   .md\:grid-cols-5[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .md\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .md\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+5)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .md\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1):nth-last-child(-n+5)::before {
@@ -3343,11 +3343,11 @@ video {
   }
 
   .md\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .md\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+5)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .md\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+5)::after {
@@ -3367,16 +3367,16 @@ video {
   }
 
   .md\:grid-cols-6[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .md\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .md\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+6)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .md\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1):nth-last-child(-n+6)::before {
@@ -3388,11 +3388,11 @@ video {
   }
 
   .md\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .md\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+6)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .md\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+6)::after {
@@ -3412,16 +3412,16 @@ video {
   }
 
   .md\:grid-cols-7[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .md\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .md\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+7)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .md\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1):nth-last-child(-n+7)::before {
@@ -3433,11 +3433,11 @@ video {
   }
 
   .md\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .md\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+7)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .md\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+7)::after {
@@ -3457,16 +3457,16 @@ video {
   }
 
   .md\:grid-cols-8[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .md\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .md\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+8)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .md\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1):nth-last-child(-n+8)::before {
@@ -3478,11 +3478,11 @@ video {
   }
 
   .md\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .md\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+8)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .md\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+8)::after {
@@ -3512,8 +3512,8 @@ video {
 
   .lg\:grid-line-x > *::before {
     content: attr(👻);
-    left: 0;
-    right: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     top: 0;
     bottom: calc(var(--inner-gutter) / -2);
     border-top: 0 solid transparent;
@@ -3522,8 +3522,8 @@ video {
 
   .lg\:grid-line-xfull > *::before {
     content: attr(👻);
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: 0;
     bottom: calc(var(--inner-gutter) / -2);
     border-top: 0 solid transparent;
@@ -3536,31 +3536,31 @@ video {
 
   .lg\:grid-line-y > *::after {
     content: attr(👻);
-    left: 0;
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: 0;
     bottom: 0;
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
   }
 
   .lg\:grid-line-yfull > *::after {
     content: attr(👻);
-    left: 0;
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: calc(var(--inner-gutter) / -1);
     bottom: 0;
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
   }
 
   .lg\:grid-line-yfull[class*="grid-line-x"] > *::after {
-    left: 0;
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: calc(var(--inner-gutter) / -2);
     bottom: calc(var(--inner-gutter) / -2);
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
   }
 
   .lg\:grid-line-y-0 > *::after {
@@ -3950,7 +3950,7 @@ video {
   }
 
   .lg\:grid-line-y-primary[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--black);
+    border-inline-end-color: var(--black);
   }
 
   .lg\:grid-line-xy-primary[class*="grid-line-xy-"] > *::before {
@@ -3958,7 +3958,7 @@ video {
   }
 
   .lg\:grid-line-xy-primary[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--black);
+    border-inline-end-color: var(--black);
   }
 
   .lg\:grid-line-x-secondary[class*="grid-line-x-"] > *::before {
@@ -3966,7 +3966,7 @@ video {
   }
 
   .lg\:grid-line-y-secondary[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--grey-15);
+    border-inline-end-color: var(--grey-15);
   }
 
   .lg\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::before {
@@ -3974,7 +3974,7 @@ video {
   }
 
   .lg\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--grey-15);
+    border-inline-end-color: var(--grey-15);
   }
 
   .lg\:grid-line-x-tertiary[class*="grid-line-x-"] > *::before {
@@ -3982,7 +3982,7 @@ video {
   }
 
   .lg\:grid-line-y-tertiary[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--grey-54);
+    border-inline-end-color: var(--grey-54);
   }
 
   .lg\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::before {
@@ -3990,7 +3990,7 @@ video {
   }
 
   .lg\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--grey-54);
+    border-inline-end-color: var(--grey-54);
   }
 
   .lg\:grid-line-x-code-example-filename[class*="grid-line-x-"] > *::before {
@@ -3998,7 +3998,7 @@ video {
   }
 
   .lg\:grid-line-y-code-example-filename[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--blue-05);
+    border-inline-end-color: var(--blue-05);
   }
 
   .lg\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::before {
@@ -4006,7 +4006,7 @@ video {
   }
 
   .lg\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--blue-05);
+    border-inline-end-color: var(--blue-05);
   }
 
   .lg\:grid-cols-1[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
@@ -4014,12 +4014,12 @@ video {
   }
 
   .lg\:grid-cols-1[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: 0;
-    right: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
   }
 
   .lg\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .lg\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1):nth-last-child(-n+1)::before {
@@ -4035,16 +4035,16 @@ video {
   }
 
   .lg\:grid-cols-2[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .lg\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .lg\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+2)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .lg\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2)::before {
@@ -4056,11 +4056,11 @@ video {
   }
 
   .lg\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .lg\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+2)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .lg\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+2)::after {
@@ -4080,16 +4080,16 @@ video {
   }
 
   .lg\:grid-cols-3[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .lg\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .lg\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+3)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .lg\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3)::before {
@@ -4101,11 +4101,11 @@ video {
   }
 
   .lg\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .lg\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+3)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .lg\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+3)::after {
@@ -4125,16 +4125,16 @@ video {
   }
 
   .lg\:grid-cols-4[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .lg\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .lg\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+4)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .lg\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4)::before {
@@ -4146,11 +4146,11 @@ video {
   }
 
   .lg\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .lg\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+4)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .lg\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+4)::after {
@@ -4170,16 +4170,16 @@ video {
   }
 
   .lg\:grid-cols-5[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .lg\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .lg\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+5)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .lg\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1):nth-last-child(-n+5)::before {
@@ -4191,11 +4191,11 @@ video {
   }
 
   .lg\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .lg\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+5)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .lg\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+5)::after {
@@ -4215,16 +4215,16 @@ video {
   }
 
   .lg\:grid-cols-6[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .lg\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .lg\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+6)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .lg\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1):nth-last-child(-n+6)::before {
@@ -4236,11 +4236,11 @@ video {
   }
 
   .lg\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .lg\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+6)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .lg\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+6)::after {
@@ -4260,16 +4260,16 @@ video {
   }
 
   .lg\:grid-cols-7[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .lg\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .lg\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+7)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .lg\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1):nth-last-child(-n+7)::before {
@@ -4281,11 +4281,11 @@ video {
   }
 
   .lg\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .lg\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+7)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .lg\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+7)::after {
@@ -4305,16 +4305,16 @@ video {
   }
 
   .lg\:grid-cols-8[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .lg\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .lg\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+8)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .lg\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1):nth-last-child(-n+8)::before {
@@ -4326,11 +4326,11 @@ video {
   }
 
   .lg\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .lg\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+8)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .lg\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+8)::after {
@@ -4360,8 +4360,8 @@ video {
 
   .xl\:grid-line-x > *::before {
     content: attr(👻);
-    left: 0;
-    right: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     top: 0;
     bottom: calc(var(--inner-gutter) / -2);
     border-top: 0 solid transparent;
@@ -4370,8 +4370,8 @@ video {
 
   .xl\:grid-line-xfull > *::before {
     content: attr(👻);
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: 0;
     bottom: calc(var(--inner-gutter) / -2);
     border-top: 0 solid transparent;
@@ -4384,31 +4384,31 @@ video {
 
   .xl\:grid-line-y > *::after {
     content: attr(👻);
-    left: 0;
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: 0;
     bottom: 0;
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
   }
 
   .xl\:grid-line-yfull > *::after {
     content: attr(👻);
-    left: 0;
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: calc(var(--inner-gutter) / -1);
     bottom: 0;
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
   }
 
   .xl\:grid-line-yfull[class*="grid-line-x"] > *::after {
-    left: 0;
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: calc(var(--inner-gutter) / -2);
     bottom: calc(var(--inner-gutter) / -2);
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
   }
 
   .xl\:grid-line-y-0 > *::after {
@@ -4798,7 +4798,7 @@ video {
   }
 
   .xl\:grid-line-y-primary[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--black);
+    border-inline-end-color: var(--black);
   }
 
   .xl\:grid-line-xy-primary[class*="grid-line-xy-"] > *::before {
@@ -4806,7 +4806,7 @@ video {
   }
 
   .xl\:grid-line-xy-primary[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--black);
+    border-inline-end-color: var(--black);
   }
 
   .xl\:grid-line-x-secondary[class*="grid-line-x-"] > *::before {
@@ -4814,7 +4814,7 @@ video {
   }
 
   .xl\:grid-line-y-secondary[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--grey-15);
+    border-inline-end-color: var(--grey-15);
   }
 
   .xl\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::before {
@@ -4822,7 +4822,7 @@ video {
   }
 
   .xl\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--grey-15);
+    border-inline-end-color: var(--grey-15);
   }
 
   .xl\:grid-line-x-tertiary[class*="grid-line-x-"] > *::before {
@@ -4830,7 +4830,7 @@ video {
   }
 
   .xl\:grid-line-y-tertiary[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--grey-54);
+    border-inline-end-color: var(--grey-54);
   }
 
   .xl\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::before {
@@ -4838,7 +4838,7 @@ video {
   }
 
   .xl\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--grey-54);
+    border-inline-end-color: var(--grey-54);
   }
 
   .xl\:grid-line-x-code-example-filename[class*="grid-line-x-"] > *::before {
@@ -4846,7 +4846,7 @@ video {
   }
 
   .xl\:grid-line-y-code-example-filename[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--blue-05);
+    border-inline-end-color: var(--blue-05);
   }
 
   .xl\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::before {
@@ -4854,7 +4854,7 @@ video {
   }
 
   .xl\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--blue-05);
+    border-inline-end-color: var(--blue-05);
   }
 
   .xl\:grid-cols-1[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
@@ -4862,12 +4862,12 @@ video {
   }
 
   .xl\:grid-cols-1[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: 0;
-    right: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
   }
 
   .xl\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .xl\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1):nth-last-child(-n+1)::before {
@@ -4883,16 +4883,16 @@ video {
   }
 
   .xl\:grid-cols-2[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .xl\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .xl\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+2)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .xl\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2)::before {
@@ -4904,11 +4904,11 @@ video {
   }
 
   .xl\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .xl\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+2)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .xl\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+2)::after {
@@ -4928,16 +4928,16 @@ video {
   }
 
   .xl\:grid-cols-3[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .xl\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .xl\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+3)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .xl\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3)::before {
@@ -4949,11 +4949,11 @@ video {
   }
 
   .xl\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .xl\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+3)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .xl\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+3)::after {
@@ -4973,16 +4973,16 @@ video {
   }
 
   .xl\:grid-cols-4[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .xl\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .xl\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+4)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .xl\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4)::before {
@@ -4994,11 +4994,11 @@ video {
   }
 
   .xl\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .xl\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+4)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .xl\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+4)::after {
@@ -5018,16 +5018,16 @@ video {
   }
 
   .xl\:grid-cols-5[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .xl\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .xl\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+5)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .xl\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1):nth-last-child(-n+5)::before {
@@ -5039,11 +5039,11 @@ video {
   }
 
   .xl\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .xl\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+5)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .xl\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+5)::after {
@@ -5063,16 +5063,16 @@ video {
   }
 
   .xl\:grid-cols-6[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .xl\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .xl\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+6)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .xl\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1):nth-last-child(-n+6)::before {
@@ -5084,11 +5084,11 @@ video {
   }
 
   .xl\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .xl\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+6)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .xl\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+6)::after {
@@ -5108,16 +5108,16 @@ video {
   }
 
   .xl\:grid-cols-7[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .xl\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .xl\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+7)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .xl\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1):nth-last-child(-n+7)::before {
@@ -5129,11 +5129,11 @@ video {
   }
 
   .xl\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .xl\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+7)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .xl\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+7)::after {
@@ -5153,16 +5153,16 @@ video {
   }
 
   .xl\:grid-cols-8[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .xl\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .xl\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+8)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .xl\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1):nth-last-child(-n+8)::before {
@@ -5174,11 +5174,11 @@ video {
   }
 
   .xl\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .xl\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+8)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .xl\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+8)::after {
@@ -5208,8 +5208,8 @@ video {
 
   .xxl\:grid-line-x > *::before {
     content: attr(👻);
-    left: 0;
-    right: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     top: 0;
     bottom: calc(var(--inner-gutter) / -2);
     border-top: 0 solid transparent;
@@ -5218,8 +5218,8 @@ video {
 
   .xxl\:grid-line-xfull > *::before {
     content: attr(👻);
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: 0;
     bottom: calc(var(--inner-gutter) / -2);
     border-top: 0 solid transparent;
@@ -5232,31 +5232,31 @@ video {
 
   .xxl\:grid-line-y > *::after {
     content: attr(👻);
-    left: 0;
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: 0;
     bottom: 0;
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
   }
 
   .xxl\:grid-line-yfull > *::after {
     content: attr(👻);
-    left: 0;
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: calc(var(--inner-gutter) / -1);
     bottom: 0;
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
   }
 
   .xxl\:grid-line-yfull[class*="grid-line-x"] > *::after {
-    left: 0;
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: calc(var(--inner-gutter) / -2);
     bottom: calc(var(--inner-gutter) / -2);
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
   }
 
   .xxl\:grid-line-y-0 > *::after {
@@ -5646,7 +5646,7 @@ video {
   }
 
   .xxl\:grid-line-y-primary[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--black);
+    border-inline-end-color: var(--black);
   }
 
   .xxl\:grid-line-xy-primary[class*="grid-line-xy-"] > *::before {
@@ -5654,7 +5654,7 @@ video {
   }
 
   .xxl\:grid-line-xy-primary[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--black);
+    border-inline-end-color: var(--black);
   }
 
   .xxl\:grid-line-x-secondary[class*="grid-line-x-"] > *::before {
@@ -5662,7 +5662,7 @@ video {
   }
 
   .xxl\:grid-line-y-secondary[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--grey-15);
+    border-inline-end-color: var(--grey-15);
   }
 
   .xxl\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::before {
@@ -5670,7 +5670,7 @@ video {
   }
 
   .xxl\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--grey-15);
+    border-inline-end-color: var(--grey-15);
   }
 
   .xxl\:grid-line-x-tertiary[class*="grid-line-x-"] > *::before {
@@ -5678,7 +5678,7 @@ video {
   }
 
   .xxl\:grid-line-y-tertiary[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--grey-54);
+    border-inline-end-color: var(--grey-54);
   }
 
   .xxl\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::before {
@@ -5686,7 +5686,7 @@ video {
   }
 
   .xxl\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--grey-54);
+    border-inline-end-color: var(--grey-54);
   }
 
   .xxl\:grid-line-x-code-example-filename[class*="grid-line-x-"] > *::before {
@@ -5694,7 +5694,7 @@ video {
   }
 
   .xxl\:grid-line-y-code-example-filename[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--blue-05);
+    border-inline-end-color: var(--blue-05);
   }
 
   .xxl\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::before {
@@ -5702,7 +5702,7 @@ video {
   }
 
   .xxl\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::after {
-    border-right-color: var(--blue-05);
+    border-inline-end-color: var(--blue-05);
   }
 
   .xxl\:grid-cols-1[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
@@ -5710,12 +5710,12 @@ video {
   }
 
   .xxl\:grid-cols-1[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: 0;
-    right: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
   }
 
   .xxl\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .xxl\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1):nth-last-child(-n+1)::before {
@@ -5731,16 +5731,16 @@ video {
   }
 
   .xxl\:grid-cols-2[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .xxl\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .xxl\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+2)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .xxl\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2)::before {
@@ -5752,11 +5752,11 @@ video {
   }
 
   .xxl\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .xxl\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+2)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .xxl\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+2)::after {
@@ -5776,16 +5776,16 @@ video {
   }
 
   .xxl\:grid-cols-3[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .xxl\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .xxl\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+3)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .xxl\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3)::before {
@@ -5797,11 +5797,11 @@ video {
   }
 
   .xxl\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .xxl\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+3)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .xxl\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+3)::after {
@@ -5821,16 +5821,16 @@ video {
   }
 
   .xxl\:grid-cols-4[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .xxl\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .xxl\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+4)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .xxl\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4)::before {
@@ -5842,11 +5842,11 @@ video {
   }
 
   .xxl\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .xxl\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+4)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .xxl\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+4)::after {
@@ -5866,16 +5866,16 @@ video {
   }
 
   .xxl\:grid-cols-5[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .xxl\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .xxl\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+5)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .xxl\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1):nth-last-child(-n+5)::before {
@@ -5887,11 +5887,11 @@ video {
   }
 
   .xxl\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .xxl\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+5)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .xxl\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+5)::after {
@@ -5911,16 +5911,16 @@ video {
   }
 
   .xxl\:grid-cols-6[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .xxl\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .xxl\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+6)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .xxl\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1):nth-last-child(-n+6)::before {
@@ -5932,11 +5932,11 @@ video {
   }
 
   .xxl\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .xxl\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+6)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .xxl\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+6)::after {
@@ -5956,16 +5956,16 @@ video {
   }
 
   .xxl\:grid-cols-7[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .xxl\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .xxl\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+7)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .xxl\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1):nth-last-child(-n+7)::before {
@@ -5977,11 +5977,11 @@ video {
   }
 
   .xxl\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .xxl\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+7)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .xxl\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+7)::after {
@@ -6001,16 +6001,16 @@ video {
   }
 
   .xxl\:grid-cols-8[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .xxl\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .xxl\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+8)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .xxl\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1):nth-last-child(-n+8)::before {
@@ -6022,11 +6022,11 @@ video {
   }
 
   .xxl\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .xxl\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+8)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .xxl\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+8)::after {
@@ -6239,19 +6239,19 @@ video {
 }
 
 .cols-container > .pe-1-cols {
-  padding-right: calc(((((1 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (1 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-end: calc(((((1 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (1 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .ps-1-cols {
-  padding-left: calc(((((1 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (1 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-start: calc(((((1 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (1 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .pe-1-cols-no-gutter {
-  padding-right: calc(((1 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (1 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-end: calc(((1 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (1 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .ps-1-cols-no-gutter {
-  padding-left: calc(((1 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (1 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-start: calc(((1 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (1 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .start-1-cols {
@@ -6501,23 +6501,23 @@ video {
 }
 
 .cols-container > .pe-2-cols {
-  padding-right: calc(((((2 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (2 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-end: calc(((((2 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (2 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .ps-2-cols {
-  padding-left: calc(((((2 / var(--container-grid-columns, var(--grid-columns))) * 100%) - (var(--inner-gutter) - (2 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + var(--inner-gutter)));
+  padding-inline-start: calc(((((2 / var(--container-grid-columns, var(--grid-columns))) * 100%) - (var(--inner-gutter) - (2 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + var(--inner-gutter)));
 }
 
 .cols-container > .ps-2-cols {
-  padding-left: calc(((((2 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (2 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-start: calc(((((2 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (2 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .pe-2-cols-no-gutter {
-  padding-right: calc(((2 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (2 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-end: calc(((2 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (2 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .ps-2-cols-no-gutter {
-  padding-left: calc(((2 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (2 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-start: calc(((2 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (2 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .start-2-cols {
@@ -6739,19 +6739,19 @@ video {
 }
 
 .cols-container > .pe-3-cols {
-  padding-right: calc(((((3 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (3 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-end: calc(((((3 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (3 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .ps-3-cols {
-  padding-left: calc(((((3 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (3 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-start: calc(((((3 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (3 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .pe-3-cols-no-gutter {
-  padding-right: calc(((3 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (3 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-end: calc(((3 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (3 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .ps-3-cols-no-gutter {
-  padding-left: calc(((3 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (3 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-start: calc(((3 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (3 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .start-3-cols {
@@ -6973,23 +6973,23 @@ video {
 }
 
 .pe-4-cols {
-  padding-right: calc(((((4 / var(--container-grid-columns, var(--grid-columns))) * 100%) - (var(--inner-gutter) - (4 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + var(--inner-gutter)));
+  padding-inline-end: calc(((((4 / var(--container-grid-columns, var(--grid-columns))) * 100%) - (var(--inner-gutter) - (4 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + var(--inner-gutter)));
 }
 
 .cols-container > .pe-4-cols {
-  padding-right: calc(((((4 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (4 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-end: calc(((((4 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (4 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .ps-4-cols {
-  padding-left: calc(((((4 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (4 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-start: calc(((((4 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (4 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .pe-4-cols-no-gutter {
-  padding-right: calc(((4 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (4 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-end: calc(((4 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (4 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .ps-4-cols-no-gutter {
-  padding-left: calc(((4 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (4 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-start: calc(((4 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (4 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .start-4-cols {
@@ -7211,19 +7211,19 @@ video {
 }
 
 .cols-container > .pe-5-cols {
-  padding-right: calc(((((5 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (5 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-end: calc(((((5 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (5 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .ps-5-cols {
-  padding-left: calc(((((5 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (5 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-start: calc(((((5 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (5 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .pe-5-cols-no-gutter {
-  padding-right: calc(((5 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (5 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-end: calc(((5 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (5 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .ps-5-cols-no-gutter {
-  padding-left: calc(((5 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (5 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-start: calc(((5 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (5 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .start-5-cols {
@@ -7441,19 +7441,19 @@ video {
 }
 
 .cols-container > .pe-6-cols {
-  padding-right: calc(((((6 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (6 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-end: calc(((((6 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (6 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .ps-6-cols {
-  padding-left: calc(((((6 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (6 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-start: calc(((((6 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (6 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .pe-6-cols-no-gutter {
-  padding-right: calc(((6 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (6 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-end: calc(((6 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (6 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .ps-6-cols-no-gutter {
-  padding-left: calc(((6 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (6 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-start: calc(((6 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (6 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .start-6-cols {
@@ -7671,19 +7671,19 @@ video {
 }
 
 .cols-container > .pe-7-cols {
-  padding-right: calc(((((7 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (7 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-end: calc(((((7 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (7 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .ps-7-cols {
-  padding-left: calc(((((7 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (7 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-start: calc(((((7 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (7 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .pe-7-cols-no-gutter {
-  padding-right: calc(((7 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (7 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-end: calc(((7 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (7 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .ps-7-cols-no-gutter {
-  padding-left: calc(((7 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (7 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-start: calc(((7 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (7 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .start-7-cols {
@@ -7901,19 +7901,19 @@ video {
 }
 
 .cols-container > .pe-8-cols {
-  padding-right: calc(((((8 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (8 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-end: calc(((((8 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (8 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .ps-8-cols {
-  padding-left: calc(((((8 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (8 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-start: calc(((((8 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (8 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .pe-8-cols-no-gutter {
-  padding-right: calc(((8 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (8 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-end: calc(((8 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (8 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .ps-8-cols-no-gutter {
-  padding-left: calc(((8 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (8 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-start: calc(((8 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (8 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .start-8-cols {
@@ -8127,19 +8127,19 @@ video {
 }
 
 .cols-container > .pe-9-cols {
-  padding-right: calc(((((9 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (9 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-end: calc(((((9 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (9 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .ps-9-cols {
-  padding-left: calc(((((9 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (9 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-start: calc(((((9 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (9 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .pe-9-cols-no-gutter {
-  padding-right: calc(((9 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (9 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-end: calc(((9 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (9 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .ps-9-cols-no-gutter {
-  padding-left: calc(((9 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (9 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-start: calc(((9 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (9 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .start-9-cols {
@@ -8349,19 +8349,19 @@ video {
 }
 
 .cols-container > .pe-10-cols {
-  padding-right: calc(((((10 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (10 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-end: calc(((((10 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (10 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .ps-10-cols {
-  padding-left: calc(((((10 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (10 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-start: calc(((((10 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (10 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .pe-10-cols-no-gutter {
-  padding-right: calc(((10 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (10 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-end: calc(((10 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (10 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .ps-10-cols-no-gutter {
-  padding-left: calc(((10 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (10 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-start: calc(((10 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (10 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .start-10-cols {
@@ -8571,19 +8571,19 @@ video {
 }
 
 .cols-container > .pe-11-cols {
-  padding-right: calc(((((11 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (11 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-end: calc(((((11 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (11 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .ps-11-cols {
-  padding-left: calc(((((11 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (11 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-start: calc(((((11 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (11 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .pe-11-cols-no-gutter {
-  padding-right: calc(((11 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (11 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-end: calc(((11 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (11 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .ps-11-cols-no-gutter {
-  padding-left: calc(((11 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (11 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-start: calc(((11 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (11 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .start-11-cols {
@@ -8793,19 +8793,19 @@ video {
 }
 
 .cols-container > .pe-12-cols {
-  padding-right: calc(((((12 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (12 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-end: calc(((((12 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (12 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .ps-12-cols {
-  padding-left: calc(((((12 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (12 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
+  padding-inline-start: calc(((((12 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (12 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .pe-12-cols-no-gutter {
-  padding-right: calc(((12 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (12 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-end: calc(((12 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (12 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .ps-12-cols-no-gutter {
-  padding-left: calc(((12 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (12 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
+  padding-inline-start: calc(((12 / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (12 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
 }
 
 .cols-container > .start-12-cols {
@@ -9015,19 +9015,19 @@ video {
 }
 
 .cols-container > .pe-1\/2-cols {
-  padding-right: calc(((50% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
+  padding-inline-end: calc(((50% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .ps-1\/2-cols {
-  padding-left: calc(((50% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
+  padding-inline-start: calc(((50% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .pe-1\/2-cols-no-gutter {
-  padding-right: calc(50% - var(--inner-gutter));
+  padding-inline-end: calc(50% - var(--inner-gutter));
 }
 
 .cols-container > .ps-1\/2-cols-no-gutter {
-  padding-left: calc(50% - var(--inner-gutter));
+  padding-inline-start: calc(50% - var(--inner-gutter));
 }
 
 .cols-container > .start-1\/2-cols {
@@ -9237,19 +9237,19 @@ video {
 }
 
 .cols-container > .pe-1\/3-cols {
-  padding-right: calc(((33.333% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
+  padding-inline-end: calc(((33.333% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .ps-1\/3-cols {
-  padding-left: calc(((33.333% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
+  padding-inline-start: calc(((33.333% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .pe-1\/3-cols-no-gutter {
-  padding-right: calc(33.333% - var(--inner-gutter));
+  padding-inline-end: calc(33.333% - var(--inner-gutter));
 }
 
 .cols-container > .ps-1\/3-cols-no-gutter {
-  padding-left: calc(33.333% - var(--inner-gutter));
+  padding-inline-start: calc(33.333% - var(--inner-gutter));
 }
 
 .cols-container > .start-1\/3-cols {
@@ -9459,19 +9459,19 @@ video {
 }
 
 .cols-container > .pe-1\/4-cols {
-  padding-right: calc(((25% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
+  padding-inline-end: calc(((25% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .ps-1\/4-cols {
-  padding-left: calc(((25% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
+  padding-inline-start: calc(((25% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .pe-1\/4-cols-no-gutter {
-  padding-right: calc(25% - var(--inner-gutter));
+  padding-inline-end: calc(25% - var(--inner-gutter));
 }
 
 .cols-container > .ps-1\/4-cols-no-gutter {
-  padding-left: calc(25% - var(--inner-gutter));
+  padding-inline-start: calc(25% - var(--inner-gutter));
 }
 
 .cols-container > .start-1\/4-cols {
@@ -9681,19 +9681,19 @@ video {
 }
 
 .cols-container > .pe-2\/3-cols {
-  padding-right: calc(((66.666% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
+  padding-inline-end: calc(((66.666% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .ps-2\/3-cols {
-  padding-left: calc(((66.666% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
+  padding-inline-start: calc(((66.666% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .pe-2\/3-cols-no-gutter {
-  padding-right: calc(66.666% - var(--inner-gutter));
+  padding-inline-end: calc(66.666% - var(--inner-gutter));
 }
 
 .cols-container > .ps-2\/3-cols-no-gutter {
-  padding-left: calc(66.666% - var(--inner-gutter));
+  padding-inline-start: calc(66.666% - var(--inner-gutter));
 }
 
 .cols-container > .start-2\/3-cols {
@@ -9899,19 +9899,19 @@ video {
 }
 
 .cols-container > .pe-3\/4-cols {
-  padding-right: calc(((75% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
+  padding-inline-end: calc(((75% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .ps-3\/4-cols {
-  padding-left: calc(((75% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
+  padding-inline-start: calc(((75% - var(--inner-gutter)) + (2 * var(--inner-gutter))));
 }
 
 .cols-container > .pe-3\/4-cols-no-gutter {
-  padding-right: calc(75% - var(--inner-gutter));
+  padding-inline-end: calc(75% - var(--inner-gutter));
 }
 
 .cols-container > .ps-3\/4-cols-no-gutter {
-  padding-left: calc(75% - var(--inner-gutter));
+  padding-inline-start: calc(75% - var(--inner-gutter));
 }
 
 .cols-container > .start-3\/4-cols {
@@ -10847,8 +10847,8 @@ video {
   content: attr(👻);
   position: absolute;
   z-index: 0;
-  left: calc(var(--inner-gutter) / -2 - 1px);
-  right: calc(var(--inner-gutter) / -2);
+  inset-inline-start: calc(var(--inner-gutter) / -2 - 1px);
+  inset-inline-end: calc(var(--inner-gutter) / -2);
   top: 0;
   bottom: 0;
   border: 1px solid transparent;
@@ -10856,24 +10856,24 @@ video {
 }
 
 [class*="keyline-0"]::before {
-  border-right-color: transparent;
-  border-left-color: transparent;
+  border-inline-end-color: transparent;
+  border-inline-start-color: transparent;
 }
 
 .keyline-l-primary::before {
-  border-left-color: var(--black);
+  border-inline-start-color: var(--black);
 }
 
 .keyline-0::before {
-  border-left-color: transparent;
+  border-inline-start-color: transparent;
 }
 
 .keyline-r-primary::before {
-  border-right-color: var(--black);
+  border-inline-end-color: var(--black);
 }
 
 .keyline-0::before {
-  border-right-color: transparent;
+  border-inline-end-color: transparent;
 }
 
 .ratio {
@@ -10904,7 +10904,7 @@ video {
 .ratio-expandable::before {
   float: left;
   width: 1px;
-  margin-left: -1px;
+  margin-inline-start: -1px;
 }
 
 .ratio-expandable::after {
@@ -11288,9 +11288,9 @@ video {
     --breakout-outer-gutter: var(--outer-gutter);
     --breakout-container-outer-gutter: 0;
     position: unset;
-    left: unset;
+    inset-inline-start: unset;
     width: unset;
-    margin-left: unset;
+    margin-inline-start: unset;
   }
 
   .md\:full-bleed-scroller-reset {
@@ -11358,9 +11358,9 @@ video {
     --breakout-outer-gutter: var(--outer-gutter);
     --breakout-container-outer-gutter: 0;
     position: unset;
-    left: unset;
+    inset-inline-start: unset;
     width: unset;
-    margin-left: unset;
+    margin-inline-start: unset;
   }
 
   .lg\:f-code {
@@ -11413,12 +11413,12 @@ video {
 
   .md\:grid-line-y > *::after {
     content: attr(👻);
-    left: 0;
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
     top: 0;
     bottom: 0;
-    border-left: 0 solid transparent;
-    border-right: 0 solid transparent;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
   }
 
   .md\:grid-line-x-32[class*="grid-line-x-"] > *::before {
@@ -11435,7 +11435,7 @@ video {
   }
 
   .md\:grid-line-y-primary[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--black);
+    border-inline-end-color: var(--black);
   }
 
   .md\:grid-line-x-tertiary[class*="grid-line-x-"] > *::before {
@@ -11447,16 +11447,16 @@ video {
   }
 
   .md\:grid-cols-2[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .md\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .md\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+2)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .md\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2)::before {
@@ -11468,11 +11468,11 @@ video {
   }
 
   .md\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .md\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+2)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .md\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+2)::after {
@@ -11492,16 +11492,16 @@ video {
   }
 
   .md\:grid-cols-3[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .md\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .md\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+3)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .md\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3)::before {
@@ -11513,11 +11513,11 @@ video {
   }
 
   .md\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .md\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+3)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .md\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+3)::after {
@@ -11594,7 +11594,7 @@ video {
   }
 
   .lg\:grid-line-y-secondary[class*="grid-line-y-"] > *::after {
-    border-right-color: var(--grey-15);
+    border-inline-end-color: var(--grey-15);
   }
 
   .lg\:grid-cols-3[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
@@ -11602,16 +11602,16 @@ video {
   }
 
   .lg\:grid-cols-3[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .lg\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .lg\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+3)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .lg\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3)::before {
@@ -11623,11 +11623,11 @@ video {
   }
 
   .lg\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .lg\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+3)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .lg\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+3)::after {
@@ -11647,16 +11647,16 @@ video {
   }
 
   .lg\:grid-cols-4[class*="grid-line-xfull"] > *:nth-child(n)::before {
-    left: calc(var(--inner-gutter) / -2);
-    right: calc(var(--inner-gutter) / -2);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
   }
 
   .lg\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1)::before {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .lg\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+4)::before {
-    right: 0;
+    inset-inline-end: 0;
   }
 
   .lg\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4)::before {
@@ -11668,11 +11668,11 @@ video {
   }
 
   .lg\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
-    border-right-width: 1px;
+    border-inline-end-width: 1px;
   }
 
   .lg\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+4)::after {
-    border-right-width: 0;
+    border-inline-end-width: 0;
   }
 
   .lg\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+4)::after {
@@ -11711,8 +11711,8 @@ video {
 @media (min-width: 1300px) {
   .xl\:grid-line-x > *::before {
     content: attr(👻);
-    left: 0;
-    right: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     top: 0;
     bottom: calc(var(--inner-gutter) / -2);
     border-top: 0 solid transparent;
@@ -11851,27 +11851,27 @@ video {
   }
 
   .md\:keyline-l-primary::before {
-    border-left-color: var(--black);
+    border-inline-start-color: var(--black);
   }
 
   .md\:keyline-l-secondary::before {
-    border-left-color: var(--grey-15);
+    border-inline-start-color: var(--grey-15);
   }
 
   .md\:keyline-l-0::before {
-    border-left-color: transparent;
+    border-inline-start-color: transparent;
   }
 
   .md\:keyline-0::before {
-    border-left-color: transparent;
+    border-inline-start-color: transparent;
   }
 
   .md\:keyline-r-0::before {
-    border-right-color: transparent;
+    border-inline-end-color: transparent;
   }
 
   .md\:keyline-0::before {
-    border-right-color: transparent;
+    border-inline-end-color: transparent;
   }
 
   .md\:ratio-16x9 {
@@ -11906,15 +11906,15 @@ video {
   }
 
   .lg\:keyline-l-secondary::before {
-    border-left-color: var(--grey-15);
+    border-inline-start-color: var(--grey-15);
   }
 
   .lg\:keyline-l-tertiary::before {
-    border-left-color: var(--grey-54);
+    border-inline-start-color: var(--grey-54);
   }
 
   .lg\:keyline-l-0::before {
-    border-left-color: transparent;
+    border-inline-start-color: transparent;
   }
 
   .lg\:ratio-free::before {

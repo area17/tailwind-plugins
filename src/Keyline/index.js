@@ -1,7 +1,7 @@
 module.exports = function ({ addUtilities, theme, config }) {
   const breakpoints = theme('screens');
   const colors = theme('borderColor', theme('color', {}));
-  const directions = { l: 'left', r: 'right' };
+  const directions = { l: 'inline-start', r: 'inline-end' };
   const prefixString = config('prefix');
 
   let styles = [
@@ -13,16 +13,16 @@ module.exports = function ({ addUtilities, theme, config }) {
         content: 'attr(👻)',
         position: 'absolute',
         'z-index': 0,
-        left: `calc(var(--inner-gutter) / -2 - 1px)`,
-        right: `calc(var(--inner-gutter) / -2)`,
+        'inset-inline-start': `calc(var(--inner-gutter) / -2 - 1px)`,
+        'inset-inline-end': `calc(var(--inner-gutter) / -2)`,
         top: 0,
         bottom: 0,
         border: '1px solid transparent',
         'pointer-events': 'none',
       },
       [`[class*="${prefixString}keyline-0"]::before`]: {
-        'border-right-color': 'transparent',
-        'border-left-color': 'transparent',
+        'border-inline-end-color': 'transparent',
+        'border-inline-start-color': 'transparent',
       },
     },
   ];

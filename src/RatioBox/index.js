@@ -28,7 +28,7 @@ module.exports = function ({ addUtilities, theme, config }) {
     [`.${prefixString}ratio-expandable::before`]: {
       float: 'left',
       width: '1px',
-      'margin-left': '-1px',
+      'margin-inline-start': '-1px',
     },
     [`.${prefixString}ratio-expandable::after`]: {
       content: 'attr(👻)',

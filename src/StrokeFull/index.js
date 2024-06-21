@@ -27,11 +27,11 @@ module.exports = function ({ addBase, theme, prefix, config }) {
       content: '""',
       position: 'absolute',
       'z-index': -1,
-      left: '50%',
+      'inset-inline-start': '50%',
       top: 0,
       bottom: 0,
       width: '100vw',
-      'margin-left': '-50vw',
+      'margin-inline-start': '-50vw',
       'pointer-events': 'none',
     },
     [`${className}-top::after`]: {

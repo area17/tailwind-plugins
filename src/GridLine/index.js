@@ -29,8 +29,8 @@ module.exports = function ({ addComponents, theme, config }) {
     {
       [`.${bpString + prefixString}grid-line-x > *::before`]: {
         content: 'attr(👻)',
-        left: '0',
-        right: '0',
+        'inset-inline-start': '0',
+        'inset-inline-end': '0',
         top: '0',
         bottom: 'calc(var(--inner-gutter) / -2)',
         'border-top': '0 solid transparent',
@@ -40,8 +40,8 @@ module.exports = function ({ addComponents, theme, config }) {
     {
       [`.${bpString + prefixString}grid-line-xfull > *::before`]: {
         content: 'attr(👻)',
-        left: 'calc(var(--inner-gutter) / -2)',
-        right: 'calc(var(--inner-gutter) / -2)',
+        'inset-inline-start': 'calc(var(--inner-gutter) / -2)',
+        'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
         top: '0',
         bottom: 'calc(var(--inner-gutter) / -2)',
         'border-top': '0 solid transparent',
@@ -56,35 +56,35 @@ module.exports = function ({ addComponents, theme, config }) {
     {
       [`.${bpString + prefixString}grid-line-y > *::after`]: {
         content: 'attr(👻)',
-        left: '0',
-        right: 'calc(var(--inner-gutter) / -2)',
+        'inset-inline-start': '0',
+        'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
         top: '0',
         bottom: '0',
-        'border-left': '0 solid transparent',
-        'border-right': '0 solid transparent',
+        'border-inline-start': '0 solid transparent',
+        'border-inline-end': '0 solid transparent',
       },
     },
     {
       [`.${bpString + prefixString}grid-line-yfull > *::after`]: {
         content: 'attr(👻)',
-        left: '0',
-        right: 'calc(var(--inner-gutter) / -2)',
+        'inset-inline-start': '0',
+        'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
         top: 'calc(var(--inner-gutter) / -1)',
         bottom: '0',
-        'border-left': '0 solid transparent',
-        'border-right': '0 solid transparent',
+        'border-inline-start': '0 solid transparent',
+        'border-inline-end': '0 solid transparent',
       },
     },
     {
       [`.${
         bpString + prefixString
       }grid-line-yfull[class*="${prefixString}grid-line-x"] > *::after`]: {
-        left: '0',
-        right: 'calc(var(--inner-gutter) / -2)',
+        'inset-inline-start': '0',
+        'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
         top: 'calc(var(--inner-gutter) / -2)',
         bottom: 'calc(var(--inner-gutter) / -2)',
-        'border-left': '0 solid transparent',
-        'border-right': '0 solid transparent',
+        'border-inline-start': '0 solid transparent',
+        'border-inline-end': '0 solid transparent',
       },
     },
     {
@@ -133,7 +133,7 @@ module.exports = function ({ addComponents, theme, config }) {
       [`.${
         bpString + prefixString
       }grid-line-y-${name}[class*="${prefixString}grid-line-y-"] > *::after`]: {
-        'border-right-color': color,
+        'border-inline-end-color': color,
       },
     });
     styles.push({
@@ -149,7 +149,7 @@ module.exports = function ({ addComponents, theme, config }) {
         bpString + prefixString
       }grid-line-xy-${name}[class*="${prefixString}grid-line-xy-"] > *::after`]:
         {
-          'border-right-color': color,
+          'border-inline-end-color': color,
         },
     });
   });
@@ -179,8 +179,8 @@ module.exports = function ({ addComponents, theme, config }) {
           bpString + prefixString
         }grid-cols-${i}[class*="${prefixString}grid-line-xfull"] > *:nth-child(n)::before`]:
           {
-            left: '0',
-            right: '0',
+            'inset-inline-start': '0',
+            'inset-inline-end': '0',
           },
       });
     } else {
@@ -189,8 +189,8 @@ module.exports = function ({ addComponents, theme, config }) {
           bpString + prefixString
         }grid-cols-${i}[class*="${prefixString}grid-line-xfull"] > *:nth-child(n)::before`]:
           {
-            left: 'calc(var(--inner-gutter) / -2)',
-            right: 'calc(var(--inner-gutter) / -2)',
+            'inset-inline-start': 'calc(var(--inner-gutter) / -2)',
+            'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
           },
       });
     }
@@ -200,7 +200,7 @@ module.exports = function ({ addComponents, theme, config }) {
         bpString + prefixString
       }grid-cols-${i}[class*="${prefixString}grid-line-x"] > *:nth-child(${i}n+1)::before`]:
         {
-          left: '0',
+          'inset-inline-start': '0',
         },
     });
     // horizontal last in row, fix right
@@ -209,7 +209,7 @@ module.exports = function ({ addComponents, theme, config }) {
         bpString + prefixString
       }grid-cols-${i}[class*="${prefixString}grid-line-x"] > *:nth-child(${i}n+${i})::before`]:
         {
-          right: '0',
+          'inset-inline-end': '0',
         },
     });
     // horizontal last row, hide bottom border
@@ -237,7 +237,7 @@ module.exports = function ({ addComponents, theme, config }) {
           bpString + prefixString
         }grid-cols-${i}[class*="${prefixString}grid-line-y"][class*="${prefixString}grid-line-y"] > *:nth-child(n)::after`]:
           {
-            'border-right-width': '1px',
+            'border-inline-end-width': '1px',
           },
       });
       // vertical last in row, fix right
@@ -246,7 +246,7 @@ module.exports = function ({ addComponents, theme, config }) {
           bpString + prefixString
         }grid-cols-${i}[class*="${prefixString}grid-line-y"][class*="${prefixString}grid-line-y"] > *:nth-child(${i}n+${i})::after`]:
           {
-            'border-right-width': '0',
+            'border-inline-end-width': '0',
           },
       });
       // vertical lines, fix top position of first row

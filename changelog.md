@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.6] - 2024-06-21
+
+### Fixed
+
+- `pe` and `ps` in `Layout` mapping to incorrect `padding-left` and `padding-right`
+- instances of non logical x-axis property CSS updated to logical properties in all plugins (margins, paddings, left/right and borders)
+
 ## [4.0.5] - 2024-06-20
 
 ### Added

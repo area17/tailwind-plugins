@@ -28,22 +28,22 @@ module.exports = function ({ addBase, prefix }) {
         'max(var(--outer-gutter), calc((100% - var(--container-width, 100%)) / 2))',
       '--breakout-container-outer-gutter': 'var(--outer-gutter)',
       position: 'relative',
-      left: '50%',
+      'inset-inline-start': '50%',
       width: 'calc(100vw - var(--scrollbar-visible-width, 0px))',
-      'margin-left': 'calc((100vw - var(--scrollbar-visible-width, 0px)) / -2)',
+      'margin-inline-start': 'calc((100vw - var(--scrollbar-visible-width, 0px)) / -2)',
     },
     [`${classNameBreakout}.px-outer-gutter, ${classNameBreakout} > .px-outer-gutter`]:
       {
-        'padding-left': 'var(--breakout-outer-gutter)',
-        'padding-right': 'var(--breakout-outer-gutter)',
+        'padding-inline-start': 'var(--breakout-outer-gutter)',
+        'padding-inline-end': 'var(--breakout-outer-gutter)',
       },
     [`${classNameBreakout}.pr-outer-gutter, ${classNameBreakout} > .pr-outer-gutter`]:
       {
-        'padding-right': 'var(--breakout-outer-gutter)',
+        'padding-inline-end': 'var(--breakout-outer-gutter)',
       },
     [`${classNameBreakout}.pl-outer-gutter, ${classNameBreakout} > .pl-outer-gutter`]:
       {
-        'padding-left': 'var(--breakout-outer-gutter)',
+        'padding-inline-start': 'var(--breakout-outer-gutter)',
       },
     [`${classNameBreakout} > .w-outer-gutter`]: {
       width: 'var(--breakout-outer-gutter)',
@@ -52,9 +52,9 @@ module.exports = function ({ addBase, prefix }) {
       '--breakout-outer-gutter': 'var(--outer-gutter)',
       '--breakout-container-outer-gutter': '0',
       position: 'unset',
-      left: 'unset',
+      'inset-inline-start': 'unset',
       width: 'unset',
-      'margin-left': 'unset',
+      'margin-inline-start': 'unset',
     },
   };
 
