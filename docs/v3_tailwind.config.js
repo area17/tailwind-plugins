@@ -1,8 +1,28 @@
 // A17 tailwind plugins
 const {
   setup,
-  colorTokens,
   applyColorVariables,
+  backgroundFill,
+  colorTokens,
+  components,
+  container,
+  cssInJs,
+  devTools,
+  fullBleedScroller,
+  gridGap,
+  gridLayout,
+  gridLine,
+  interactionMediaQueries,
+  keyline,
+  layout,
+  pseudoElements,
+  ratioBox,
+  scrollbar,
+  spacing,
+  spacingTokens,
+  strokeFull,
+  typography,
+  underline,
 } = require('../index');
 
 // conf
@@ -10,9 +30,31 @@ const feConfig = require('./frontend.config.json');
 
 module.exports = {
   content: ['./docs/**/*.html', './docs/*.html'],
+  corePlugins: {
+    container: false,
+  },
   plugins: [
     setup,
     colorTokens,
+    components,
+    backgroundFill,
+    container,
+    cssInJs,
+    devTools,
+    fullBleedScroller,
+    gridGap,
+    gridLayout,
+    gridLine,
+    interactionMediaQueries,
+    keyline,
+    layout,
+    pseudoElements,
+    ratioBox,
+    scrollbar,
+    spacing,
+    strokeFull,
+    typography,
+    underline,
   ],
   theme: {
     screens: feConfig.structure.breakpoints,
@@ -23,9 +65,7 @@ module.exports = {
     fontFamilies: feConfig.typography.families,
     typesets: feConfig.typography.typesets,
     spacingGroups: feConfig.spacing.groups,
-    ratios: feConfig.ratios,
-    components: feConfig.components,
-    css: feConfig.css,
+    spacing: spacingTokens(feConfig.spacing.tokens),
     colors: feConfig.color.tokens,
     borderColor: applyColorVariables(
       feConfig.color.tokens,
@@ -50,7 +90,20 @@ module.exports = {
         feConfig.color.scrollbar.thumb
       ),
     },
-  },
-  extend: {
+    ratios: feConfig.ratios,
+    components: feConfig.components,
+    css: feConfig.css,
+    extend: {
+      minHeight: ({ theme }) => theme('spacing'),
+      maxWidth: ({ theme }) => theme('spacing'),
+      spacing: {
+        'safe-top': 'env(safe-area-inset-top)',
+        'safe-bottom': 'env(safe-area-inset-bottom)',
+        'safe-left': 'env(safe-area-inset-left)',
+        'safe-right': 'env(safe-area-inset-right)',
+        gutter: 'var(--inner-gutter)',
+        'outer-gutter': 'var(--outer-gutter, 0px)',
+      },
+    },
   },
 };

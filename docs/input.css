@@ -1,3 +1,24 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@config "./tailwind.config.js";
+@import "tailwindcss";
+
+/*@theme {
+  --color-white: #fff;
+  --color-grey-3: #f8f8f8;
+  --color-grey-5: #f2f2f2;
+  --color-grey-10: #e6e6e6;
+  --color-grey-15: #d9d9d9;
+  --color-grey-54: #757575;
+  --color-grey-90: #1a1a1a;
+  --color-black: #000;
+  --color-blue-01: #0A152B;
+  --color-blue-02: #001F5C;
+  --color-blue-03: #004F91;
+  --color-blue-04: #313BFB;
+  --color-blue-05: #81EEF3;
+  --color-blue-06: #ADD8E6;
+  --color-red-01: #f00;
+}*/
+
+@theme {
+  --color-*: initial;
+}
