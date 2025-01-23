@@ -2,11 +2,6 @@
 @layer theme, base, components, utilities;
 @layer theme {
   :root {
-    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-      "Liberation Mono", "Courier New", monospace;
     --spacing: 0.25rem;
     --container-3xs: 16rem;
     --container-2xs: 18rem;
@@ -21,32 +16,6 @@
     --container-5xl: 64rem;
     --container-6xl: 72rem;
     --container-7xl: 80rem;
-    --text-xs: 0.75rem;
-    --text-xs--line-height: calc(1 / 0.75);
-    --text-sm: 0.875rem;
-    --text-sm--line-height: calc(1.25 / 0.875);
-    --text-base: 1rem;
-    --text-base--line-height: calc(1.5 / 1);
-    --text-lg: 1.125rem;
-    --text-lg--line-height: calc(1.75 / 1.125);
-    --text-xl: 1.25rem;
-    --text-xl--line-height: calc(1.75 / 1.25);
-    --text-2xl: 1.5rem;
-    --text-2xl--line-height: calc(2 / 1.5);
-    --text-3xl: 1.875rem;
-    --text-3xl--line-height: calc(2.25 / 1.875);
-    --text-4xl: 2.25rem;
-    --text-4xl--line-height: calc(2.5 / 2.25);
-    --text-5xl: 3rem;
-    --text-5xl--line-height: 1;
-    --text-6xl: 3.75rem;
-    --text-6xl--line-height: 1;
-    --text-7xl: 4.5rem;
-    --text-7xl--line-height: 1;
-    --text-8xl: 6rem;
-    --text-8xl--line-height: 1;
-    --text-9xl: 8rem;
-    --text-9xl--line-height: 1;
     --font-weight-thin: 100;
     --font-weight-extralight: 200;
     --font-weight-light: 300;
@@ -56,17 +25,6 @@
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
     --font-weight-black: 900;
-    --tracking-tighter: -0.05em;
-    --tracking-tight: -0.025em;
-    --tracking-normal: 0em;
-    --tracking-wide: 0.025em;
-    --tracking-wider: 0.05em;
-    --tracking-widest: 0.1em;
-    --leading-tight: 1.25;
-    --leading-snug: 1.375;
-    --leading-normal: 1.5;
-    --leading-relaxed: 1.625;
-    --leading-loose: 2;
     --radius-xs: 0.125rem;
     --radius-sm: 0.25rem;
     --radius-md: 0.375rem;
@@ -622,9 +580,6 @@
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
-  .h-24 {
-    height: calc(var(--spacing) * 24);
-  }
   .h-100 {
     height: calc(var(--spacing) * 100);
   }
@@ -636,6 +591,9 @@
   }
   .h-20 {
     height: calc(var(--spacing) * 20);
+  }
+  .h-24 {
+    height: calc(var(--spacing) * 24);
   }
   .h-28 {
     height: calc(var(--spacing) * 28);
@@ -649,23 +607,14 @@
   .h-40 {
     height: calc(var(--spacing) * 40);
   }
-  .h-44 {
-    height: calc(var(--spacing) * 44);
-  }
-  .h-56 {
-    height: calc(var(--spacing) * 56);
-  }
-  .h-64 {
-    height: calc(var(--spacing) * 64);
-  }
-  .h-76 {
-    height: calc(var(--spacing) * 76);
-  }
   .h-120 {
     height: calc(var(--spacing) * 120);
   }
   .h-400 {
     height: calc(var(--spacing) * 400);
+  }
+  .h-44 {
+    height: calc(var(--spacing) * 44);
   }
   .h-48 {
     height: calc(var(--spacing) * 48);
@@ -673,17 +622,26 @@
   .h-52 {
     height: calc(var(--spacing) * 52);
   }
+  .h-56 {
+    height: calc(var(--spacing) * 56);
+  }
   .h-60 {
     height: calc(var(--spacing) * 60);
-  }
-  .h-72 {
-    height: calc(var(--spacing) * 72);
   }
   .h-600 {
     height: calc(var(--spacing) * 600);
   }
+  .h-64 {
+    height: calc(var(--spacing) * 64);
+  }
   .h-68 {
     height: calc(var(--spacing) * 68);
+  }
+  .h-72 {
+    height: calc(var(--spacing) * 72);
+  }
+  .h-76 {
+    height: calc(var(--spacing) * 76);
   }
   .h-80 {
     height: calc(var(--spacing) * 80);
@@ -751,6 +709,24 @@
   .w-10 {
     width: calc(var(--spacing) * 10);
   }
+  .w-32 {
+    width: calc(var(--spacing) * 32);
+  }
+  .w-36 {
+    width: calc(var(--spacing) * 36);
+  }
+  .w-40 {
+    width: calc(var(--spacing) * 40);
+  }
+  .w-64 {
+    width: calc(var(--spacing) * 64);
+  }
+  .w-76 {
+    width: calc(var(--spacing) * 76);
+  }
+  .w-88 {
+    width: calc(var(--spacing) * 88);
+  }
   .w-100 {
     width: calc(var(--spacing) * 100);
   }
@@ -768,15 +744,6 @@
   }
   .w-28 {
     width: calc(var(--spacing) * 28);
-  }
-  .w-32 {
-    width: calc(var(--spacing) * 32);
-  }
-  .w-36 {
-    width: calc(var(--spacing) * 36);
-  }
-  .w-40 {
-    width: calc(var(--spacing) * 40);
   }
   .w-400 {
     width: calc(var(--spacing) * 400);
@@ -799,14 +766,11 @@
   .w-72 {
     width: calc(var(--spacing) * 72);
   }
-  .w-76 {
-    width: calc(var(--spacing) * 76);
+  .w-80 {
+    width: calc(var(--spacing) * 80);
   }
   .w-84 {
     width: calc(var(--spacing) * 84);
-  }
-  .w-88 {
-    width: calc(var(--spacing) * 88);
   }
   .w-96 {
     width: calc(var(--spacing) * 96);
@@ -814,14 +778,8 @@
   .w-600 {
     width: calc(var(--spacing) * 600);
   }
-  .w-64 {
-    width: calc(var(--spacing) * 64);
-  }
   .w-68 {
     width: calc(var(--spacing) * 68);
-  }
-  .w-80 {
-    width: calc(var(--spacing) * 80);
   }
   .w-92 {
     width: calc(var(--spacing) * 92);
@@ -941,10 +899,6 @@
   .border-0 {
     border-style: var(--tw-border-style);
     border-width: 0px;
-  }
-  .border-1 {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
   }
   .border-2 {
     border-style: var(--tw-border-style);
@@ -1214,6 +1168,111 @@
   }
   .align-text-bottom {
     vertical-align: text-bottom;
+  }
+  .f-body {
+    font-family: var(--f-body-font-family);
+    font-weight: var(--f-body-font-weight);
+    font-size: var(--f-body-font-size);
+    line-height: var(--f-body-line-height);
+    letter-spacing: var(--f-body-letter-spacing);
+    -moz-osx-font-smoothing: var(--f-body--moz-osx-font-smoothing);
+    -webkit-font-smoothing: var(--f-body--webkit-font-smoothing);
+    & b {
+      font-weight: var(--f-body---bold-weight, bold);
+    }
+    & strong {
+      font-weight: var(--f-body---bold-weight, bold);
+    }
+  }
+  .f-code {
+    font-family: var(--f-code-font-family);
+    font-weight: var(--f-code-font-weight);
+    font-size: var(--f-code-font-size);
+    line-height: var(--f-code-line-height);
+    letter-spacing: var(--f-code-letter-spacing);
+    -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
+    -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
+    & b {
+      font-weight: var(--f-code---bold-weight, bold);
+    }
+    & strong {
+      font-weight: var(--f-code---bold-weight, bold);
+    }
+  }
+  .f-h1 {
+    font-family: var(--f-h1-font-family);
+    font-weight: var(--f-h1-font-weight);
+    font-size: var(--f-h1-font-size);
+    line-height: var(--f-h1-line-height);
+    letter-spacing: var(--f-h1-letter-spacing);
+    -moz-osx-font-smoothing: var(--f-h1--moz-osx-font-smoothing);
+    -webkit-font-smoothing: var(--f-h1--webkit-font-smoothing);
+    & b {
+      font-weight: var(--f-h1---bold-weight, bold);
+    }
+    & strong {
+      font-weight: var(--f-h1---bold-weight, bold);
+    }
+  }
+  .f-h2 {
+    font-family: var(--f-h2-font-family);
+    font-weight: var(--f-h2-font-weight);
+    font-size: var(--f-h2-font-size);
+    line-height: var(--f-h2-line-height);
+    letter-spacing: var(--f-h2-letter-spacing);
+    -moz-osx-font-smoothing: var(--f-h2--moz-osx-font-smoothing);
+    -webkit-font-smoothing: var(--f-h2--webkit-font-smoothing);
+    & b {
+      font-weight: var(--f-h2---bold-weight, bold);
+    }
+    & strong {
+      font-weight: var(--f-h2---bold-weight, bold);
+    }
+  }
+  .f-h3 {
+    font-family: var(--f-h3-font-family);
+    font-weight: var(--f-h3-font-weight);
+    font-size: var(--f-h3-font-size);
+    line-height: var(--f-h3-line-height);
+    letter-spacing: var(--f-h3-letter-spacing);
+    -moz-osx-font-smoothing: var(--f-h3--moz-osx-font-smoothing);
+    -webkit-font-smoothing: var(--f-h3--webkit-font-smoothing);
+    & b {
+      font-weight: var(--f-h3---bold-weight, bold);
+    }
+    & strong {
+      font-weight: var(--f-h3---bold-weight, bold);
+    }
+  }
+  .f-h4 {
+    font-family: var(--f-h4-font-family);
+    font-weight: var(--f-h4-font-weight);
+    font-size: var(--f-h4-font-size);
+    line-height: var(--f-h4-line-height);
+    letter-spacing: var(--f-h4-letter-spacing);
+    -moz-osx-font-smoothing: var(--f-h4--moz-osx-font-smoothing);
+    -webkit-font-smoothing: var(--f-h4--webkit-font-smoothing);
+    & b {
+      font-weight: var(--f-h4---bold-weight, bold);
+    }
+    & strong {
+      font-weight: var(--f-h4---bold-weight, bold);
+    }
+  }
+  .f-ui {
+    font-family: var(--f-ui-font-family);
+    font-weight: var(--f-ui-font-weight);
+    font-size: var(--f-ui-font-size);
+    line-height: var(--f-ui-line-height);
+    letter-spacing: var(--f-ui-letter-spacing);
+    -moz-osx-font-smoothing: var(--f-ui--moz-osx-font-smoothing);
+    -webkit-font-smoothing: var(--f-ui--webkit-font-smoothing);
+    & b {
+      font-weight: var(--f-ui---bold-weight, bold);
+    }
+    & strong {
+      font-weight: var(--f-ui---bold-weight, bold);
+    }
   }
   .break-all {
     word-break: break-all;
@@ -1510,6 +1569,23 @@
       padding-top: calc(var(--spacing) * 80);
     }
   }
+  .md\:f-code {
+    @media (width >= 650px) {
+      font-family: var(--f-code-font-family);
+      font-weight: var(--f-code-font-weight);
+      font-size: var(--f-code-font-size);
+      line-height: var(--f-code-line-height);
+      letter-spacing: var(--f-code-letter-spacing);
+      -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
+      -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
+      & b {
+        font-weight: var(--f-code---bold-weight, bold);
+      }
+      & strong {
+        font-weight: var(--f-code---bold-weight, bold);
+      }
+    }
+  }
   .md\:before\:hidden {
     @media (width >= 650px) {
       &::before {
@@ -1567,6 +1643,40 @@
   .lg\:pt-100 {
     @media (width >= 990px) {
       padding-top: calc(var(--spacing) * 100);
+    }
+  }
+  .lg\:f-code {
+    @media (width >= 990px) {
+      font-family: var(--f-code-font-family);
+      font-weight: var(--f-code-font-weight);
+      font-size: var(--f-code-font-size);
+      line-height: var(--f-code-line-height);
+      letter-spacing: var(--f-code-letter-spacing);
+      -moz-osx-font-smoothing: var(--f-code--moz-osx-font-smoothing);
+      -webkit-font-smoothing: var(--f-code--webkit-font-smoothing);
+      & b {
+        font-weight: var(--f-code---bold-weight, bold);
+      }
+      & strong {
+        font-weight: var(--f-code---bold-weight, bold);
+      }
+    }
+  }
+  .lg\:f-h1 {
+    @media (width >= 990px) {
+      font-family: var(--f-h1-font-family);
+      font-weight: var(--f-h1-font-weight);
+      font-size: var(--f-h1-font-size);
+      line-height: var(--f-h1-line-height);
+      letter-spacing: var(--f-h1-letter-spacing);
+      -moz-osx-font-smoothing: var(--f-h1--moz-osx-font-smoothing);
+      -webkit-font-smoothing: var(--f-h1--webkit-font-smoothing);
+      & b {
+        font-weight: var(--f-h1---bold-weight, bold);
+      }
+      & strong {
+        font-weight: var(--f-h1---bold-weight, bold);
+      }
     }
   }
 }
@@ -1661,6 +1771,74 @@
     --color-blue-05: #81EEF3;
     --color-blue-06: #ADD8E6;
     --color-red-01: #f00;
+  }
+}
+@layer base {
+  :root {
+    --font-sans: SuisseIntl, Helvetica, Arial, sans-serif;
+    --font-serif: "Times New Roman", Georgia, serif;
+    --font-mono: "Lucida Console", Courier, monospace;
+    --f-h1-font-family: var(--font-sans);
+    --f-h1-font-weight: 500;
+    --f-h1-font-size: 2rem;
+    --f-h1-line-height: 1.2;
+    --f-h1-letter-spacing: -0.02em;
+    --f-h1--moz-osx-font-smoothing: grayscale;
+    --f-h1--webkit-font-smoothing: antialiased;
+    --f-h1---bold-weight: 500;
+    --f-h2-font-family: var(--font-sans);
+    --f-h2-font-weight: 500;
+    --f-h2-font-size: 1.25rem;
+    --f-h2-line-height: 1.2;
+    --f-h2-letter-spacing: -0.02em;
+    --f-h2--moz-osx-font-smoothing: grayscale;
+    --f-h2--webkit-font-smoothing: antialiased;
+    --f-h2---bold-weight: 500;
+    --f-h3-font-family: var(--font-sans);
+    --f-h3-font-weight: 500;
+    --f-h3-font-size: 1rem;
+    --f-h3-line-height: 1.2;
+    --f-h3-letter-spacing: -0.02em;
+    --f-h3--moz-osx-font-smoothing: grayscale;
+    --f-h3--webkit-font-smoothing: antialiased;
+    --f-h3---bold-weight: 500;
+    --f-h4-font-family: var(--font-sans);
+    --f-h4-font-weight: 600;
+    --f-h4-font-size: 0.875rem;
+    --f-h4-line-height: 1.2;
+    --f-h4-letter-spacing: -0.02em;
+    --f-h4--moz-osx-font-smoothing: grayscale;
+    --f-h4--webkit-font-smoothing: antialiased;
+    --f-h4---bold-weight: 600;
+    --f-body-font-family: var(--font-sans);
+    --f-body-font-size: 0.875rem;
+    --f-body-line-height: 1.7;
+    --f-body--moz-osx-font-smoothing: grayscale;
+    --f-body--webkit-font-smoothing: antialiased;
+    --f-body---bold-weight: 600;
+    --f-ui-font-family: var(--font-sans);
+    --f-ui-font-size: 0.75rem;
+    --f-ui-line-height: 1.2;
+    --f-ui-font-weight: 400;
+    --f-code-font-family: var(--font-mono);
+    --f-code-font-size: 0.875rem;
+    --f-code-line-height: 1.2;
+    --f-code-font-weight: 400;
+  }
+  @screen md {
+    :root {
+      --f-h1-font-size: 2.25rem;
+      --f-h2-font-size: 1.5rem;
+      --f-h3-font-size: 1.25rem;
+      --f-h4-font-size: 1rem;
+      --f-body-font-size: 1rem;
+    }
+  }
+  @screen lg {
+    :root {
+      --f-h1-font-size: 3rem;
+      --f-h2-font-size: 1.75rem;
+    }
   }
 }
 @keyframes spin {

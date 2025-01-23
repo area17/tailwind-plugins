@@ -140,7 +140,7 @@
     "typesets": {
       "h1": {
         "xs": {
-          "font-family": "var(--sans)",
+          "font-family": "var(--font-sans)",
           "font-weight": "500",
           "bold-weight": "500",
           "font-size": "32px",
@@ -157,7 +157,7 @@
       },
       "h2": {
         "xs": {
-          "font-family": "var(--sans)",
+          "font-family": "var(--font-sans)",
           "font-weight": "500",
           "bold-weight": "500",
           "font-size": "20px",
@@ -174,7 +174,7 @@
       },
       "h3": {
         "xs": {
-          "font-family": "var(--sans)",
+          "font-family": "var(--font-sans)",
           "bold-weight": "500",
           "font-weight": "500",
           "font-size": "16px",
@@ -188,7 +188,7 @@
       },
       "h4": {
         "xs": {
-          "font-family": "var(--sans)",
+          "font-family": "var(--font-sans)",
           "bold-weight": "600",
           "font-weight": "600",
           "font-size": "14px",
@@ -202,7 +202,7 @@
       },
       "body": {
         "xs": {
-          "font-family": "var(--sans)",
+          "font-family": "var(--font-sans)",
           "bold-weight": "600",
           "font-size": "14px",
           "line-height": "1.7",
@@ -214,7 +214,7 @@
       },
       "ui": {
         "xs": {
-          "font-family": "var(--sans)",
+          "font-family": "var(--font-sans)",
           "font-size": "12px",
           "line-height": 1.2,
           "font-weight": 400
@@ -222,7 +222,7 @@
       },
       "code": {
         "xs": {
-          "font-family": "var(--mono)",
+          "font-family": "var(--font-mono)",
           "font-size": "14px",
           "line-height": 1.2,
           "font-weight": 400

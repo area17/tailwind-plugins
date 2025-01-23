@@ -3,6 +3,7 @@ const {
   setup,
   colorTokens,
   applyColorVariables,
+  typography,
 } = require('../index');
 
 // conf
@@ -13,6 +14,7 @@ module.exports = {
   plugins: [
     setup,
     colorTokens,
+    typography,
   ],
   theme: {
     screens: feConfig.structure.breakpoints,
