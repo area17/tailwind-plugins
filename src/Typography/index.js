@@ -24,8 +24,8 @@ module.exports = function ({ addBase, addUtilities, theme, prefix, e }) {
 
   // create root bp keys in bp order
   Object.keys(breakpoints).forEach((bp) => {
-    if (bp !== firstBp && !styles[`@screen ${bp}`]) {
-      styles[`@screen ${bp}`] = { ':root': {} };
+    if (bp !== firstBp && !styles[`@media (width >= ${breakpoints[bp]})`]) {
+      styles[`@media (width >= ${breakpoints[bp]})`] = { ':root': {} };
     }
   });
 
@@ -115,8 +115,8 @@ module.exports = function ({ addBase, addUtilities, theme, prefix, e }) {
         });
       } else {
         // generate responsive root styles
-        styles[`@screen ${bp}`][':root'] = {
-          ...styles[`@screen ${bp}`][':root'],
+        styles[`@media (width >= ${breakpoints[bp]})`][':root'] = {
+          ...styles[`@media (width >= ${breakpoints[bp]})`][':root'],
           ...settings,
         };
       }
