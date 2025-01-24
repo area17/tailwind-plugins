@@ -8,3 +8,7 @@
   --tracking-*: initial;
   --leading-*: initial;
 }
+
+@utility container {
+  content: '';
+}

@@ -1,4 +1,4 @@
-module.exports = function ({ addBase, prefix }) {
+module.exports = function ({ addUtilities, prefix }) {
   // handle global prefix
   const classNameContainer = prefix('.container');
   const classNameBreakout = prefix('.breakout');
@@ -58,5 +58,5 @@ module.exports = function ({ addBase, prefix }) {
     },
   };
 
-  addBase(styles);
+  addUtilities(styles);
 };
