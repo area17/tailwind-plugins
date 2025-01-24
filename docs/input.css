@@ -10,3 +10,167 @@
   --tracking-*: initial;
   --leading-*: initial;
 }
+
+
+@layer components {
+  .show-grid {
+    --grid-column-bg: rgba(0, 0, 0, 0.05);
+
+    @apply relative;
+
+    &::after {
+      @apply dev-tools-grid absolute w-full content-[''];
+    }
+  }
+
+  .blockquote {
+    @apply bg-quote py-20;
+  }
+
+  .blockquote blockquote {
+    @apply block px-20 md:px-40;
+  }
+
+  .blockquote blockquote p {
+    @apply italic;
+  }
+
+  .blockquote blockquote p:first-child {
+    @apply mt-0 relative;
+  }
+
+  .blockquote blockquote p:first-child::before {
+    content: open-quote;
+    @apply absolute top-0 right-full -left-8;
+  }
+
+  .blockquote blockquote p:last-child::after {
+    content: close-quote;
+  }
+
+  .blockquote figcaption {
+    @apply block mt-8 px-20 md:px-40;
+  }
+
+  .blockquote cite {
+    @apply not-italic;
+  }
+
+  .blockquote cite::before {
+    content: '—';
+    @apply mr-8;
+  }
+
+
+  .code-example {
+    @apply block bg-code-example;
+  }
+
+  .code-example .code-example-filename {
+    @apply inline-block f-ui text-inverse px-20 py-12 border-b text-code-example-filename border-code-example-filename;
+    min-width: 160px;
+  }
+
+  .code-example .code-example-code {
+    @apply block f-code bg-code-example text-code-example bg-code-example;
+  }
+
+  .code-example .code-example-code code {
+    @apply bg-code-example max-h-600 overflow-auto;
+    scrollbar-color: var(--grey-54) var(--grey-90);
+    scrollbar-width: thin;
+  }
+
+  .code-example .code-example-code code::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .code-example .code-example-code code::-webkit-scrollbar-track {
+    background: var(--grey-90);
+  }
+
+  .code-example .code-example-code code::-webkit-scrollbar-thumb {
+    background: var(--grey-54);
+    width: 8px;
+    height: 8px;
+  }
+
+
+  .copy h2 {
+    @apply f-h2;
+  }
+
+  .copy h2:not(:first-child) {
+    @apply mt-56 pt-48 border-t border-secondary;
+  }
+
+  .copy h3 {
+    @apply f-h3 mt-40;
+  }
+
+  .copy h4 {
+    @apply f-h4 mt-40;
+  }
+
+  .copy p {
+    @apply f-body mt-20;
+  }
+
+  .copy p:first-child {
+    @apply mt-0;
+  }
+
+  .copy ul {
+    @apply f-body mt-20 list-disc pl-16;
+  }
+
+  .copy ul ul {
+    @apply mt-0;
+  }
+
+  .copy .code-example {
+    @apply mt-20;
+  }
+
+  .copy code:not([class]) {
+    @apply f-code text-code bg-code px-8 pt-4 pb-2;
+  }
+
+  .copy pre:not([class]) {
+    @apply block mt-20 f-code max-h-400 overflow-y-scroll;
+  }
+
+  .copy pre:not([class]) code:not([class]) {
+    @apply block p-8;
+  }
+
+  .copy a {
+    @apply text-accent underline;
+  }
+
+  .copy a:hover,
+  .copy a:focus {
+    @apply text-primary;
+  }
+
+  .copy hr {
+    @apply border-secondary my-40;
+  }
+
+  .copy .blockquote {
+    @apply mt-20;
+  }
+
+  @media (min-width: 768px) {
+    .copy > *:not(.code-example, h2, hr) {
+      max-width: 80%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .copy > *:not(.code-example, h2, hr) {
+      max-width: 60%;
+    }
+  }
+}

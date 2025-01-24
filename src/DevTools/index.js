@@ -1,4 +1,4 @@
-module.exports = function ({ addBase, prefix }) {
+module.exports = function ({ addComponents, prefix }) {
   const className = prefix('.dev-tools');
 
   const styles = {
@@ -69,5 +69,5 @@ module.exports = function ({ addBase, prefix }) {
     },
   };
 
-  addBase(styles);
+  addComponents(styles);
 };
