@@ -2,13 +2,11 @@
 @import "tailwindcss";
 
 @theme {
+  --container-*: initial;
+  --breakpoint-*: initial;
   --color-*: initial;
   --font-*: initial;
   --text-*: initial;
   --tracking-*: initial;
   --leading-*: initial;
-}
-
-@utility container {
-  content: '';
 }
