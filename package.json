@@ -7,10 +7,9 @@
   "scripts": {
     "test": "jest --watchAll",
     "dev": "npx @tailwindcss/cli -i ./docs/input.css -o ./docs/tailwind.css",
-    "watch:dev": "npx @tailwindcss/cli -i ./docs/input.css -o ./docs/tailwind.css --watch",
+    "watch": "npx @tailwindcss/cli -i ./docs/input.css -o ./docs/tailwind.css --watch",
     "prod": "NODE_ENV=production npx tailwindcss -i ./docs/input.css -o ./docs/tailwind.css --minify",
     "sync": "browser-sync start --config bs-config.js --no-open",
-    "watch": "npm run sync & npm run watch:dev",
     "eslint": "eslint .",
     "prettier": "prettier . --write"
   },
