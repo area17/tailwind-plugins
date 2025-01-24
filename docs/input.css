@@ -9,6 +9,8 @@
   --text-*: initial;
   --tracking-*: initial;
   --leading-*: initial;
+
+  --spacing: 1px;
 }
 
 

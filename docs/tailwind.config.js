@@ -6,6 +6,9 @@ const {
   typography,
   container,
   devTools,
+  gridGap,
+  gridLayout,
+  spacing,
 } = require('../index');
 
 // conf
@@ -19,6 +22,9 @@ module.exports = {
     typography,
     container,
     devTools,
+    gridGap,
+    gridLayout,
+    spacing,
   ],
   theme: {
     screens: feConfig.structure.breakpoints,
@@ -57,5 +63,9 @@ module.exports = {
     },
   },
   extend: {
+    spacing: {
+      gutter: 'var(--inner-gutter)',
+      'outer-gutter': 'var(--outer-gutter, 0px)',
+    },
   },
 };

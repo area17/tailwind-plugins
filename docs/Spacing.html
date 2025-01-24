@@ -7,12 +7,7 @@ title: Spacing
 <div class="copy">
   <h2 id="description">Description</h2>
 
-  <p>
-    The spacing plugin extends the built in Tailwind spacing config and allows
-    you to create preset responsive spacing groups. It will generate single
-    class names following Tailwinds spacing classes for margin and padding which
-    have responsive spacing instead of single fixed spacing.
-  </p>
+  <p>The spacing plugin allows you to create preset responsive spacing groups to use with Tailwind 4's <code>&lt;custom-property&gt;</code> spacing rules.</p>
 
   <p>
     Similiar to responsive typesets, at AREA 17 we like responsive spacing
@@ -59,8 +54,8 @@ module.exports = {
   <h2 id="output">Output</h2>
 
   <p>
-    These classes are linked to <code>:root</code> variables that this plugin
-    also makes. For example, based on the reference config mentioned in this
+    <code>:root</code> variables that this plugin to use in styling classes.
+    For example, based on the reference config mentioned in this
     guide, we get:
   </p>
 
@@ -89,42 +84,12 @@ module.exports = {
   </figure>
 
   <p>
-    And then a series of margin and padding Tailwind classes to correspond to
-    these. For example:
-  </p>
-
-  <figure class="code-example">
-    <figcaption class="code-example-filename">app.css</figcaption>
-    <pre class="code-example-code"><code class="language-css">.mt-outer-1 {
-    margin-top: var(--spacing-outer-1);
-}
-
-.pt-inner-1 {
-    padding-top: var(--spacing-inner-1);
-}</code></pre>
-  </figure>
-
-  <p>
-    <code>m-</code>, <code>mx-</code>, <code>my-</code>, <code>mt-</code>,
-    <code>mb-</code>, <code>ml-</code>, <code>mr-</code>, <code>p-</code>,
-    <code>px-</code>, <code>py-</code>, <code>pt-</code>, <code>pb-</code>,
-    <code>pl-</code>, <code>pr-</code> classes will also be created, with appropriate negative classes.
-  </p>
-
-  <p>From <code>4.0.5</code>, <a href="https://tailwindcss.com/blog/tailwindcss-v3-3#simplified-rtl-support-with-logical-properties" target="_blank">CSS logical property class names are also generated</a> - <code>ms-</code>, <code>me-</code>, <code>ps-</code>, <code>pe-</code>, <code>start-</code> and <code>end-</code>, with appropriate negative classes.</p>
-
-  <h2 id="demo">Demo</h2>
-
-  <p>
-    The following <code>div</code> has classes <code>mt-outer-1</code> and
-    <code>p-inner-1</code> and if you resize the window you will see the top
-    margin and inner padding will change in size as the browser window changes
-    size through the different breakpoints.
+    And then in usage:
   </p>
 </div>
 
-<div class="mt-outer-1 p-inner-1 bg-column">
-  <div class="bg-primary copy ps-inner-1">
+<div class="mt-(--spacing-outer-1) p-(--spacing-inner-1) bg-column">
+  <div class="bg-primary copy p-(--spacing-inner-1) ">
     <p>Content</p>
   </div>
 </div>
@@ -134,12 +99,16 @@ module.exports = {
     <figcaption class="code-example-filename">document.html</figcaption>
     <pre
       class="code-example-code"
-    ><code class="language-html">&lt;div class="mt-outer-1 p-inner-1 bg-column">
-  &lt;div class="bg-primary copy ps-inner-1">
+    ><code class="language-html">&lt;div class="mt-(--spacing-outer-1) p-(--spacing-inner-1) bg-column">
+  &lt;div class="bg-primary copy p-(--spacing-inner-1) ">
     &lt;p>Content&lt;/p>
   &lt;/div>
 &lt;/div></code></pre>
   </figure>
+
+  <p>
+    Negative values are also available, eg: <code>-mt-(--spacing-outer-1)</code>
+  </p>
 </div>
 
 {% include_relative includes/_footer.html %}
