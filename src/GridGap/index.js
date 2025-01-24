@@ -1,4 +1,4 @@
-module.exports = function ({ addBase, prefix }) {
+module.exports = function ({ addUtilities, prefix }) {
   const className = prefix('.gap-gutter');
   const classNameY = prefix('.gap-y-gutter');
   const classNameX = prefix('.gap-x-gutter');
@@ -18,7 +18,7 @@ module.exports = function ({ addBase, prefix }) {
     },
   };
 
-  addBase(styles, {
+  addUtilities(styles, {
     respectPrefix: false,
   });
 };
