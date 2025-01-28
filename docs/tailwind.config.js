@@ -9,6 +9,7 @@ const {
   gridGap,
   gridLayout,
   spacing,
+  layout,
 } = require('../index');
 
 // conf
@@ -25,6 +26,7 @@ module.exports = {
     gridGap,
     gridLayout,
     spacing,
+    layout,
   ],
   theme: {
     screens: feConfig.structure.breakpoints,
