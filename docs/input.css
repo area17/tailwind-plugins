@@ -131,6 +131,10 @@
     @apply mt-0;
   }
 
+  .copy ol {
+    @apply f-body mt-20 list-decimal pl-16;
+  }
+
   .copy .code-example {
     @apply mt-20;
   }

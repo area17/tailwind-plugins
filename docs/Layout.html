@@ -15,10 +15,6 @@ title: Layout
     <code>1/4</code>, <code>2/3</code> or <code>3/4</code>)
   </p>
 
-  <p>
-    <strong>Note:</strong> <code>.cols-container</code> removed in <code>v5.0.0</code>.
-  </p>
-
   <h3>
     For use inside <code>.container</code> or a descendant of
     <code>.container</code>
@@ -28,7 +24,7 @@ title: Layout
       <strong><a href="#demo">Element width:</a></strong>
       <ul>
         <li>
-          <code>.w-N-cols</code> sets <code>width</code> to
+          <code>.w-cols-N</code> sets <code>width</code> to
           <code>N</code> columns/fraction wide, if inside of
           <code>.cols-container</code> also includes an inner gutter
           <code>margin-left</code>
@@ -36,8 +32,8 @@ title: Layout
       </ul>
     </li>
     <li class="mt-20">
-      <strong><a href="#flexed">Flex based grid</a></strong>
-      <ul>
+      <strong><a href="#flexed">Flex based grid</a> - removed in <code>v5.0.0</code></strong>
+      <ul class="opacity-25 pointer-events-none">
         <li>
           <code>.cols-container</code> makes a container for columns,
           <code>flex: row wrap</code> with a negative inner gutter
@@ -53,49 +49,49 @@ title: Layout
       <strong><a href="#margins">Margins:</a></strong>
       <ul>
         <li>
-          <code>.ml-N-cols</code> on child, sets a <code>margin-left</code> of
+          <code>.ml-cols-N</code> on child, sets a <code>margin-left</code> of
           <code>N</code> columns wide
         </li>
         <li>
-          <code>.mr-N-cols</code> on child, sets a <code>margin-right</code> of
+          <code>.mr-cols-N</code> on child, sets a <code>margin-right</code> of
           <code>N</code> columns wide
         </li>
         <li>
-          <code>.mx-N-cols</code> on child, sets a <code>margin-right</code> and
+          <code>.mx-cols-N</code> on child, sets a <code>margin-right</code> and
           <code>margin-left</code> of <code>N</code> columns wide
         </li>
 
         <li class="mt-20">
-          <code>.-ml-N-cols</code> on child, sets a negative
+          <code>.ml-cols-N</code> on child, sets a negative
           <code>margin-left</code> of <code>N</code> columns wide
         </li>
         <li>
-          <code>.-mr-N-cols</code> on child, sets a negative
+          <code>.mr-cols-N</code> on child, sets a negative
           <code>margin-right</code> of <code>N</code> columns wide
         </li>
         <li>
-          <code>.-mx-N-cols</code> on child, sets a negative
+          <code>.mx-cols-N</code> on child, sets a negative
           <code>margin-right</code> and a negative <code>margin-left</code> of
           <code>N</code> columns wide
         </li>
 
         <li class="mt-20">
-          <code>.ms-N-cols</code> on child, sets a
+          <code>.ms-cols-N</code> on child, sets a
           <code>margin-inline-start</code> of <code>N</code> columns wide
           - from <code>3.10.0</code>
         </li>
         <li>
-          <code>.me-N-cols</code> on child, sets a
+          <code>.me-cols-N</code> on child, sets a
           <code>margin-inline-end</code> of <code>N</code> columns wide
           - from <code>3.10.0</code>
         </li>
         <li>
-          <code>.-ms-N-cols</code> on child, sets a negative
+          <code>.ms-cols-N</code> on child, sets a negative
           <code>margin-inline-start</code> of <code>N</code> columns wide
           - from <code>3.10.0</code>
         </li>
         <li>
-          <code>.-me-N-cols</code> on child, sets a negative
+          <code>.me-cols-N</code> on child, sets a negative
           <code>margin-inline-end</code> of <code>N</code> columns wide
           - from <code>3.10.0</code>
         </li>
@@ -105,25 +101,25 @@ title: Layout
       <strong><a href="#padding">Padding:</a></strong>
       <ul>
         <li>
-          <code>.pl-N-cols</code> on child, sets a <code>padding-left</code> of
+          <code>.pl-cols-N</code> on child, sets a <code>padding-left</code> of
           <code>N</code> columns wide
         </li>
         <li>
-          <code>.pr-N-cols</code> on child, sets a <code>padding-right</code> of
+          <code>.pr-cols-N</code> on child, sets a <code>padding-right</code> of
           <code>N</code> columns wide
         </li>
         <li>
-          <code>.px-N-cols</code> on child, sets a
+          <code>.px-cols-N</code> on child, sets a
           <code>padding-right</code> and <code>padding-left</code> of
           <code>N</code> columns wide
         </li>
 
         <li class="mt-20">
-          <code>.ps-N-cols</code> on child, sets a <code>padding-inline-start</code> of
+          <code>.ps-cols-N</code> on child, sets a <code>padding-inline-start</code> of
           <code>N</code> columns wide - from <code>3.10.0</code>
         </li>
         <li>
-          <code>.pe-N-cols</code> on child, sets a <code>padding-inline-end</code> of
+          <code>.pe-cols-N</code> on child, sets a <code>padding-inline-end</code> of
           <code>N</code> columns wide - from <code>3.10.0</code>
         </li>
       </ul>
@@ -132,45 +128,45 @@ title: Layout
       <strong><a href="#positioning">Positioning:</a></strong>
       <ul>
         <li>
-          <code>.left-N-cols</code> sets <code>left</code> to
+          <code>.left-cols-N</code> sets <code>left</code> to
           <code>N</code> columns
         </li>
         <li>
-          <code>.right-N-cols</code> sets <code>right</code> to
+          <code>.right-cols-N</code> sets <code>right</code> to
           <code>N</code> columns
         </li>
         <li>
-          <code>.inset-x-N-cols</code> sets <code>left</code> and
+          <code>.inset.x-cols-N</code> sets <code>left</code> and
           <code>right</code> to <code>N</code> columns
         </li>
 
         <li class="mt-20">
-          <code>.-left-N-cols</code> sets negative <code>left</code> to
+          <code>.left-cols-N</code> sets negative <code>left</code> to
           <code>N</code> columns
         </li>
         <li>
-          <code>.-right-N-cols</code> sets negative <code>right</code> to
+          <code>.right-cols-N</code> sets negative <code>right</code> to
           <code>N</code> columns
         </li>
         <li>
-          <code>.-inset-x-N-cols</code> sets negative <code>left</code> and
+          <code>.-inset.x-cols-N</code> sets negative <code>left</code> and
           negative <code>right</code> to <code>N</code> columns
         </li>
 
 
         <li class="mt-20">
-          <code>.start-N-cols</code> sets <code>inset-inline-start</code> to
+          <code>.start-cols-N</code> sets <code>inset-inline-start</code> to
           <code>N</code> columns - from <code>3.10.0</code>
         </li>
         <li>
-          <code>.end-N-cols</code> sets <code>inset-inline-end</code> to
+          <code>.end-cols-N</code> sets <code>inset-inline-end</code> to
           <code>N</code> columns - from <code>3.10.0</code>
         </li>
-          <code>.-start-N-cols</code> sets negative <code>inset-inline-start</code> to
+          <code>.start-cols-N</code> sets negative <code>inset-inline-start</code> to
           <code>N</code> columns - from <code>3.10.0</code>
         </li>
         <li>
-          <code>.-end-N-cols</code> sets negative <code>inset-inline-end</code> to
+          <code>.end-cols-N</code> sets negative <code>inset-inline-end</code> to
           <code>N</code> columns - from <code>3.10.0</code>
         </li>
       </ul>
@@ -179,126 +175,126 @@ title: Layout
       <strong><a href="#gutterless">gutter-less spacing</a></strong> variants:
       <ul>
         <li>
-          <code>.ml-N-cols-no-gutter</code> on child, sets a
+          <code>.ml-cols-no-gutter-N</code> on child, sets a
           <code>margin-left</code>of <code>N</code> columns wide minus an inner
           gutter
         </li>
         <li>
-          <code>.mr-N-cols-no-gutter</code> on child, sets a
+          <code>.mr-cols-no-gutter-N</code> on child, sets a
           <code>margin-right</code> of <code>N</code> columns minus an inner
           gutter
         </li>
         <li>
-          <code>.mx-N-cols-no-gutter</code> on child, sets a
+          <code>.mx-cols-no-gutter-N</code> on child, sets a
           <code>margin-right</code> and <code>margin-left</code> of
           <code>N</code> columns minus an inner gutter
         </li>
 
         <li class="mt-20">
-          <code>.-ml-N-cols-no-gutter</code> on child, sets a negative
+          <code>.ml-cols-no-gutter-N</code> on child, sets a negative
           <code>margin-left</code> of <code>N</code> columns wide minus an inner
           gutter
         </li>
         <li>
-          <code>.-mr-N-cols-no-gutter</code> on child, sets a negative
+          <code>.mr-cols-no-gutter-N</code> on child, sets a negative
           <code>margin-right</code> of <code>N</code> columns wide minus an
           inner gutter
         </li>
         <li>
-          <code>.-mx-N-cols-no-gutter</code> on child, sets a negative
+          <code>.mx-cols-no-gutter-N</code> on child, sets a negative
           <code>margin-right</code> and a negative <code>margin-left</code> of
           <code>N</code> columns minus an inner gutter
         </li>
 
         <li class="mt-20">
-          <code>.ms-N-cols-no-gutter</code> on child, sets a
+          <code>.ms-cols-no-gutter-N</code> on child, sets a
           <code>margin-inline-start</code>of <code>N</code> columns wide minus an inner
           gutter - from <code>3.10.0</code>
         </li>
         <li>
-          <code>.me-N-cols-no-gutter</code> on child, sets a
+          <code>.me-cols-no-gutter-N</code> on child, sets a
           <code>margin-inline-end</code> of <code>N</code> columns minus an inner
           gutter - from <code>3.10.0</code>
         </li>
         <li>
-          <code>.-ms-N-cols-no-gutter</code> on child, sets a negative
+          <code>.ms-cols-no-gutter-N</code> on child, sets a negative
           <code>margin-inline-startt</code> of <code>N</code> columns wide minus an inner
           gutter - from <code>3.10.0</code>
         </li>
         <li>
-          <code>.-me-N-cols-no-gutter</code> on child, sets a negative
+          <code>.me-cols-no-gutter-N</code> on child, sets a negative
           <code>margin-inline-end</code> of <code>N</code> columns wide minus an
           inner gutter - from <code>3.10.0</code>
         </li>
 
         <li class="mt-20">
-          <code>.pl-N-cols-no-gutter</code> on child, sets a
+          <code>.pl-cols-no-gutter-N</code> on child, sets a
           <code>padding-left</code> of <code>N</code> columns minus an inner
           gutter
         </li>
         <li>
-          <code>.pr-N-cols-no-gutter</code> on child, sets a
+          <code>.pr-cols-no-gutter-N</code> on child, sets a
           <code>padding-right</code> of <code>N</code> columns minus an inner
           gutter
         </li>
         <li>
-          <code>.px-N-cols-no-gutter</code> on child, sets a
+          <code>.px-cols-no-gutter-N</code> on child, sets a
           <code>padding-right</code> and <code>padding-left</code> of
           <code>N</code> columns minus an inner gutter
         </li>
 
         <li class="mt-20">
-          <code>.ps-N-cols-no-gutter</code> on child, sets a
+          <code>.ps-cols-no-gutter-N</code> on child, sets a
           <code>padding-inline-start</code> of <code>N</code> columns minus an inner
           gutter - from <code>3.10.0</code>
         </li>
         <li>
-          <code>.pe-N-cols-no-gutter</code> on child, sets a
+          <code>.pe-cols-no-gutter-N</code> on child, sets a
           <code>padding-inline-end</code> of <code>N</code> columns minus an inner
           gutter - from <code>3.10.0</code>
         </li>
 
         <li class="mt-20">
-          <code>.left-N-cols-no-gutter</code> sets <code>left</code> to
+          <code>.left-cols-no-gutter-N</code> sets <code>left</code> to
           <code>N</code> columns minus an inner gutter
         </li>
         <li>
-          <code>.right-N-cols-no-gutter</code> sets <code>right</code> to
+          <code>.right-cols-no-gutter-N</code> sets <code>right</code> to
           <code>N</code> columns minus an inner gutter
         </li>
         <li>
-          <code>.inset-x-N-cols-no-gutter</code> sets <code>left</code> and
+          <code>.inset.x-cols-no-gutter-N</code> sets <code>left</code> and
           <code>right</code> to <code>N</code> columns minus an inner gutter
         </li>
 
         <li class="mt-20">
-          <code>.-left-N-cols-no-gutter</code> sets negative
+          <code>.left-cols-no-gutter-N</code> sets negative
           <code>left</code> to <code>N</code> columns minus an inner gutter
         </li>
         <li>
-          <code>.-right-N-cols-no-gutter</code> sets negative
+          <code>.right-cols-no-gutter-N</code> sets negative
           <code>right</code> to <code>N</code> columns minus an inner gutter
         </li>
         <li>
-          <code>.-inset-x-N-cols-no-gutter</code> sets negative
+          <code>.-inset.x-cols-no-gutter-N</code> sets negative
           <code>left</code> and <code>right</code> to <code>N</code> columns
           minus an inner gutter
         </li>
 
         <li class="mt-20">
-          <code>.start-N-cols-no-gutter</code> sets <code>inset-inline-start</code> to
+          <code>.start-cols-no-gutter-N</code> sets <code>inset-inline-start</code> to
           <code>N</code> columns minus an inner gutter - from <code>3.10.0</code>
         </li>
         <li>
-          <code>.end-N-cols-no-gutter</code> sets <code>inset-inline-end</code> to
+          <code>.end-cols-no-gutter-N</code> sets <code>inset-inline-end</code> to
           <code>N</code> columns minus an inner gutter - from <code>3.10.0</code>
         </li>
         <li>
-          <code>.-start-N-cols-no-gutter</code> sets negative
+          <code>.start-cols-no-gutter-N</code> sets negative
           <code>inset-inline-start</code> to <code>N</code> columns minus an inner gutter - from <code>3.10.0</code>
         </li>
         <li>
-          <code>.-end-N-cols-no-gutter</code> sets negative
+          <code>.end-cols-no-gutter-N</code> sets negative
           <code>inset-inline-end</code> to <code>N</code> columns minus an inner gutter - from <code>3.10.0</code>
         </li>
       </ul>
@@ -337,8 +333,8 @@ title: Layout
   <p>
     <code>v3.0.0</code> brings in Tailwind like naming to the width and margin
     classes, transitioning from <code>.cols-2</code> to
-    <code>.w-cols-2</code> and from <code>.push-2</code> to
-    <code>.ml-cols-2</code>. This is to give a better expectation of what those
+    <code>.w-2-cols</code> and from <code>.push-2</code> to
+    <code>.ml-2-cols</code>. This is to give a better expectation of what those
     classes do, align positioning classes with width/push/pull classes and
     closer align with Tailwind.
   </p>
@@ -361,6 +357,35 @@ title: Layout
     with <code>ml</code>, <code>mr</code>, <code>-ml</code> and
     <code>-mr</code> as appropriate.
   </p>
+
+  <h3 id="v5-0-0">Breaking changes in <code>v5.0.0</code></h3>
+
+  <p>The format of the class names has been updated and <code>.cols-container</code> was removed in <code>v5.0.0</code></p>
+
+  <p>Before <code>v5.0.0</code> class names came in the format <code>.w-cols-N</code> - CSS attr, number of columns then <code>-cols/-cols-vw/-cols-no-gutter</code>.</p>
+
+  <p>From <code>v5.0.0</code> onwards, class names will come in an updated format of <code>.w-cols-N</code> - CSS attr, <code>-cols/-cols-vw/-cols-no-gutter</code> and lastly the number of columns. This change was necessary as Twill <code>v4.0.0</code> changes the undocumented rules on how Plugins are generated and our old method was no longer compatible.</p>
+
+  <small>:troll perhaps we should have stuck with our pre <code>v3.0.0</code> names...</small>
+
+  <h4>Migrating to <code>v5.0.0</code> from <code>v4.x.x/v3.x.x</code></h4>
+
+  <p>
+    If you're ok with doing some regex, its possible to transition to
+    <code>v5.0.0</code> by:
+  </p>
+
+  <ol>
+    <li>Search for <code>(\w*)-cols-(\d*)(-no-gutter|-vw)?</code></li>
+    <li>Replace with <code>$1-cols$3-$2</code></li>
+  </ol>
+
+  <p>And for any fraction class usage:</p>
+
+  <ol>
+    <li>Search for <code>(\w*)-(\d\/\d)-cols</code></li>
+    <li>Replace with <code>$1-cols-$2</code></li>
+  </ol>
 
   <h2 id="setup">Setup</h2>
 
@@ -430,7 +455,7 @@ module.exports = {
 
   <h3 class="number">Using number of desired columns</h3>
 
-  <p>Basic usage of the <code>.w-N-cols</code> classes:</p>
+  <p>Basic usage of the <code>.w-cols-N</code> classes:</p>
 </div>
 
 <div class="show-grid">
@@ -757,7 +782,7 @@ module.exports = {
   <p class="opacity-25 pointer-events-none">
     If you want to make layout grids, using flex as opposed to CSS Grid, you may
     want to use <code>.cols-container</code>. This adds some auto gutter margins
-    to <code>.w-N-cols</code> children:
+    to <code>.w-cols-N</code> children:
   </p>
 </div>
 
@@ -853,7 +878,7 @@ module.exports = {
 
   <p>
     If your content is aligned right, say with <code>justify-end</code> and you
-    want to push items away from the right, you can use <code>mr-N-cols</code>:
+    want to push items away from the right, you can use <code.mr-cols-N</code>:
   </p>
 </div>
 
@@ -926,7 +951,7 @@ module.exports = {
       href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin-inline-end"
       target="_blank"
       >MDN</a
-    >) with <code>ms-N-cols</code> and <code>me-N-cols</code>:
+    >) with <code.ms-cols-N</code> and <code.me-cols-N</code>:
   </p>
 </div>
 
@@ -1032,7 +1057,7 @@ module.exports = {
       href="https://developer.mozilla.org/en-US/docs/Web/CSS/padding-inline-end"
       target="_blank"
       >MDN</a
-    >) with <code>ps-N-cols</code> and <code>pe-N-cols</code>:
+    >) with <code.ps-cols-N</code> and <code.pe-cols-N</code>:
   </p>
 </div>
 
@@ -1057,8 +1082,8 @@ module.exports = {
   <h3 id="positioning">Positioning</h3>
 
   <p>
-    You can also <code>.left-N-cols</code>, <code>.left-N-cols-gutter</code>,
-    <code>.right-N-cols</code> and <code>.right-N-cols-gutter</code> for
+    You can also <code>.left-cols-N</code>, <code>.left-cols-N-gutter</code>,
+    <code>.right-cols-N</code> and <code>.right-cols-N-gutter</code> for
     <code>position: absolute;</code> type positioning (or maybe with
     <code>position: relative;</code> depending on your use case).
   </p>
@@ -1072,7 +1097,7 @@ module.exports = {
 
   <p>
     Fractions and responsive work as expected and nesting will work, if you
-    apply a <code>w-N-cols</code> class.
+    apply a <code.w-cols-N</code> class.
   </p>
 </div>
 
@@ -1132,7 +1157,7 @@ module.exports = {
       href="https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-end"
       target="_blank"
       >MDN</a
-    >) with <code>start-N-cols</code> and <code>end-N-cols</code>:
+    >) with <code.start-cols-N</code> and <code.end-cols-N</code>:
   </p>
 </div>
 
