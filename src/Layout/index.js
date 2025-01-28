@@ -1,4 +1,4 @@
-module.exports = function ({ matchUtilities, theme }) {
+module.exports = function ({ matchComponents, addBase, theme, prefix }) {
   // docs: http://tailwind-plugins.dev.area17.com/Layout.html
 
   const e = (str) => {
@@ -13,24 +13,30 @@ module.exports = function ({ matchUtilities, theme }) {
   const columnCount = theme('columnCount', {});
   const maxCols = theme('maxGridCols', columnCount);
   const maxColAmount = Math.max.apply(Math, Object.values(maxCols));
+  // the fractional classes we're going to generate
+  const fractions = ['1/2', '1/3', '1/4', '2/3', '3/4'];
   const valuesCalc = () => {
     let obj = {};
     for (i = 1; i < maxColAmount + 1; i++) {
       obj[i] = i;
     }
+    fractions.forEach(fraction => {
+      obj[fraction] = fraction;
+    });
     return obj;
   };
   const values = valuesCalc();
-  // the fractional classes we're going to generate
-  const fractions = ['1/2', '1/3', '1/4', '2/3', '3/4'];
+  let styles = {};
   // the classes we want to generate, along with some information to help fill out the CSS calc
   const classes = [
+    /* width */
     {
       name: 'w',
       suffix: '-cols',
       attribute: 'width',
       addMarginLeft: true,
     },
+    /* margins */
     {
       name: 'me',
       suffix: '-cols',
@@ -66,7 +72,7 @@ module.exports = function ({ matchUtilities, theme }) {
       addGutter: true,
       allowsNegative: true,
     },
-
+    /* margins - no gutter */
     {
       name: 'me',
       suffix: '-cols-no-gutter',
@@ -103,11 +109,158 @@ module.exports = function ({ matchUtilities, theme }) {
       addGutter: false,
       allowsNegative: true,
     },
+    /* paddings */
+    {
+      name: 'pe',
+      suffix: '-cols',
+      attribute: 'padding-inline-end',
+      addGutter: true,
+    },
+    {
+      name: 'ps',
+      suffix: '-cols',
+      attribute: 'padding-inline-start',
+      addGutter: true,
+    },
+    {
+      name: 'pr',
+      suffix: '-cols',
+      attribute: 'padding-right',
+      addGutter: true,
+    },
+    {
+      name: 'pl',
+      suffix: '-cols',
+      attribute: 'padding-left',
+      addGutter: true,
+    },
+    {
+      name: 'px',
+      suffix: '-cols',
+      attribute: 'padding-inline',
+      addGutter: true,
+    },
+    /* paddings - no gutter */
+    {
+      name: 'pe',
+      suffix: '-cols-no-gutter',
+      attribute: 'padding-inline-end',
+    },
+    {
+      name: 'ps',
+      suffix: '-cols-no-gutter',
+      attribute: 'padding-inline-start',
+    },
+    {
+      name: 'pr',
+      suffix: '-cols-no-gutter',
+      attribute: 'padding-right',
+    },
+    {
+      name: 'pl',
+      suffix: '-cols-no-gutter',
+      attribute: 'padding-left',
+    },
+    {
+      name: 'px',
+      suffix: '-cols-no-gutter',
+      attribute: 'padding-inline',
+    },
+    /* positioning */
+    {
+      name: 'start',
+      suffix: '-cols',
+      attribute: 'inset-inline-start',
+      addGutter: true,
+      allowsNegative: true,
+    },
+    {
+      name: 'end',
+      suffix: '-cols',
+      attribute: 'inset-inline-end',
+      addGutter: true,
+      allowsNegative: true,
+    },
+    {
+      name: 'left',
+      suffix: '-cols',
+      attribute: 'left',
+      addGutter: true,
+      allowsNegative: true,
+    },
+    {
+      name: 'right',
+      suffix: '-cols',
+      attribute: 'right',
+      addGutter: true,
+      allowsNegative: true,
+    },
+    {
+      name: 'inset-x',
+      suffix: '-cols',
+      attribute: 'inset-inline',
+      addGutter: true,
+      allowsNegative: true,
+    },
+    /* positioning - no gutter */
+    {
+      name: 'start',
+      suffix: '-cols-no-gutter',
+      attribute: 'inset-inline-start',
+      allowsNegative: true,
+    },
+    {
+      name: 'end',
+      suffix: '-cols-no-gutter',
+      attribute: 'inset-inline-end',
+      allowsNegative: true,
+    },
+    {
+      name: 'left',
+      suffix: '-cols-no-gutter',
+      attribute: 'left',
+      allowsNegative: true,
+    },
+    {
+      name: 'right',
+      suffix: '-cols-no-gutter',
+      attribute: 'right',
+      allowsNegative: true,
+    },
+    {
+      name: 'inset-x',
+      suffix: '-cols-no-gutter',
+      attribute: 'inset-inline',
+      allowsNegative: true,
+    },
   ];
 
   function returnCalc(type, cols) {
+    if (type.fraction) {
+      const splitFraction = cols.split('/');
+      const numeric =
+        Math.floor((splitFraction[0] / splitFraction[1]) * 1000) / 1000;
+      const oneMinusNumeric =
+        Math.floor((1 - splitFraction[0] / splitFraction[1]) * 1000) / 1000;
+      const percent =
+        Math.floor((splitFraction[0] / splitFraction[1]) * 100000) / 1000;
+
+      let calc = `${percent}% - (var(--inner-gutter) * ${oneMinusNumeric})`;
+
+      if (type.addGutter) {
+        calc = `((${calc}) + var(--inner-gutter))`;
+      }
+
+      return calc;
+    }
+
+    if (type.negative) {
+      // find the passed cols num
+      var match = cols.match(/\d+/);
+      cols = parseInt(match[0], 10);
+    }
+
     let calc = `((${cols} / var(--container-grid-columns, var(--grid-columns))) * 100%) - (var(--inner-gutter) - (${cols} / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))`;
-    let cCalc = `((${cols} / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (${cols} / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))`;
     let vwCalc = `((var(--container-width, 100vw - var(--scrollbar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns)))`;
 
     if (cols > 1) {
@@ -117,20 +270,14 @@ module.exports = function ({ matchUtilities, theme }) {
 
     if (type.addGutter) {
       calc = `((${calc}) + var(--inner-gutter))`;
-      cCalc = `((${cCalc}) + (2 * var(--inner-gutter)))`;
     }
 
-    if (type.accountForContainerMarginLeft) {
-      // for when you have a margin-left inside of a cols-container
-      // need to account for the cols-container negative margin left
-      cCalc = `((${cCalc}) + var(--inner-gutter))`;
+    if (type.negative) {
+      calc = `(${calc}) * -1`;
+      vwCalc = `(${vwCalc}) * -1`;
     }
 
     // return
-    if (type.calcType === 'cCalc') {
-      return cCalc;
-    }
-
     if (type.calcType === 'vwCalc') {
       return vwCalc;
     }
@@ -139,21 +286,30 @@ module.exports = function ({ matchUtilities, theme }) {
   }
 
   function add(type) {
-    let name = `${type.name}${type.suffix}${type.calcType === 'vwCalc'?'-vw':''}`;
+    let name = `${type.name}${type.suffix}`;
+
+    if (type.calcType === 'vwCalc') {
+      name += '-vw';
+    }
+
     let selector = {};
     selector[`${name}`] = (cols) => {
+      type.fraction = typeof(cols) === 'string' && cols.indexOf('/') > -1;
+      type.negative = typeof(cols) === 'string' && cols.indexOf('calc') > -1;
+
       let attributes = {};
       attributes[type.attribute] = `calc(${returnCalc(type, cols)})`;
       return attributes;
     };
-    matchUtilities(selector, {
+
+    matchComponents(selector, {
       values: values,
       supportsNegativeValues: type.allowsNegative ? true : false,
     });
   }
 
   classes.forEach(type => {
-    ['calc', 'cCalc', 'vwCalc'].forEach(calcType => {
+    ['calc', 'vwCalc'].forEach(calcType => {
       if (typeof(type.attribute) === 'string') {
         add({
           ...type,
@@ -169,5 +325,37 @@ module.exports = function ({ matchUtilities, theme }) {
         });
       }
     });
+  });
+
+  // fix nesting
+  // nesting N cols wide columns needs an override to the --grid-columns to allow nesting of N cols wide columns
+  //
+  // ISSUE: this spams out every permutation of `w-cols-N > *` for every breakpoint - its not dynamic like the styling classes - `matchComponents` generates dynamically as the classes are needed. These extra classes should be picked up in CSS purging...
+  // TODO: find a way to not spam everything out
+  function fixNesting(cols, bp) {
+    let bpPrefix = bp ? `${bp}\\:` : '';
+    return {
+      [`.${bpPrefix}${prefix('w')}-cols-${cols} > *, ${bpPrefix}${prefix('.w')}-cols-vw-${cols} > *`]: {
+        '--container-grid-columns': `${cols}`,
+      },
+    };
+  }
+
+  Object.keys(breakpoints).forEach((bp) => {
+    if (bp === firstBp) {
+      for (let i = 1; i <= maxColAmount; i++) {
+        styles = {...styles, ...fixNesting(i)};
+      }
+    } else {
+      for (let i = 1; i <= maxColAmount; i++) {
+        styles[`@media (width >= ${breakpoints[bp]})`] = {
+          ...styles[`@media (width >= ${breakpoints[bp]})`], ...fixNesting(i, bp)
+        };
+      }
+    }
+  });
+
+  addBase(styles, {
+    respectPrefix: false,
   });
 };
