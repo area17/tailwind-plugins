@@ -217,6 +217,54 @@
   }
 }
 @layer utilities {
+  .background-fill {
+    --background-fill-bg: inherit;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset-inline-start: 50%;
+      top: 0;
+      bottom: 0;
+      width: 100vw;
+      margin-inline-start: -50vw;
+      background-color: var(--background-fill-bg, inherit);
+      pointer-events: none;
+    }
+  }
+  .background-fill-accent {
+    --background-fill-bg: var(--color-blue-03);
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset-inline-start: 50%;
+      top: 0;
+      bottom: 0;
+      width: 100vw;
+      margin-inline-start: -50vw;
+      background-color: var(--background-fill-bg, inherit);
+      pointer-events: none;
+    }
+  }
+  .background-fill-header {
+    --background-fill-bg: var(--color-grey-10);
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset-inline-start: 50%;
+      top: 0;
+      bottom: 0;
+      width: 100vw;
+      margin-inline-start: -50vw;
+      background-color: var(--background-fill-bg, inherit);
+      pointer-events: none;
+    }
+  }
   .dev-tools {
     position: fixed;
     z-index: 9999999999;
@@ -814,6 +862,9 @@
   .h-40 {
     height: calc(var(--spacing) * 40);
   }
+  .h-48 {
+    height: calc(var(--spacing) * 48);
+  }
   .h-120 {
     height: calc(var(--spacing) * 120);
   }
@@ -823,9 +874,6 @@
   .h-44 {
     height: calc(var(--spacing) * 44);
   }
-  .h-48 {
-    height: calc(var(--spacing) * 48);
-  }
   .h-52 {
     height: calc(var(--spacing) * 52);
   }
@@ -834,9 +882,6 @@
   }
   .h-60 {
     height: calc(var(--spacing) * 60);
-  }
-  .h-88 {
-    height: calc(var(--spacing) * 88);
   }
   .h-600 {
     height: calc(var(--spacing) * 600);
@@ -858,6 +903,9 @@
   }
   .h-84 {
     height: calc(var(--spacing) * 84);
+  }
+  .h-88 {
+    height: calc(var(--spacing) * 88);
   }
   .h-92 {
     height: calc(var(--spacing) * 92);
@@ -916,8 +964,8 @@
   .w-20 {
     width: calc(var(--spacing) * 20);
   }
-  .w-28 {
-    width: calc(var(--spacing) * 28);
+  .w-52 {
+    width: calc(var(--spacing) * 52);
   }
   .w-56 {
     width: calc(var(--spacing) * 56);
@@ -925,11 +973,11 @@
   .w-60 {
     width: calc(var(--spacing) * 60);
   }
-  .w-76 {
-    width: calc(var(--spacing) * 76);
+  .w-84 {
+    width: calc(var(--spacing) * 84);
   }
-  .w-88 {
-    width: calc(var(--spacing) * 88);
+  .w-96 {
+    width: calc(var(--spacing) * 96);
   }
   .w-100 {
     width: calc(var(--spacing) * 100);
@@ -942,6 +990,9 @@
   }
   .w-24 {
     width: calc(var(--spacing) * 24);
+  }
+  .w-28 {
+    width: calc(var(--spacing) * 28);
   }
   .w-32 {
     width: calc(var(--spacing) * 32);
@@ -961,9 +1012,6 @@
   .w-48 {
     width: calc(var(--spacing) * 48);
   }
-  .w-52 {
-    width: calc(var(--spacing) * 52);
-  }
   .w-600 {
     width: calc(var(--spacing) * 600);
   }
@@ -976,17 +1024,17 @@
   .w-72 {
     width: calc(var(--spacing) * 72);
   }
+  .w-76 {
+    width: calc(var(--spacing) * 76);
+  }
   .w-80 {
     width: calc(var(--spacing) * 80);
   }
-  .w-84 {
-    width: calc(var(--spacing) * 84);
+  .w-88 {
+    width: calc(var(--spacing) * 88);
   }
   .w-92 {
     width: calc(var(--spacing) * 92);
-  }
-  .w-96 {
-    width: calc(var(--spacing) * 96);
   }
   .w-cols-1 {
     width: calc(((1 / var(--container-grid-columns, var(--grid-columns))) * 100%) - (var(--inner-gutter) - (1 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
@@ -1838,6 +1886,11 @@
     --tw-ease: var(--ease-out);
     transition-timing-function: var(--ease-out);
   }
+  .background-fill-none {
+    &::before {
+      content: none;
+    }
+  }
   .-mt-\(--spacing-outer-1\) {
   }
   .mt-\(--spacing-outer-1\) {
@@ -1872,6 +1925,24 @@
   .sm\:flex-row {
     @media (width >= 544px) {
       flex-direction: row;
+    }
+  }
+  .md\:background-fill-accent {
+    @media (width >= 650px) {
+      --background-fill-bg: var(--color-blue-03);
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset-inline-start: 50%;
+        top: 0;
+        bottom: 0;
+        width: 100vw;
+        margin-inline-start: -50vw;
+        background-color: var(--background-fill-bg, inherit);
+        pointer-events: none;
+      }
     }
   }
   .md\:breakout-reset {
@@ -2168,6 +2239,13 @@
       }
       & strong {
         font-weight: var(--f-h1---bold-weight, bold);
+      }
+    }
+  }
+  .lg\:background-fill-none {
+    @media (width >= 990px) {
+      &::before {
+        content: none;
       }
     }
   }

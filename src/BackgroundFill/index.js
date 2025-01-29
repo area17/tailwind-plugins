@@ -1,17 +1,13 @@
-module.exports = function ({ addBase, prefix, theme, config }) {
+module.exports = function ({ matchUtilities, addUtilities, theme }) {
   const bgColors = theme('backgroundColor', {});
+  let matchValues = {};
 
-  // handle global prefix
-  const className = 'background-fill';
-  const classNameFull = prefix(`.${className}`);
-  const classNameNoDot = `${config('prefix')}${className}`;
+  Object.keys(bgColors).forEach(key => {
+    matchValues[key] = key;
+  });
 
-  const styles = {
-    [`[class*='${classNameNoDot}']`]: {
-      '--background-fill-bg': 'inherit',
-      position: 'relative',
-    },
-    [`[class*='${classNameNoDot}']::before`]: {
+  let psuedoEl = {
+    '&::before': {
       content: '""',
       position: 'absolute',
       'z-index': -1,
@@ -20,20 +16,36 @@ module.exports = function ({ addBase, prefix, theme, config }) {
       bottom: 0,
       width: '100vw',
       'margin-inline-start': '-50vw',
-      'background-color': `var(--${className}-bg, inherit)`,
+      'background-color': 'var(--background-fill-bg, inherit)',
       'pointer-events': 'none',
     },
-    [`${classNameFull}-none::before`]: {
-      content: 'none',
-    },
-  };
+  }
 
-  Object.entries(bgColors).map((bgColor) => {
-    const [name, color] = bgColor;
-    styles[prefix(`${classNameFull}-${name}`)] = {
-      '--background-fill-bg': color,
-    };
+  addUtilities({
+    '.background-fill': {
+      '--background-fill-bg': 'inherit',
+      position: 'relative',
+      ...psuedoEl,
+    },
+    '.background-fill-none': {
+      '&::before': {
+        content: 'none',
+      }
+    },
   });
 
-  addBase(styles);
+  matchUtilities(
+    {
+      'background-fill': (value) => {
+        return {
+          '--background-fill-bg': bgColors[value] || 'inherit',
+          position: 'relative',
+          ...psuedoEl,
+        }
+      },
+    },
+    {
+      values: matchValues,
+    },
+  )
 };
