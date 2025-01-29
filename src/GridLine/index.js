@@ -1,6 +1,6 @@
-module.exports = function ({ addComponents, theme, config }) {
-  const bps = Object.keys(theme('screens', {})) || [];
-  const firstBp = bps[0];
+module.exports = function ({ addBase, theme, config }) {
+  const breakpoints = theme('screens');
+  const firstBp = Object.keys(breakpoints)[0];
   const colors = theme('borderColor', theme('color', {}));
   const spacing = theme('spacing', {});
   const columnCount = theme('columnCount', {});
@@ -278,7 +278,7 @@ module.exports = function ({ addComponents, theme, config }) {
     }
   }
 
-  bps.forEach((bp) => {
+  Object.keys(breakpoints).forEach((bp) => {
     if (bp === firstBp) {
       styles.forEach((style) => {
         for (const [key, value] of Object.entries(style)) {
@@ -286,8 +286,16 @@ module.exports = function ({ addComponents, theme, config }) {
         }
       });
     } else {
-      stylesToReturn[`@screen ${bp}`] = stylesToReturn[`@screen ${bp}`] || {};
-      let mq = stylesToReturn[`@screen ${bp}`];
+      //stylesToReturn[`@screen ${bp}`] = stylesToReturn[`@screen ${bp}`] || {};
+      //let mq = stylesToReturn[`@screen ${bp}`];
+
+      stylesToReturn[`@media (width >= ${breakpoints[bp]})`] = stylesToReturn[`@media (width >= ${breakpoints[bp]})`] || {
+        'mike': {
+          'width': 'auto',
+        }
+      };
+      let mq = stylesToReturn[`@media (width >= ${breakpoints[bp]})`];
+
       styles.forEach((style) => {
         for (const [key, value] of Object.entries(style)) {
           mq[key.replace(regEx, `${bp}\\:`)] = value;
@@ -296,7 +304,7 @@ module.exports = function ({ addComponents, theme, config }) {
     }
   });
 
-  addComponents(stylesToReturn, {
+  addBase(stylesToReturn, {
     respectPrefix: false,
   });
 };

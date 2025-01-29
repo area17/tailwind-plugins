@@ -10,6 +10,7 @@ const {
   gridLayout,
   spacing,
   layout,
+  gridLine,
 } = require('../index');
 
 // conf
@@ -27,6 +28,7 @@ module.exports = {
     gridLayout,
     spacing,
     layout,
+    gridLine,
   ],
   theme: {
     screens: feConfig.structure.breakpoints,

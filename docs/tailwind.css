@@ -814,6 +814,12 @@
   .h-40 {
     height: calc(var(--spacing) * 40);
   }
+  .h-120 {
+    height: calc(var(--spacing) * 120);
+  }
+  .h-400 {
+    height: calc(var(--spacing) * 400);
+  }
   .h-44 {
     height: calc(var(--spacing) * 44);
   }
@@ -829,14 +835,8 @@
   .h-60 {
     height: calc(var(--spacing) * 60);
   }
-  .h-72 {
-    height: calc(var(--spacing) * 72);
-  }
-  .h-120 {
-    height: calc(var(--spacing) * 120);
-  }
-  .h-400 {
-    height: calc(var(--spacing) * 400);
+  .h-88 {
+    height: calc(var(--spacing) * 88);
   }
   .h-600 {
     height: calc(var(--spacing) * 600);
@@ -847,6 +847,9 @@
   .h-68 {
     height: calc(var(--spacing) * 68);
   }
+  .h-72 {
+    height: calc(var(--spacing) * 72);
+  }
   .h-76 {
     height: calc(var(--spacing) * 76);
   }
@@ -855,9 +858,6 @@
   }
   .h-84 {
     height: calc(var(--spacing) * 84);
-  }
-  .h-88 {
-    height: calc(var(--spacing) * 88);
   }
   .h-92 {
     height: calc(var(--spacing) * 92);
@@ -913,6 +913,24 @@
   .w-10 {
     width: calc(var(--spacing) * 10);
   }
+  .w-20 {
+    width: calc(var(--spacing) * 20);
+  }
+  .w-28 {
+    width: calc(var(--spacing) * 28);
+  }
+  .w-56 {
+    width: calc(var(--spacing) * 56);
+  }
+  .w-60 {
+    width: calc(var(--spacing) * 60);
+  }
+  .w-76 {
+    width: calc(var(--spacing) * 76);
+  }
+  .w-88 {
+    width: calc(var(--spacing) * 88);
+  }
   .w-100 {
     width: calc(var(--spacing) * 100);
   }
@@ -922,14 +940,8 @@
   .w-16 {
     width: calc(var(--spacing) * 16);
   }
-  .w-20 {
-    width: calc(var(--spacing) * 20);
-  }
   .w-24 {
     width: calc(var(--spacing) * 24);
-  }
-  .w-28 {
-    width: calc(var(--spacing) * 28);
   }
   .w-32 {
     width: calc(var(--spacing) * 32);
@@ -952,27 +964,6 @@
   .w-52 {
     width: calc(var(--spacing) * 52);
   }
-  .w-56 {
-    width: calc(var(--spacing) * 56);
-  }
-  .w-60 {
-    width: calc(var(--spacing) * 60);
-  }
-  .w-72 {
-    width: calc(var(--spacing) * 72);
-  }
-  .w-76 {
-    width: calc(var(--spacing) * 76);
-  }
-  .w-84 {
-    width: calc(var(--spacing) * 84);
-  }
-  .w-88 {
-    width: calc(var(--spacing) * 88);
-  }
-  .w-96 {
-    width: calc(var(--spacing) * 96);
-  }
   .w-600 {
     width: calc(var(--spacing) * 600);
   }
@@ -982,11 +973,20 @@
   .w-68 {
     width: calc(var(--spacing) * 68);
   }
+  .w-72 {
+    width: calc(var(--spacing) * 72);
+  }
   .w-80 {
     width: calc(var(--spacing) * 80);
   }
+  .w-84 {
+    width: calc(var(--spacing) * 84);
+  }
   .w-92 {
     width: calc(var(--spacing) * 92);
+  }
+  .w-96 {
+    width: calc(var(--spacing) * 96);
   }
   .w-cols-1 {
     width: calc(((1 / var(--container-grid-columns, var(--grid-columns))) * 100%) - (var(--inner-gutter) - (1 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
@@ -1131,8 +1131,29 @@
   .appearance-none {
     appearance: none;
   }
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
   .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  .grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .grid-cols-7 {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+  .grid-cols-8 {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
   }
   .flex-col {
     flex-direction: column;
@@ -2879,6 +2900,2325 @@
     }
     .xxl\:w-cols-12 > *, xxl\:.w-cols-vw-12 > * {
       --container-grid-columns: 12;
+    }
+  }
+}
+@layer base {
+  [class*="grid-line-"] > * {
+    position: relative;
+  }
+  [class*="grid-line-"] > *::before, [class*="grid-line-"] > *::after {
+    content: attr(👻);
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .grid-line-x > *::before {
+    content: attr(👻);
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    top: 0;
+    bottom: calc(var(--inner-gutter) / -2);
+    border-top: 0 solid transparent;
+    border-bottom: 0 solid transparent;
+  }
+  .grid-line-xfull > *::before {
+    content: attr(👻);
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
+    top: 0;
+    bottom: calc(var(--inner-gutter) / -2);
+    border-top: 0 solid transparent;
+    border-bottom: 0 solid transparent;
+  }
+  .grid-line-x-0 > *::before {
+    content: none;
+  }
+  .grid-line-y > *::after {
+    content: attr(👻);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
+    top: 0;
+    bottom: 0;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
+  }
+  .grid-line-yfull > *::after {
+    content: attr(👻);
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
+    top: calc(var(--inner-gutter) / -1);
+    bottom: 0;
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
+  }
+  .grid-line-yfull[class*="grid-line-x"] > *::after {
+    inset-inline-start: 0;
+    inset-inline-end: calc(var(--inner-gutter) / -2);
+    top: calc(var(--inner-gutter) / -2);
+    bottom: calc(var(--inner-gutter) / -2);
+    border-inline-start: 0 solid transparent;
+    border-inline-end: 0 solid transparent;
+  }
+  .grid-line-y-0 > *::after {
+    content: none;
+  }
+  .grid-line-x-0[class*="grid-line-x-"] > *::before {
+    bottom: -1;
+  }
+  .grid-line-x-0[class*="grid-line-yfull"] > *::after {
+    top: -1;
+    bottom: -1;
+  }
+  .grid-line-x-1[class*="grid-line-x-"] > *::before {
+    bottom: -p;
+  }
+  .grid-line-x-1[class*="grid-line-yfull"] > *::after {
+    top: -p;
+    bottom: -p;
+  }
+  .grid-line-x-2[class*="grid-line-x-"] > *::before {
+    bottom: -x;
+  }
+  .grid-line-x-2[class*="grid-line-yfull"] > *::after {
+    top: -x;
+    bottom: -x;
+  }
+  .grid-line-x-primary[class*="grid-line-x-"] > *::before {
+    border-bottom-color: var(--color-black);
+  }
+  .grid-line-y-primary[class*="grid-line-y-"] > *::after {
+    border-inline-end-color: var(--color-black);
+  }
+  .grid-line-xy-primary[class*="grid-line-xy-"] > *::before {
+    border-bottom-color: var(--color-black);
+  }
+  .grid-line-xy-primary[class*="grid-line-xy-"] > *::after {
+    border-inline-end-color: var(--color-black);
+  }
+  .grid-line-x-secondary[class*="grid-line-x-"] > *::before {
+    border-bottom-color: var(--color-grey-15);
+  }
+  .grid-line-y-secondary[class*="grid-line-y-"] > *::after {
+    border-inline-end-color: var(--color-grey-15);
+  }
+  .grid-line-xy-secondary[class*="grid-line-xy-"] > *::before {
+    border-bottom-color: var(--color-grey-15);
+  }
+  .grid-line-xy-secondary[class*="grid-line-xy-"] > *::after {
+    border-inline-end-color: var(--color-grey-15);
+  }
+  .grid-line-x-tertiary[class*="grid-line-x-"] > *::before {
+    border-bottom-color: var(--color-grey-54);
+  }
+  .grid-line-y-tertiary[class*="grid-line-y-"] > *::after {
+    border-inline-end-color: var(--color-grey-54);
+  }
+  .grid-line-xy-tertiary[class*="grid-line-xy-"] > *::before {
+    border-bottom-color: var(--color-grey-54);
+  }
+  .grid-line-xy-tertiary[class*="grid-line-xy-"] > *::after {
+    border-inline-end-color: var(--color-grey-54);
+  }
+  .grid-line-x-code-example-filename[class*="grid-line-x-"] > *::before {
+    border-bottom-color: var(--color-blue-05);
+  }
+  .grid-line-y-code-example-filename[class*="grid-line-y-"] > *::after {
+    border-inline-end-color: var(--color-blue-05);
+  }
+  .grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::before {
+    border-bottom-color: var(--color-blue-05);
+  }
+  .grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::after {
+    border-inline-end-color: var(--color-blue-05);
+  }
+  .grid-cols-1[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+    border-bottom-width: 1px;
+  }
+  .grid-cols-1[class*="grid-line-xfull"] > *:nth-child(n)::before {
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+  }
+  .grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1)::before {
+    inset-inline-end: 0;
+  }
+  .grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1):nth-last-child(-n+1)::before {
+    border-bottom-width: 0;
+  }
+  .grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1):nth-last-child(-n+1) ~ *::before {
+    border-bottom-width: 0;
+  }
+  .grid-cols-2[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+    border-bottom-width: 1px;
+  }
+  .grid-cols-2[class*="grid-line-xfull"] > *:nth-child(n)::before {
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
+  }
+  .grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1)::before {
+    inset-inline-start: 0;
+  }
+  .grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+2)::before {
+    inset-inline-end: 0;
+  }
+  .grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+    border-bottom-width: 0;
+  }
+  .grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+    border-bottom-width: 0;
+  }
+  .grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+    border-inline-end-width: 1px;
+  }
+  .grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+2)::after {
+    border-inline-end-width: 0;
+  }
+  .grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+2)::after {
+    top: 0;
+  }
+  .grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+    bottom: 0;
+  }
+  .grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+1):nth-last-child(-n+2) ~ li::after {
+    bottom: 0;
+  }
+  .grid-cols-3[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+    border-bottom-width: 1px;
+  }
+  .grid-cols-3[class*="grid-line-xfull"] > *:nth-child(n)::before {
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
+  }
+  .grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1)::before {
+    inset-inline-start: 0;
+  }
+  .grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+3)::before {
+    inset-inline-end: 0;
+  }
+  .grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+    border-bottom-width: 0;
+  }
+  .grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+    border-bottom-width: 0;
+  }
+  .grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+    border-inline-end-width: 1px;
+  }
+  .grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+3)::after {
+    border-inline-end-width: 0;
+  }
+  .grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+3)::after {
+    top: 0;
+  }
+  .grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+    bottom: 0;
+  }
+  .grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+1):nth-last-child(-n+3) ~ li::after {
+    bottom: 0;
+  }
+  .grid-cols-4[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+    border-bottom-width: 1px;
+  }
+  .grid-cols-4[class*="grid-line-xfull"] > *:nth-child(n)::before {
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
+  }
+  .grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1)::before {
+    inset-inline-start: 0;
+  }
+  .grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+4)::before {
+    inset-inline-end: 0;
+  }
+  .grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+    border-bottom-width: 0;
+  }
+  .grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+    border-bottom-width: 0;
+  }
+  .grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+    border-inline-end-width: 1px;
+  }
+  .grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+4)::after {
+    border-inline-end-width: 0;
+  }
+  .grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+4)::after {
+    top: 0;
+  }
+  .grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+    bottom: 0;
+  }
+  .grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+1):nth-last-child(-n+4) ~ li::after {
+    bottom: 0;
+  }
+  .grid-cols-5[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+    border-bottom-width: 1px;
+  }
+  .grid-cols-5[class*="grid-line-xfull"] > *:nth-child(n)::before {
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
+  }
+  .grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1)::before {
+    inset-inline-start: 0;
+  }
+  .grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+5)::before {
+    inset-inline-end: 0;
+  }
+  .grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1):nth-last-child(-n+5)::before {
+    border-bottom-width: 0;
+  }
+  .grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1):nth-last-child(-n+5) ~ *::before {
+    border-bottom-width: 0;
+  }
+  .grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+    border-inline-end-width: 1px;
+  }
+  .grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+5)::after {
+    border-inline-end-width: 0;
+  }
+  .grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+5)::after {
+    top: 0;
+  }
+  .grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+1):nth-last-child(-n+5)::after {
+    bottom: 0;
+  }
+  .grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+1):nth-last-child(-n+5) ~ li::after {
+    bottom: 0;
+  }
+  .grid-cols-6[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+    border-bottom-width: 1px;
+  }
+  .grid-cols-6[class*="grid-line-xfull"] > *:nth-child(n)::before {
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
+  }
+  .grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1)::before {
+    inset-inline-start: 0;
+  }
+  .grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+6)::before {
+    inset-inline-end: 0;
+  }
+  .grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1):nth-last-child(-n+6)::before {
+    border-bottom-width: 0;
+  }
+  .grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1):nth-last-child(-n+6) ~ *::before {
+    border-bottom-width: 0;
+  }
+  .grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+    border-inline-end-width: 1px;
+  }
+  .grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+6)::after {
+    border-inline-end-width: 0;
+  }
+  .grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+6)::after {
+    top: 0;
+  }
+  .grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+1):nth-last-child(-n+6)::after {
+    bottom: 0;
+  }
+  .grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+1):nth-last-child(-n+6) ~ li::after {
+    bottom: 0;
+  }
+  .grid-cols-7[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+    border-bottom-width: 1px;
+  }
+  .grid-cols-7[class*="grid-line-xfull"] > *:nth-child(n)::before {
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
+  }
+  .grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1)::before {
+    inset-inline-start: 0;
+  }
+  .grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+7)::before {
+    inset-inline-end: 0;
+  }
+  .grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1):nth-last-child(-n+7)::before {
+    border-bottom-width: 0;
+  }
+  .grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1):nth-last-child(-n+7) ~ *::before {
+    border-bottom-width: 0;
+  }
+  .grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+    border-inline-end-width: 1px;
+  }
+  .grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+7)::after {
+    border-inline-end-width: 0;
+  }
+  .grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+7)::after {
+    top: 0;
+  }
+  .grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+1):nth-last-child(-n+7)::after {
+    bottom: 0;
+  }
+  .grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+1):nth-last-child(-n+7) ~ li::after {
+    bottom: 0;
+  }
+  .grid-cols-8[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+    border-bottom-width: 1px;
+  }
+  .grid-cols-8[class*="grid-line-xfull"] > *:nth-child(n)::before {
+    inset-inline-start: calc(var(--inner-gutter) / -2);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
+  }
+  .grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1)::before {
+    inset-inline-start: 0;
+  }
+  .grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+8)::before {
+    inset-inline-end: 0;
+  }
+  .grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1):nth-last-child(-n+8)::before {
+    border-bottom-width: 0;
+  }
+  .grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1):nth-last-child(-n+8) ~ *::before {
+    border-bottom-width: 0;
+  }
+  .grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+    border-inline-end-width: 1px;
+  }
+  .grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+8)::after {
+    border-inline-end-width: 0;
+  }
+  .grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+8)::after {
+    top: 0;
+  }
+  .grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+1):nth-last-child(-n+8)::after {
+    bottom: 0;
+  }
+  .grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+1):nth-last-child(-n+8) ~ li::after {
+    bottom: 0;
+  }
+  @media (width >= 544px) {
+    mike {
+      width: auto;
+    }
+    [class*="grid-line-"] > * {
+      position: relative;
+    }
+    [class*="grid-line-"] > *::before, [class*="grid-line-"] > *::after {
+      content: attr(👻);
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .sm\:grid-line-x > *::before {
+      content: attr(👻);
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+      top: 0;
+      bottom: calc(var(--inner-gutter) / -2);
+      border-top: 0 solid transparent;
+      border-bottom: 0 solid transparent;
+    }
+    .sm\:grid-line-xfull > *::before {
+      content: attr(👻);
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: 0;
+      bottom: calc(var(--inner-gutter) / -2);
+      border-top: 0 solid transparent;
+      border-bottom: 0 solid transparent;
+    }
+    .sm\:grid-line-x-0 > *::before {
+      content: none;
+    }
+    .sm\:grid-line-y > *::after {
+      content: attr(👻);
+      inset-inline-start: 0;
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: 0;
+      bottom: 0;
+      border-inline-start: 0 solid transparent;
+      border-inline-end: 0 solid transparent;
+    }
+    .sm\:grid-line-yfull > *::after {
+      content: attr(👻);
+      inset-inline-start: 0;
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: calc(var(--inner-gutter) / -1);
+      bottom: 0;
+      border-inline-start: 0 solid transparent;
+      border-inline-end: 0 solid transparent;
+    }
+    .sm\:grid-line-yfull[class*="grid-line-x"] > *::after {
+      inset-inline-start: 0;
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: calc(var(--inner-gutter) / -2);
+      bottom: calc(var(--inner-gutter) / -2);
+      border-inline-start: 0 solid transparent;
+      border-inline-end: 0 solid transparent;
+    }
+    .sm\:grid-line-y-0 > *::after {
+      content: none;
+    }
+    .sm\:grid-line-x-0[class*="grid-line-x-"] > *::before {
+      bottom: -1;
+    }
+    .sm\:grid-line-x-0[class*="grid-line-yfull"] > *::after {
+      top: -1;
+      bottom: -1;
+    }
+    .sm\:grid-line-x-1[class*="grid-line-x-"] > *::before {
+      bottom: -p;
+    }
+    .sm\:grid-line-x-1[class*="grid-line-yfull"] > *::after {
+      top: -p;
+      bottom: -p;
+    }
+    .sm\:grid-line-x-2[class*="grid-line-x-"] > *::before {
+      bottom: -x;
+    }
+    .sm\:grid-line-x-2[class*="grid-line-yfull"] > *::after {
+      top: -x;
+      bottom: -x;
+    }
+    .sm\:grid-line-x-primary[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-black);
+    }
+    .sm\:grid-line-y-primary[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-black);
+    }
+    .sm\:grid-line-xy-primary[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-black);
+    }
+    .sm\:grid-line-xy-primary[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-black);
+    }
+    .sm\:grid-line-x-secondary[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-grey-15);
+    }
+    .sm\:grid-line-y-secondary[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-grey-15);
+    }
+    .sm\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-grey-15);
+    }
+    .sm\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-grey-15);
+    }
+    .sm\:grid-line-x-tertiary[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-grey-54);
+    }
+    .sm\:grid-line-y-tertiary[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-grey-54);
+    }
+    .sm\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-grey-54);
+    }
+    .sm\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-grey-54);
+    }
+    .sm\:grid-line-x-code-example-filename[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-blue-05);
+    }
+    .sm\:grid-line-y-code-example-filename[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-blue-05);
+    }
+    .sm\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-blue-05);
+    }
+    .sm\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-blue-05);
+    }
+    .sm\:grid-cols-1[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .sm\:grid-cols-1[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+    }
+    .sm\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1)::before {
+      inset-inline-end: 0;
+    }
+    .sm\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1):nth-last-child(-n+1)::before {
+      border-bottom-width: 0;
+    }
+    .sm\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1):nth-last-child(-n+1) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .sm\:grid-cols-2[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .sm\:grid-cols-2[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .sm\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1)::before {
+      inset-inline-start: 0;
+    }
+    .sm\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+2)::before {
+      inset-inline-end: 0;
+    }
+    .sm\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+      border-bottom-width: 0;
+    }
+    .sm\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .sm\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .sm\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+2)::after {
+      border-inline-end-width: 0;
+    }
+    .sm\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+2)::after {
+      top: 0;
+    }
+    .sm\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+      bottom: 0;
+    }
+    .sm\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+1):nth-last-child(-n+2) ~ li::after {
+      bottom: 0;
+    }
+    .sm\:grid-cols-3[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .sm\:grid-cols-3[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .sm\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1)::before {
+      inset-inline-start: 0;
+    }
+    .sm\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+3)::before {
+      inset-inline-end: 0;
+    }
+    .sm\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+      border-bottom-width: 0;
+    }
+    .sm\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .sm\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .sm\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+3)::after {
+      border-inline-end-width: 0;
+    }
+    .sm\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+3)::after {
+      top: 0;
+    }
+    .sm\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+      bottom: 0;
+    }
+    .sm\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+1):nth-last-child(-n+3) ~ li::after {
+      bottom: 0;
+    }
+    .sm\:grid-cols-4[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .sm\:grid-cols-4[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .sm\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1)::before {
+      inset-inline-start: 0;
+    }
+    .sm\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+4)::before {
+      inset-inline-end: 0;
+    }
+    .sm\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+      border-bottom-width: 0;
+    }
+    .sm\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .sm\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .sm\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+4)::after {
+      border-inline-end-width: 0;
+    }
+    .sm\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+4)::after {
+      top: 0;
+    }
+    .sm\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+      bottom: 0;
+    }
+    .sm\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+1):nth-last-child(-n+4) ~ li::after {
+      bottom: 0;
+    }
+    .sm\:grid-cols-5[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .sm\:grid-cols-5[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .sm\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1)::before {
+      inset-inline-start: 0;
+    }
+    .sm\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+5)::before {
+      inset-inline-end: 0;
+    }
+    .sm\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1):nth-last-child(-n+5)::before {
+      border-bottom-width: 0;
+    }
+    .sm\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1):nth-last-child(-n+5) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .sm\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .sm\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+5)::after {
+      border-inline-end-width: 0;
+    }
+    .sm\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+5)::after {
+      top: 0;
+    }
+    .sm\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+1):nth-last-child(-n+5)::after {
+      bottom: 0;
+    }
+    .sm\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+1):nth-last-child(-n+5) ~ li::after {
+      bottom: 0;
+    }
+    .sm\:grid-cols-6[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .sm\:grid-cols-6[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .sm\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1)::before {
+      inset-inline-start: 0;
+    }
+    .sm\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+6)::before {
+      inset-inline-end: 0;
+    }
+    .sm\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1):nth-last-child(-n+6)::before {
+      border-bottom-width: 0;
+    }
+    .sm\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1):nth-last-child(-n+6) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .sm\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .sm\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+6)::after {
+      border-inline-end-width: 0;
+    }
+    .sm\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+6)::after {
+      top: 0;
+    }
+    .sm\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+1):nth-last-child(-n+6)::after {
+      bottom: 0;
+    }
+    .sm\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+1):nth-last-child(-n+6) ~ li::after {
+      bottom: 0;
+    }
+    .sm\:grid-cols-7[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .sm\:grid-cols-7[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .sm\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1)::before {
+      inset-inline-start: 0;
+    }
+    .sm\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+7)::before {
+      inset-inline-end: 0;
+    }
+    .sm\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1):nth-last-child(-n+7)::before {
+      border-bottom-width: 0;
+    }
+    .sm\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1):nth-last-child(-n+7) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .sm\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .sm\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+7)::after {
+      border-inline-end-width: 0;
+    }
+    .sm\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+7)::after {
+      top: 0;
+    }
+    .sm\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+1):nth-last-child(-n+7)::after {
+      bottom: 0;
+    }
+    .sm\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+1):nth-last-child(-n+7) ~ li::after {
+      bottom: 0;
+    }
+    .sm\:grid-cols-8[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .sm\:grid-cols-8[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .sm\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1)::before {
+      inset-inline-start: 0;
+    }
+    .sm\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+8)::before {
+      inset-inline-end: 0;
+    }
+    .sm\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1):nth-last-child(-n+8)::before {
+      border-bottom-width: 0;
+    }
+    .sm\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1):nth-last-child(-n+8) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .sm\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .sm\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+8)::after {
+      border-inline-end-width: 0;
+    }
+    .sm\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+8)::after {
+      top: 0;
+    }
+    .sm\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+1):nth-last-child(-n+8)::after {
+      bottom: 0;
+    }
+    .sm\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+1):nth-last-child(-n+8) ~ li::after {
+      bottom: 0;
+    }
+  }
+  @media (width >= 650px) {
+    mike {
+      width: auto;
+    }
+    [class*="grid-line-"] > * {
+      position: relative;
+    }
+    [class*="grid-line-"] > *::before, [class*="grid-line-"] > *::after {
+      content: attr(👻);
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .md\:grid-line-x > *::before {
+      content: attr(👻);
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+      top: 0;
+      bottom: calc(var(--inner-gutter) / -2);
+      border-top: 0 solid transparent;
+      border-bottom: 0 solid transparent;
+    }
+    .md\:grid-line-xfull > *::before {
+      content: attr(👻);
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: 0;
+      bottom: calc(var(--inner-gutter) / -2);
+      border-top: 0 solid transparent;
+      border-bottom: 0 solid transparent;
+    }
+    .md\:grid-line-x-0 > *::before {
+      content: none;
+    }
+    .md\:grid-line-y > *::after {
+      content: attr(👻);
+      inset-inline-start: 0;
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: 0;
+      bottom: 0;
+      border-inline-start: 0 solid transparent;
+      border-inline-end: 0 solid transparent;
+    }
+    .md\:grid-line-yfull > *::after {
+      content: attr(👻);
+      inset-inline-start: 0;
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: calc(var(--inner-gutter) / -1);
+      bottom: 0;
+      border-inline-start: 0 solid transparent;
+      border-inline-end: 0 solid transparent;
+    }
+    .md\:grid-line-yfull[class*="grid-line-x"] > *::after {
+      inset-inline-start: 0;
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: calc(var(--inner-gutter) / -2);
+      bottom: calc(var(--inner-gutter) / -2);
+      border-inline-start: 0 solid transparent;
+      border-inline-end: 0 solid transparent;
+    }
+    .md\:grid-line-y-0 > *::after {
+      content: none;
+    }
+    .md\:grid-line-x-0[class*="grid-line-x-"] > *::before {
+      bottom: -1;
+    }
+    .md\:grid-line-x-0[class*="grid-line-yfull"] > *::after {
+      top: -1;
+      bottom: -1;
+    }
+    .md\:grid-line-x-1[class*="grid-line-x-"] > *::before {
+      bottom: -p;
+    }
+    .md\:grid-line-x-1[class*="grid-line-yfull"] > *::after {
+      top: -p;
+      bottom: -p;
+    }
+    .md\:grid-line-x-2[class*="grid-line-x-"] > *::before {
+      bottom: -x;
+    }
+    .md\:grid-line-x-2[class*="grid-line-yfull"] > *::after {
+      top: -x;
+      bottom: -x;
+    }
+    .md\:grid-line-x-primary[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-black);
+    }
+    .md\:grid-line-y-primary[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-black);
+    }
+    .md\:grid-line-xy-primary[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-black);
+    }
+    .md\:grid-line-xy-primary[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-black);
+    }
+    .md\:grid-line-x-secondary[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-grey-15);
+    }
+    .md\:grid-line-y-secondary[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-grey-15);
+    }
+    .md\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-grey-15);
+    }
+    .md\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-grey-15);
+    }
+    .md\:grid-line-x-tertiary[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-grey-54);
+    }
+    .md\:grid-line-y-tertiary[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-grey-54);
+    }
+    .md\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-grey-54);
+    }
+    .md\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-grey-54);
+    }
+    .md\:grid-line-x-code-example-filename[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-blue-05);
+    }
+    .md\:grid-line-y-code-example-filename[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-blue-05);
+    }
+    .md\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-blue-05);
+    }
+    .md\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-blue-05);
+    }
+    .md\:grid-cols-1[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .md\:grid-cols-1[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+    }
+    .md\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1)::before {
+      inset-inline-end: 0;
+    }
+    .md\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1):nth-last-child(-n+1)::before {
+      border-bottom-width: 0;
+    }
+    .md\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1):nth-last-child(-n+1) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .md\:grid-cols-2[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .md\:grid-cols-2[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .md\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1)::before {
+      inset-inline-start: 0;
+    }
+    .md\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+2)::before {
+      inset-inline-end: 0;
+    }
+    .md\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+      border-bottom-width: 0;
+    }
+    .md\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .md\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .md\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+2)::after {
+      border-inline-end-width: 0;
+    }
+    .md\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+2)::after {
+      top: 0;
+    }
+    .md\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+      bottom: 0;
+    }
+    .md\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+1):nth-last-child(-n+2) ~ li::after {
+      bottom: 0;
+    }
+    .md\:grid-cols-3[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .md\:grid-cols-3[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .md\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1)::before {
+      inset-inline-start: 0;
+    }
+    .md\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+3)::before {
+      inset-inline-end: 0;
+    }
+    .md\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+      border-bottom-width: 0;
+    }
+    .md\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .md\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .md\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+3)::after {
+      border-inline-end-width: 0;
+    }
+    .md\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+3)::after {
+      top: 0;
+    }
+    .md\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+      bottom: 0;
+    }
+    .md\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+1):nth-last-child(-n+3) ~ li::after {
+      bottom: 0;
+    }
+    .md\:grid-cols-4[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .md\:grid-cols-4[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .md\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1)::before {
+      inset-inline-start: 0;
+    }
+    .md\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+4)::before {
+      inset-inline-end: 0;
+    }
+    .md\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+      border-bottom-width: 0;
+    }
+    .md\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .md\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .md\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+4)::after {
+      border-inline-end-width: 0;
+    }
+    .md\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+4)::after {
+      top: 0;
+    }
+    .md\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+      bottom: 0;
+    }
+    .md\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+1):nth-last-child(-n+4) ~ li::after {
+      bottom: 0;
+    }
+    .md\:grid-cols-5[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .md\:grid-cols-5[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .md\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1)::before {
+      inset-inline-start: 0;
+    }
+    .md\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+5)::before {
+      inset-inline-end: 0;
+    }
+    .md\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1):nth-last-child(-n+5)::before {
+      border-bottom-width: 0;
+    }
+    .md\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1):nth-last-child(-n+5) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .md\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .md\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+5)::after {
+      border-inline-end-width: 0;
+    }
+    .md\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+5)::after {
+      top: 0;
+    }
+    .md\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+1):nth-last-child(-n+5)::after {
+      bottom: 0;
+    }
+    .md\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+1):nth-last-child(-n+5) ~ li::after {
+      bottom: 0;
+    }
+    .md\:grid-cols-6[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .md\:grid-cols-6[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .md\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1)::before {
+      inset-inline-start: 0;
+    }
+    .md\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+6)::before {
+      inset-inline-end: 0;
+    }
+    .md\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1):nth-last-child(-n+6)::before {
+      border-bottom-width: 0;
+    }
+    .md\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1):nth-last-child(-n+6) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .md\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .md\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+6)::after {
+      border-inline-end-width: 0;
+    }
+    .md\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+6)::after {
+      top: 0;
+    }
+    .md\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+1):nth-last-child(-n+6)::after {
+      bottom: 0;
+    }
+    .md\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+1):nth-last-child(-n+6) ~ li::after {
+      bottom: 0;
+    }
+    .md\:grid-cols-7[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .md\:grid-cols-7[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .md\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1)::before {
+      inset-inline-start: 0;
+    }
+    .md\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+7)::before {
+      inset-inline-end: 0;
+    }
+    .md\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1):nth-last-child(-n+7)::before {
+      border-bottom-width: 0;
+    }
+    .md\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1):nth-last-child(-n+7) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .md\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .md\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+7)::after {
+      border-inline-end-width: 0;
+    }
+    .md\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+7)::after {
+      top: 0;
+    }
+    .md\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+1):nth-last-child(-n+7)::after {
+      bottom: 0;
+    }
+    .md\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+1):nth-last-child(-n+7) ~ li::after {
+      bottom: 0;
+    }
+    .md\:grid-cols-8[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .md\:grid-cols-8[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .md\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1)::before {
+      inset-inline-start: 0;
+    }
+    .md\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+8)::before {
+      inset-inline-end: 0;
+    }
+    .md\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1):nth-last-child(-n+8)::before {
+      border-bottom-width: 0;
+    }
+    .md\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1):nth-last-child(-n+8) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .md\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .md\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+8)::after {
+      border-inline-end-width: 0;
+    }
+    .md\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+8)::after {
+      top: 0;
+    }
+    .md\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+1):nth-last-child(-n+8)::after {
+      bottom: 0;
+    }
+    .md\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+1):nth-last-child(-n+8) ~ li::after {
+      bottom: 0;
+    }
+  }
+  @media (width >= 990px) {
+    mike {
+      width: auto;
+    }
+    [class*="grid-line-"] > * {
+      position: relative;
+    }
+    [class*="grid-line-"] > *::before, [class*="grid-line-"] > *::after {
+      content: attr(👻);
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .lg\:grid-line-x > *::before {
+      content: attr(👻);
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+      top: 0;
+      bottom: calc(var(--inner-gutter) / -2);
+      border-top: 0 solid transparent;
+      border-bottom: 0 solid transparent;
+    }
+    .lg\:grid-line-xfull > *::before {
+      content: attr(👻);
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: 0;
+      bottom: calc(var(--inner-gutter) / -2);
+      border-top: 0 solid transparent;
+      border-bottom: 0 solid transparent;
+    }
+    .lg\:grid-line-x-0 > *::before {
+      content: none;
+    }
+    .lg\:grid-line-y > *::after {
+      content: attr(👻);
+      inset-inline-start: 0;
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: 0;
+      bottom: 0;
+      border-inline-start: 0 solid transparent;
+      border-inline-end: 0 solid transparent;
+    }
+    .lg\:grid-line-yfull > *::after {
+      content: attr(👻);
+      inset-inline-start: 0;
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: calc(var(--inner-gutter) / -1);
+      bottom: 0;
+      border-inline-start: 0 solid transparent;
+      border-inline-end: 0 solid transparent;
+    }
+    .lg\:grid-line-yfull[class*="grid-line-x"] > *::after {
+      inset-inline-start: 0;
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: calc(var(--inner-gutter) / -2);
+      bottom: calc(var(--inner-gutter) / -2);
+      border-inline-start: 0 solid transparent;
+      border-inline-end: 0 solid transparent;
+    }
+    .lg\:grid-line-y-0 > *::after {
+      content: none;
+    }
+    .lg\:grid-line-x-0[class*="grid-line-x-"] > *::before {
+      bottom: -1;
+    }
+    .lg\:grid-line-x-0[class*="grid-line-yfull"] > *::after {
+      top: -1;
+      bottom: -1;
+    }
+    .lg\:grid-line-x-1[class*="grid-line-x-"] > *::before {
+      bottom: -p;
+    }
+    .lg\:grid-line-x-1[class*="grid-line-yfull"] > *::after {
+      top: -p;
+      bottom: -p;
+    }
+    .lg\:grid-line-x-2[class*="grid-line-x-"] > *::before {
+      bottom: -x;
+    }
+    .lg\:grid-line-x-2[class*="grid-line-yfull"] > *::after {
+      top: -x;
+      bottom: -x;
+    }
+    .lg\:grid-line-x-primary[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-black);
+    }
+    .lg\:grid-line-y-primary[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-black);
+    }
+    .lg\:grid-line-xy-primary[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-black);
+    }
+    .lg\:grid-line-xy-primary[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-black);
+    }
+    .lg\:grid-line-x-secondary[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-grey-15);
+    }
+    .lg\:grid-line-y-secondary[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-grey-15);
+    }
+    .lg\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-grey-15);
+    }
+    .lg\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-grey-15);
+    }
+    .lg\:grid-line-x-tertiary[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-grey-54);
+    }
+    .lg\:grid-line-y-tertiary[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-grey-54);
+    }
+    .lg\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-grey-54);
+    }
+    .lg\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-grey-54);
+    }
+    .lg\:grid-line-x-code-example-filename[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-blue-05);
+    }
+    .lg\:grid-line-y-code-example-filename[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-blue-05);
+    }
+    .lg\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-blue-05);
+    }
+    .lg\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-blue-05);
+    }
+    .lg\:grid-cols-1[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .lg\:grid-cols-1[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+    }
+    .lg\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1)::before {
+      inset-inline-end: 0;
+    }
+    .lg\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1):nth-last-child(-n+1)::before {
+      border-bottom-width: 0;
+    }
+    .lg\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1):nth-last-child(-n+1) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .lg\:grid-cols-2[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .lg\:grid-cols-2[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .lg\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1)::before {
+      inset-inline-start: 0;
+    }
+    .lg\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+2)::before {
+      inset-inline-end: 0;
+    }
+    .lg\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+      border-bottom-width: 0;
+    }
+    .lg\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .lg\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .lg\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+2)::after {
+      border-inline-end-width: 0;
+    }
+    .lg\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+2)::after {
+      top: 0;
+    }
+    .lg\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+      bottom: 0;
+    }
+    .lg\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+1):nth-last-child(-n+2) ~ li::after {
+      bottom: 0;
+    }
+    .lg\:grid-cols-3[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .lg\:grid-cols-3[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .lg\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1)::before {
+      inset-inline-start: 0;
+    }
+    .lg\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+3)::before {
+      inset-inline-end: 0;
+    }
+    .lg\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+      border-bottom-width: 0;
+    }
+    .lg\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .lg\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .lg\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+3)::after {
+      border-inline-end-width: 0;
+    }
+    .lg\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+3)::after {
+      top: 0;
+    }
+    .lg\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+      bottom: 0;
+    }
+    .lg\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+1):nth-last-child(-n+3) ~ li::after {
+      bottom: 0;
+    }
+    .lg\:grid-cols-4[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .lg\:grid-cols-4[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .lg\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1)::before {
+      inset-inline-start: 0;
+    }
+    .lg\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+4)::before {
+      inset-inline-end: 0;
+    }
+    .lg\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+      border-bottom-width: 0;
+    }
+    .lg\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .lg\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .lg\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+4)::after {
+      border-inline-end-width: 0;
+    }
+    .lg\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+4)::after {
+      top: 0;
+    }
+    .lg\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+      bottom: 0;
+    }
+    .lg\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+1):nth-last-child(-n+4) ~ li::after {
+      bottom: 0;
+    }
+    .lg\:grid-cols-5[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .lg\:grid-cols-5[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .lg\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1)::before {
+      inset-inline-start: 0;
+    }
+    .lg\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+5)::before {
+      inset-inline-end: 0;
+    }
+    .lg\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1):nth-last-child(-n+5)::before {
+      border-bottom-width: 0;
+    }
+    .lg\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1):nth-last-child(-n+5) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .lg\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .lg\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+5)::after {
+      border-inline-end-width: 0;
+    }
+    .lg\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+5)::after {
+      top: 0;
+    }
+    .lg\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+1):nth-last-child(-n+5)::after {
+      bottom: 0;
+    }
+    .lg\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+1):nth-last-child(-n+5) ~ li::after {
+      bottom: 0;
+    }
+    .lg\:grid-cols-6[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .lg\:grid-cols-6[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .lg\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1)::before {
+      inset-inline-start: 0;
+    }
+    .lg\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+6)::before {
+      inset-inline-end: 0;
+    }
+    .lg\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1):nth-last-child(-n+6)::before {
+      border-bottom-width: 0;
+    }
+    .lg\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1):nth-last-child(-n+6) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .lg\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .lg\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+6)::after {
+      border-inline-end-width: 0;
+    }
+    .lg\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+6)::after {
+      top: 0;
+    }
+    .lg\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+1):nth-last-child(-n+6)::after {
+      bottom: 0;
+    }
+    .lg\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+1):nth-last-child(-n+6) ~ li::after {
+      bottom: 0;
+    }
+    .lg\:grid-cols-7[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .lg\:grid-cols-7[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .lg\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1)::before {
+      inset-inline-start: 0;
+    }
+    .lg\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+7)::before {
+      inset-inline-end: 0;
+    }
+    .lg\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1):nth-last-child(-n+7)::before {
+      border-bottom-width: 0;
+    }
+    .lg\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1):nth-last-child(-n+7) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .lg\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .lg\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+7)::after {
+      border-inline-end-width: 0;
+    }
+    .lg\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+7)::after {
+      top: 0;
+    }
+    .lg\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+1):nth-last-child(-n+7)::after {
+      bottom: 0;
+    }
+    .lg\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+1):nth-last-child(-n+7) ~ li::after {
+      bottom: 0;
+    }
+    .lg\:grid-cols-8[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .lg\:grid-cols-8[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .lg\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1)::before {
+      inset-inline-start: 0;
+    }
+    .lg\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+8)::before {
+      inset-inline-end: 0;
+    }
+    .lg\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1):nth-last-child(-n+8)::before {
+      border-bottom-width: 0;
+    }
+    .lg\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1):nth-last-child(-n+8) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .lg\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .lg\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+8)::after {
+      border-inline-end-width: 0;
+    }
+    .lg\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+8)::after {
+      top: 0;
+    }
+    .lg\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+1):nth-last-child(-n+8)::after {
+      bottom: 0;
+    }
+    .lg\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+1):nth-last-child(-n+8) ~ li::after {
+      bottom: 0;
+    }
+  }
+  @media (width >= 1300px) {
+    mike {
+      width: auto;
+    }
+    [class*="grid-line-"] > * {
+      position: relative;
+    }
+    [class*="grid-line-"] > *::before, [class*="grid-line-"] > *::after {
+      content: attr(👻);
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .xl\:grid-line-x > *::before {
+      content: attr(👻);
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+      top: 0;
+      bottom: calc(var(--inner-gutter) / -2);
+      border-top: 0 solid transparent;
+      border-bottom: 0 solid transparent;
+    }
+    .xl\:grid-line-xfull > *::before {
+      content: attr(👻);
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: 0;
+      bottom: calc(var(--inner-gutter) / -2);
+      border-top: 0 solid transparent;
+      border-bottom: 0 solid transparent;
+    }
+    .xl\:grid-line-x-0 > *::before {
+      content: none;
+    }
+    .xl\:grid-line-y > *::after {
+      content: attr(👻);
+      inset-inline-start: 0;
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: 0;
+      bottom: 0;
+      border-inline-start: 0 solid transparent;
+      border-inline-end: 0 solid transparent;
+    }
+    .xl\:grid-line-yfull > *::after {
+      content: attr(👻);
+      inset-inline-start: 0;
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: calc(var(--inner-gutter) / -1);
+      bottom: 0;
+      border-inline-start: 0 solid transparent;
+      border-inline-end: 0 solid transparent;
+    }
+    .xl\:grid-line-yfull[class*="grid-line-x"] > *::after {
+      inset-inline-start: 0;
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: calc(var(--inner-gutter) / -2);
+      bottom: calc(var(--inner-gutter) / -2);
+      border-inline-start: 0 solid transparent;
+      border-inline-end: 0 solid transparent;
+    }
+    .xl\:grid-line-y-0 > *::after {
+      content: none;
+    }
+    .xl\:grid-line-x-0[class*="grid-line-x-"] > *::before {
+      bottom: -1;
+    }
+    .xl\:grid-line-x-0[class*="grid-line-yfull"] > *::after {
+      top: -1;
+      bottom: -1;
+    }
+    .xl\:grid-line-x-1[class*="grid-line-x-"] > *::before {
+      bottom: -p;
+    }
+    .xl\:grid-line-x-1[class*="grid-line-yfull"] > *::after {
+      top: -p;
+      bottom: -p;
+    }
+    .xl\:grid-line-x-2[class*="grid-line-x-"] > *::before {
+      bottom: -x;
+    }
+    .xl\:grid-line-x-2[class*="grid-line-yfull"] > *::after {
+      top: -x;
+      bottom: -x;
+    }
+    .xl\:grid-line-x-primary[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-black);
+    }
+    .xl\:grid-line-y-primary[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-black);
+    }
+    .xl\:grid-line-xy-primary[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-black);
+    }
+    .xl\:grid-line-xy-primary[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-black);
+    }
+    .xl\:grid-line-x-secondary[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-grey-15);
+    }
+    .xl\:grid-line-y-secondary[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-grey-15);
+    }
+    .xl\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-grey-15);
+    }
+    .xl\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-grey-15);
+    }
+    .xl\:grid-line-x-tertiary[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-grey-54);
+    }
+    .xl\:grid-line-y-tertiary[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-grey-54);
+    }
+    .xl\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-grey-54);
+    }
+    .xl\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-grey-54);
+    }
+    .xl\:grid-line-x-code-example-filename[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-blue-05);
+    }
+    .xl\:grid-line-y-code-example-filename[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-blue-05);
+    }
+    .xl\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-blue-05);
+    }
+    .xl\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-blue-05);
+    }
+    .xl\:grid-cols-1[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .xl\:grid-cols-1[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+    }
+    .xl\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1)::before {
+      inset-inline-end: 0;
+    }
+    .xl\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1):nth-last-child(-n+1)::before {
+      border-bottom-width: 0;
+    }
+    .xl\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1):nth-last-child(-n+1) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .xl\:grid-cols-2[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .xl\:grid-cols-2[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .xl\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1)::before {
+      inset-inline-start: 0;
+    }
+    .xl\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+2)::before {
+      inset-inline-end: 0;
+    }
+    .xl\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+      border-bottom-width: 0;
+    }
+    .xl\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .xl\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .xl\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+2)::after {
+      border-inline-end-width: 0;
+    }
+    .xl\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+2)::after {
+      top: 0;
+    }
+    .xl\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+      bottom: 0;
+    }
+    .xl\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+1):nth-last-child(-n+2) ~ li::after {
+      bottom: 0;
+    }
+    .xl\:grid-cols-3[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .xl\:grid-cols-3[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .xl\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1)::before {
+      inset-inline-start: 0;
+    }
+    .xl\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+3)::before {
+      inset-inline-end: 0;
+    }
+    .xl\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+      border-bottom-width: 0;
+    }
+    .xl\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .xl\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .xl\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+3)::after {
+      border-inline-end-width: 0;
+    }
+    .xl\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+3)::after {
+      top: 0;
+    }
+    .xl\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+      bottom: 0;
+    }
+    .xl\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+1):nth-last-child(-n+3) ~ li::after {
+      bottom: 0;
+    }
+    .xl\:grid-cols-4[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .xl\:grid-cols-4[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .xl\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1)::before {
+      inset-inline-start: 0;
+    }
+    .xl\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+4)::before {
+      inset-inline-end: 0;
+    }
+    .xl\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+      border-bottom-width: 0;
+    }
+    .xl\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .xl\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .xl\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+4)::after {
+      border-inline-end-width: 0;
+    }
+    .xl\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+4)::after {
+      top: 0;
+    }
+    .xl\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+      bottom: 0;
+    }
+    .xl\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+1):nth-last-child(-n+4) ~ li::after {
+      bottom: 0;
+    }
+    .xl\:grid-cols-5[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .xl\:grid-cols-5[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .xl\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1)::before {
+      inset-inline-start: 0;
+    }
+    .xl\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+5)::before {
+      inset-inline-end: 0;
+    }
+    .xl\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1):nth-last-child(-n+5)::before {
+      border-bottom-width: 0;
+    }
+    .xl\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1):nth-last-child(-n+5) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .xl\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .xl\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+5)::after {
+      border-inline-end-width: 0;
+    }
+    .xl\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+5)::after {
+      top: 0;
+    }
+    .xl\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+1):nth-last-child(-n+5)::after {
+      bottom: 0;
+    }
+    .xl\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+1):nth-last-child(-n+5) ~ li::after {
+      bottom: 0;
+    }
+    .xl\:grid-cols-6[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .xl\:grid-cols-6[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .xl\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1)::before {
+      inset-inline-start: 0;
+    }
+    .xl\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+6)::before {
+      inset-inline-end: 0;
+    }
+    .xl\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1):nth-last-child(-n+6)::before {
+      border-bottom-width: 0;
+    }
+    .xl\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1):nth-last-child(-n+6) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .xl\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .xl\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+6)::after {
+      border-inline-end-width: 0;
+    }
+    .xl\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+6)::after {
+      top: 0;
+    }
+    .xl\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+1):nth-last-child(-n+6)::after {
+      bottom: 0;
+    }
+    .xl\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+1):nth-last-child(-n+6) ~ li::after {
+      bottom: 0;
+    }
+    .xl\:grid-cols-7[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .xl\:grid-cols-7[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .xl\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1)::before {
+      inset-inline-start: 0;
+    }
+    .xl\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+7)::before {
+      inset-inline-end: 0;
+    }
+    .xl\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1):nth-last-child(-n+7)::before {
+      border-bottom-width: 0;
+    }
+    .xl\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1):nth-last-child(-n+7) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .xl\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .xl\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+7)::after {
+      border-inline-end-width: 0;
+    }
+    .xl\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+7)::after {
+      top: 0;
+    }
+    .xl\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+1):nth-last-child(-n+7)::after {
+      bottom: 0;
+    }
+    .xl\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+1):nth-last-child(-n+7) ~ li::after {
+      bottom: 0;
+    }
+    .xl\:grid-cols-8[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .xl\:grid-cols-8[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .xl\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1)::before {
+      inset-inline-start: 0;
+    }
+    .xl\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+8)::before {
+      inset-inline-end: 0;
+    }
+    .xl\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1):nth-last-child(-n+8)::before {
+      border-bottom-width: 0;
+    }
+    .xl\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1):nth-last-child(-n+8) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .xl\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .xl\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+8)::after {
+      border-inline-end-width: 0;
+    }
+    .xl\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+8)::after {
+      top: 0;
+    }
+    .xl\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+1):nth-last-child(-n+8)::after {
+      bottom: 0;
+    }
+    .xl\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+1):nth-last-child(-n+8) ~ li::after {
+      bottom: 0;
+    }
+  }
+  @media (width >= 1520px) {
+    mike {
+      width: auto;
+    }
+    [class*="grid-line-"] > * {
+      position: relative;
+    }
+    [class*="grid-line-"] > *::before, [class*="grid-line-"] > *::after {
+      content: attr(👻);
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .xxl\:grid-line-x > *::before {
+      content: attr(👻);
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+      top: 0;
+      bottom: calc(var(--inner-gutter) / -2);
+      border-top: 0 solid transparent;
+      border-bottom: 0 solid transparent;
+    }
+    .xxl\:grid-line-xfull > *::before {
+      content: attr(👻);
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: 0;
+      bottom: calc(var(--inner-gutter) / -2);
+      border-top: 0 solid transparent;
+      border-bottom: 0 solid transparent;
+    }
+    .xxl\:grid-line-x-0 > *::before {
+      content: none;
+    }
+    .xxl\:grid-line-y > *::after {
+      content: attr(👻);
+      inset-inline-start: 0;
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: 0;
+      bottom: 0;
+      border-inline-start: 0 solid transparent;
+      border-inline-end: 0 solid transparent;
+    }
+    .xxl\:grid-line-yfull > *::after {
+      content: attr(👻);
+      inset-inline-start: 0;
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: calc(var(--inner-gutter) / -1);
+      bottom: 0;
+      border-inline-start: 0 solid transparent;
+      border-inline-end: 0 solid transparent;
+    }
+    .xxl\:grid-line-yfull[class*="grid-line-x"] > *::after {
+      inset-inline-start: 0;
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+      top: calc(var(--inner-gutter) / -2);
+      bottom: calc(var(--inner-gutter) / -2);
+      border-inline-start: 0 solid transparent;
+      border-inline-end: 0 solid transparent;
+    }
+    .xxl\:grid-line-y-0 > *::after {
+      content: none;
+    }
+    .xxl\:grid-line-x-0[class*="grid-line-x-"] > *::before {
+      bottom: -1;
+    }
+    .xxl\:grid-line-x-0[class*="grid-line-yfull"] > *::after {
+      top: -1;
+      bottom: -1;
+    }
+    .xxl\:grid-line-x-1[class*="grid-line-x-"] > *::before {
+      bottom: -p;
+    }
+    .xxl\:grid-line-x-1[class*="grid-line-yfull"] > *::after {
+      top: -p;
+      bottom: -p;
+    }
+    .xxl\:grid-line-x-2[class*="grid-line-x-"] > *::before {
+      bottom: -x;
+    }
+    .xxl\:grid-line-x-2[class*="grid-line-yfull"] > *::after {
+      top: -x;
+      bottom: -x;
+    }
+    .xxl\:grid-line-x-primary[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-black);
+    }
+    .xxl\:grid-line-y-primary[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-black);
+    }
+    .xxl\:grid-line-xy-primary[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-black);
+    }
+    .xxl\:grid-line-xy-primary[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-black);
+    }
+    .xxl\:grid-line-x-secondary[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-grey-15);
+    }
+    .xxl\:grid-line-y-secondary[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-grey-15);
+    }
+    .xxl\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-grey-15);
+    }
+    .xxl\:grid-line-xy-secondary[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-grey-15);
+    }
+    .xxl\:grid-line-x-tertiary[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-grey-54);
+    }
+    .xxl\:grid-line-y-tertiary[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-grey-54);
+    }
+    .xxl\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-grey-54);
+    }
+    .xxl\:grid-line-xy-tertiary[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-grey-54);
+    }
+    .xxl\:grid-line-x-code-example-filename[class*="grid-line-x-"] > *::before {
+      border-bottom-color: var(--color-blue-05);
+    }
+    .xxl\:grid-line-y-code-example-filename[class*="grid-line-y-"] > *::after {
+      border-inline-end-color: var(--color-blue-05);
+    }
+    .xxl\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::before {
+      border-bottom-color: var(--color-blue-05);
+    }
+    .xxl\:grid-line-xy-code-example-filename[class*="grid-line-xy-"] > *::after {
+      border-inline-end-color: var(--color-blue-05);
+    }
+    .xxl\:grid-cols-1[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .xxl\:grid-cols-1[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+    }
+    .xxl\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1)::before {
+      inset-inline-end: 0;
+    }
+    .xxl\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1):nth-last-child(-n+1)::before {
+      border-bottom-width: 0;
+    }
+    .xxl\:grid-cols-1[class*="grid-line-x"] > *:nth-child(1n+1):nth-last-child(-n+1) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .xxl\:grid-cols-2[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .xxl\:grid-cols-2[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .xxl\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1)::before {
+      inset-inline-start: 0;
+    }
+    .xxl\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+2)::before {
+      inset-inline-end: 0;
+    }
+    .xxl\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+      border-bottom-width: 0;
+    }
+    .xxl\:grid-cols-2[class*="grid-line-x"] > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .xxl\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .xxl\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+2)::after {
+      border-inline-end-width: 0;
+    }
+    .xxl\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+2)::after {
+      top: 0;
+    }
+    .xxl\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+      bottom: 0;
+    }
+    .xxl\:grid-cols-2[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(2n+1):nth-last-child(-n+2) ~ li::after {
+      bottom: 0;
+    }
+    .xxl\:grid-cols-3[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .xxl\:grid-cols-3[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .xxl\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1)::before {
+      inset-inline-start: 0;
+    }
+    .xxl\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+3)::before {
+      inset-inline-end: 0;
+    }
+    .xxl\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+      border-bottom-width: 0;
+    }
+    .xxl\:grid-cols-3[class*="grid-line-x"] > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .xxl\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .xxl\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+3)::after {
+      border-inline-end-width: 0;
+    }
+    .xxl\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+3)::after {
+      top: 0;
+    }
+    .xxl\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+      bottom: 0;
+    }
+    .xxl\:grid-cols-3[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(3n+1):nth-last-child(-n+3) ~ li::after {
+      bottom: 0;
+    }
+    .xxl\:grid-cols-4[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .xxl\:grid-cols-4[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .xxl\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1)::before {
+      inset-inline-start: 0;
+    }
+    .xxl\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+4)::before {
+      inset-inline-end: 0;
+    }
+    .xxl\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+      border-bottom-width: 0;
+    }
+    .xxl\:grid-cols-4[class*="grid-line-x"] > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .xxl\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .xxl\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+4)::after {
+      border-inline-end-width: 0;
+    }
+    .xxl\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+4)::after {
+      top: 0;
+    }
+    .xxl\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+      bottom: 0;
+    }
+    .xxl\:grid-cols-4[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(4n+1):nth-last-child(-n+4) ~ li::after {
+      bottom: 0;
+    }
+    .xxl\:grid-cols-5[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .xxl\:grid-cols-5[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .xxl\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1)::before {
+      inset-inline-start: 0;
+    }
+    .xxl\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+5)::before {
+      inset-inline-end: 0;
+    }
+    .xxl\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1):nth-last-child(-n+5)::before {
+      border-bottom-width: 0;
+    }
+    .xxl\:grid-cols-5[class*="grid-line-x"] > *:nth-child(5n+1):nth-last-child(-n+5) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .xxl\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .xxl\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+5)::after {
+      border-inline-end-width: 0;
+    }
+    .xxl\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+5)::after {
+      top: 0;
+    }
+    .xxl\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+1):nth-last-child(-n+5)::after {
+      bottom: 0;
+    }
+    .xxl\:grid-cols-5[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(5n+1):nth-last-child(-n+5) ~ li::after {
+      bottom: 0;
+    }
+    .xxl\:grid-cols-6[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .xxl\:grid-cols-6[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .xxl\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1)::before {
+      inset-inline-start: 0;
+    }
+    .xxl\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+6)::before {
+      inset-inline-end: 0;
+    }
+    .xxl\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1):nth-last-child(-n+6)::before {
+      border-bottom-width: 0;
+    }
+    .xxl\:grid-cols-6[class*="grid-line-x"] > *:nth-child(6n+1):nth-last-child(-n+6) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .xxl\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .xxl\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+6)::after {
+      border-inline-end-width: 0;
+    }
+    .xxl\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+6)::after {
+      top: 0;
+    }
+    .xxl\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+1):nth-last-child(-n+6)::after {
+      bottom: 0;
+    }
+    .xxl\:grid-cols-6[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(6n+1):nth-last-child(-n+6) ~ li::after {
+      bottom: 0;
+    }
+    .xxl\:grid-cols-7[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .xxl\:grid-cols-7[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .xxl\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1)::before {
+      inset-inline-start: 0;
+    }
+    .xxl\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+7)::before {
+      inset-inline-end: 0;
+    }
+    .xxl\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1):nth-last-child(-n+7)::before {
+      border-bottom-width: 0;
+    }
+    .xxl\:grid-cols-7[class*="grid-line-x"] > *:nth-child(7n+1):nth-last-child(-n+7) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .xxl\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .xxl\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+7)::after {
+      border-inline-end-width: 0;
+    }
+    .xxl\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+7)::after {
+      top: 0;
+    }
+    .xxl\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+1):nth-last-child(-n+7)::after {
+      bottom: 0;
+    }
+    .xxl\:grid-cols-7[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(7n+1):nth-last-child(-n+7) ~ li::after {
+      bottom: 0;
+    }
+    .xxl\:grid-cols-8[class*="grid-line-x"][class*="grid-line-x"] > *:nth-child(n)::before {
+      border-bottom-width: 1px;
+    }
+    .xxl\:grid-cols-8[class*="grid-line-xfull"] > *:nth-child(n)::before {
+      inset-inline-start: calc(var(--inner-gutter) / -2);
+      inset-inline-end: calc(var(--inner-gutter) / -2);
+    }
+    .xxl\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1)::before {
+      inset-inline-start: 0;
+    }
+    .xxl\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+8)::before {
+      inset-inline-end: 0;
+    }
+    .xxl\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1):nth-last-child(-n+8)::before {
+      border-bottom-width: 0;
+    }
+    .xxl\:grid-cols-8[class*="grid-line-x"] > *:nth-child(8n+1):nth-last-child(-n+8) ~ *::before {
+      border-bottom-width: 0;
+    }
+    .xxl\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(n)::after {
+      border-inline-end-width: 1px;
+    }
+    .xxl\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+8)::after {
+      border-inline-end-width: 0;
+    }
+    .xxl\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(-n+8)::after {
+      top: 0;
+    }
+    .xxl\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+1):nth-last-child(-n+8)::after {
+      bottom: 0;
+    }
+    .xxl\:grid-cols-8[class*="grid-line-y"][class*="grid-line-y"] > *:nth-child(8n+1):nth-last-child(-n+8) ~ li::after {
+      bottom: 0;
     }
   }
 }
