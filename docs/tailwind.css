@@ -5222,6 +5222,422 @@
     }
   }
 }
+@layer base {
+  [class*="keyline-"] {
+    position: relative;
+  }
+  [class*="keyline-"]::before {
+    content: attr(👻);
+    position: absolute;
+    z-index: 0;
+    inset-inline-start: calc(var(--inner-gutter) / -2 - 1px);
+    inset-inline-end: calc(var(--inner-gutter) / -2);
+    top: 0;
+    bottom: 0;
+    border: 1px solid transparent;
+    pointer-events: none;
+  }
+  [class*="keyline-0"]::before {
+    border-inline-end-color: transparent;
+    border-inline-start-color: transparent;
+  }
+  .keyline-l-primary::before {
+    border-inline-start-color: var(--color-black);
+  }
+  .keyline-l-secondary::before {
+    border-inline-start-color: var(--color-grey-15);
+  }
+  .keyline-l-tertiary::before {
+    border-inline-start-color: var(--color-grey-54);
+  }
+  .keyline-l-code-example-filename::before {
+    border-inline-start-color: var(--color-blue-05);
+  }
+  .keyline-l-0::before {
+    border-inline-start-color: transparent;
+  }
+  .keyline-0::before {
+    border-inline-start-color: transparent;
+  }
+  .keyline-r-primary::before {
+    border-inline-end-color: var(--color-black);
+  }
+  .keyline-r-secondary::before {
+    border-inline-end-color: var(--color-grey-15);
+  }
+  .keyline-r-tertiary::before {
+    border-inline-end-color: var(--color-grey-54);
+  }
+  .keyline-r-code-example-filename::before {
+    border-inline-end-color: var(--color-blue-05);
+  }
+  .keyline-r-0::before {
+    border-inline-end-color: transparent;
+  }
+  .keyline-0::before {
+    border-inline-end-color: transparent;
+  }
+  @media (width >= 0) {
+    .xs\:keyline-l-primary::before {
+      border-inline-start-color: var(--color-black);
+    }
+  }
+  @media (width >= 0) {
+    .xs\:keyline-l-secondary::before {
+      border-inline-start-color: var(--color-grey-15);
+    }
+  }
+  @media (width >= 0) {
+    .xs\:keyline-l-tertiary::before {
+      border-inline-start-color: var(--color-grey-54);
+    }
+  }
+  @media (width >= 0) {
+    .xs\:keyline-l-code-example-filename::before {
+      border-inline-start-color: var(--color-blue-05);
+    }
+  }
+  @media (width >= 0) {
+    .xs\:keyline-l-0::before {
+      border-inline-start-color: transparent;
+    }
+  }
+  @media (width >= 0) {
+    .xs\:keyline-0::before {
+      border-inline-start-color: transparent;
+    }
+  }
+  @media (width >= 0) {
+    .xs\:keyline-r-primary::before {
+      border-inline-end-color: var(--color-black);
+    }
+  }
+  @media (width >= 0) {
+    .xs\:keyline-r-secondary::before {
+      border-inline-end-color: var(--color-grey-15);
+    }
+  }
+  @media (width >= 0) {
+    .xs\:keyline-r-tertiary::before {
+      border-inline-end-color: var(--color-grey-54);
+    }
+  }
+  @media (width >= 0) {
+    .xs\:keyline-r-code-example-filename::before {
+      border-inline-end-color: var(--color-blue-05);
+    }
+  }
+  @media (width >= 0) {
+    .xs\:keyline-r-0::before {
+      border-inline-end-color: transparent;
+    }
+  }
+  @media (width >= 0) {
+    .xs\:keyline-0::before {
+      border-inline-end-color: transparent;
+    }
+  }
+  @media (width >= 544px) {
+    .sm\:keyline-l-primary::before {
+      border-inline-start-color: var(--color-black);
+    }
+  }
+  @media (width >= 544px) {
+    .sm\:keyline-l-secondary::before {
+      border-inline-start-color: var(--color-grey-15);
+    }
+  }
+  @media (width >= 544px) {
+    .sm\:keyline-l-tertiary::before {
+      border-inline-start-color: var(--color-grey-54);
+    }
+  }
+  @media (width >= 544px) {
+    .sm\:keyline-l-code-example-filename::before {
+      border-inline-start-color: var(--color-blue-05);
+    }
+  }
+  @media (width >= 544px) {
+    .sm\:keyline-l-0::before {
+      border-inline-start-color: transparent;
+    }
+  }
+  @media (width >= 544px) {
+    .sm\:keyline-0::before {
+      border-inline-start-color: transparent;
+    }
+  }
+  @media (width >= 544px) {
+    .sm\:keyline-r-primary::before {
+      border-inline-end-color: var(--color-black);
+    }
+  }
+  @media (width >= 544px) {
+    .sm\:keyline-r-secondary::before {
+      border-inline-end-color: var(--color-grey-15);
+    }
+  }
+  @media (width >= 544px) {
+    .sm\:keyline-r-tertiary::before {
+      border-inline-end-color: var(--color-grey-54);
+    }
+  }
+  @media (width >= 544px) {
+    .sm\:keyline-r-code-example-filename::before {
+      border-inline-end-color: var(--color-blue-05);
+    }
+  }
+  @media (width >= 544px) {
+    .sm\:keyline-r-0::before {
+      border-inline-end-color: transparent;
+    }
+  }
+  @media (width >= 544px) {
+    .sm\:keyline-0::before {
+      border-inline-end-color: transparent;
+    }
+  }
+  @media (width >= 650px) {
+    .md\:keyline-l-primary::before {
+      border-inline-start-color: var(--color-black);
+    }
+  }
+  @media (width >= 650px) {
+    .md\:keyline-l-secondary::before {
+      border-inline-start-color: var(--color-grey-15);
+    }
+  }
+  @media (width >= 650px) {
+    .md\:keyline-l-tertiary::before {
+      border-inline-start-color: var(--color-grey-54);
+    }
+  }
+  @media (width >= 650px) {
+    .md\:keyline-l-code-example-filename::before {
+      border-inline-start-color: var(--color-blue-05);
+    }
+  }
+  @media (width >= 650px) {
+    .md\:keyline-l-0::before {
+      border-inline-start-color: transparent;
+    }
+  }
+  @media (width >= 650px) {
+    .md\:keyline-0::before {
+      border-inline-start-color: transparent;
+    }
+  }
+  @media (width >= 650px) {
+    .md\:keyline-r-primary::before {
+      border-inline-end-color: var(--color-black);
+    }
+  }
+  @media (width >= 650px) {
+    .md\:keyline-r-secondary::before {
+      border-inline-end-color: var(--color-grey-15);
+    }
+  }
+  @media (width >= 650px) {
+    .md\:keyline-r-tertiary::before {
+      border-inline-end-color: var(--color-grey-54);
+    }
+  }
+  @media (width >= 650px) {
+    .md\:keyline-r-code-example-filename::before {
+      border-inline-end-color: var(--color-blue-05);
+    }
+  }
+  @media (width >= 650px) {
+    .md\:keyline-r-0::before {
+      border-inline-end-color: transparent;
+    }
+  }
+  @media (width >= 650px) {
+    .md\:keyline-0::before {
+      border-inline-end-color: transparent;
+    }
+  }
+  @media (width >= 990px) {
+    .lg\:keyline-l-primary::before {
+      border-inline-start-color: var(--color-black);
+    }
+  }
+  @media (width >= 990px) {
+    .lg\:keyline-l-secondary::before {
+      border-inline-start-color: var(--color-grey-15);
+    }
+  }
+  @media (width >= 990px) {
+    .lg\:keyline-l-tertiary::before {
+      border-inline-start-color: var(--color-grey-54);
+    }
+  }
+  @media (width >= 990px) {
+    .lg\:keyline-l-code-example-filename::before {
+      border-inline-start-color: var(--color-blue-05);
+    }
+  }
+  @media (width >= 990px) {
+    .lg\:keyline-l-0::before {
+      border-inline-start-color: transparent;
+    }
+  }
+  @media (width >= 990px) {
+    .lg\:keyline-0::before {
+      border-inline-start-color: transparent;
+    }
+  }
+  @media (width >= 990px) {
+    .lg\:keyline-r-primary::before {
+      border-inline-end-color: var(--color-black);
+    }
+  }
+  @media (width >= 990px) {
+    .lg\:keyline-r-secondary::before {
+      border-inline-end-color: var(--color-grey-15);
+    }
+  }
+  @media (width >= 990px) {
+    .lg\:keyline-r-tertiary::before {
+      border-inline-end-color: var(--color-grey-54);
+    }
+  }
+  @media (width >= 990px) {
+    .lg\:keyline-r-code-example-filename::before {
+      border-inline-end-color: var(--color-blue-05);
+    }
+  }
+  @media (width >= 990px) {
+    .lg\:keyline-r-0::before {
+      border-inline-end-color: transparent;
+    }
+  }
+  @media (width >= 990px) {
+    .lg\:keyline-0::before {
+      border-inline-end-color: transparent;
+    }
+  }
+  @media (width >= 1300px) {
+    .xl\:keyline-l-primary::before {
+      border-inline-start-color: var(--color-black);
+    }
+  }
+  @media (width >= 1300px) {
+    .xl\:keyline-l-secondary::before {
+      border-inline-start-color: var(--color-grey-15);
+    }
+  }
+  @media (width >= 1300px) {
+    .xl\:keyline-l-tertiary::before {
+      border-inline-start-color: var(--color-grey-54);
+    }
+  }
+  @media (width >= 1300px) {
+    .xl\:keyline-l-code-example-filename::before {
+      border-inline-start-color: var(--color-blue-05);
+    }
+  }
+  @media (width >= 1300px) {
+    .xl\:keyline-l-0::before {
+      border-inline-start-color: transparent;
+    }
+  }
+  @media (width >= 1300px) {
+    .xl\:keyline-0::before {
+      border-inline-start-color: transparent;
+    }
+  }
+  @media (width >= 1300px) {
+    .xl\:keyline-r-primary::before {
+      border-inline-end-color: var(--color-black);
+    }
+  }
+  @media (width >= 1300px) {
+    .xl\:keyline-r-secondary::before {
+      border-inline-end-color: var(--color-grey-15);
+    }
+  }
+  @media (width >= 1300px) {
+    .xl\:keyline-r-tertiary::before {
+      border-inline-end-color: var(--color-grey-54);
+    }
+  }
+  @media (width >= 1300px) {
+    .xl\:keyline-r-code-example-filename::before {
+      border-inline-end-color: var(--color-blue-05);
+    }
+  }
+  @media (width >= 1300px) {
+    .xl\:keyline-r-0::before {
+      border-inline-end-color: transparent;
+    }
+  }
+  @media (width >= 1300px) {
+    .xl\:keyline-0::before {
+      border-inline-end-color: transparent;
+    }
+  }
+  @media (width >= 1520px) {
+    .xxl\:keyline-l-primary::before {
+      border-inline-start-color: var(--color-black);
+    }
+  }
+  @media (width >= 1520px) {
+    .xxl\:keyline-l-secondary::before {
+      border-inline-start-color: var(--color-grey-15);
+    }
+  }
+  @media (width >= 1520px) {
+    .xxl\:keyline-l-tertiary::before {
+      border-inline-start-color: var(--color-grey-54);
+    }
+  }
+  @media (width >= 1520px) {
+    .xxl\:keyline-l-code-example-filename::before {
+      border-inline-start-color: var(--color-blue-05);
+    }
+  }
+  @media (width >= 1520px) {
+    .xxl\:keyline-l-0::before {
+      border-inline-start-color: transparent;
+    }
+  }
+  @media (width >= 1520px) {
+    .xxl\:keyline-0::before {
+      border-inline-start-color: transparent;
+    }
+  }
+  @media (width >= 1520px) {
+    .xxl\:keyline-r-primary::before {
+      border-inline-end-color: var(--color-black);
+    }
+  }
+  @media (width >= 1520px) {
+    .xxl\:keyline-r-secondary::before {
+      border-inline-end-color: var(--color-grey-15);
+    }
+  }
+  @media (width >= 1520px) {
+    .xxl\:keyline-r-tertiary::before {
+      border-inline-end-color: var(--color-grey-54);
+    }
+  }
+  @media (width >= 1520px) {
+    .xxl\:keyline-r-code-example-filename::before {
+      border-inline-end-color: var(--color-blue-05);
+    }
+  }
+  @media (width >= 1520px) {
+    .xxl\:keyline-r-0::before {
+      border-inline-end-color: transparent;
+    }
+  }
+  @media (width >= 1520px) {
+    .xxl\:keyline-0::before {
+      border-inline-end-color: transparent;
+    }
+  }
+}
 @keyframes spin {
   to {
     transform: rotate(360deg);

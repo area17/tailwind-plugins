@@ -1,4 +1,4 @@
-module.exports = function ({ addUtilities, theme, config }) {
+module.exports = function ({ addBase, theme, config }) {
   const breakpoints = theme('screens');
   const colors = theme('borderColor', theme('color', {}));
   const directions = { l: 'inline-start', r: 'inline-end' };
@@ -62,13 +62,13 @@ module.exports = function ({ addUtilities, theme, config }) {
 
   const bpStyles = Object.keys(breakpoints).map((bp) => {
     return {
-      [`@screen ${bp}`]: generateDirectionStyles(bp),
+      [`@media (width >= ${breakpoints[bp]})`]: generateDirectionStyles(bp),
     };
   });
 
   styles = styles.concat(directionStyles, bpStyles);
 
-  addUtilities(styles, {
+  addBase(styles, {
     respectPrefix: false,
   });
 };
