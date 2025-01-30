@@ -245,8 +245,6 @@ module.exports = function ({ matchComponents, addComponents, theme, prefix }) {
       const percent =
         Math.floor((splitFraction[0] / splitFraction[1]) * 100000) / 1000;
 
-      console.log('fraction', numeric, oneMinusNumeric);
-
       //let calc = `${percent}% - (var(--inner-gutter) * ${oneMinusNumeric})`;
       // adds `--cols-container` var to work within `cols-container` -- v5.0.0 deprecate to remove in v6.0.0
       let calc = `${percent}% - (var(--inner-gutter) * max(${oneMinusNumeric}, var(--cols-container, 0)))`;
