@@ -47,5 +47,5 @@ module.exports = function ({ matchUtilities, addUtilities, theme }) {
     {
       values: matchValues,
     },
-  )
+  );
 };
