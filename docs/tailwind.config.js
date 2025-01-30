@@ -14,6 +14,7 @@ const {
   keyline,
   backgroundFill,
   strokeFull,
+  underline,
 } = require('../index');
 
 // conf
@@ -35,6 +36,7 @@ module.exports = {
     keyline,
     backgroundFill,
     strokeFull,
+    underline,
   ],
   theme: {
     screens: feConfig.structure.breakpoints,

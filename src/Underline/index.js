@@ -1,4 +1,4 @@
-module.exports = function ({ addUtilities, theme, prefix, config }) {
+module.exports = function ({ addUtilities, matchUtilities, addBase, theme, prefix, config }) {
   const className = 'underline';
   const classNameFull = prefix(`.${className}`);
   const classNameNoDot = `${config('prefix')}${className}`;
@@ -15,11 +15,13 @@ module.exports = function ({ addUtilities, theme, prefix, config }) {
     border: theme('borderColor', {}),
   };
 
-  const styles = {
+  addBase({
     [`[class*=${classNameNoDot}-]`]: {
       'text-decoration-line': 'underline',
     },
-  };
+  });
+
+  const styles = {};
 
   decorationStyles.map((style) => {
     styles[`${classNameFull}-${style}`] = {
@@ -45,18 +47,25 @@ module.exports = function ({ addUtilities, theme, prefix, config }) {
     };
   }
 
-  styles[`${classNameFull}-offset-0`] = {
-    'text-underline-offset': `0`,
-  };
-
-  for (let i = 1; i < 21; i++) {
-    styles[`${classNameFull}-offset-${i}`] = {
-      'text-underline-offset': `${i / 20}em`,
-    };
-    styles[`.-${classNameNoDot}-offset-${i}`] = {
-      'text-underline-offset': `${i / -20}em`,
-    };
+  const offsets = {};
+  for (i = 1; i <= 21; i++) {
+    offsets[i] = `${i / 20}em`;
   }
+
+  matchUtilities(
+    {
+      //[`${classNameFull}-offset`]: (value) => {
+      [`underline-offset`]: (value) => {
+        return {
+          'text-underline-offset': value,
+        }
+      },
+    },
+    {
+      values: offsets,
+      supportsNegativeValues: true,
+    },
+  );
 
   Object.entries(colors).map((a) => {
     const [type, obj] = a;
