@@ -1,4 +1,4 @@
-module.exports = function ({ matchComponents, addBase, theme, prefix }) {
+module.exports = function ({ matchComponents, addComponents, theme, prefix }) {
   // docs: http://tailwind-plugins.dev.area17.com/Layout.html
 
   const e = (str) => {
@@ -26,7 +26,6 @@ module.exports = function ({ matchComponents, addBase, theme, prefix }) {
     return obj;
   };
   const values = valuesCalc();
-  let styles = {};
   // the classes we want to generate, along with some information to help fill out the CSS calc
   const classes = [
     /* width */
@@ -329,33 +328,26 @@ module.exports = function ({ matchComponents, addBase, theme, prefix }) {
 
   // fix nesting
   // nesting N cols wide columns needs an override to the --grid-columns to allow nesting of N cols wide columns
-  //
-  // ISSUE: this spams out every permutation of `w-cols-N > *` for every breakpoint - its not dynamic like the styling classes - `matchComponents` generates dynamically as the classes are needed. These extra classes should be picked up in CSS purging...
-  // TODO: find a way to not spam everything out
-  function fixNesting(cols, bp) {
-    let bpPrefix = bp ? `${bp}\\:` : '';
+  let styles = {};
+
+  function fixNesting(cols) {
     return {
-      [`.${bpPrefix}${prefix('w')}-cols-${cols} > *, ${bpPrefix}${prefix('.w')}-cols-vw-${cols} > *`]: {
-        '--container-grid-columns': `${cols}`,
+      [`.w-cols-${cols}`]: {
+        '& > *': {
+          '--container-grid-columns': `${cols}`,
+        },
+      },
+      [`.w-cols-vw-${cols}`]: {
+        '& > *': {
+          '--container-grid-columns': `${cols}`,
+        },
       },
     };
   }
 
-  Object.keys(breakpoints).forEach((bp) => {
-    if (bp === firstBp) {
-      for (let i = 1; i <= maxColAmount; i++) {
-        styles = {...styles, ...fixNesting(i)};
-      }
-    } else {
-      for (let i = 1; i <= maxColAmount; i++) {
-        styles[`@media (width >= ${breakpoints[bp]})`] = {
-          ...styles[`@media (width >= ${breakpoints[bp]})`], ...fixNesting(i, bp)
-        };
-      }
-    }
-  });
+  for (let i = 1; i <= maxColAmount; i++) {
+    styles = {...styles, ...fixNesting(i)};
+  }
 
-  addBase(styles, {
-    respectPrefix: false,
-  });
+  addComponents(styles);
 };
