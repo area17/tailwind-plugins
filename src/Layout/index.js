@@ -83,6 +83,7 @@ module.exports = function ({ matchComponents, addComponents, theme, prefix }) {
       name: 'ms',
       suffix: '-cols-no-gutter',
       attribute: 'margin-inline-start',
+      //accountForContainerMarginLeft: true,
       addGutter: false,
       allowsNegative: true,
     },
@@ -244,7 +245,11 @@ module.exports = function ({ matchComponents, addComponents, theme, prefix }) {
       const percent =
         Math.floor((splitFraction[0] / splitFraction[1]) * 100000) / 1000;
 
-      let calc = `${percent}% - (var(--inner-gutter) * ${oneMinusNumeric})`;
+      console.log('fraction', numeric, oneMinusNumeric);
+
+      //let calc = `${percent}% - (var(--inner-gutter) * ${oneMinusNumeric})`;
+      // adds `--cols-container` var to work within `cols-container` -- v5.0.0 deprecate to remove in v6.0.0
+      let calc = `${percent}% - (var(--inner-gutter) * max(${oneMinusNumeric}, var(--cols-container, 0)))`;
 
       if (type.addGutter) {
         calc = `((${calc}) + var(--inner-gutter))`;
@@ -259,7 +264,9 @@ module.exports = function ({ matchComponents, addComponents, theme, prefix }) {
       cols = parseInt(match[0], 10);
     }
 
-    let calc = `((${cols} / var(--container-grid-columns, var(--grid-columns))) * 100%) - (var(--inner-gutter) - (${cols} / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))`;
+    //let calc = `((${cols} / var(--container-grid-columns, var(--grid-columns))) * 100%) - (var(--inner-gutter) - (${cols} / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))`;
+    // adds `--cols-container` var to work within `cols-container` -- v5.0.0 deprecate to remove in v6.0.0
+    let calc = `((${cols} / var(--container-grid-columns, var(--grid-columns))) * (100% - (var(--inner-gutter) * var(--cols-container, 0)))) - (var(--inner-gutter) - (${cols} / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))`;
     let vwCalc = `((var(--container-width, 100vw - var(--scrollbar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns)))`;
 
     if (cols > 1) {
@@ -297,7 +304,14 @@ module.exports = function ({ matchComponents, addComponents, theme, prefix }) {
       type.negative = typeof(cols) === 'string' && cols.indexOf('calc') > -1;
 
       let attributes = {};
-      attributes[type.attribute] = `calc(${returnCalc(type, cols)})`;
+      if (typeof(type.attribute) === 'string') {
+        attributes[type.attribute] = `calc(${returnCalc(type, cols)})`;
+      }
+      if (typeof(type.attribute) === 'object' && Array.isArray(type.attribute)) {
+        type.attribute.forEach(attribute => {
+          attributes[attribute] = `calc(${returnCalc(type, cols)})`;
+        });
+      }
       return attributes;
     };
 
@@ -309,20 +323,10 @@ module.exports = function ({ matchComponents, addComponents, theme, prefix }) {
 
   classes.forEach(type => {
     ['calc', 'vwCalc'].forEach(calcType => {
-      if (typeof(type.attribute) === 'string') {
-        add({
-          ...type,
-          calcType: calcType,
-        });
-      } else {
-        type.attribute.forEach(attribute => {
-          add({
-            ...type,
-            attribute: attribute,
-            calcType: calcType,
-          });
-        });
-      }
+      add({
+        ...type,
+        calcType: calcType,
+      });
     });
   });
 
@@ -335,11 +339,13 @@ module.exports = function ({ matchComponents, addComponents, theme, prefix }) {
       [`.w-cols-${cols}`]: {
         '& > *': {
           '--container-grid-columns': `${cols}`,
+          '--cols-container': 0,
         },
       },
       [`.w-cols-vw-${cols}`]: {
         '& > *': {
           '--container-grid-columns': `${cols}`,
+          '--cols-container': 0,
         },
       },
     };
@@ -347,6 +353,24 @@ module.exports = function ({ matchComponents, addComponents, theme, prefix }) {
 
   for (let i = 1; i <= maxColAmount; i++) {
     styles = {...styles, ...fixNesting(i)};
+  }
+
+
+  // add .cols-container
+  styles['.cols-container'] = {
+    display: 'flex',
+    'flex-flow': 'row wrap',
+    'margin-left': 'calc(var(--inner-gutter) * -1)',
+    '& > [class*="-cols"]': {
+      '--cols-container': 1,
+      'margin-left': 'var(--inner-gutter)',
+    },
+    '& > .ml-0': {
+      'margin-left': 0,
+    },
+    '& > .ms-0': {
+      'margin-left': 0,
+    },
   }
 
   addComponents(styles);

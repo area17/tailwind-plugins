@@ -32,8 +32,8 @@ title: Layout
       </ul>
     </li>
     <li class="mt-20">
-      <strong><a href="#flexed">Flex based grid</a> - removed in <code>v5.0.0</code></strong>
-      <ul class="opacity-25 pointer-events-none">
+      <strong><a href="#flexed">Flex based grid</a> - deprecated in <code>v5.0.0</code></strong>
+      <ul>
         <li>
           <code>.cols-container</code> makes a container for columns,
           <code>flex: row wrap</code> with a negative inner gutter
@@ -620,14 +620,6 @@ module.exports = {
 </div>
 
 <div class="show-grid">
-  <div class="w-cols-8 h-120 bg-column mt-20 py-20">
-    <div class="w-cols-6 h-80 bg-column-alt py-20">
-      <div class="w-cols-4 h-40 bg-column">
-        w-cols-4 inside w-cols-6 inside w-cols-8
-      </div>
-    </div>
-  </div>
-
   <div class="w-cols-10 xl:w-cols-8 h-120 bg-column mt-20 py-20">
     <div class="w-cols-6 h-80 bg-column-alt py-20">
       <div class="w-cols-4 h-40 bg-column">
@@ -642,7 +634,7 @@ module.exports = {
     <figcaption class="code-example-filename">document.html</figcaption>
     <pre
       class="code-example-code"
-    ><code class="language-html">&lt;div class="w-cols-8 h-120 bg-column mt-20 py-20">
+    ><code class="language-html">&lt;div class="w-cols-10 xl:w-cols-8 h-120 bg-column mt-20 py-20">
   &lt;div class="w-cols-6 h-80 bg-column-alt py-20">
     &lt;div class="w-cols-4 h-40 bg-column">8&lt;/div>
   &lt;/div>
@@ -776,17 +768,46 @@ module.exports = {
   <h3 id="flexed">Inside <code>.cols-container</code></h3>
 
   <p>
-    <strong>Note:</strong> removed in <code>v5.0.0</code>.
+    <strong>Note:</strong> deprecated in <code>v5.0.0</code>.
   </p>
 
-  <p class="opacity-25 pointer-events-none">
-    If you want to make layout grids, using flex as opposed to CSS Grid, you may
-    want to use <code>.cols-container</code>. This adds some auto gutter margins
-    to <code>.w-cols-N</code> children:
+  <p>
+    Previously we used <code>.cols-container</code>, which added a left gutter and some auto margins because support for <code>gap</code> with <code>flex</code> layouts was poor. But this isn't the case in 2024 and so we no longer recommend using <code>.cols-container</code>.
+  </p>
+
+  <p>
+    If you want to make layout grids, using flex as opposed to CSS Grid, use <code>flex gap-gutter</code>:
   </p>
 </div>
 
-<div class="show-grid opacity-25 pointer-events-none">
+<div class="show-grid">
+  <div class="flex gap-gutter mt-20">
+    <div class="w-cols-1 h-40 bg-column"></div>
+    <div class="w-cols-1 h-40 bg-column"></div>
+    <div class="w-cols-1 h-40 bg-column"></div>
+    <div class="w-cols-1 h-40 bg-column"></div>
+  </div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="flex gap-gutter">
+  &lt;div class="w-cols-1">&lt;/div>
+  &lt;div class="w-cols-1">&lt;/div>
+  &lt;div class="w-cols-1">&lt;/div>
+  &lt;div class="w-cols-1">&lt;/div>
+&lt;/div></code></pre>
+  </figure>
+
+  <p>
+    For legacy usage of <code>.cols-container</code>:
+  </p>
+</div>
+
+<div class="show-grid">
   <div class="cols-container mt-20">
     <div class="w-cols-1 h-40 bg-column"></div>
     <div class="w-cols-1 h-40 bg-column"></div>
@@ -795,7 +816,7 @@ module.exports = {
   </div>
 </div>
 
-<div class="copy opacity-25 pointer-events-none">
+<div class="copy">
   <figure class="code-example">
     <figcaption class="code-example-filename">document.html</figcaption>
     <pre
@@ -820,7 +841,7 @@ module.exports = {
   </p>
 </div>
 
-<div class="show-grid opacity-25 pointer-events-none">
+<div class="show-grid">
   <div class="cols-container mt-20">
     <div class="w-cols-1 h-40 bg-column"></div>
     <div class="w-cols-2 ml-0 h-40 bg-column-alt"></div>
@@ -828,7 +849,7 @@ module.exports = {
 </div>
 
 <div class="copy">
-  <figure class="code-example opacity-25 pointer-events-none">
+  <figure class="code-example">
     <figcaption class="code-example-filename">document.html</figcaption>
     <pre
       class="code-example-code"
@@ -838,7 +859,7 @@ module.exports = {
 &lt;/div></code></pre>
   </figure>
 
-  <p class="opacity-25 pointer-events-none">
+  <p>
     (<code>ml-0</code> is essentially Tailwind's <code>ml-0</code> but with a
     child relationship selector to add weight to the selector)
   </p>
@@ -921,25 +942,31 @@ module.exports = {
 &lt;/div></code></pre>
   </figure>
 
-  <p class="opacity-25 pointer-events-none">And, within <code>.cols-container</code>:</p>
+  <p>And, within <code>.cols-container</code>:</p>
 </div>
 
-<div class="show-grid opacity-25 pointer-events-none">
+<div class="show-grid">
   <div class="cols-container mt-20">
-    <div class="w-cols-1/2 ml-cols-1/4 h-40 bg-column">
-      w-cols-1/2 ml-cols-1/4
+    <div class="w-cols-1/2 h-40 bg-column">
+      w-cols-1/2
+    </div>
+    <div class="w-cols-1/4 h-40 bg-column">
+      w-cols-1/4
     </div>
   </div>
 </div>
 
 <div class="copy">
-  <figure class="code-example opacity-25 pointer-events-none">
+  <figure class="code-example">
     <figcaption class="code-example-filename">document.html</figcaption>
     <pre
       class="code-example-code"
     ><code class="language-html">&lt;div class="cols-container">
-  &lt;div class="w-cols-1/2 ml-cols-1/4">&lt;/div>
-&lt;/div></code></pre>
+  &lt;div class="w-cols-1/2">&lt;/div>
+&lt;/div>
+  &lt;div class="w-cols-1/4">&lt;/div>
+&lt;/div>
+</code></pre>
   </figure>
 
   <p>
@@ -1193,7 +1220,7 @@ module.exports = {
 </div>
 
 <div class="show-grid">
-  <div class="cols-container mt-20">
+  <div class="flex gap-gutter mt-20">
     <div class="w-cols-3 ml-cols-no-gutter-2 h-40 bg-column">
       w-cols-3 ml-cols-no-gutter-2
     </div>
@@ -1205,7 +1232,7 @@ module.exports = {
     <figcaption class="code-example-filename">document.html</figcaption>
     <pre
       class="code-example-code"
-    ><code class="language-html">&lt;div class="cols-container">
+    ><code class="language-html">&lt;div class="flex gap-gutter">
   &lt;div class="w-cols-3 ml-cols-no-gutter-2">&lt;/div>
 &lt;/div></code></pre>
   </figure>
