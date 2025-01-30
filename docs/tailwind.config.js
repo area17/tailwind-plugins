@@ -17,6 +17,8 @@ const {
   underline,
   fullBleedScroller,
   scrollbar,
+  pseudoElements,
+  interactionMediaQueries,
 } = require('../index');
 
 // conf
@@ -41,6 +43,8 @@ module.exports = {
     underline,
     fullBleedScroller,
     scrollbar,
+    pseudoElements,
+    interactionMediaQueries,
   ],
   theme: {
     screens: feConfig.structure.breakpoints,

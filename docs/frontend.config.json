@@ -104,7 +104,8 @@
       "accent": "blue-03",
       "code": "black",
       "code-example": "grey-3",
-      "code-example-filename": "blue-05"
+      "code-example-filename": "blue-05",
+      "error": "red-01"
     },
     "background": {
       "primary": "white",

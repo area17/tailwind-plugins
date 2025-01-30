@@ -1136,11 +1136,11 @@
   .w-40 {
     width: calc(var(--spacing) * 40);
   }
+  .w-56 {
+    width: calc(var(--spacing) * 56);
+  }
   .w-64 {
     width: calc(var(--spacing) * 64);
-  }
-  .w-68 {
-    width: calc(var(--spacing) * 68);
   }
   .w-400 {
     width: calc(var(--spacing) * 400);
@@ -1154,11 +1154,14 @@
   .w-52 {
     width: calc(var(--spacing) * 52);
   }
-  .w-56 {
-    width: calc(var(--spacing) * 56);
-  }
   .w-60 {
     width: calc(var(--spacing) * 60);
+  }
+  .w-600 {
+    width: calc(var(--spacing) * 600);
+  }
+  .w-68 {
+    width: calc(var(--spacing) * 68);
   }
   .w-72 {
     width: calc(var(--spacing) * 72);
@@ -1180,9 +1183,6 @@
   }
   .w-96 {
     width: calc(var(--spacing) * 96);
-  }
-  .w-600 {
-    width: calc(var(--spacing) * 600);
   }
   .w-cols-1 {
     width: calc(((1 / var(--container-grid-columns, var(--grid-columns))) * (100% - (var(--inner-gutter) * var(--cols-container, 0)))) - (var(--inner-gutter) - (1 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
@@ -2447,6 +2447,36 @@
       --cols-container: 0;
     }
   }
+  .marker\:content-\[\'\'\] {
+    & *::marker {
+      --tw-content: '';
+      content: var(--tw-content);
+    }
+    &::marker {
+      --tw-content: '';
+      content: var(--tw-content);
+    }
+  }
+  .marker\:content-\[\'\+\'\] {
+    & *::marker {
+      --tw-content: '+';
+      content: var(--tw-content);
+    }
+    &::marker {
+      --tw-content: '+';
+      content: var(--tw-content);
+    }
+  }
+  .marker\:content-\[\'⛄️\'\] {
+    & *::marker {
+      --tw-content: '⛄️';
+      content: var(--tw-content);
+    }
+    &::marker {
+      --tw-content: '⛄️';
+      content: var(--tw-content);
+    }
+  }
   .hover\:underline-border-primary {
     &:hover {
       @media (hover: hover) {
@@ -2893,6 +2923,11 @@
         --container-grid-columns: 6;
         --cols-container: 0;
       }
+    }
+  }
+  .hover-hover\:bg-column-alt {
+    @media (hover: hover) {
+      background-color: var(--color-blue-04);
     }
   }
 }
@@ -6326,6 +6361,6 @@
 }
 @property --tw-content {
   syntax: "*";
-  initial-value: "";
   inherits: false;
+  initial-value: "";
 }
