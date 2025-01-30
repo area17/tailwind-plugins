@@ -304,6 +304,41 @@
       );
     pointer-events: none;
   }
+  .stroke-full-top {
+    --stroke-full-thickness: 0.0625em;
+    --stroke-full-style: solid;
+    --stroke-full-color: inherit;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset-inline-start: 50%;
+      top: 0;
+      bottom: 100%;
+      width: 100vw;
+      margin-inline-start: -50vw;
+      pointer-events: none;
+      border-bottom: var(--stroke-full-thickness, 0.0625em) var(--stroke-full-style, solid) var(--stroke-full-color, inherit);
+    }
+  }
+  .stroke-full-bottom {
+    --stroke-full-thickness: 0.0625em;
+    --stroke-full-style: solid;
+    --stroke-full-color: inherit;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset-inline-start: 50%;
+      top: 100%;
+      width: 100vw;
+      margin-inline-start: -50vw;
+      pointer-events: none;
+      border-top: var(--stroke-full-thickness, 0.0625em) var(--stroke-full-style, solid) var(--stroke-full-color, inherit);
+    }
+  }
   .pointer-events-none {
     pointer-events: none;
   }
@@ -767,12 +802,6 @@
   .ml-auto {
     margin-left: auto;
   }
-  .ml-cols-1 {
-    margin-left: calc(((((1 / var(--container-grid-columns, var(--grid-columns))) * (100% - (var(--inner-gutter) * var(--cols-container, 0)))) - (var(--inner-gutter) - (1 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + var(--inner-gutter)));
-  }
-  .ml-cols-1\/4 {
-    margin-left: calc(((25% - (var(--inner-gutter) * max(0.75, var(--cols-container, 0)))) + var(--inner-gutter)));
-  }
   .ml-cols-2 {
     margin-left: calc(((((2 / var(--container-grid-columns, var(--grid-columns))) * (100% - (var(--inner-gutter) * var(--cols-container, 0)))) - (var(--inner-gutter) - (2 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + var(--inner-gutter)));
   }
@@ -979,8 +1008,23 @@
   .w-10 {
     width: calc(var(--spacing) * 10);
   }
-  .w-68 {
-    width: calc(var(--spacing) * 68);
+  .w-40 {
+    width: calc(var(--spacing) * 40);
+  }
+  .w-44 {
+    width: calc(var(--spacing) * 44);
+  }
+  .w-48 {
+    width: calc(var(--spacing) * 48);
+  }
+  .w-52 {
+    width: calc(var(--spacing) * 52);
+  }
+  .w-56 {
+    width: calc(var(--spacing) * 56);
+  }
+  .w-60 {
+    width: calc(var(--spacing) * 60);
   }
   .w-72 {
     width: calc(var(--spacing) * 72);
@@ -991,17 +1035,11 @@
   .w-80 {
     width: calc(var(--spacing) * 80);
   }
-  .w-84 {
-    width: calc(var(--spacing) * 84);
-  }
   .w-88 {
     width: calc(var(--spacing) * 88);
   }
   .w-92 {
     width: calc(var(--spacing) * 92);
-  }
-  .w-96 {
-    width: calc(var(--spacing) * 96);
   }
   .w-100 {
     width: calc(var(--spacing) * 100);
@@ -1027,32 +1065,23 @@
   .w-36 {
     width: calc(var(--spacing) * 36);
   }
-  .w-40 {
-    width: calc(var(--spacing) * 40);
-  }
-  .w-52 {
-    width: calc(var(--spacing) * 52);
-  }
-  .w-56 {
-    width: calc(var(--spacing) * 56);
-  }
   .w-400 {
     width: calc(var(--spacing) * 400);
-  }
-  .w-44 {
-    width: calc(var(--spacing) * 44);
-  }
-  .w-48 {
-    width: calc(var(--spacing) * 48);
-  }
-  .w-60 {
-    width: calc(var(--spacing) * 60);
   }
   .w-600 {
     width: calc(var(--spacing) * 600);
   }
   .w-64 {
     width: calc(var(--spacing) * 64);
+  }
+  .w-68 {
+    width: calc(var(--spacing) * 68);
+  }
+  .w-84 {
+    width: calc(var(--spacing) * 84);
+  }
+  .w-96 {
+    width: calc(var(--spacing) * 96);
   }
   .w-cols-1 {
     width: calc(((1 / var(--container-grid-columns, var(--grid-columns))) * (100% - (var(--inner-gutter) * var(--cols-container, 0)))) - (var(--inner-gutter) - (1 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter))));
@@ -1881,6 +1910,30 @@
   .mt-\(--spacing-outer-1\) {
   }
   .p-\(--spacing-inner-1\) {
+  }
+  .stroke-full-2 {
+    --stroke-full-thickness: 2px;
+  }
+  .stroke-full-4 {
+    --stroke-full-thickness: 4px;
+  }
+  .stroke-full-10 {
+    --stroke-full-thickness: 10px;
+  }
+  .stroke-full-dashed {
+    --stroke-full-style: dashed;
+  }
+  .stroke-full-dotted {
+    --stroke-full-style: dotted;
+  }
+  .stroke-full-primary {
+    --stroke-full-color: var(--color-black);
+  }
+  .stroke-full-secondary {
+    --stroke-full-color: var(--color-grey-15);
+  }
+  .stroke-full-tertiary {
+    --stroke-full-color: var(--color-grey-54);
   }
   .w-cols-1 {
     & > * {

@@ -1,46 +1,55 @@
-module.exports = function ({ addBase, theme, prefix, config }) {
+module.exports = function ({ matchUtilities, addUtilities, theme, prefix, config }) {
   const className = prefix('.stroke-full');
   const prefixString = config('prefix');
   const borderColors = theme('borderColor', {});
-  const borderStyles = [
-    'none',
-    'hidden',
-    'dotted',
-    'dashed',
-    'solid',
-    'double',
-    'groove',
-    'ridge',
-    'inset',
-    'outset',
-  ];
-  const borderThicknesses = theme('spacing', {});
+  const borderStyles = {
+    'none': 'none',
+    'hidden': 'hidden',
+    'dotted': 'dotted',
+    'dashed': 'dashed',
+    'solid': 'solid',
+    'double': 'double',
+    'groove': 'groove',
+    'ridge': 'ridge',
+    'inset': 'inset',
+    'outset': 'outset',
+  };
+  const borderThicknesses = {};
+
+  for (i = 1; i <= 100; i++) {
+    borderThicknesses[i] = `${i}px`;
+  }
 
   const styles = {
-    [`[class*='${prefixString}stroke-full']`]: {
+    [`${className}-top, ${className}-bottom`]: {
       '--stroke-full-thickness': '0.0625em',
       '--stroke-full-style': 'solid',
       '--stroke-full-color': 'inherit',
       position: 'relative',
     },
-    [`[class*='${prefixString}stroke-full-']::after`]: {
+    [`${className}-top::after`]: {
       content: '""',
       position: 'absolute',
       'z-index': -1,
       'inset-inline-start': '50%',
       top: 0,
-      bottom: 0,
+      bottom: '100%',
       width: '100vw',
       'margin-inline-start': '-50vw',
       'pointer-events': 'none',
-    },
-    [`${className}-top::after`]: {
-      bottom: '100%',
       'border-bottom':
         'var(--stroke-full-thickness, 0.0625em) var(--stroke-full-style, solid) var(--stroke-full-color, inherit)',
     },
     [`${className}-bottom::after`]: {
+      content: '""',
+      position: 'absolute',
+      'z-index': -1,
+      'inset-inline-start': '50%',
+      top: 0,
       top: '100%',
+      width: '100vw',
+      'margin-inline-start': '-50vw',
+      'pointer-events': 'none',
       'border-top':
         'var(--stroke-full-thickness, 0.0625em) var(--stroke-full-style, solid) var(--stroke-full-color, inherit)',
     },
@@ -49,25 +58,47 @@ module.exports = function ({ addBase, theme, prefix, config }) {
     },
   };
 
-  Object.entries(borderColors).map((borderColor) => {
-    const [name, color] = borderColor;
-    styles[`${className}-${name}`] = {
-      '--stroke-full-color': color,
-    };
-  });
+  addUtilities(styles);
 
-  borderStyles.forEach((style) => {
-    styles[`${className}-${style}`] = {
-      '--stroke-full-style': style,
-    };
-  });
+  matchUtilities(
+    {
+      'stroke-full': (value) => {
+        console.log('stroke-full:color', value);
+        return {
+          '--stroke-full-color': value,
+        }
+      },
+    },
+    {
+      values: borderColors,
+    },
+  );
 
-  Object.entries(borderThicknesses).map((thicknesses) => {
-    const [name, weight] = thicknesses;
-    styles[`${className}-${name}`] = {
-      '--stroke-full-thickness': weight,
-    };
-  });
+  matchUtilities(
+    {
+      'stroke-full': (value) => {
+        console.log('stroke-full:style', value);
+        return {
+          '--stroke-full-style': value,
+        }
+      },
+    },
+    {
+      values: borderStyles,
+    },
+  );
 
-  addBase(styles);
+  matchUtilities(
+    {
+      'stroke-full': (value) => {
+        console.log('stroke-full:thickness', value);
+        return {
+          '--stroke-full-thickness': value,
+        }
+      },
+    },
+    {
+      values: borderThicknesses,
+    },
+  );
 };
