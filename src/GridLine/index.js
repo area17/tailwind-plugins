@@ -10,6 +10,8 @@ module.exports = function ({ addBase, theme, config }) {
   const regEx = new RegExp('::BP::', 'ig');
   let stylesToReturn = {};
 
+  // TODO: refactor to use `addUtilities` (see BackgroundFill/index.js)
+
   // set base
   const styles = [
     {
@@ -286,14 +288,7 @@ module.exports = function ({ addBase, theme, config }) {
         }
       });
     } else {
-      //stylesToReturn[`@screen ${bp}`] = stylesToReturn[`@screen ${bp}`] || {};
-      //let mq = stylesToReturn[`@screen ${bp}`];
-
-      stylesToReturn[`@media (width >= ${breakpoints[bp]})`] = stylesToReturn[`@media (width >= ${breakpoints[bp]})`] || {
-        'mike': {
-          'width': 'auto',
-        }
-      };
+      stylesToReturn[`@media (width >= ${breakpoints[bp]})`] = stylesToReturn[`@media (width >= ${breakpoints[bp]})`] || {};
       let mq = stylesToReturn[`@media (width >= ${breakpoints[bp]})`];
 
       styles.forEach((style) => {
