@@ -63,7 +63,6 @@ module.exports = function ({ matchUtilities, addUtilities, theme, prefix, config
   matchUtilities(
     {
       'stroke-full': (value) => {
-        console.log('stroke-full:color', value);
         return {
           '--stroke-full-color': value,
         }
@@ -77,7 +76,6 @@ module.exports = function ({ matchUtilities, addUtilities, theme, prefix, config
   matchUtilities(
     {
       'stroke-full': (value) => {
-        console.log('stroke-full:style', value);
         return {
           '--stroke-full-style': value,
         }
@@ -91,7 +89,6 @@ module.exports = function ({ matchUtilities, addUtilities, theme, prefix, config
   matchUtilities(
     {
       'stroke-full': (value) => {
-        console.log('stroke-full:thickness', value);
         return {
           '--stroke-full-thickness': value,
         }
