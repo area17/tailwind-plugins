@@ -19,6 +19,7 @@ const {
   scrollbar,
   pseudoElements,
   interactionMediaQueries,
+  ratioBox,
 } = require('../index');
 
 // conf
@@ -45,6 +46,7 @@ module.exports = {
     scrollbar,
     pseudoElements,
     interactionMediaQueries,
+    ratioBox,
   ],
   theme: {
     screens: feConfig.structure.breakpoints,
