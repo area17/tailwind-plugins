@@ -23,13 +23,44 @@ title: Tailwind Setup
     this page documents the config files used for this site.
   </p>
 
-  <h2>tailwind.config.js</h2>
+  <h2><code>v.5</code> tailwind.config.js and input.css</h2>
 
   <figure class="code-example">
     <figcaption class="code-example-filename">tailwind.config.js</figcaption>
     <pre
       class="code-example-code"
     ><code class="language-javascript">{% include_relative tailwind.config.js %}</code></pre>
+  </figure>
+
+  <p>And then input this tailwind.config.js and configure the Tailwind theme in CSS:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">input.css</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-css">@config "./tailwind.config.js";
+@import "tailwindcss";
+
+@theme {
+  --container-*: initial;
+  --breakpoint-*: initial;
+  --color-*: initial;
+  --font-*: initial;
+  --text-*: initial;
+  --tracking-*: initial;
+  --leading-*: initial;
+  --spacing: 1px;
+}</code></pre>
+  </figure>
+
+
+  <h2><code>>v.5</code> tailwind.config.js</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">{% include_relative v3_tailwind.config.js %}</code></pre>
   </figure>
 
   <p>
