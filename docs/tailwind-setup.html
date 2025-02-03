@@ -4,7 +4,7 @@ title: Tailwind Setup
 
 {% include_relative includes/_header.html %}
 
-<div class="copy">
+<div class="asvntntw:copy">
   <p>
     Our general Tailwind setup involves a <code>frontend.config.json</code>, <code>tailwind.config.js</code> and an <code>input.css</code> file.
   </p>
@@ -14,7 +14,7 @@ title: Tailwind Setup
     Tailwind config itself from front end site data. This JSON file is often
     read by a project's Webpack set up, a project's JavaScript and a project's
     CMS. This set up is, of course, not mandatory to use these plugins, but they
-    may still prove inspiration for your Tailwind set up all the same.
+    may still prove inspiasvntntw:ration for your Tailwind set up all the same.
   </p>
 
   <p>
@@ -32,17 +32,17 @@ title: Tailwind Setup
 
   <h2 id="config">frontend.config.json</h2>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">frontend.config.json</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">frontend.config.json</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-json">{% include_relative frontend.config.json %}</code></pre>
   </figure>
 
   <ul>
     <li>
       <code>structure</code> - here we describe the main layout of the site, its
-      grid and composition, from these <code>:root</code> variables will be made
+      asvntntw:grid and composition, from these <code>:root</code> variables will be made
       <ul>
         <li><code>breakpoints</code> - where each of our breakpoints starts</li>
         <li>
@@ -62,18 +62,18 @@ title: Tailwind Setup
       </ul>
     </li>
     <li>
-      <code>ratios</code> - which ratios should be generated for ratio boxes
+      <code>asvntntw:ratios</code> - which asvntntw:ratios should be generated for asvntntw:ratio boxes
     </li>
     <li>
       <code>spacing</code> - define the spacing values for use in Tailwind
-      spacing classes like <code>h-20</code> and <code>mx-40</code>
+      spacing classes like <code>asvntntw:h-20</code> and <code>asvntntw:mx-40</code>
       <ul>
         <li>
           <code>tokens</code> - people rarely think in <code>rems</code>,
           they're abstract but as experienced screen developers we've been
           talking about pixels for years - we rename the spacing tokens to pixel
           values and use a function to convert them to <code>rems</code> and so
-          <code>mt-16</code> will give you a margin top of
+          <code>asvntntw:mt-16</code> will give you a margin top of
           <code>16px</code> (which in the output CSS will be <code>1rem</code>)
           <br> <strong>Note:</strong> not required for Tailwind 4
         </li>
@@ -95,7 +95,7 @@ title: Tailwind Setup
         <li>
           <code>borderColor</code> - apply colour tokens (or arbitrary colours)
           to human readable systematised named classes, eg:
-          <code>border-primary</code> for your primary border, might map to
+          <code>asvntntw:border-primary</code> for your primary border, might map to
           <code>primary: grey-5</code>, from these <code>:root</code> variables
           will be made
         </li>
@@ -120,19 +120,19 @@ title: Tailwind Setup
 
   <h2 id="tailwind-4">Tailwind 4 tailwind.config.js and input.css</h2>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">{% include_relative tailwind.config.js %}</code></pre>
   </figure>
 
   <p>And then input this tailwind.config.js and configure the Tailwind theme in CSS:</p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">input.css</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">input.css</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-css">@config "./tailwind.config.js";
 @import "tailwindcss";
 
@@ -154,17 +154,17 @@ title: Tailwind Setup
 
   <h2 id="tailwind-3">Tailwind 3 tailwind.config.js</h2>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">{% include_relative v4/tailwind.config.js %}</code></pre>
   </figure>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">input.css</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">input.css</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-css">@tailwind base;
 @tailwind components;
 @tailwind utilities;</code></pre>

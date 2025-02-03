@@ -4,13 +4,13 @@ title: Migrating
 
 {% include_relative includes/_header.html %}
 
-<div class="copy">
+<div class="asvntntw:copy">
   <h2>Migrating from A17 Tailwind Plugins 4 to A17 Tailwind Plugins 5</h2>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">terminal</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">terminal</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-bash">npm install @area17/a17-tailwind-plugins@latest</code></pre>
   </figure>
 
@@ -34,19 +34,19 @@ title: Migrating
 
   <p>In your <code>frontend.config.json</code> you may have have had:</p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">frontend.config.json</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">frontend.config.json</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">"font-family": "var(--sans)",</code></pre>
   </figure>
 
   <p>Font classes now have a prepended <code>font-</code>. So, you'll need to update to:</p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">frontend.config.json</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">frontend.config.json</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">"font-family": "var(--font-sans)",</code></pre>
   </figure>
 
@@ -62,10 +62,10 @@ title: Migrating
 
   <p>You no longer require the Spacing tokens plugin or setup:</p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">frontend.config.json</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">frontend.config.json</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">"tokens": {
     "scaler": 4,
     "arbitraries": {
@@ -77,10 +77,10 @@ title: Migrating
 
   <p>Instead you add:</p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">input.css</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">input.css</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-css">@theme {
   --spacing: 1px;
 }</code></pre>
@@ -88,17 +88,17 @@ title: Migrating
 
   <h3>Confirm updates to your tailwind.config.js, input.css and postcss.config.js</h3>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">{% include_relative tailwind.config.js %}</code></pre>
   </figure>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">input.css</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">input.css</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-css">@config "./tailwind.config.js";
 @import "tailwindcss";
 
@@ -118,10 +118,10 @@ title: Migrating
 }</code></pre>
   </figure>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">postcss.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">postcss.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">{% include_relative postcss.config.js %}</code></pre>
   </figure>
 </div>

@@ -4,7 +4,7 @@ title: ApplyColourVariables
 
 {% include_relative includes/_header.html %}
 
-<div class="copy">
+<div class="asvntntw:copy">
   <h2 id="description">Description</h2>
 
   <p>
@@ -14,8 +14,8 @@ title: ApplyColourVariables
   </p>
 
   <p>
-    The CSS output is standard <code>text-</code>/<code>bg-</code>/<code
-      >border-</code
+    The CSS output is standard <code>asvntntw:text-</code>/<code>asvntntw:bg-</code>/<code
+      >asvntntw:border-</code
     >
     classes, only the values are mapped to CSS variables.
   </p>
@@ -34,10 +34,10 @@ title: ApplyColourVariables
     The colour mappings are in abstract usage key to CSS variable name value:
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">backgroundColor: ApplyColorVariables(colors, {
     banner: "grey-90",
   }
@@ -46,19 +46,19 @@ title: ApplyColourVariables
 
   <p>Which would give you:</p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">app.css</figcaption>
-    <pre class="code-example-code"><code class="language-css">.bg-banner {
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">app.css</figcaption>
+    <pre class="asvntntw:code-example-code"><code class="language-css">.asvntntw:bg-banner {
   background-color: var(--grey-90);
 }</code></pre>
   </figure>
 
   <p>And so your full config would be something like:</p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">const { ColorTokens, ApplyColorVariables } = require('@area17/a17-tailwind-plugins');
 
 const colors = {
@@ -128,9 +128,9 @@ module.exports = {
     CSS colour value instead of a CSS variable name:
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
-    <pre class="code-example-code"><code class="language-javascript">...
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
+    <pre class="asvntntw:code-example-code"><code class="language-javascript">...
 backgroundColor: ApplyColorVariables(colors, {
     banner: "grey-90",
     specialCase: "#f00"
@@ -145,25 +145,25 @@ backgroundColor: ApplyColorVariables(colors, {
     following in our CSS:
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">app.css</figcaption>
-    <pre class="code-example-code"><code class="language-css">.text-primary {
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">app.css</figcaption>
+    <pre class="asvntntw:code-example-code"><code class="language-css">.asvntntw:text-primary {
   color: var(--grey-90);
 }
 
-.text-danger {
+.asvntntw:text-danger {
   color: var(--red-400);
 }
 
-.text-tag {
+.asvntntw:text-tag {
   color: var(--purple);
 }
 
-.text-custom {
+.asvntntw:text-custom {
   color: #00f;
 }
 
-.bg-column {
+.asvntntw:bg-column {
   background-color: var(--blue-05);
 }
 
@@ -183,7 +183,7 @@ etc.</code></pre>
     This could be considered step 2 of abstracting colour tokens from colour
     usage. The first step is generating colour variables with the
     <code>ColorTokens</code> plugin. Although you could name your text,
-    background and border colours anything, its <strong>important</strong> to
+    background and asvntntw:border colours anything, its <strong>important</strong> to
     name by abstract usage and not by the hue of the colour itself. It will be
     far easier to update these and expand these in the future if you do this.
   </p>

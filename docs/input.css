@@ -1,5 +1,5 @@
 @config "./tailwind.config.js";
-@import "tailwindcss";
+@import "tailwindcss" prefix(asvntntw);
 
 @theme {
   --container-*: initial;
@@ -17,187 +17,187 @@
 }
 
 @layer components {
-  .show-grid {
+  .asvntntw\:show-grid {
     --grid-column-bg: rgba(0, 0, 0, 0.05);
 
-    @apply relative;
+    @apply asvntntw:relative;
 
     &::after {
-      @apply dev-tools-grid absolute w-full content-[''];
+      @apply asvntntw:dev-tools-grid asvntntw:absolute asvntntw:w-full asvntntw:content-[''];
     }
   }
 
-  .blockquote {
-    @apply bg-quote py-20;
+  .asvntntw\:blockquote {
+    @apply asvntntw:bg-quote asvntntw:py-20;
   }
 
-  .blockquote blockquote {
-    @apply block px-20 md:px-40;
+  .asvntntw\:blockquote blockquote {
+    @apply asvntntw:block asvntntw:px-20 asvntntw:md:px-40;
   }
 
-  .blockquote blockquote p {
-    @apply italic;
+  .asvntntw\:blockquote blockquote p {
+    @apply asvntntw:italic;
   }
 
-  .blockquote blockquote p:first-child {
-    @apply mt-0 relative;
+  .asvntntw\:blockquote blockquote p:first-child {
+    @apply asvntntw:mt-0 asvntntw:relative;
   }
 
-  .blockquote blockquote p:first-child::before {
+  .asvntntw\:blockquote blockquote p:first-child::before {
     content: open-quote;
-    @apply absolute top-0 right-full -left-8;
+    @apply asvntntw:absolute asvntntw:top-0 asvntntw:right-full asvntntw:-left-8;
   }
 
-  .blockquote blockquote p:last-child::after {
+  .asvntntw\:blockquote blockquote p:last-child::after {
     content: close-quote;
   }
 
-  .blockquote figcaption {
-    @apply block mt-8 px-20 md:px-40;
+  .asvntntw\:blockquote figcaption {
+    @apply asvntntw:block asvntntw:mt-8 asvntntw:px-20 asvntntw:md:px-40;
   }
 
-  .blockquote cite {
-    @apply not-italic;
+  .asvntntw\:blockquote cite {
+    @apply asvntntw:not-italic;
   }
 
-  .blockquote cite::before {
+  .asvntntw\:blockquote cite::before {
     content: '—';
-    @apply mr-8;
+    @apply asvntntw:mr-8;
   }
 
 
-  .code-example {
-    @apply block bg-code-example;
+  .asvntntw\:code-example {
+    @apply asvntntw:block asvntntw:bg-code-example;
   }
 
-  .code-example .code-example-filename {
-    @apply inline-block f-ui text-inverse px-20 py-12 border-b text-code-example-filename border-code-example-filename;
+  .asvntntw\:code-example .asvntntw\:code-example-filename {
+    @apply asvntntw:inline-block asvntntw:f-ui asvntntw:text-inverse asvntntw:px-20 asvntntw:py-12 asvntntw:border-b asvntntw:text-code-example-filename asvntntw:border-code-example-filename;
     min-width: 160px;
   }
 
-  .code-example .code-example-code {
-    @apply block f-code bg-code-example text-code-example bg-code-example;
+  .asvntntw\:code-example .asvntntw\:code-example-code {
+    @apply asvntntw:block asvntntw:f-code asvntntw:bg-code-example asvntntw:text-code-example asvntntw:bg-code-example;
   }
 
-  .code-example .code-example-code code {
-    @apply bg-code-example max-h-600 overflow-auto;
-    scrollbar-color: var(--grey-54) var(--grey-90);
-    scrollbar-width: thin;
+  .asvntntw\:code-example .asvntntw\:code-example-code code {
+    @apply asvntntw:bg-code-example asvntntw:max-h-600 asvntntw:overflow-auto;
+    asvntntw:scrollbar-color: var(--grey-54) var(--grey-90);
+    asvntntw:scrollbar-width: thin;
   }
 
-  .code-example .code-example-code code::-webkit-scrollbar {
+  .asvntntw\:code-example .asvntntw\:code-example-code code::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
 
-  .code-example .code-example-code code::-webkit-scrollbar-track {
+  .asvntntw\:code-example .asvntntw\:code-example-code code::-webkit-asvntntw:scrollbar-track {
     background: var(--grey-90);
   }
 
-  .code-example .code-example-code code::-webkit-scrollbar-thumb {
+  .asvntntw\:code-example .asvntntw\:code-example-code code::-webkit-asvntntw:scrollbar-thumb {
     background: var(--grey-54);
     width: 8px;
     height: 8px;
   }
 
 
-  .copy h2 {
-    @apply f-h2;
+  .asvntntw\:copy h2 {
+    @apply asvntntw:f-h2;
   }
 
-  .copy h2:not(:first-child) {
-    @apply mt-56 pt-48 border-t border-secondary;
+  .asvntntw\:copy h2:not(:first-child) {
+    @apply asvntntw:mt-56 asvntntw:pt-48 asvntntw:border-t asvntntw:border-secondary;
   }
 
-  .copy h3 {
-    @apply f-h3 mt-40;
+  .asvntntw\:copy h3 {
+    @apply asvntntw:f-h3 asvntntw:mt-40;
   }
 
-  .copy h4 {
-    @apply f-h4 mt-40;
+  .asvntntw\:copy h4 {
+    @apply asvntntw:f-h4 asvntntw:mt-40;
   }
 
-  .copy p {
-    @apply f-body mt-20;
+  .asvntntw\:copy p {
+    @apply asvntntw:f-body asvntntw:mt-20;
   }
 
-  .copy p:first-child {
-    @apply mt-0;
+  .asvntntw\:copy p:first-child {
+    @apply asvntntw:mt-0;
   }
 
-  .copy ul {
-    @apply f-body mt-20 list-disc pl-16;
+  .asvntntw\:copy ul {
+    @apply asvntntw:f-body asvntntw:mt-20 asvntntw:list-disc asvntntw:pl-16;
   }
 
-  .copy ul ul {
-    @apply mt-0;
+  .asvntntw\:copy ul ul {
+    @apply asvntntw:mt-0;
   }
 
-  .copy ol {
-    @apply f-body mt-20 list-decimal pl-16;
+  .asvntntw\:copy ol {
+    @apply asvntntw:f-body asvntntw:mt-20 asvntntw:list-decimal asvntntw:pl-16;
   }
 
-  .copy .code-example {
-    @apply mt-20;
+  .asvntntw\:copy .asvntntw\:code-example {
+    @apply asvntntw:mt-20;
   }
 
-  .copy code:not([class]) {
-    @apply f-code text-code bg-code px-8 pt-4 pb-2;
+  .asvntntw\:copy code:not([class]) {
+    @apply asvntntw:f-code asvntntw:text-code asvntntw:bg-code asvntntw:px-8 asvntntw:pt-4 asvntntw:pb-2;
   }
 
-  .copy pre:not([class]) {
-    @apply block mt-20 f-code max-h-400 overflow-y-scroll;
+  .asvntntw\:copy pre:not([class]) {
+    @apply asvntntw:block asvntntw:mt-20 asvntntw:f-code asvntntw:max-h-400 asvntntw:overflow-y-scroll;
   }
 
-  .copy pre:not([class]) code:not([class]) {
-    @apply block p-8;
+  .asvntntw\:copy pre:not([class]) code:not([class]) {
+    @apply asvntntw:block asvntntw:p-8;
   }
 
-  .copy a {
-    @apply text-accent underline;
+  .asvntntw\:copy a {
+    @apply asvntntw:text-accent asvntntw:underline;
   }
 
-  .copy a:hover,
-  .copy a:focus {
-    @apply text-primary;
+  .asvntntw\:copy a:hover,
+  .asvntntw\:copy a:focus {
+    @apply asvntntw:text-primary;
   }
 
-  .copy hr {
-    @apply border-secondary my-40;
+  .asvntntw\:copy hr {
+    @apply asvntntw:border-secondary asvntntw:my-40;
   }
 
-  .copy .blockquote {
-    @apply mt-20;
+  .asvntntw\:copy .asvntntw\:blockquote {
+    @apply asvntntw:mt-20;
   }
 
   @media (min-width: 768px) {
-    .copy > *:not(.code-example, h2, hr) {
+    .asvntntw\:copy > *:not(.asvntntw\:code-example, h2, hr) {
       max-width: 80%;
     }
   }
 
   @media (min-width: 1024px) {
-    .copy > *:not(.code-example, h2, hr) {
+    .asvntntw\:copy > *:not(.asvntntw\:code-example, h2, hr) {
       max-width: 60%;
     }
   }
 
-  .copy table {
-    @apply mt-20;
+  .asvntntw\:copy table {
+    @apply asvntntw:mt-20;
   }
 
-  .copy th,
-  .copy td {
-    @apply px-10 pb-4 border-secondary border-l-1;
+  .asvntntw\:copy th,
+  .asvntntw\:copy td {
+    @apply asvntntw:px-10 asvntntw:pb-4 asvntntw:border-secondary asvntntw:border-l-1;
   }
 
-  .copy th:first-child,
-  .copy td:first-child {
-    @apply ps-0 border-l-0;
+  .asvntntw\:copy th:first-child,
+  .asvntntw\:copy td:first-child {
+    @apply asvntntw:ps-0 asvntntw:border-l-0;
   }
 
-  .copy th:last-child,
-  .copy td:last-child {
-    @apply pe-0;
+  .asvntntw\:copy th:last-child,
+  .asvntntw\:copy td:last-child {
+    @apply asvntntw:pe-0;
   }
 }

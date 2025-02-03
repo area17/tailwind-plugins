@@ -110,8 +110,8 @@
     },
     "background": {
       "primary": "grey-10",
-      "header": "grey-10",
-      "footer": "grey-10",
+      "header": "grey-30",
+      "footer": "grey-30",
       "banner": "grey-90",
       "accent": "blue-03",
       "column": "blue-05",

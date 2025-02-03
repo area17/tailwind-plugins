@@ -1,32 +1,32 @@
 ---
-title: GridLine
+title: gridLine
 ---
 
 {% include_relative includes/_header.html %}
 
-<div class="copy">
+<div class="asvntntw:copy">
   <h2 id="description">Description</h2>
 
   <p>
-    A series of classes to draw grid strokes inside the gutters of a grid. This
+    A series of classes to draw asvntntw:grid strokes inside the gutters of a asvntntw:grid. This
     is specifically intended to be used with Tailwind's
     <code>grid</code> classes and assumes your column gutters gutters are
-    <code>--inner-gutter</code> in size set with <code>gap-x-gutter</code> from
-    the GridGap plugin.
+    <code>--inner-gutter</code> in size set with <code>asvntntw:gap-x-gutter</code> from
+    the asvntntw:gridGap plugin.
   </p>
 
   <p>
     The classes automatically account for first row, first of row, last row and
-    last of row to only draw the internal grid lines and have no undesired lines
-    outside of the grid of items. They will do this for any amount of columns at
+    last of row to only draw the internal asvntntw:grid lines and have no undesired lines
+    outside of the asvntntw:grid of items. They will do this for any amount of columns at
     any breakpoint.
   </p>
 
   <p>
     The classes support up to the maximum amount of columns at each breakpoint;
-    so if your breakpoint has 12 design columns, you could have functioning grid
+    so if your breakpoint has 12 design columns, you could have functioning asvntntw:grid
     lines up to 12 columns. If you need more, you can specify more with a
-    <code>maxGridCols</code> object in your config.
+    <code>maxasvntntw:gridCols</code> object in your config.
   </p>
 
   <p>
@@ -36,47 +36,47 @@ title: GridLine
 
   <ul>
     <li>
-      <code>grid-line-x</code> - draws grid lines above each child, each is the
+      <code>grid-line-x</code> - draws asvntntw:grid lines above each child, each is the
       width of the child, except the first row
     </li>
     <li><code>grid-line-xfull</code> - essentially draws row lines</li>
     <li>
-      <code>grid-line-y</code> - draws grid lines to the left of each child,
+      <code>grid-line-y</code> - draws asvntntw:grid lines to the left of each child,
       each is the height of the child, except the first column
     </li>
     <li><code>grid-line-yfull</code> - essentially draws column lines</li>
     <li>
-      <code>grid-line-x-primary</code> - makes the horizontal grid lines the
-      primary border color
+      <code>grid-line-x-primary</code> - makes the horizontal asvntntw:grid lines the
+      primary asvntntw:border color
     </li>
     <li>
-      <code>grid-line-y-primary</code> - makes the vertical grid lines the
-      primary border color
+      <code>grid-line-y-primary</code> - makes the vertical asvntntw:grid lines the
+      primary asvntntw:border color
     </li>
     <li>
       <code>grid-line-xy-primary</code> - makes both the horizontal and vertical
-      grid lines the primary border color
+      asvntntw:grid lines the primary asvntntw:border color
     </li>
     <li>
-      <code>grid-line-x-0</code> - hides the horizontal grid lines, especially
-      useful when making responsive/adaptive grids
+      <code>grid-line-x-0</code> - hides the horizontal asvntntw:grid lines, especially
+      useful when making responsive/adaptive asvntntw:grids
     </li>
     <li>
-      <code>grid-line-y-0</code> - hides the vertical grid lines, especially
-      useful when making responsive/adaptive grids
+      <code>grid-line-y-0</code> - hides the vertical asvntntw:grid lines, especially
+      useful when making responsive/adaptive asvntntw:grids
     </li>
   </ul>
 
   <p>
-    The <code>GridLine</code> classes assume your grid gutters are equal to
-    <code>--inner-gutter</code>, which we would set using <code>GridGap</code> -
+    The <code>gridLine</code> classes assume your asvntntw:grid gutters are equal to
+    <code>--inner-gutter</code>, which we would set using <code>gridGap</code> -
     <code>grid-gap-gutter</code>. If you have taller row gaps, you need to set
-    some <code>GridLine</code> classes to shift the lines it draws:
+    some <code>gridLine</code> classes to shift the lines it draws:
   </p>
 
   <ul>
     <li>
-      For <code>gap-y-48</code> (standard Tailwind class) you would set
+      For <code>asvntntw:gap-y-48</code> (standard Tailwind class) you would set
       <code>grid-line-x-24</code> - to position the drawn line in the middle of
       the 48 gap. Of course you could set it higher or lower by changing the
       <code>-24</code>
@@ -84,37 +84,37 @@ title: GridLine
   </ul>
 
   <p>
-    The gridline classes also have responsive states using Tailwind responsive
+    The asvntntw:gridline classes also have responsive states using Tailwind responsive
     prefixes, eg:
   </p>
 
   <ul>
     <li>
-      <code>md:grid-line-x-primary</code> - switches primary border color
-      horizontal grid lines at <code>md</code> breakpoint
+      <code>asvntntw:md:grid-line-x-primary</code> - switches primary asvntntw:border color
+      horizontal asvntntw:grid lines at <code>md</code> breakpoint
     </li>
     <li>
-      <code>lg:grid-line-y-0</code> - removes the vertical grid lines at
+      <code>asvntntw:lg:grid-line-y-0</code> - removes the vertical asvntntw:grid lines at
       <code>lg</code> breakpoint
     </li>
   </ul>
 
   <p>
     <strong>NB:</strong> there is nothing stopping you using these classes with
-    a flex layout, its just more complex to set up grids like this with flex.
+    a asvntntw:flex layout, its just more complex to set up asvntntw:grids like this with asvntntw:flex.
   </p>
 
   <h2 id="setup">Setup</h2>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-javascript">const { Setup, GridGap, GridLine } = require('@area17/a17-tailwind-plugins');
+      class="asvntntw:code-example-code"
+    ><code class="language-javascript">const { Setup, asvntntw:gridGap, asvntntw:gridLine } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
   ...
-  plugins: [Setup, GridGap, GridLine],
+  plugins: [Setup, asvntntw:gridGap, asvntntw:gridLine],
   theme: {
     innerGutters: {
       xs: "10px",
@@ -137,7 +137,7 @@ module.exports = {
   <p>
     Requires <code>Setup</code> plugin with <code>theme.innerGutters</code> and
     <code>theme.borderColor</code> configured and also the
-    <code>GridGap</code> plugin.
+    <code>gridGap</code> plugin.
   </p>
 
   <p>
@@ -147,376 +147,376 @@ module.exports = {
 
   <h2 id="demo">Demo</h2>
 
-  <p>Row grid lines, <code>grid-line-x grid-line-x-primary</code>:</p>
+  <p>Row asvntntw:grid lines, <code>grid-line-x asvntntw:grid-line-x-primary</code>:</p>
 </div>
 
 <div
-  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-x-primary mt-20"
+  class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-x asvntntw:grid-line-x-primary asvntntw:mt-20"
 >
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-x-primary"></code></pre>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-x asvntntw:grid-line-x-primary"></code></pre>
   </figure>
 
-  <p>Full width row gridlines, <code>grid-line-x grid-line-x-primary</code>:</p>
+  <p>Full width row asvntntw:gridlines, <code>grid-line-x asvntntw:grid-line-x-primary</code>:</p>
 </div>
 
 <div
-  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-xfull grid-line-x-primary mt-20"
+  class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-xfull asvntntw:grid-line-x-primary asvntntw:mt-20"
 >
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-xfull grid-line-x-primary"></code></pre>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-xfull asvntntw:grid-line-x-primary"></code></pre>
   </figure>
 
-  <p>Column gridlines, <code>grid-line-y grid-line-y-primary</code>:</p>
+  <p>Column asvntntw:gridlines, <code>grid-line-y asvntntw:grid-line-y-primary</code>:</p>
 </div>
 
 <div
-  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-y grid-line-y-primary mt-20"
+  class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-y asvntntw:grid-line-y-primary asvntntw:mt-20"
 >
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-y grid-line-y-primary"></code></pre>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-y asvntntw:grid-line-y-primary"></code></pre>
   </figure>
 
   <p>
-    Full height column gridlines,
-    <code>grid-line-yfull grid-line-y-primary</code>:
+    Full height column asvntntw:gridlines,
+    <code>grid-line-yfull asvntntw:grid-line-y-primary</code>:
   </p>
 </div>
 
 <div
-  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-yfull grid-line-y-primary mt-20"
+  class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-yfull asvntntw:grid-line-y-primary asvntntw:mt-20"
 >
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-yfull grid-line-y-primary"></code></pre>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-yfull asvntntw:grid-line-y-primary"></code></pre>
   </figure>
 
-  <h3>Combining row and column grid lines</h3>
+  <h3>Combining row and column asvntntw:grid lines</h3>
 
-  <p><code>grid-line-x grid-line-y grid-line-xy-primary</code>:</p>
+  <p><code>grid-line-x asvntntw:grid-line-y asvntntw:grid-line-xy-primary</code>:</p>
 </div>
 
 <div
-  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-y grid-line-xy-primary mt-20"
+  class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-x asvntntw:grid-line-y asvntntw:grid-line-xy-primary asvntntw:mt-20"
 >
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-y grid-line-xy-primary"></code></pre>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-x asvntntw:grid-line-y asvntntw:grid-line-xy-primary"></code></pre>
   </figure>
 
   <p>
-    Setting full width and full height grid lines,
-    <code>grid-line-xfull grid-line-yfull grid-line-xy-primary</code>:
+    Setting full width and full height asvntntw:grid lines,
+    <code>grid-line-xfull asvntntw:grid-line-yfull asvntntw:grid-line-xy-primary</code>:
   </p>
 </div>
 
 <div
-  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-xfull grid-line-yfull grid-line-xy-primary mt-20"
+  class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-xfull asvntntw:grid-line-yfull asvntntw:grid-line-xy-primary asvntntw:mt-20"
 >
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-xfull grid-line-yfull grid-line-xy-primary"></code></pre>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-xfull asvntntw:grid-line-yfull asvntntw:grid-line-xy-primary"></code></pre>
   </figure>
 
   <p>
-    Full width row gridlines and item height column gridlines,
-    <code>grid-line-xfull grid-line-y grid-line-xy-primary</code>:
+    Full width row asvntntw:gridlines and item height column asvntntw:gridlines,
+    <code>grid-line-xfull asvntntw:grid-line-y asvntntw:grid-line-xy-primary</code>:
   </p>
 </div>
 
 <div
-  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-xfull grid-line-y grid-line-xy-primary mt-20"
+  class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-xfull asvntntw:grid-line-y asvntntw:grid-line-xy-primary asvntntw:mt-20"
 >
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-xfull grid-line-y grid-line-xy-primary"></code></pre>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-xfull asvntntw:grid-line-y asvntntw:grid-line-xy-primary"></code></pre>
   </figure>
 
   <p>
-    Item width row gridlines and full height column gridlines,
-    <code>grid-line-x grid-line-yfull grid-line-xy-primary</code>:
+    Item width row asvntntw:gridlines and full height column asvntntw:gridlines,
+    <code>grid-line-x asvntntw:grid-line-yfull asvntntw:grid-line-xy-primary</code>:
   </p>
 </div>
 
 <div
-  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-yfull grid-line-xy-primary mt-20"
+  class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-x asvntntw:grid-line-yfull asvntntw:grid-line-xy-primary asvntntw:mt-20"
 >
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-yfull grid-line-xy-primary"></code></pre>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-x asvntntw:grid-line-yfull asvntntw:grid-line-xy-primary"></code></pre>
   </figure>
 
   <h3>Taller row gaps</h3>
 
   <p>
     Maybe you require taller row gaps in comparison with our column gaps,
-    <code>gap-y-80 grid-line-x-40</code>:
+    <code>asvntntw:gap-y-80 asvntntw:grid-line-x-40</code>:
   </p>
 </div>
 
 <div
-  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-80 grid-line-x grid-line-x-40 grid-line-yfull grid-line-xy-primary mt-20"
+  class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-x-gutter asvntntw:gap-y-80 asvntntw:grid-line-x asvntntw:grid-line-x-40 asvntntw:grid-line-yfull asvntntw:grid-line-xy-primary asvntntw:mt-20"
 >
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-80 grid-line-x grid-line-x-40 grid-line-yfull grid-line-xy-primary"></code></pre>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-x-gutter asvntntw:gap-y-80 asvntntw:grid-line-x asvntntw:grid-line-x-40 asvntntw:grid-line-yfull asvntntw:grid-line-xy-primary"></code></pre>
   </figure>
 
-  <h3>Changing the colours of the gridlines</h3>
+  <h3>Changing the colours of the asvntntw:gridlines</h3>
 
-  <p>You set the colour of the gridlines with:</p>
+  <p>You set the colour of the asvntntw:gridlines with:</p>
 
   <ul>
     <li><code>grid-line-xy-COLORNAME</code></li>
   </ul>
 
-  <p>And you can set the grid line colours for each axis with:</p>
+  <p>And you can set the asvntntw:grid line colours for each axis with:</p>
 
   <ul>
     <li><code>grid-line-x-COLORNAME</code></li>
     <li><code>grid-line-y-COLORNAME</code></li>
   </ul>
 
-  <p>Where the colour name is any of your theme border colours.</p>
+  <p>Where the colour name is any of your theme asvntntw:border colours.</p>
 
   <p>
-    So, to make gridlines the secondary border colour, use
+    So, to make asvntntw:gridlines the secondary asvntntw:border colour, use
     <code>grid-line-xy-secondary</code>, to give
-    <code>grid-line-x grid-line-y grid-line-xy-secondary</code>:
+    <code>grid-line-x asvntntw:grid-line-y asvntntw:grid-line-xy-secondary</code>:
   </p>
 </div>
 
 <div
-  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-y grid-line-xy-secondary mt-20"
+  class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-x asvntntw:grid-line-y asvntntw:grid-line-xy-secondary asvntntw:mt-20"
 >
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x  grid-line-y grid-line-xy-secondary"></code></pre>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-x  asvntntw:grid-line-y asvntntw:grid-line-xy-secondary"></code></pre>
   </figure>
 
   <p>
-    And to make secondary border colour row grid lines
-    <code>grid-line-x-secondary</code> and tertiary border colour column grid
+    And to make secondary asvntntw:border colour row asvntntw:grid lines
+    <code>grid-line-x-secondary</code> and tertiary asvntntw:border colour column asvntntw:grid
     lines <code>grid-line-y-tertiary</code> - to give
     <code
-      >grid-line-x grid-line-x-secondary grid-line-y grid-line-y-tertiary</code
+      >grid-line-x asvntntw:grid-line-x-secondary asvntntw:grid-line-y asvntntw:grid-line-y-tertiary</code
     >:
   </p>
 </div>
 
 <div
-  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-x-secondary grid-line-y grid-line-y-tertiary mt-20"
+  class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-x asvntntw:grid-line-x-secondary asvntntw:grid-line-y asvntntw:grid-line-y-tertiary asvntntw:mt-20"
 >
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-x-secondary grid-line-y grid-line-y-tertiary"></code></pre>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-gutter asvntntw:grid-line-x asvntntw:grid-line-x-secondary asvntntw:grid-line-y asvntntw:grid-line-y-tertiary"></code></pre>
   </figure>
 
   <h3>Responsive</h3>
 
   <p>
     The following example is an overly complex arrangement, where we start with
-    a 2 column grid and full width row grid lines. At <code>md</code> those row
-    grid lines change colour and item height column grid lines appear. At
-    <code>lg</code> the row grid lines hide and the column grid lines change
-    colour. And then finally, at <code>xxl</code> the row grid lines return:
+    a 2 column asvntntw:grid and full width row asvntntw:grid lines. At <code>md</code> those row
+    asvntntw:grid lines change colour and item height column asvntntw:grid lines appear. At
+    <code>lg</code> the row asvntntw:grid lines hide and the column asvntntw:grid lines change
+    colour. And then finally, at <code>xxl</code> the row asvntntw:grid lines return:
   </p>
 </div>
 
 <div
-  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-48 md:gap-y-64 grid-line-x-24 md:grid-line-x-32 xl:grid-line-x-32 grid-line-xfull grid-line-x-primary grid-line-y-0 md:grid-line-y md:grid-line-y-primary md:grid-line-x-tertiary lg:grid-line-y-secondary lg:grid-line-x-0 xl:grid-line-x xl:grid-line-x-primary mt-20"
+  class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-x-gutter asvntntw:gap-y-48 asvntntw:md:gap-y-64 asvntntw:grid-line-x-24 asvntntw:md:grid-line-x-32 asvntntw:xl:grid-line-x-32 asvntntw:grid-line-xfull asvntntw:grid-line-x-primary asvntntw:grid-line-y-0 asvntntw:md:grid-line-y asvntntw:md:grid-line-y-primary asvntntw:md:grid-line-x-tertiary asvntntw:lg:grid-line-y-secondary asvntntw:lg:grid-line-x-0 asvntntw:xl:grid-line-x asvntntw:xl:grid-line-x-primary asvntntw:mt-20"
 >
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
-  <div class="h-40 bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+  <div class="asvntntw:h-40 asvntntw:bg-column"></div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
-    <pre class="code-example-code"><code class="language-html">&lt;div class="
-  grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4
-  gap-x-gutter
-  gap-y-48 md:gap-y-64 grid-line-x-24 md:grid-line-x-32 xl:grid-line-x-32
-  grid-line-xfull grid-line-x-primary
-  grid-line-y-0 md:grid-line-y md:grid-line-y-primary md:grid-line-x-tertiary
-  lg:grid-line-y-secondary lg:grid-line-x-0
-  xl:grid-line-x xl:grid-line-x-primary"></code></pre>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
+    <pre class="asvntntw:code-example-code"><code class="language-html">&lt;div class="
+  asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4
+  asvntntw:gap-x-gutter
+  asvntntw:gap-y-48 asvntntw:md:gap-y-64 asvntntw:grid-line-x-24 asvntntw:md:grid-line-x-32 asvntntw:xl:grid-line-x-32
+  asvntntw:grid-line-xfull asvntntw:grid-line-x-primary
+  asvntntw:grid-line-y-0 asvntntw:md:grid-line-y asvntntw:md:grid-line-y-primary asvntntw:md:grid-line-x-tertiary
+  asvntntw:lg:grid-line-y-secondary asvntntw:lg:grid-line-x-0
+  asvntntw:xl:grid-line-x asvntntw:xl:grid-line-x-primary"></code></pre>
   </figure>
 
   <p>
@@ -525,7 +525,7 @@ module.exports = {
     the CSS you'd understand why - we really need a native way of doing this in
     CSS. One "trick" used to make the above work was to set
     <code>grid-line-y-0</code> and then override it at <code>md</code> with
-    <code>md:grid-line-y</code>
+    <code>asvntntw:md:grid-line-y</code>
   </p>
 </div>
 

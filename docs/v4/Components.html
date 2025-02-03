@@ -4,7 +4,7 @@ title: Components
 
 {% include_relative includes/_header.html %}
 
-<div class="copy rich-text">
+<div class="asvntntw:copy ricasvntntw:h-text">
   <h2 id="description">Description</h2>
 
   <p>Added in <code>v3.2.0</code></p>
@@ -13,10 +13,10 @@ title: Components
 
   <h2 id="setup">Setup</h2>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">const { Components } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
@@ -24,22 +24,22 @@ module.exports = {
   plugins: [Components],
   theme: {
     components: {
-      ".rich-text": {
+      ".ricasvntntw:h-text": {
         selectors: {
-          h2: "f-h2 mt-40",
-          h3: "f-h3 mt-40",
-          h4: "f-h4 mt-40",
-          p: "f-body mt-20",
-          ul: "f-body mt-20 list-disc pl-16",
-          "ul ul": "mt-0",
-          code: "inline-block f-code text-code bg-code px-4 py-2 mt-20",
-          "* code": "inline-block mt-0",
-          pre: "block mt-20 f-code text-code bg-code p-8 max-h-400 overflow-y-scroll",
-          "code + pre": "mt-0",
-          a: "text-accent underline",
-          "a:hover": "text-primary",
-          "a:focus": "text-primary",
-          hr: "border-tertiary my-40"
+          h2: "asvntntw:f-h2 asvntntw:mt-40",
+          h3: "asvntntw:f-h3 asvntntw:mt-40",
+          h4: "asvntntw:f-h4 asvntntw:mt-40",
+          p: "asvntntw:f-body asvntntw:mt-20",
+          ul: "asvntntw:f-body asvntntw:mt-20 asvntntw:list-disc asvntntw:pl-16",
+          "ul ul": "asvntntw:mt-0",
+          code: "asvntntw:inline-block asvntntw:f-code asvntntw:text-code asvntntw:bg-code asvntntw:px-4 asvntntw:py-2 asvntntw:mt-20",
+          "* code": "asvntntw:inline-block asvntntw:mt-0",
+          pre: "asvntntw:block asvntntw:mt-20 asvntntw:f-code asvntntw:text-code asvntntw:bg-code asvntntw:p-8 asvntntw:max-h-400 asvntntw:overflow-y-scroll",
+          "code + pre": "asvntntw:mt-0",
+          a: "asvntntw:text-accent asvntntw:underline",
+          "a:hover": "asvntntw:text-primary",
+          "a:focus": "asvntntw:text-primary",
+          hr: "asvntntw:border-tertiary asvntntw:my-40"
         }
       },
     }
@@ -58,9 +58,9 @@ module.exports = {
     <code>breakpoints</code> and <code>variants</code> keys:
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
-    <pre class="code-example-code"><code class="language-javascript">selector: {
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
+    <pre class="asvntntw:code-example-code"><code class="language-javascript">selector: {
   apply: "",
   attributes: {},
   selectors: {},
@@ -79,15 +79,15 @@ module.exports = {
     Comma separated values and psuedo selectors will also be correctly parsed:
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">components: {
-  ".rich-text, .wysiwyg": {
+  ".ricasvntntw:h-text, .wysiwyg": {
     selectors: {
-      a: "text-accent underline",
-      "a:hover, a:focus": "text-primary"
+      a: "asvntntw:text-accent asvntntw:underline",
+      "a:hover, a:focus": "asvntntw:text-primary"
     }
   },
 }</code></pre>
@@ -97,17 +97,17 @@ module.exports = {
 
   <p>Using a config like:</p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">components: {
-  ".rich-text": {
+  ".ricasvntntw:h-text": {
     selectors: {
-      p: "f-body mt-20",
-      a: "text-accent underline",
-      "a:hover": "text-primary",
-      "a:focus": "text-primary",
+      p: "asvntntw:f-body asvntntw:mt-20",
+      a: "asvntntw:text-accent asvntntw:underline",
+      "a:hover": "asvntntw:text-primary",
+      "a:focus": "asvntntw:text-primary",
     }
   },
 }</code></pre>
@@ -115,9 +115,9 @@ module.exports = {
 
   <p>You would get an output like:</p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">app.css</figcaption>
-    <pre class="code-example-code"><code class="language-css">.rich-text p {
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">app.css</figcaption>
+    <pre class="asvntntw:code-example-code"><code class="language-css">.ricasvntntw:h-text p {
   margin-top: 1.25rem;
   font-family: var(--sans);
   font-size: 0.875rem;
@@ -127,45 +127,45 @@ module.exports = {
   --bold-weight: 600;
 }
 
-.rich-text p b, .rich-text p strong {
+.ricasvntntw:h-text p b, .ricasvntntw:h-text p strong {
   font-weight: var(--bold-weight);
   font-weight: var(--bold-weight);
 }
 
 @media (min-width: 650px) {
-  .rich-text p {
+  .ricasvntntw:h-text p {
     font-size: 1rem;
   }
 }
 
-.rich-text a {
+.ricasvntntw:h-text a {
   color: var(--blue-03);
-  text-decoration: underline;
+  asvntntw:text-decoasvntntw:ration: asvntntw:underline;
 }
 
-.rich-text a:hover {
+.ricasvntntw:h-text a:hover {
   color: var(--grey-90);
 }
 
-.rich-text a:focus {
+.ricasvntntw:h-text a:focus {
   color: var(--grey-90);
 }</code></pre>
   </figure>
 
   <p>You could also style that link like:</p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">components: {
-  ".rich-text": {
+  ".ricasvntntw:h-text": {
     selectors: {
-      p: "f-body mt-20",
+      p: "asvntntw:f-body asvntntw:mt-20",
       a: {
-        apply: "text-accent underline",
+        apply: "asvntntw:text-accent asvntntw:underline",
         "selectors": {
-          ":hover, :focus": "text-primary",
+          ":hover, :focus": "asvntntw:text-primary",
         }
       }
     }
@@ -175,13 +175,13 @@ module.exports = {
 
   <h3>More complex example:</h3>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">components: {
   ".btn": {
-    apply: "f-body flex justify-center items-center m-0 border-2 appearance-none",
+    apply: "asvntntw:f-body asvntntw:flex asvntntw:justify-center iteasvntntw:ms-center m-0 asvntntw:border-2 appearance-none",
     attributes: {
       "--padding-x": "16px",
       "--min-xy": "42px",
@@ -191,7 +191,7 @@ module.exports = {
       height: "var(--min-xy)",
       "padding-right": "var(--padding-x)",
       "padding-left": "var(--padding-x)",
-      "transition": "color 200ms ease-in-out, background-color 200ms ease-in-out, border 200ms ease-in-out"
+      "transition": "color 200ms ease-in-out, background-color 200ms ease-in-out, asvntntw:border 200ms ease-in-out"
     },
     breakpoints: {
       lg: {
@@ -206,13 +206,13 @@ module.exports = {
         apply: "cursor-pointer"
       },
       "svg": {
-        apply: "inline-block"
+        apply: "asvntntw:inline-block"
       }
     },
     "variants": {
       "primary": {
         attributes: {
-          "border-color": "var(--grey-90)",
+          "asvntntw:border-color": "var(--grey-90)",
           "background-color": "var(--grey-54)",
           color: "var(--white)"
         },
@@ -225,7 +225,7 @@ module.exports = {
           },
           ":focus, :active": {
             attributes: {
-              "border-color": "var(--blue-05)"
+              "asvntntw:border-color": "var(--blue-05)"
             }
           },
           ":focus[data-focus-method='key']": {
@@ -237,7 +237,7 @@ module.exports = {
       },
       "secondary": {
         attributes: {
-          "border-color": "var(--grey-90)",
+          "asvntntw:border-color": "var(--grey-90)",
           "background-color": "var(--white)",
           color: "var(--grey-90)"
         },
@@ -249,7 +249,7 @@ module.exports = {
           },
           ":focus, :active": {
             attributes: {
-              "border-color": "var(--blue-05)"
+              "asvntntw:border-color": "var(--blue-05)"
             }
           },
           ":focus[data-focus-method='key']": {
@@ -261,7 +261,7 @@ module.exports = {
       }
     }
   },
-  ".rich-text": {
+  ".ricasvntntw:h-text": {
     breakpoints: {
       md: {
         selectors: {
@@ -283,26 +283,26 @@ module.exports = {
       }
     },
     selectors: {
-      h1: "f-h1",
-      h2: "f-h2 mt-40",
-      h3: "f-h3 mt-40",
-      h4: "f-h4 mt-40",
-      p: "f-body mt-20",
-      ul": "f-body mt-20 list-disc pl-16",
-      "ul ul": "mt-0",
-      code: "inline-block f-code text-code bg-code px-4 py-2 mt-20",
-      "* code": "inline-block mt-0",
-      pre: "block mt-20 f-code text-code bg-code p-8 max-h-400 overflow-y-scroll",
-      "code + pre": "mt-0",
+      h1: "asvntntw:f-h1",
+      h2: "asvntntw:f-h2 asvntntw:mt-40",
+      h3: "asvntntw:f-h3 asvntntw:mt-40",
+      h4: "asvntntw:f-h4 asvntntw:mt-40",
+      p: "asvntntw:f-body asvntntw:mt-20",
+      ul": "asvntntw:f-body asvntntw:mt-20 asvntntw:list-disc asvntntw:pl-16",
+      "ul ul": "asvntntw:mt-0",
+      code: "asvntntw:inline-block asvntntw:f-code asvntntw:text-code asvntntw:bg-code asvntntw:px-4 asvntntw:py-2 asvntntw:mt-20",
+      "* code": "asvntntw:inline-block asvntntw:mt-0",
+      pre: "asvntntw:block asvntntw:mt-20 asvntntw:f-code asvntntw:text-code asvntntw:bg-code asvntntw:p-8 asvntntw:max-h-400 asvntntw:overflow-y-scroll",
+      "code + pre": "asvntntw:mt-0",
       a: {
-        apply: "text-accent underline",
+        apply: "asvntntw:text-accent asvntntw:underline",
         selectors: {
           ":hover, :focus": {
-            apply: "text-primary"
+            apply: "asvntntw:text-primary"
           }
         }
       },
-      hr: "border-tertiary my-40"
+      hr: "asvntntw:border-tertiary asvntntw:my-40"
     }
   }
 }</code></pre>

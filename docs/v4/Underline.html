@@ -1,19 +1,19 @@
 ---
-title: Underline
+title: underline
 ---
 
 {% include_relative includes/_header.html %}
 
-<div class="copy">
+<div class="asvntntw:copy">
   <h2 id="description">Description</h2>
 
   <p>Added in <code>v3.1.0</code></p>
 
-  <p>Creates a series of classes to style text underlines using modern CSS.</p>
+  <p>Creates a series of classes to style text asvntntw:underlines using modern CSS.</p>
 
   <p>
     <a href="#demo">Jump to the demos</a> to see each in action, or jump to a
-    specific underline class group:
+    specific asvntntw:underline class group:
   </p>
 
   <ul>
@@ -24,14 +24,14 @@ title: Underline
     <li><a href="#color">Color</a></li>
   </ul>
 
-  <h3>A note about Tailwind 3's native fancy underline styles</h3>
+  <h3>A note about Tailwind 3's native fancy asvntntw:underline styles</h3>
 
   <p>
     In Tailwind 3, Tailwind introduced "<a
-      href="https://tailwindcss.com/blog/tailwindcss-v3#fancy-underline-styles"
+      href="https://tailwindcss.com/blog/tailwindcss-v3#fancyasvntntw:-underlinederline-styles"
       target="_blank"
-      >fancy underline styles</a
-    >" to allow styling of text decoration underlines and you may choose to use
+      >fancy asvntntw:underline styles</a
+    >" to allow styling of text decoasvntntw:ration asvntntw:underlines and you may choose to use
     those instead.
   </p>
 
@@ -39,37 +39,37 @@ title: Underline
 
   <ul>
     <li>
-      this plugin allows you to set underline colours based off theme defined
-      text, border and background colours - which you may find more useful than
+      this plugin allows you to set asvntntw:underline colours based off theme defined
+      text, asvntntw:border and background colours - which you may find more useful than
       using Tailwind's colour names or hex values
     </li>
     <li>
       this plugin defines the offset with <code>em</code>s and not
-      <code>px</code> - so the apparent position of the underline is fluid with
-      the font size and not fixed. Essentially, if you wanted your underline to
+      <code>px</code> - so the apparent position of the asvntntw:underline is fluid with
+      the font size and not fixed. Essentially, if you wanted your asvntntw:underline to
       be level with the bottom of the descender on the letter "g" - if you set
       the position with pixels and change the font size at breakpoints, you'll
       need to set multiple pixel values. If you use <code>em</code>s, one value
       should see you good for all font sizes.
     </li>
     <li>
-      this plugin's classes are prefixed with <code>underline-</code> instead of
-      <code>decoration-</code>, both of which seem sensible, at any rate they
+      this plugin's classes are prefixed with <code>asvntntw:underline-</code> instead of
+      <code>decoasvntntw:ration-</code>, both of which seem sensible, at any rate they
       don't clash
     </li>
   </ul>
 
   <h2 id="setup">Setup</h2>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-javascript">const { Underline } = require('@area17/a17-tailwind-plugins');
+      class="asvntntw:code-example-code"
+    ><code class="language-javascript">const { asvntntw:underline } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
   ...
-  plugins: [Underline],
+  plugins: [asvntntw:underline],
   theme: {
     colors: {
       "grey-15": "#d9d9d9",
@@ -78,7 +78,7 @@ module.exports = {
       black: "#000",
       'blue-03': "#004F91"
     },
-    underlineColor: {
+    asvntntw:underlineColor: {
       primary: "#757575",
       secondary: "#004F91"
     },
@@ -109,79 +109,79 @@ module.exports = {
 
   <p>
     <strong>Note:</strong> <code>theme.colors</code> and
-    <code>theme.underlineColor</code> are only parsed by this plugin after
+    <code>theme.asvntntw:underlineColor</code> are only parsed by this plugin after
     version <code>3.5.1</code>.
   </p>
 
   <h2 id="output">Output</h2>
 
-  <p>A set up helper to make sure underline styles are applied:</p>
+  <p>A set up helper to make sure asvntntw:underline styles are applied:</p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">app.css</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">app.css</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-css">[class*=underline-] {
-  text-decoration-line: underline;
+      class="asvntntw:code-example-code"
+    ><code class="language-css">[class*=asvntntw:underline-] {
+  asvntntw:text-decoasvntntw:ration-line: asvntntw:underline;
 }</code></pre>
   </figure>
 
-  <p>A series of classes to give the underline a style:</p>
+  <p>A series of classes to give the asvntntw:underline a style:</p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">app.css</figcaption>
-    <pre class="code-example-code"><code class="language-css">.underline-solid {
-  text-decoration-style: solid;
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">app.css</figcaption>
+    <pre class="asvntntw:code-example-code"><code class="language-css">.asvntntw:underline-solid {
+  asvntntw:text-decoasvntntw:ration-style: solid;
 }
 
-.underline-dotted {
-  text-decoration-style: dotted;
+.asvntntw:underline-dotted {
+  asvntntw:text-decoasvntntw:ration-style: dotted;
 }
 
-.underline-double {
-  text-decoration-style: double;
+.asvntntw:underline-double {
+  asvntntw:text-decoasvntntw:ration-style: double;
 }
 
-.underline-dashed {
-  text-decoration-style: dashed;
+.asvntntw:underline-dashed {
+  asvntntw:text-decoasvntntw:ration-style: dashed;
 }
 
-.underline-wavy {
-  text-decoration-style: wavy;
+.asvntntw:underline-wavy {
+  asvntntw:text-decoasvntntw:ration-style: wavy;
 }</code></pre>
   </figure>
 
-  <p>A series of classes to define the underline skip behavior:</p>
+  <p>A series of classes to define the asvntntw:underline skip behavior:</p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">app.css</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">app.css</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-css">.underline-skip-none {
-  text-decoration-skip-ink: none;
+      class="asvntntw:code-example-code"
+    ><code class="language-css">.asvntntw:underline-skiasvntntw:p-none {
+  asvntntw:text-decoasvntntw:ration-skiasvntntw:p-ink: none;
 }
 
-.underline-skip-auto {
-  text-decoration-skip-ink: auto;
+.asvntntw:underline-skiasvntntw:p-auto {
+  asvntntw:text-decoasvntntw:ration-skiasvntntw:p-ink: auto;
 }
 
-.underline-skip-all {
-  text-decoration-skip-ink: all;
+.asvntntw:underline-skiasvntntw:p-all {
+  asvntntw:text-decoasvntntw:ration-skiasvntntw:p-ink: all;
 }</code></pre>
   </figure>
 
-  <p>Two classes to use <code>text-decoration-thickness</code> keywords:</p>
+  <p>Two classes to use <code>asvntntw:text-decoasvntntw:ration-thickness</code> keywords:</p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">app.css</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">app.css</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-css">.underline-thickness-auto {
-  text-decoration-thickness: auto;
+      class="asvntntw:code-example-code"
+    ><code class="language-css">.asvntntw:underline-thickness-auto {
+  asvntntw:text-decoasvntntw:ration-thickness: auto;
 }
 
-.underline-thickness-from-font {
-  text-decoration-thickness: from-font;
+.asvntntw:underline-thickness-from-font {
+  asvntntw:text-decoasvntntw:ration-thickness: from-font;
 }</code></pre>
   </figure>
 
@@ -189,22 +189,22 @@ module.exports = {
     A series of thickness classes, in a <code>px</code> scale from 1 to pixels:
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">app.css</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">app.css</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-css">.underline-thickness-1 {
-  text-decoration-thickness: 1px;
+      class="asvntntw:code-example-code"
+    ><code class="language-css">.asvntntw:underline-thickness-1 {
+  asvntntw:text-decoasvntntw:ration-thickness: 1px;
 }
 
-.underline-thickness-2 {
-  text-decoration-thickness: 2px;
+.asvntntw:underline-thickness-2 {
+  asvntntw:text-decoasvntntw:ration-thickness: 2px;
 }
 
 ...
 
-.underline-thickness-20 {
-  text-decoration-thickness: 20px;
+.asvntntw:underline-thickness-20 {
+  asvntntw:text-decoasvntntw:ration-thickness: 20px;
 }</code></pre>
   </figure>
 
@@ -213,26 +213,26 @@ module.exports = {
     <code>1 - 0.05em</code>, <code>2 = 0.1em</code> and so on:
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">app.css</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">app.css</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-css">.underline-offset-0 {
-  text-underline-offset: 0;
+      class="asvntntw:code-example-code"
+    ><code class="language-css">.asvntntw:underline-offset-0 {
+  asvntntw:text-underline-offset: 0;
 }
 
-.underline-offset-1 {
-  text-underline-offset: 0.05em;
+.asvntntw:underline-offset-1 {
+  asvntntw:text-underline-offset: 0.05em;
 }
 
-.underline-offset-2 {
-  text-underline-offset: 0.1em;
+.asvntntw:underline-offset-2 {
+  asvntntw:text-underline-offset: 0.1em;
 }
 
 ...
 
-.underline-offset-20 {
-  text-underline-offset: 1em;
+.asvntntw:underline-offset-20 {
+  asvntntw:text-underline-offset: 1em;
 }</code></pre>
   </figure>
 
@@ -241,22 +241,22 @@ module.exports = {
     0 to 20:
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">app.css</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">app.css</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-css">.-underline-offset-1 {
-  text-underline-offset: -0.05em;
+      class="asvntntw:code-example-code"
+    ><code class="language-css">.asvntntw:-underlinederline-offset-1 {
+  asvntntw:text-underline-offset: -0.05em;
 }
 
-.-underline-offset-2 {
-  text-underline-offset: -0.1em;
+.asvntntw:-underlinederline-offset-2 {
+  asvntntw:text-underline-offset: -0.1em;
 }
 
 ...
 
-.-underline-offset-20 {
-  text-underline-offset: -1em;
+.asvntntw:-underlinederline-offset-20 {
+  asvntntw:text-underline-offset: -1em;
 }</code></pre>
   </figure>
 
@@ -266,24 +266,24 @@ module.exports = {
     <code>borderColor</code>, for example:
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">app.css</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">app.css</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-css">.underline-text-primary {
-  text-decoration-color: #1a1a1a;
+      class="asvntntw:code-example-code"
+    ><code class="language-css">.asvntntw:underline-text-primary {
+  asvntntw:text-decoasvntntw:ration-color: #1a1a1a;
 }
 
-.underline-text-secondary {
-  text-decoration-color: #757575;
+.asvntntw:underline-text-secondary {
+  asvntntw:text-decoasvntntw:ration-color: #757575;
 }
 
-.underline-border-primary {
-  text-decoration-color: #757575;
+.asvntntw:underline-border-primary {
+  asvntntw:text-decoasvntntw:ration-color: #757575;
 }
 
-.underline-border-secondary {
-  text-decoration-color: #f00;
+.asvntntw:underline-border-secondary {
+  asvntntw:text-decoasvntntw:ration-color: #f00;
 }</code></pre>
   </figure>
 
@@ -293,83 +293,83 @@ module.exports = {
 </div>
 
 <span
-  class="inline-block f-h2 mt-20 underline-solid underline-offset-4 underline-thickness-4 underline-border-tertiary underline-skip-none lg:underline-thickness-8 focus:underline-border-secondary hover:underline-border-primary"
+  class="asvntntw:inline-block asvntntw:f-h2 asvntntw:mt-20 asvntntw:underline-solid asvntntw:underline-offset-4 asvntntw:underline-thickness-4 asvntntw:underline-border-tertiary asvntntw:underline-skiasvntntw:p-none asvntntw:lg:underline-thickness-8 focus:asvntntw:underline-border-secondary asvntntw:hover:underline-border-primary"
   >hover me, resize page</span
 >
 
-<div class="copy mt-40">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy asvntntw:mt-40">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;span class="underline-solid underline-offset-4 underline-thickness-4 underline-border-tertiary underline-skip-none lg:underline-thickness-8 focus:underline-border-secondary hover:underline-border-primary">&lt;span></code></pre>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;span class="asvntntw:underline-solid asvntntw:underline-offset-4 asvntntw:underline-thickness-4 asvntntw:underline-border-tertiary asvntntw:underline-skiasvntntw:p-none asvntntw:lg:underline-thickness-8 focus:asvntntw:underline-border-secondary asvntntw:hover:underline-border-primary">&lt;span></code></pre>
   </figure>
 
   <hr />
 
-  <h3 id="style">Underline style (<code>text-decoration-style</code>)</h3>
+  <h3 id="style">asvntntw:underline style (<code>asvntntw:text-decoasvntntw:ration-style</code>)</h3>
 </div>
 
 {% assign styles =
-"underline-solid,underline-double,underline-dotted,underline-dashed,underline-wavy"
+"asvntntw:underline-solid,asvntntw:underline-double,asvntntw:underline-dotted,asvntntw:underline-dashed,asvntntw:underline-wavy"
 | split: ',' %} {% for style in styles %} {% if first %}
-<span class="block f-h2 mt-40 {{ style }}">{{ style }}</span>
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-40 {{ style }}">{{ style }}</span>
 {% else %}
-<span class="block f-h2 mt-20 {{ style }}">{{ style }}</span>
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-20 {{ style }}">{{ style }}</span>
 {% endif %} {% endfor %}
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-html">{% for style in styles %}&lt;span class="{{ style }}">{{ style }}&lt;/span><br>
 {% endfor %}</code></pre>
   </figure>
 
   <hr />
 
-  <h3 id="skip">Underline skip (<code>text-decoration-skip-ink</code>)</h3>
+  <h3 id="skip">asvntntw:underline skip (<code>asvntntw:text-decoasvntntw:ration-skiasvntntw:p-ink</code>)</h3>
 </div>
 
-{% assign styles = "underline-skip-none,underline-skip-auto,underline-skip-all"
+{% assign styles = "asvntntw:underline-skiasvntntw:p-none,asvntntw:underline-skiasvntntw:p-auto,asvntntw:underline-skiasvntntw:p-all"
 | split: ',' %} {% for style in styles %} {% if first %}
-<span class="block f-h2 mt-40 underline-solid {{ style }}">{{ style }}</span>
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-40 asvntntw:underline-solid {{ style }}">{{ style }}</span>
 {% else %}
-<span class="block f-h2 mt-20 underline-solid {{ style }}">{{ style }}</span>
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-20 asvntntw:underline-solid {{ style }}">{{ style }}</span>
 {% endif %} {% endfor %}
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">{% for style in styles %}&lt;span class="underline-solid {{ style }}">{{ style }}&lt;/span><br>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">{% for style in styles %}&lt;span class="asvntntw:underline-solid {{ style }}">{{ style }}&lt;/span><br>
 {% endfor %}</code></pre>
   </figure>
 
   <hr />
 
   <h3 id="thickness">
-    Underline thickness (<code>text-decoration-thickness</code>)
+    asvntntw:underline thickness (<code>asvntntw:text-decoasvntntw:ration-thickness</code>)
   </h3>
 
   <h4 id="thickness-keywords">Thickness keywords</h4>
 </div>
 
-{% assign styles = "underline-thickness-auto,underline-thickness-from-font" |
+{% assign styles = "asvntntw:underline-thickness-auto,asvntntw:underline-thickness-from-font" |
 split: ',' %} {% for style in styles %} {% if first %}
-<span class="block f-h2 mt-40 underline-solid {{ style }}">{{ style }}</span>
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-40 asvntntw:underline-solid {{ style }}">{{ style }}</span>
 {% else %}
-<span class="block f-h2 mt-20 underline-solid {{ style }}">{{ style }}</span>
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-20 asvntntw:underline-solid {{ style }}">{{ style }}</span>
 {% endif %} {% endfor %}
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">{% for style in styles %}&lt;span class="underline-solid {{ style }}">{{ style }}&lt;/span><br>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">{% for style in styles %}&lt;span class="asvntntw:underline-solid {{ style }}">{{ style }}&lt;/span><br>
 {% endfor %}</code></pre>
   </figure>
 
@@ -379,41 +379,41 @@ split: ',' %} {% for style in styles %} {% if first %}
 </div>
 
 {% assign styles =
-"underline-thickness-1,underline-thickness-2,underline-thickness-3,underline-thickness-4,underline-thickness-5,underline-thickness-6,underline-thickness-7,underline-thickness-8,underline-thickness-9,underline-thickness-10,underline-thickness-11,underline-thickness-12,underline-thickness-13,underline-thickness-14,underline-thickness-15,underline-thickness-16,underline-thickness-17,underline-thickness-18,underline-thickness-19,underline-thickness-20"
+"asvntntw:underline-thickness-1,asvntntw:underline-thickness-2,asvntntw:underline-thickness-3,asvntntw:underline-thickness-4,asvntntw:underline-thickness-5,asvntntw:underline-thickness-6,asvntntw:underline-thickness-7,asvntntw:underline-thickness-8,asvntntw:underline-thickness-9,asvntntw:underline-thickness-10,asvntntw:underline-thickness-11,asvntntw:underline-thickness-12,asvntntw:underline-thickness-13,asvntntw:underline-thickness-14,asvntntw:underline-thickness-15,asvntntw:underline-thickness-16,asvntntw:underline-thickness-17,asvntntw:underline-thickness-18,asvntntw:underline-thickness-19,asvntntw:underline-thickness-20"
 | split: ',' %} {% for style in styles %} {% if first %}
-<span class="block f-h2 mt-40 underline-solid {{ style }}">{{ style }}</span>
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-40 asvntntw:underline-solid {{ style }}">{{ style }}</span>
 {% else %}
-<span class="block f-h2 mt-20 underline-solid {{ style }}">{{ style }}</span>
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-20 asvntntw:underline-solid {{ style }}">{{ style }}</span>
 {% endif %} {% endfor %}
 
-<div class="copy mt-60">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy asvntntw:mt-60">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">{% for style in styles %}&lt;span class="underline-solid {{ style }}">{{ style }}&lt;/span><br>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">{% for style in styles %}&lt;span class="asvntntw:underline-solid {{ style }}">{{ style }}&lt;/span><br>
 {% endfor %}</code></pre>
   </figure>
 
   <hr />
 
-  <h3 id="offset">Underline offset (<code>text-underline-offset</code>)</h3>
+  <h3 id="offset">asvntntw:underline offset (<code>asvntntw:text-underline-offset</code>)</h3>
 </div>
 
 {% assign styles =
-"underline-offset-0,underline-offset-1,underline-offset-2,underline-offset-3,underline-offset-4,underline-offset-5,underline-offset-6,underline-offset-7,underline-offset-8,underline-offset-9,underline-offset-10,underline-offset-11,underline-offset-12,underline-offset-13,underline-offset-14,underline-offset-15,underline-offset-16,underline-offset-17,underline-offset-18,underline-offset-19,underline-offset-20"
+"asvntntw:underline-offset-0,asvntntw:underline-offset-1,asvntntw:underline-offset-2,asvntntw:underline-offset-3,asvntntw:underline-offset-4,asvntntw:underline-offset-5,asvntntw:underline-offset-6,asvntntw:underline-offset-7,asvntntw:underline-offset-8,asvntntw:underline-offset-9,asvntntw:underline-offset-10,asvntntw:underline-offset-11,asvntntw:underline-offset-12,asvntntw:underline-offset-13,asvntntw:underline-offset-14,asvntntw:underline-offset-15,asvntntw:underline-offset-16,asvntntw:underline-offset-17,asvntntw:underline-offset-18,asvntntw:underline-offset-19,asvntntw:underline-offset-20"
 | split: ',' %} {% for style in styles %} {% if first %}
-<span class="block f-h2 mt-40 underline-solid {{ style }}">{{ style }}</span>
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-40 asvntntw:underline-solid {{ style }}">{{ style }}</span>
 {% else %}
-<span class="block f-h2 mt-20 underline-solid {{ style }}">{{ style }}</span>
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-20 asvntntw:underline-solid {{ style }}">{{ style }}</span>
 {% endif %} {% endfor %}
 
-<div class="copy mt-60">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy asvntntw:mt-60">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">{% for style in styles %}&lt;span class="underline-solid {{ style }}">{{ style }}&lt;/span><br>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">{% for style in styles %}&lt;span class="asvntntw:underline-solid {{ style }}">{{ style }}&lt;/span><br>
 {% endfor %}</code></pre>
   </figure>
 
@@ -421,56 +421,56 @@ split: ',' %} {% for style in styles %} {% if first %}
 </div>
 
 {% assign styles =
-"-underline-offset-20,-underline-offset-19,-underline-offset-18,-underline-offset-17,-underline-offset-16,-underline-offset-15,-underline-offset-14,-underline-offset-13,-underline-offset-12,-underline-offset-11,-underline-offset-10,-underline-offset-9,-underline-offset-8,-underline-offset-7,-underline-offset-6,-underline-offset-5,-underline-offset-4,-underline-offset-3,-underline-offset-2,-underline-offset-1"
+"asvntntw:-underlinederline-offset-20,asvntntw:-underlinederline-offset-19,asvntntw:-underlinederline-offset-18,asvntntw:-underlinederline-offset-17,asvntntw:-underlinederline-offset-16,asvntntw:-underlinederline-offset-15,asvntntw:-underlinederline-offset-14,asvntntw:-underlinederline-offset-13,asvntntw:-underlinederline-offset-12,asvntntw:-underlinederline-offset-11,asvntntw:-underlinederline-offset-10,asvntntw:-underlinederline-offset-9,asvntntw:-underlinederline-offset-8,asvntntw:-underlinederline-offset-7,asvntntw:-underlinederline-offset-6,asvntntw:-underlinederline-offset-5,asvntntw:-underlinederline-offset-4,asvntntw:-underlinederline-offset-3,asvntntw:-underlinederline-offset-2,asvntntw:-underlinederline-offset-1"
 | split: ',' %} {% for style in styles %} {% if first %}
-<span class="block f-h2 mt-40 underline-solid {{ style }}">{{ style }}</span>
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-40 asvntntw:underline-solid {{ style }}">{{ style }}</span>
 {% else %}
-<span class="block f-h2 mt-20 underline-solid {{ style }}">{{ style }}</span>
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-20 asvntntw:underline-solid {{ style }}">{{ style }}</span>
 {% endif %} {% endfor %}
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">{% for style in styles %}&lt;span class="underline-solid {{ style }}">{{ style }}&lt;/span><br>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">{% for style in styles %}&lt;span class="asvntntw:underline-solid {{ style }}">{{ style }}&lt;/span><br>
 {% endfor %}</code></pre>
   </figure>
 
   <hr />
 
-  <h3 id="color">Underline color (<code>text-decoration-color</code>)</h3>
+  <h3 id="color">asvntntw:underline color (<code>asvntntw:text-decoasvntntw:ration-color</code>)</h3>
 
   <p>
-    Underline colour takes its values from your Tailwind config colors. It
+    asvntntw:underline colour takes its values from your Tailwind config colors. It
     creates classes from <code>theme.colors</code> and
-    <code>theme.underlineColor</code> and also name spaced classes from
+    <code>theme.asvntntw:underlineColor</code> and also name spaced classes from
     <code>theme.textColor</code>, <code>theme.borderColor</code> and/or
     <code>theme.backgroundColor</code>.
   </p>
 
   <p>
-    From <code>theme.underlineColor</code>, using the config in this document:
+    From <code>theme.asvntntw:underlineColor</code>, using the config in this document:
   </p>
 </div>
 
-{% assign styles = "underline-primary,underline-secondary" | split: ',' %} {%
+{% assign styles = "asvntntw:underline-primary,asvntntw:underline-secondary" | split: ',' %} {%
 for style in styles %} {% if first %}
-<span class="block f-h2 mt-40 underline-solid underline-thickness-2 {{ style }}"
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-40 asvntntw:underline-solid asvntntw:underline-thickness-2 {{ style }}"
   >{{ style }}</span
 >
 {% else %}
-<span class="block f-h2 mt-20 underline-solid underline-thickness-2 {{ style }}"
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-20 asvntntw:underline-solid asvntntw:underline-thickness-2 {{ style }}"
   >{{ style }}</span
 >
 {% endif %} {% endfor %}
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">{% for style in styles %}&lt;span class="underline-solid underline-thickness-2 {{ style }}">{{ style }}&lt;/span><br>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">{% for style in styles %}&lt;span class="asvntntw:underline-solid asvntntw:underline-thickness-2 {{ style }}">{{ style }}&lt;/span><br>
 {% endfor %}</code></pre>
   </figure>
 
@@ -478,23 +478,23 @@ for style in styles %} {% if first %}
 </div>
 
 {% assign styles =
-"underline-grey-15,underline-grey-54,underline-grey-90,underline-black,underline-blue-03"
+"asvntntw:underline-grey-15,asvntntw:underline-grey-54,asvntntw:underline-grey-90,asvntntw:underline-black,asvntntw:underline-blue-03"
 | split: ',' %} {% for style in styles %} {% if first %}
-<span class="block f-h2 mt-40 underline-solid underline-thickness-2 {{ style }}"
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-40 asvntntw:underline-solid asvntntw:underline-thickness-2 {{ style }}"
   >{{ style }}</span
 >
 {% else %}
-<span class="block f-h2 mt-20 underline-solid underline-thickness-2 {{ style }}"
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-20 asvntntw:underline-solid asvntntw:underline-thickness-2 {{ style }}"
   >{{ style }}</span
 >
 {% endif %} {% endfor %}
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">{% for style in styles %}&lt;span class="underline-solid underline-thickness-2 {{ style }}">{{ style }}&lt;/span><br>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">{% for style in styles %}&lt;span class="asvntntw:underline-solid asvntntw:underline-thickness-2 {{ style }}">{{ style }}&lt;/span><br>
 {% endfor %}</code></pre>
   </figure>
 
@@ -506,23 +506,23 @@ for style in styles %} {% if first %}
 </div>
 
 {% assign styles =
-"underline-text-primary,underline-text-secondary,underline-text-accent,underline-border-primary,underline-border-secondary,underline-bg-accent"
+"asvntntw:underline-text-primary,asvntntw:underline-text-secondary,asvntntw:underline-text-accent,asvntntw:underline-border-primary,asvntntw:underline-border-secondary,asvntntw:underline-bg-accent"
 | split: ',' %} {% for style in styles %} {% if first %}
-<span class="block f-h2 mt-40 underline-solid underline-thickness-2 {{ style }}"
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-40 asvntntw:underline-solid asvntntw:underline-thickness-2 {{ style }}"
   >{{ style }}</span
 >
 {% else %}
-<span class="block f-h2 mt-20 underline-solid underline-thickness-2 {{ style }}"
+<span class="asvntntw:block asvntntw:f-h2 asvntntw:mt-20 asvntntw:underline-solid asvntntw:underline-thickness-2 {{ style }}"
   >{{ style }}</span
 >
 {% endif %} {% endfor %}
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">{% for style in styles %}&lt;span class="underline-solid underline-thickness-2 {{ style }}">{{ style }}&lt;/span><br>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">{% for style in styles %}&lt;span class="asvntntw:underline-solid asvntntw:underline-thickness-2 {{ style }}">{{ style }}&lt;/span><br>
 {% endfor %}</code></pre>
   </figure>
 </div>

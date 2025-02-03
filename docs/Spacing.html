@@ -4,7 +4,7 @@ title: Spacing
 
 {% include_relative includes/_header.html %}
 
-<div class="copy">
+<div class="asvntntw:copy">
   <h2 id="description">Description</h2>
 
   <p>The spacing plugin extends the built in Tailwind spacing config and allows you to create preset responsive spacing groups. It will generate single class names following Tailwinds spacing classes for margin and padding which have responsive spacing instead of single fixed spacing.</p>
@@ -13,17 +13,17 @@ title: Spacing
     Similiar to responsive typesets, at AREA 17 we like responsive spacing
     classes so that the spacing between components can be known and predictable.
     We don't use these for all components but we create rules to space full page
-    width type blocks, or sections, or title bars from other content and then
-    responsive spacing classes help us stay consistent between all these block
+    width type asvntntw:blocks, or sections, or title bars from other content and then
+    responsive spacing classes help us stay consistent between all these asvntntw:block
     types across all layouts and pages.
   </p>
 
   <h2 id="setup">Setup</h2>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">const { Spacing } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
@@ -59,9 +59,9 @@ module.exports = {
     guide, we get:
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">app.css</figcaption>
-    <pre class="code-example-code"><code class="language-css">:root {
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">app.css</figcaption>
+    <pre class="asvntntw:code-example-code"><code class="language-css">:root {
   --spacing-outer-1: 4rem;
   --spacing-inner-1: 1.5rem;
   --spacing-inner-2: 1rem;
@@ -88,46 +88,46 @@ module.exports = {
     these. For example:
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">app.css</figcaption>
-    <pre class="code-example-code"><code class="language-css">.mt-outer-1 {
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">app.css</figcaption>
+    <pre class="asvntntw:code-example-code"><code class="language-css">.asvntntw:mt-outer-1 {
     margin-top: var(--spacing-outer-1);
 }
 
-.pt-inner-1 {
+.asvntntw:pt-inner-1 {
     padding-top: var(--spacing-inner-1);
 }</code></pre>
   </figure>
 
   <p>
-    <code>m-</code>, <code>mx-</code>, <code>my-</code>, <code>mt-</code>,
-    <code>mb-</code>, <code>ml-</code>, <code>mr-</code>, <code>p-</code>,
-    <code>px-</code>, <code>py-</code>, <code>pt-</code>, <code>pb-</code>,
-    <code>pl-</code>, <code>pr-</code> classes will also be created, with appropriate negative classes. And CSS logical property class name: <code>ms-</code>, <code>me-</code>, <code>ps-</code>, <code>pe-</code>, <code>start-</code> and <code>end-</code>, with appropriate negative classes.</p>
+    <code>m-</code>, <code>asvntntw:mx-</code>, <code>asvntntw:my-</code>, <code>asvntntw:mt-</code>,
+    <code>asvntntw:mb-</code>, <code>asvntntw:ml-</code>, <code>asvntntw:mr-</code>, <code>asvntntw:p-</code>,
+    <code>asvntntw:px-</code>, <code>asvntntw:py-</code>, <code>asvntntw:pt-</code>, <code>asvntntw:pb-</code>,
+    <code>asvntntw:pl-</code>, <code>asvntntw:pr-</code> classes will also be created, with appropriate negative classes. And CSS logical property class name: <code>asvntntw:ms-</code>, <code>asvntntw:me-</code>, <code>asvntntw:ps-</code>, <code>asvntntw:pe-</code>, <code>asvntntw:start-</code> and <code>asvntntw:end-</code>, with appropriate negative classes.</p>
 
   <h2 id="demo">Demo</h2>
 
   <p>
-    The following <code>div</code> has classes <code>mt-outer-1</code> and
-    <code>p-inner-1</code> and if you resize the window you will see the top
+    The following <code>div</code> has classes <code>asvntntw:mt-outer-1</code> and
+    <code>asvntntw:p-inner-1</code> and if you resize the window you will see the top
     margin and inner padding will change in size as the browser window changes
     size through the different breakpoints.
   </p>
 </div>
 
-<div class="mt-outer-1 p-inner-1 bg-column">
-  <div class="bg-primary copy p-inner-1">
+<div class="asvntntw:mt-outer-1 asvntntw:p-inner-1 asvntntw:bg-column">
+  <div class="asvntntw:bg-primary asvntntw:copy asvntntw:p-inner-1">
     <p>Content</p>
   </div>
 </div>
 
-<div class="copy mt-20">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy asvntntw:mt-20">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="mt-outer-1 p-inner-1 bg-column">
-  &lt;div class="bg-primary copy p-inner-1">
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:mt-outer-1 asvntntw:p-inner-1 asvntntw:bg-column">
+  &lt;div class="asvntntw:bg-primary asvntntw:copy asvntntw:p-inner-1">
     &lt;p>Content&lt;/p>
   &lt;/div>
 &lt;/div></code></pre>
@@ -138,26 +138,26 @@ module.exports = {
   <p><strong>Note:</strong> Tailwind 4 updated how it handles <a href="https://tailwindcss.com/docs/upgrade-guide#variables-in-arbitrary-values" target="_blank">arbitrary values</a>.</p>
 </div>
 
-<div class="mt-(--spacing-outer-1) p-(--spacing-inner-1) bg-column">
-  <div class="bg-primary copy p-(--spacing-inner-1) ">
+<div class="asvntntw:mt-(--spacing-outer-1) asvntntw:p-(--spacing-inner-1) asvntntw:bg-column">
+  <div class="asvntntw:bg-primary asvntntw:copy asvntntw:p-(--spacing-inner-1) ">
     <p>Content</p>
   </div>
 </div>
 
-<div class="copy mt-20">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy asvntntw:mt-20">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="mt-(--spacing-outer-1) p-(--spacing-inner-1) bg-column">
-  &lt;div class="bg-primary copy p-(--spacing-inner-1) ">
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:mt-(--spacing-outer-1) asvntntw:p-(--spacing-inner-1) asvntntw:bg-column">
+  &lt;div class="asvntntw:bg-primary asvntntw:copy asvntntw:p-(--spacing-inner-1) ">
     &lt;p>Content&lt;/p>
   &lt;/div>
 &lt;/div></code></pre>
   </figure>
 
   <p>
-    Negative values are also available, eg: <code>-mt-(--spacing-outer-1)</code>
+    Negative values are also available, eg: <code>asvntntw:-mt-(--spacing-outer-1)</code>
   </p>
 </div>
 

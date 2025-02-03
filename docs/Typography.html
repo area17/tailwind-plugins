@@ -4,7 +4,7 @@ title: Typography
 
 {% include_relative includes/_header.html %}
 
-<div class="copy">
+<div class="asvntntw:copy">
   <h2 id="description">Description</h2>
 
   <p>
@@ -28,10 +28,10 @@ title: Typography
 
   <h2 id="setup">Setup</h2>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">const { Typography } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
@@ -123,9 +123,9 @@ module.exports = {
     <code>h1</code> we'd get the following in our CSS:
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">app.css</figcaption>
-    <pre class="code-example-code"><code class="language-css">:root {
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">app.css</figcaption>
+    <pre class="asvntntw:code-example-code"><code class="language-css">:root {
   --font-sans: SuisseIntl, Helvetica, Arial, sans-serif;
   --font-serif: "Times New Roman", Georgia, serif;
   --font-mono: "Lucida Console", Courier, monospace;
@@ -139,7 +139,7 @@ module.exports = {
   --f-h1---bold-weight: 500;
 }
 
-.f-h1 {
+.asvntntw:f-h1 {
   font-family: var(--f-h1-font-family);
   font-size: var(--f-h1-font-size);
   font-stretch: var(--f-h1-font-stretch);
@@ -170,7 +170,7 @@ module.exports = {
   <p>
     Similarly for the typeset named <code>h1</code> we would get classes for
     each of the other typesets - in this guide that would include
-    <code>f-h2</code>, <code>f-body</code> etc.
+    <code>asvntntw:f-h2</code>, <code>asvntntw:f-body</code> etc.
   </p>
 
   <h2 id="demo">Demo</h2>
@@ -181,18 +181,18 @@ module.exports = {
   </p>
 </div>
 
-<p class="f-h1 mt-20">f-h1 The quick brown fox jumps over the lazy dog</p>
-<p class="f-h2">f-h2 The quick brown fox jumps over the lazy dog</p>
-<p class="f-body">f-body The quick brown fox jumps over the lazy dog</p>
+<p class="asvntntw:f-h1 asvntntw:mt-20">asvntntw:f-h1 The quick brown fox jumps over the lazy dog</p>
+<p class="asvntntw:f-h2">asvntntw:f-h2 The quick brown fox jumps over the lazy dog</p>
+<p class="asvntntw:f-body">asvntntw:f-body The quick brown fox jumps over the lazy dog</p>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;p class="f-h1">f-h1 The quick brown fox jumps over the lazy dog&lt;/p>
-&lt;p class="f-h2">f-h2 The quick brown fox jumps over the lazy dog&lt;/p>
-&lt;p class="f-body">f-body The quick brown fox jumps over the lazy dog&lt;/p>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;p class="asvntntw:f-h1">asvntntw:f-h1 The quick brown fox jumps over the lazy dog&lt;/p>
+&lt;p class="asvntntw:f-h2">asvntntw:f-h2 The quick brown fox jumps over the lazy dog&lt;/p>
+&lt;p class="asvntntw:f-body">asvntntw:f-body The quick brown fox jumps over the lazy dog&lt;/p>
 </code></pre>
   </figure>
 
@@ -205,27 +205,27 @@ module.exports = {
     type style at all breakpoints". That is, if its our responsive "h1" class,
     then its the responsive "h1" class at all breakpoints. This rule was
     initially frustrating but has become the accepted norm at AREA 17. But, it
-    is occasionally still a frustration - usually when it comes to product
+    is occasionally still a frustasvntntw:ration - usually when it comes to product
     listing or article listing designs.
   </p>
   <p>
     Fortunately custom CSS properties helpes us add the ability to override type styles at different
     breakpoints. For example, the following example displays as a
-    <code>f-h4</code> on smaller screens and as <code>f-code</code> at larger
+    <code>asvntntw:f-h4</code> on smaller screens and as <code>asvntntw:f-code</code> at larger
     screens:
   </p>
 </div>
 
-<p class="f-h4 lg:f-code mt-20">
-  f-h4 lg:f-code The quick brown fox jumps over the lazy dog
+<p class="asvntntw:f-h4 asvntntw:lg:f-code asvntntw:mt-20">
+  asvntntw:f-h4 asvntntw:lg:f-code The quick brown fox jumps over the lazy dog
 </p>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;p class="f-h4 lg:f-code">f-h4 md:f-code The quick brown fox jumps over the lazy dog&lt;/p></code></pre>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;p class="asvntntw:f-h4 asvntntw:lg:f-code">asvntntw:f-h4 asvntntw:md:f-code The quick brown fox jumps over the lazy dog&lt;/p></code></pre>
   </figure>
 
   <p>

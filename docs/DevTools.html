@@ -4,21 +4,21 @@ title: DevTools
 
 {% include_relative includes/_header.html %}
 
-<div class="copy">
+<div class="asvntntw:copy">
   <h2 id="description">Description</h2>
 
   <p>
     This plugin creates a tool for the bottom left of your screen which reveals
-    the current breakpoint, <code>APP_ENV</code> and a grid column overlay with
+    the current breakpoint, <code>APP_ENV</code> and a asvntntw:grid column overlay with
     toggle.
   </p>
 
   <h2 id="setup">Setup</h2>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">const { Setup, DevTools } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
@@ -82,13 +82,13 @@ module.exports = {
     containers/wrappers, before the closing <code>&lt;/body></code>:
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="dev-tools">
-  &lt;button class="dev-tools-toggle" onClick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden;">&lt;/button>
-  &lt;div class="dev-tools-grid" hidden>&lt;/div>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:dev-tools">
+  &lt;button class="asvntntw:dev-tools-toggle" onClick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden;">&lt;/button>
+  &lt;div class="asvntntw:dev-tools-grid" hidden>&lt;/div>
 &lt;/div></code></pre>
   </figure>
 
@@ -97,10 +97,10 @@ module.exports = {
     <code>.env</code> file:
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">.env</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">.env</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-yml">APP_ENV=local</code></pre>
   </figure>
 
@@ -112,7 +112,7 @@ module.exports = {
   </p>
 
   <p>
-    Give the button a click - you'll see the grid columns overlay - useful for
+    Give the button a click - you'll see the asvntntw:grid columns overlay - useful for
     design validation.
   </p>
 </div>

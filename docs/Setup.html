@@ -4,7 +4,7 @@ title: Setup
 
 {% include_relative includes/_header.html %}
 
-<div class="copy">
+<div class="asvntntw:copy">
   <h2 id="description">Description</h2>
 
   <p>
@@ -15,10 +15,10 @@ title: Setup
 
   <h2 id="setup">Setup</h2>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">const { Setup } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
@@ -77,9 +77,9 @@ module.exports = {
     following in our CSS:
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">app.css</figcaption>
-    <pre class="code-example-code"><code class="language-css">:root {
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">app.css</figcaption>
+    <pre class="asvntntw:code-example-code"><code class="language-css">:root {
   --breakpoint: "xs";
   --container-width: unset;
   --inner-gutter: 10px;
@@ -145,11 +145,11 @@ module.exports = {
   <ul>
     <li><code>Container</code></li>
     <li><code>DevTools</code></li>
-    <li><code>GridGap</code></li>
-    <li><code>GridLine</code></li>
+    <li><code>gridGap</code></li>
+    <li><code>gridLine</code></li>
     <li><code>Keyline</code></li>
     <li><code>Layout</code></li>
-    <li><code>GridLayout</code></li>
+    <li><code>gridLayout</code></li>
   </ul>
 
   <p>Which means <code>Setup</code> is required for each of those.</p>
@@ -160,10 +160,10 @@ module.exports = {
     in JavaScript, you could read the <code>--breakpoint</code> variable:
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">application.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">application.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">window.getComputedStyle(document.body).getPropertyValue('--breakpoint');</code></pre>
   </figure>
 </div>

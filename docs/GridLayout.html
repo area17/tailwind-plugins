@@ -1,37 +1,37 @@
 ---
-title: GridLayout
+title: gridLayout
 ---
 
 {% include_relative includes/_header.html %}
 
-<div class="copy">
+<div class="asvntntw:copy">
   <h2 id="description">Description</h2>
 
-  <p>This plugin creates classes to handle CSS grid layouts:</p>
+  <p>This plugin creates classes to handle CSS asvntntw:grid layouts:</p>
 
   <ul>
     <li>
-      <code>.grid-layout</code> - on parent, makes css grid layout with columns
+      <code>.asvntntw:grid-layout</code> - on parent, makes css asvntntw:grid layout with columns
       set to equal the amount of design columns at each breakpoint and with the
-      grid gap set to the inner gutter
+      asvntntw:grid gap set to the inner gutter
     </li>
-    <li class="mt-20">
-      <code>.grid-col-span-N</code> - on child, sets width N grid columns wide
+    <li class="asvntntw:mt-20">
+      <code>.asvntntw:grid-col-span-N</code> - on child, sets width N asvntntw:grid columns wide
     </li>
     <li>
-      <code>.grid-col-start-N</code> - on child, starts element on the Nth grid
+      <code>.asvntntw:grid-col-asvntntw:start-N</code> - on child, starts element on the Nth asvntntw:grid
       column
     </li>
     <li>
-      <code>.grid-col-end-N</code> - on child, ends element on the Nth grid
+      <code>.asvntntw:grid-col-asvntntw:end-N</code> - on child, ends element on the Nth asvntntw:grid
       column
     </li>
   </ul>
 
-  <h3>Why use this over Tailwind's native grid column classes?</h3>
+  <h3>Why use this over Tailwind's native asvntntw:grid column classes?</h3>
 
   <p>
-    By default, Tailwind assumes you have a 12 grid layout at all your
+    By default, Tailwind assumes you have a 12 asvntntw:grid layout at all your
     breakpoints - this plugin does not. This plugin uses your Tailwind config,
     specifically the <code>Setup</code> <code>theme.columnCount</code> to adjust
     the amount of columns at each breakpoint so if your
@@ -42,15 +42,15 @@ title: GridLayout
 
   <h2 id="setup">Setup</h2>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-javascript">const { Setup, GridLayout } = require('@area17/a17-tailwind-plugins');
+      class="asvntntw:code-example-code"
+    ><code class="language-javascript">const { Setup, asvntntw:gridLayout } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
   ...
-  plugins: [Setup, GridLayout],
+  plugins: [Setup, asvntntw:gridLayout],
   theme: {
     innerGutters: {
       xs: "10px",
@@ -79,40 +79,40 @@ module.exports = {
 
   <h2 id="output">Output</h2>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">app.css</figcaption>
-    <pre class="code-example-code"><code class="language-css">.grid-layout {
-  display: grid;
-  grid-template-columns: repeat(var(--grid-columns), 1fr);
-  grid-gap: var(--inner-gutter);
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">app.css</figcaption>
+    <pre class="asvntntw:code-example-code"><code class="language-css">.asvntntw:grid-layout {
+  display: asvntntw:grid;
+  asvntntw:grid-template-columns: repeat(var(--grid-columns), 1fr);
+  asvntntw:grid-gap: var(--inner-gutter);
 }
 
-.grid-col-span-1 {
+.asvntntw:grid-col-span-1 {
   --grid-columns: 1;
-  grid-column: span 1 / span 1;
+  asvntntw:grid-column: span 1 / span 1;
 }
 
-.grid-col-start-1 {
-  grid-column-start: 1;
+.asvntntw:grid-col-asvntntw:start-1 {
+  asvntntw:grid-column-start: 1;
 }
 
-.grid-col-end-1 {
-  grid-column-end: 1;
+.asvntntw:grid-col-asvntntw:end-1 {
+  asvntntw:grid-column-end: 1;
 }
 
 ...
 
-.grid-col-span-MAXCOLS {
+.asvntntw:grid-col-span-MAXCOLS {
   --grid-columns: MAXCOLS;
-  grid-column: span MAXCOLS / span MAXCOLS;
+  asvntntw:grid-column: span MAXCOLS / span MAXCOLS;
 }
 
-.grid-col-start-MAXCOLS {
-  grid-column-start: 1;
+.asvntntw:grid-col-asvntntw:start-MAXCOLS {
+  asvntntw:grid-column-start: 1;
 }
 
-.grid-col-end-MAXCOLS {
-  grid-column: MAXCOLS;
+.asvntntw:grid-col-asvntntw:end-MAXCOLS {
+  asvntntw:grid-column: MAXCOLS;
 }
 </code></pre>
   </figure>
@@ -120,41 +120,41 @@ module.exports = {
   <h2 id="demo">Demo</h2>
 </div>
 
-<div class="show-grid">
-  <div class="grid-layout mt-40">
-    <div class="grid-col-span-1 h-40 bg-column"></div>
-    <div class="grid-col-span-1 h-40 bg-column"></div>
-    <div class="grid-col-span-1 h-40 bg-column"></div>
-    <div class="grid-col-span-1 h-40 bg-column"></div>
-    <div class="grid-col-span-1 h-40 bg-column"></div>
-    <div class="grid-col-span-1 h-40 bg-column"></div>
-    <div class="grid-col-span-1 h-40 bg-column"></div>
-    <div class="grid-col-span-1 h-40 bg-column"></div>
-    <div class="grid-col-span-1 h-40 bg-column"></div>
-    <div class="grid-col-span-1 h-40 bg-column"></div>
-    <div class="grid-col-span-1 h-40 bg-column"></div>
-    <div class="grid-col-span-1 h-40 bg-column"></div>
+<div class="asvntntw:show-grid">
+  <div class="asvntntw:grid-layout asvntntw:mt-40">
+    <div class="asvntntw:grid-col-span-1 asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:grid-col-span-1 asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:grid-col-span-1 asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:grid-col-span-1 asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:grid-col-span-1 asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:grid-col-span-1 asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:grid-col-span-1 asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:grid-col-span-1 asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:grid-col-span-1 asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:grid-col-span-1 asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:grid-col-span-1 asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:grid-col-span-1 asvntntw:h-40 asvntntw:bg-column"></div>
   </div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="grid-layout">
-  &lt;div class="grid-col-span-1">&lt;/div>
-  &lt;div class="grid-col-span-1">&lt;/div>
-  &lt;div class="grid-col-span-1">&lt;/div>
-  &lt;div class="grid-col-span-1">&lt;/div>
-  &lt;div class="grid-col-span-1">&lt;/div>
-  &lt;div class="grid-col-span-1">&lt;/div>
-  &lt;div class="grid-col-span-1">&lt;/div>
-  &lt;div class="grid-col-span-1">&lt;/div>
-  &lt;div class="grid-col-span-1">&lt;/div>
-  &lt;div class="grid-col-span-1">&lt;/div>
-  &lt;div class="grid-col-span-1">&lt;/div>
-  &lt;div class="grid-col-span-1">&lt;/div>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid-layout">
+  &lt;div class="asvntntw:grid-col-span-1">&lt;/div>
+  &lt;div class="asvntntw:grid-col-span-1">&lt;/div>
+  &lt;div class="asvntntw:grid-col-span-1">&lt;/div>
+  &lt;div class="asvntntw:grid-col-span-1">&lt;/div>
+  &lt;div class="asvntntw:grid-col-span-1">&lt;/div>
+  &lt;div class="asvntntw:grid-col-span-1">&lt;/div>
+  &lt;div class="asvntntw:grid-col-span-1">&lt;/div>
+  &lt;div class="asvntntw:grid-col-span-1">&lt;/div>
+  &lt;div class="asvntntw:grid-col-span-1">&lt;/div>
+  &lt;div class="asvntntw:grid-col-span-1">&lt;/div>
+  &lt;div class="asvntntw:grid-col-span-1">&lt;/div>
+  &lt;div class="asvntntw:grid-col-span-1">&lt;/div>
 &lt;/div></code></pre>
   </figure>
 
@@ -163,39 +163,39 @@ module.exports = {
   <h3 id="nesting">Nesting</h3>
 
   <p>
-    If you use <code>grid-col-span-N</code> classes for your grid column
+    If you use <code>grid-col-span-N</code> classes for your asvntntw:grid column
     spanning, then any nested <code>grid-layout</code>, or
-    <code>w-N-cols</code> classes will key off the design grid at each
+    <code>asvntntw:w-N-cols</code> classes will key off the design asvntntw:grid at each
     breakpoint:
   </p>
 </div>
 
-<div class="show-grid">
-  <div class="grid-layout mt-40">
-    <div class="grid-col-span-2 h-40 bg-column"></div>
-    <div class="grid-col-span-8 grid-layout h-100 pt-20 bg-column">
-      <div class="grid-col-span-6 grid-layout h-80 pt-20 bg-column-alt">
-        <div class="grid-col-span-2 h-40 bg-column"></div>
-        <div class="grid-col-span-2 h-40 bg-column"></div>
+<div class="asvntntw:show-grid">
+  <div class="asvntntw:grid-layout asvntntw:mt-40">
+    <div class="asvntntw:grid-col-span-2 asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:grid-col-span-8 asvntntw:grid-layout asvntntw:h-100 asvntntw:pt-20 asvntntw:bg-column">
+      <div class="asvntntw:grid-col-span-6 asvntntw:grid-layout asvntntw:h-80 asvntntw:pt-20 asvntntw:bg-column-alt">
+        <div class="asvntntw:grid-col-span-2 asvntntw:h-40 asvntntw:bg-column"></div>
+        <div class="asvntntw:grid-col-span-2 asvntntw:h-40 asvntntw:bg-column"></div>
       </div>
-      <div class="grid-col-span-1 h-40 bg-column-alt"></div>
+      <div class="asvntntw:grid-col-span-1 asvntntw:h-40 asvntntw:bg-column-alt"></div>
     </div>
   </div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="grid-layout mt-40">
-  &lt;div class="grid-col-span-2">&lt;/div>
-  &lt;div class="grid-col-span-8 grid-layout">
-    &lt;div class="grid-col-span-6 grid-layout">
-      &lt;div class="grid-col-span-2">&lt;/div>
-      &lt;div class="grid-col-span-2">&lt;/div>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid-layout asvntntw:mt-40">
+  &lt;div class="asvntntw:grid-col-span-2">&lt;/div>
+  &lt;div class="asvntntw:grid-col-span-8 asvntntw:grid-layout">
+    &lt;div class="asvntntw:grid-col-span-6 asvntntw:grid-layout">
+      &lt;div class="asvntntw:grid-col-span-2">&lt;/div>
+      &lt;div class="asvntntw:grid-col-span-2">&lt;/div>
     &lt;/div>
-    &lt;div class="grid-col-span-1">&lt;/div>
+    &lt;div class="asvntntw:grid-col-span-1">&lt;/div>
   &lt;/div>
 &lt;/div></code></pre>
   </figure>
@@ -210,24 +210,24 @@ module.exports = {
   </p>
 </div>
 
-<div class="show-grid">
-  <div class="grid-layout mt-40">
-    <div class="grid-col-span-9 h-80 pt-20 bg-column">
-      <div class="w-5-cols h-40 bg-column-alt text-inverse">
-        w-5-cols inside grid-col-span-9
+<div class="asvntntw:show-grid">
+  <div class="asvntntw:grid-layout asvntntw:mt-40">
+    <div class="asvntntw:grid-col-span-9 asvntntw:h-80 asvntntw:pt-20 asvntntw:bg-column">
+      <div class="asvntntw:w-cols-5 asvntntw:h-40 asvntntw:bg-column-alt asvntntw:text-inverse">
+        asvntntw:w-cols-5 inside asvntntw:grid-col-span-9
       </div>
     </div>
   </div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="grid-layout">
-  &lt;div class="grid-col-span-9">
-    &lt;div class="w-5-cols">&lt;/div>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid-layout">
+  &lt;div class="asvntntw:grid-col-span-9">
+    &lt;div class="asvntntw:w-cols-5">&lt;/div>
   &lt;/div>
 &lt;/div></code></pre>
   </figure>
@@ -239,70 +239,70 @@ module.exports = {
   <p>A full set of responsive classes are generated:</p>
 </div>
 
-<div class="show-grid">
-  <div class="grid-layout mt-40">
+<div class="asvntntw:show-grid">
+  <div class="asvntntw:grid-layout asvntntw:mt-40">
     <div
-      class="grid-col-span-2 md:grid-col-span-2 lg:grid-col-span-4 h-40 bg-column"
+      class="asvntntw:grid-col-span-2 asvntntw:md:grid-col-span-2 asvntntw:lg:grid-col-span-4 asvntntw:h-40 asvntntw:bg-column"
     >
-      grid-span-2 md:grid-span-2 lg:grid-span-4
+      asvntntw:grid-span-2 asvntntw:md:grid-span-2 asvntntw:lg:grid-span-4
     </div>
     <div
-      class="grid-col-span-1 md:grid-col-span-4 lg:grid-col-span-6 h-40 bg-column"
+      class="asvntntw:grid-col-span-1 asvntntw:md:grid-col-span-4 asvntntw:lg:grid-col-span-6 asvntntw:h-40 asvntntw:bg-column"
     >
-      grid-span-1 md:grid-span-4 lg:grid-span-6
+      asvntntw:grid-span-1 asvntntw:md:grid-span-4 asvntntw:lg:grid-span-6
     </div>
   </div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="cols-grid mt-40">
-  &lt;div class="grid-span-2 md:grid-span-2 lg:grid-span-4 h-40 bg-column">grid-span-2 md:grid-span-2 lg:grid-span-4&lt;/div>
-  &lt;div class="grid-span-1 md:grid-span-4 lg:grid-span-6 h-40 bg-column">grid-span-1 md:grid-span-4 lg:grid-span-6&lt;/div>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid-layout asvntntw:mt-40">
+  &lt;div class="asvntntw:grid-span-2 asvntntw:md:grid-span-2 asvntntw:lg:grid-span-4 asvntntw:h-40 asvntntw:bg-column">grid-span-2 asvntntw:md:grid-span-2 asvntntw:lg:grid-span-4&lt;/div>
+  &lt;div class="asvntntw:grid-span-1 asvntntw:md:grid-span-4 asvntntw:lg:grid-span-6 asvntntw:h-40 asvntntw:bg-column">grid-span-1 asvntntw:md:grid-span-4 asvntntw:lg:grid-span-6&lt;/div>
 &lt;/div></code></pre>
   </figure>
 
   <hr />
 
-  <h3 class="mixing">Mixing and matching with Tailwind grid classes:</h3>
+  <h3 class="mixing">Mixing and matching with Tailwind asvntntw:grid classes:</h3>
 
   <p>
-    For full and complete grid layouts, you will want use Tailwind native
-    classes such as <code>row-span-*</code> (<a
-      href="https://tailwindcss.com/docs/grid-row"
+    For full and complete asvntntw:grid layouts, you will want use Tailwind native
+    classes such as <code>roasvntntw:w-span-*</code> (<a
+      href="https://tailwindcss.com/docs/asvntntw:grid-row"
       target="_blank"
       >Row spanning on Tailwind)</a
-    >. This plugin doesn't re-create or usurp all Tailwind grid classes, just
-    provides extra classes to work with your design grid.
+    >. This plugin doesn't re-create or usurp all Tailwind asvntntw:grid classes, just
+    provides extra classes to work with your design asvntntw:grid.
   </p>
 </div>
 
-<div class="show-grid">
-  <div class="grid-layout mt-40">
+<div class="asvntntw:show-grid">
+  <div class="asvntntw:grid-layout asvntntw:mt-40">
     <div
-      class="grid-col-span-6 grid-col-start-4 row-span-full min-h-40 bg-column"
+      class="asvntntw:grid-col-span-6 asvntntw:grid-col-asvntntw:start-4 roasvntntw:w-span-full asvntntw:min-h-40 asvntntw:bg-column"
     ></div>
     <div
-      class="grid-col-span-3 grid-col-start-1 row-span-3 min-h-40 bg-column"
+      class="asvntntw:grid-col-span-3 asvntntw:grid-col-asvntntw:start-1 roasvntntw:w-span-3 asvntntw:min-h-40 asvntntw:bg-column"
     ></div>
     <div
-      class="grid-col-span-3 grid-col-end-13 row-end-3 min-h-40 bg-column"
+      class="asvntntw:grid-col-span-3 asvntntw:grid-col-asvntntw:end-13 roasvntntw:w-asvntntw:end-3 asvntntw:min-h-40 asvntntw:bg-column"
     ></div>
   </div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="grid-layout mt-40">
-  &lt;div class="grid-col-span-6 grid-col-start-4 row-span-full bg-column">&lt;/div>
-  &lt;div class="grid-col-span-3 grid-col-start-1 row-span-3 bg-column">&lt;/div>
-  &lt;div class="grid-col-span-3 grid-col-end-13 row-end-3 h-40 bg-column">&lt;/div>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid-layout asvntntw:mt-40">
+  &lt;div class="asvntntw:grid-col-span-6 asvntntw:grid-col-asvntntw:start-4 roasvntntw:w-span-full asvntntw:bg-column">&lt;/div>
+  &lt;div class="asvntntw:grid-col-span-3 asvntntw:grid-col-asvntntw:start-1 roasvntntw:w-span-3 asvntntw:bg-column">&lt;/div>
+  &lt;div class="asvntntw:grid-col-span-3 asvntntw:grid-col-asvntntw:end-13 roasvntntw:w-asvntntw:end-3 asvntntw:h-40 asvntntw:bg-column">&lt;/div>
 &lt;/div></code></pre>
   </figure>
 </div>

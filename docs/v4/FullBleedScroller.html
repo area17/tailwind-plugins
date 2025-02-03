@@ -4,34 +4,34 @@ title: Full Bleed Scroller
 
 {% include_relative includes/_header.html %}
 
-<div class="copy">
+<div class="asvntntw:copy">
   <h2 id="description">Description</h2>
 
   <p>
     Sometimes you need to switch to/from an
-    <code>overflow-x: scroll;</code> single line scroller from a grid, whilst
-    still keeping the content on grid.
+    <code>asvntntw:overflow-x: scroll;</code> single line scroller from a asvntntw:grid, whilst
+    still keeping the content on asvntntw:grid.
   </p>
 
   <ul>
     <li>
-      <code>.full-bleed-scroller</code> sets a container to being an overflow
+      <code>.asvntntw:full-bleed-scroller</code> sets a container to being an overflow
       scrolling container with outer gutter shims
     </li>
-    <li><code>.full-bleed-scroller-reset</code> resets the container</li>
+    <li><code>.asvntntw:full-bleed-scroller-reset</code> resets the container</li>
   </ul>
 
   <p>
-    Note: works with both fluid and fixed width <code>.container</code> thanks
-    to a <code>.breakout</code>'s clever outer gutter handling.
+    Note: works with both fluid and fixed width <code>.asvntntw:container</code> thanks
+    to a <code>.asvntntw:breakout</code>'s clever outer gutter handling.
   </p>
 
   <h2 id="setup">Setup</h2>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">const { Setup, Container, FullBleedScroller } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
@@ -95,52 +95,52 @@ module.exports = {
   <h3>A full bleed scroller, at all breakpoints:</h3>
 </div>
 
-<div class="breakout mt-20">
-  <ul class="full-bleed-scroller">
-    <li class="flex-none w-1-cols-vw h-40 bg-column"></li>
-    <li class="flex-none w-2-cols-vw h-40 bg-column"></li>
-    <li class="flex-none w-3-cols-vw h-40 bg-column"></li>
-    <li class="flex-none w-4-cols-vw h-40 bg-column"></li>
-    <li class="flex-none w-5-cols-vw h-40 bg-column"></li>
-    <li class="flex-none w-6-cols-vw h-40 bg-column"></li>
-    <li class="flex-none w-7-cols-vw h-40 bg-column"></li>
-    <li class="flex-none w-8-cols-vw h-40 bg-column"></li>
+<div class="asvntntw:breakout asvntntw:mt-20">
+  <ul class="asvntntw:full-bleed-scroller">
+    <li class="asvntntw:flex-none asvntntw:w-cols-1-vw asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-2-vw asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-4-vw asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-5-vw asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-6-vw asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-7-vw asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-8-vw asvntntw:h-40 asvntntw:bg-column"></li>
   </ul>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="breakout">
-  &lt;ul class="full-bleed-scroller">
-    &lt;li class="flex-none w-1-cols-vw">&lt;/li>
-    &lt;li class="flex-none w-2-cols-vw">&lt;/li>
-    &lt;li class="flex-none w-3-cols-vw">&lt;/li>
-    &lt;li class="flex-none w-4-cols-vw">&lt;/li>
-    &lt;li class="flex-none w-5-cols-vw">&lt;/li>
-    &lt;li class="flex-none w-6-cols-vw">&lt;/li>
-    &lt;li class="flex-none w-7-cols-vw">&lt;/li>
-    &lt;li class="flex-none w-8-cols-vw">&lt;/li>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:breakout">
+  &lt;ul class="asvntntw:full-bleed-scroller">
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-1-vw">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-2-vw">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-3-vw">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-4-vw">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-5-vw">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-6-vw">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-7-vw">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-8-vw">&lt;/li>
   &lt;/ul>
 &lt;/div></code></pre>
   </figure>
 
   <p>
-    Using a <code>.breakout</code> class (from
-    <a href="./Container.html#breakout">Container#breakout</a>) to get a
-    <code>100vw</code> container. <br /><code>full-bleed-scroller</code> by
+    Using a <code>.asvntntw:breakout</code> class (from
+    <a href="./Container.html#asvntntw:breakout">Container#asvntntw:breakout</a>) to get a
+    <code>100vw</code> container. <br /><code>asvntntw:full-bleed-scroller</code> by
     default sets
-    <code>display: flex; flex-flow: row nowrap; gap: var(--inner-gutter);</code
+    <code>display: asvntntw:flex; asvntntw:flex-flow: row nowrap; gap: var(--inner-gutter);</code
     >.
   </p>
 
   <p>
     Note the children use <code>.*-vw</code> type
     <a href="./Layout.html#vwvariants">Layout</a>width classes, this is because
-    the container here is wider that <code>.container</code>. Also note that
-    each child has <code>flex-none</code> set, so the width is controlled by the
+    the container here is wider that <code>.asvntntw:container</code>. Also note that
+    each child has <code>asvntntw:flex-none</code> set, so the width is controlled by the
     width class and not the child content.
   </p>
 
@@ -150,102 +150,102 @@ module.exports = {
   </h3>
 </div>
 
-<div class="breakout md:breakout-reset mt-20">
-  <ul class="full-bleed-scroller md:before:hidden md:after:hidden">
-    <li class="flex-none w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
-    <li class="flex-none w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
-    <li class="flex-none w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
-    <li class="flex-none w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
-    <li class="flex-none w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
-    <li class="flex-none w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
-    <li class="flex-none w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
-    <li class="flex-none w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
+<div class="asvntntw:breakout asvntntw:md:breakout-reset asvntntw:mt-20">
+  <ul class="asvntntw:full-bleed-scroller asvntntw:md:before:hidden asvntntw:md:after:hidden">
+    <li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-3-cols asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-3-cols asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-3-cols asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-3-cols asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-3-cols asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-3-cols asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-3-cols asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-3-cols asvntntw:h-40 asvntntw:bg-column"></li>
   </ul>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="breakout md:breakout-reset">
-  &lt;ul class="full-bleed-scroller md:before:hidden md:after:hidden">
-    &lt;li class="flex-none w-3-cols-vw md:w-3-cols">&lt;/li>
-    &lt;li class="flex-none w-3-cols-vw md:w-3-cols">&lt;/li>
-    &lt;li class="flex-none w-3-cols-vw md:w-3-cols">&lt;/li>
-    &lt;li class="flex-none w-3-cols-vw md:w-3-cols">&lt;/li>
-    &lt;li class="flex-none w-3-cols-vw md:w-3-cols">&lt;/li>
-    &lt;li class="flex-none w-3-cols-vw md:w-3-cols">&lt;/li>
-    &lt;li class="flex-none w-3-cols-vw md:w-3-cols">&lt;/li>
-    &lt;li class="flex-none w-3-cols-vw md:w-3-cols">&lt;/li>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:breakout asvntntw:md:breakout-reset">
+  &lt;ul class="asvntntw:full-bleed-scroller asvntntw:md:before:hidden asvntntw:md:after:hidden">
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-3-cols">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-3-cols">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-3-cols">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-3-cols">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-3-cols">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-3-cols">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-3-cols">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-3-cols">&lt;/li>
   &lt;/ul>
 &lt;/div></code></pre>
   </figure>
 
   <p>
-    Again using a <code>.breakout</code> class to get a
+    Again using a <code>.asvntntw:breakout</code> class to get a
     <code>100vw</code> container and then at <code>md</code> breakpoint,
-    resetting the breakout with <code>md:breakpoint-reset</code>.
+    resetting the asvntntw:breakout with <code>md:breakpoint-reset</code>.
   </p>
 
   <p>
-    On the <code>full-bleed-scroller</code> element, at
+    On the <code>asvntntw:full-bleed-scroller</code> element, at
     <code>md</code> breakpoint, removing the <code>::before</code> and
-    <code>::after</code> content that <code>full-bleed-scroller</code> inserts
+    <code>::after</code> content that <code>asvntntw:full-bleed-scroller</code> inserts
     to add the outer gutter spacing.
   </p>
 
   <p>
-    And the children swap there <code>w-3-cols-vw</code> for
-    <code>md:w-3-cols</code> at the <code>md</code> breakpoint (although this
+    And the children swap there <code>asvntntw:w-cols-3-vw</code> for
+    <code>asvntntw:md:w-3-cols</code> at the <code>md</code> breakpoint (although this
     isn't strictly necessary, it does serve to demonstrate when to use the
     <code>.*-vw</code> Layout classes over the regular ones).
   </p>
 
   <h3>
-    A full bleed scroller on smaller screens, resets to a grid at
+    A full bleed scroller on smaller screens, resets to a asvntntw:grid at
     <code>md</code> breakpoint
   </h3>
 </div>
 
-<div class="breakout md:breakout-reset mt-20">
+<div class="asvntntw:breakout asvntntw:md:breakout-reset asvntntw:mt-20">
   <ul
-    class="full-bleed-scroller md:full-bleed-scroller-reset md:grid md:gap-gutter md:grid-cols-2 lg:grid-cols-3"
+    class="asvntntw:full-bleed-scroller asvntntw:md:full-bleed-scroller-reset asvntntw:md:grid asvntntw:md:gap-gutter asvntntw:md:grid-cols-2 asvntntw:lg:grid-cols-3"
   >
-    <li class="flex-none w-3-cols-vw md:w-auto h-40 bg-column"></li>
-    <li class="flex-none w-3-cols-vw md:w-auto h-40 bg-column"></li>
-    <li class="flex-none w-3-cols-vw md:w-auto h-40 bg-column"></li>
-    <li class="flex-none w-3-cols-vw md:w-auto h-40 bg-column"></li>
-    <li class="flex-none w-3-cols-vw md:w-auto h-40 bg-column"></li>
-    <li class="flex-none w-3-cols-vw md:w-auto h-40 bg-column"></li>
-    <li class="flex-none w-3-cols-vw md:w-auto h-40 bg-column"></li>
-    <li class="flex-none w-3-cols-vw md:w-auto h-40 bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-auto asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-auto asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-auto asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-auto asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-auto asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-auto asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-auto asvntntw:h-40 asvntntw:bg-column"></li>
+    <li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-auto asvntntw:h-40 asvntntw:bg-column"></li>
   </ul>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="breakout md:breakout-reset">&lt;div class="breakout md:unbreakout">
-  &lt;ul class="full-bleed-scroller md:full-bleed-scroller-reset md:grid md:gap-gutter md:grid-cols-2 lg:grid-cols-3">
-    &lt;li class="flex-none w-3-cols-vw md:w-auto">&lt;/li>
-    &lt;li class="flex-none w-3-cols-vw md:w-auto">&lt;/li>
-    &lt;li class="flex-none w-3-cols-vw md:w-auto">&lt;/li>
-    &lt;li class="flex-none w-3-cols-vw md:w-auto">&lt;/li>
-    &lt;li class="flex-none w-3-cols-vw md:w-auto">&lt;/li>
-    &lt;li class="flex-none w-3-cols-vw md:w-auto">&lt;/li>
-    &lt;li class="flex-none w-3-cols-vw md:w-auto">&lt;/li>
-    &lt;li class="flex-none w-3-cols-vw md:w-auto">&lt;/li>
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:breakout asvntntw:md:breakout-reset">&lt;div class="asvntntw:breakout md:unasvntntw:breakout">
+  &lt;ul class="asvntntw:full-bleed-scroller asvntntw:md:full-bleed-scroller-reset asvntntw:md:grid asvntntw:md:gap-gutter asvntntw:md:grid-cols-2 asvntntw:lg:grid-cols-3">
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-auto">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-auto">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-auto">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-auto">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-auto">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-auto">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-auto">&lt;/li>
+    &lt;li class="asvntntw:flex-none asvntntw:w-cols-3-vw asvntntw:md:w-auto">&lt;/li>
   &lt;/ul>
 &lt;/div></code></pre>
   </figure>
 
   <p>
     Similar to above, only now at the <code>md</code> breakpoint we reset the
-    scroller with <code>md:full-bleed-scroller-reset</code> and add Tailwind
-    grid classes.
+    scroller with <code>asvntntw:md:full-bleed-scroller-reset</code> and add Tailwind
+    asvntntw:grid classes.
   </p>
 </div>
 

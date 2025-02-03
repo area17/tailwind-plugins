@@ -1,36 +1,36 @@
 ---
-title: GridGap
+title: gridGap
 ---
 
 {% include_relative includes/_header.html %}
 
-<div class="copy">
+<div class="asvntntw:copy">
   <h2 id="description">Description</h2>
 
-  <p>This plugin creates classes to handle responsive grid gutters:</p>
+  <p>This plugin creates classes to handle responsive asvntntw:grid gutters:</p>
 
   <ul>
-    <li><code>.gap-gutter</code></li>
-    <li><code>.gap-y-gutter</code></li>
-    <li><code>.gap-x-gutter</code></li>
+    <li><code>.asvntntw:gap-gutter</code></li>
+    <li><code>.asvntntw:gap-y-gutter</code></li>
+    <li><code>.asvntntw:gap-x-gutter</code></li>
   </ul>
 
   <p>
-    Which are responsive CSS grid gutters to complement Tailwind's
+    Which are responsive CSS asvntntw:grid gutters to complement Tailwind's
     <a href="https://tailwindcss.com/docs/gap" target="_blank">grid-gap</a>.
   </p>
 
   <h2 id="setup">Setup</h2>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-javascript">const { Setup, GridGap } = require('@area17/a17-tailwind-plugins');
+      class="asvntntw:code-example-code"
+    ><code class="language-javascript">const { Setup, asvntntw:gridGap } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
   ...
-  plugins: [Setup, GridGap],
+  plugins: [Setup, asvntntw:gridGap],
   theme: {
     innerGutters: {
       xs: "10px",
@@ -53,28 +53,28 @@ module.exports = {
   <h2 id="demo">Demo</h2>
 
   <p>
-    Mixing in with standard Tailwind grid type classes, we use
-    <code>gap-x-gutter</code> to set the grid's column gutter:
+    Mixing in with standard Tailwind asvntntw:grid type classes, we use
+    <code>asvntntw:gap-x-gutter</code> to set the asvntntw:grid's column gutter:
   </p>
 </div>
 
-<div class="show-grid">
+<div class="asvntntw:show-grid">
   <div
-    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-20 mt-20"
+    class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-x-gutter asvntntw:gap-y-20 asvntntw:mt-20"
   >
-    <div class="h-40 bg-column"></div>
-    <div class="h-40 bg-column"></div>
-    <div class="h-40 bg-column"></div>
-    <div class="h-40 bg-column"></div>
+    <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:h-40 asvntntw:bg-column"></div>
   </div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-20  gap-x-gutter">
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-y-20  asvntntw:gap-x-gutter">
   &lt;div>&lt;/div>
   &lt;div>&lt;/div>
   &lt;div>&lt;/div>
@@ -89,23 +89,23 @@ module.exports = {
   </p>
 </div>
 
-<div class="show-grid">
+<div class="asvntntw:show-grid">
   <div
-    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-0 md:gap-x-gutter lg:gap-x-0 xl:gap-x-gutter gap-y-20 mt-20"
+    class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-x-0 asvntntw:md:gap-x-gutter asvntntw:lg:gap-x-0 asvntntw:xl:gap-x-gutter asvntntw:gap-y-20 asvntntw:mt-20"
   >
-    <div class="h-40 bg-column"></div>
-    <div class="h-40 bg-column"></div>
-    <div class="h-40 bg-column"></div>
-    <div class="h-40 bg-column"></div>
+    <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:h-40 asvntntw:bg-column"></div>
+    <div class="asvntntw:h-40 asvntntw:bg-column"></div>
   </div>
 </div>
 
-<div class="copy">
-  <figure class="code-example">
-    <figcaption class="code-example-filename">document.html</figcaption>
+<div class="asvntntw:copy">
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">document.html</figcaption>
     <pre
-      class="code-example-code"
-    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-20 gap-x-0 md:gap-x-gutter lg:gap-x-0 xl:gap-x-gutter">
+      class="asvntntw:code-example-code"
+    ><code class="language-html">&lt;div class="asvntntw:grid asvntntw:grid-cols-2 asvntntw:md:grid-cols-3 asvntntw:lg:grid-cols-4 asvntntw:gap-y-20 asvntntw:gap-x-0 asvntntw:md:gap-x-gutter asvntntw:lg:gap-x-0 asvntntw:xl:gap-x-gutter">
   &lt;div>&lt;/div>
   &lt;div>&lt;/div>
   &lt;div>&lt;/div>

@@ -4,7 +4,7 @@ title: SpacingTokens
 
 {% include_relative includes/_header.html %}
 
-<div class="copy">
+<div class="asvntntw:copy">
   <h2 id="description">Description</h2>
 
   <p>
@@ -15,9 +15,9 @@ title: SpacingTokens
 
   <p>
     As humans often specify spacing in terms of pixels, using this set up you
-    can see "padding top 40px" and then use <code>.pt-40</code> in your HTML.
-    Tailwind like spacing classes are generated, eg. <code>mt-</code>,
-    <code>pt-</code>, <code>h-</code>, <code>max-h-</code> etc. by the Tailwind
+    can see "padding top 40px" and then use <code>.asvntntw:pt-40</code> in your HTML.
+    Tailwind like spacing classes are generated, eg. <code>asvntntw:mt-</code>,
+    <code>asvntntw:pt-</code>, <code>asvntntw:h-</code>, <code>asvntntw:max-h-</code> etc. by the Tailwind
     core plugins for <code>padding</code>, <code>margin</code>,
     <code>width</code>, <code>height</code>, <code>maxHeight</code>,
     <code>gap</code>, <code>inset</code>, <code>space</code>, and
@@ -25,7 +25,7 @@ title: SpacingTokens
   </p>
 
   <p>
-    Key to understand is that <code>.mt-4</code> will
+    Key to understand is that <code>.asvntntw:mt-4</code> will
     <strong>not</strong> produce <code>margin-top: 1rem;</code>,
     <em>but</em> instead will produce <code>margin-top: 0.25rem;</code> which is
     equivalent to <code>4px</code>.
@@ -43,10 +43,10 @@ title: SpacingTokens
 
   <h3 id="default">Default</h3>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">const { SpacingTokens } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
@@ -66,10 +66,10 @@ module.exports = {
 
   <h3 id="defined">Scale defined:</h3>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">const { SpacingTokens } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
@@ -96,7 +96,7 @@ module.exports = {
   <p>
     Unless you specify a scale manually, <code>SpacingTokens</code> will always
     output arbitrary values of 0 - 10px, because we always randomly need a
-    <code>mt-1</code> or <code>pl-3</code> regardless of your spacing scale.
+    <code>asvntntw:mt-1</code> or <code>asvntntw:pl-3</code> regardless of your spacing scale.
   </p>
 
   <h3 id="manual">Manual scale</h3>
@@ -106,10 +106,10 @@ module.exports = {
     own token scale.
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">const { SpacingTokens } = require('@area17/a17-tailwind-plugins');
 
 module.exports = {
@@ -176,10 +176,10 @@ module.exports = {
     want to include <code>minHeight</code>, you'll need to extend it:
   </p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">module.exports = {
   ...
   theme: {
@@ -197,10 +197,10 @@ module.exports = {
 
   <p>Using:</p>
 
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+  <figure class="asvntntw:code-example">
+    <figcaption class="asvntntw:code-example-filename">tailwind.config.js</figcaption>
     <pre
-      class="code-example-code"
+      class="asvntntw:code-example-code"
     ><code class="language-javascript">SpacingTokens({
   scaler: 4,
   arbitraries: {
@@ -217,264 +217,264 @@ module.exports = {
   </p>
 </div>
 
-<ul class="mt-20">
-  <li class="mb-16 flex flex-row items-center">
+<ul class="asvntntw:mt-20">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-0 h-0"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-0 asvntntw:h-0"
     ></div>
-    <span class="ml-16 f-ui">0px / 0rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">0px / 0rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-1 h-1"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-1 asvntntw:h-1"
     ></div>
-    <span class="ml-16 f-ui">1px / 0.0625rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">1px / 0.0625rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-2 h-2"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-2 asvntntw:h-2"
     ></div>
-    <span class="ml-16 f-ui">2px / 0.125rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">2px / 0.125rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-3 h-3"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-3 asvntntw:h-3"
     ></div>
-    <span class="ml-16 f-ui">3px / 0.1875rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">3px / 0.1875rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-4 h-4"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-4 asvntntw:h-4"
     ></div>
-    <span class="ml-16 f-ui">4px / 0.25rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">4px / 0.25rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-5 h-5"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-5 asvntntw:h-5"
     ></div>
-    <span class="ml-16 f-ui">5px / 0.3125rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">5px / 0.3125rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-6 h-6"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-6 asvntntw:h-6"
     ></div>
-    <span class="ml-16 f-ui">6px / 0.375rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">6px / 0.375rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-7 h-7"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-7 asvntntw:h-7"
     ></div>
-    <span class="ml-16 f-ui">7px / 0.4375rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">7px / 0.4375rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-8 h-8"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-8 asvntntw:h-8"
     ></div>
-    <span class="ml-16 f-ui">8px / 0.5rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">8px / 0.5rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-9 h-9"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-9 asvntntw:h-9"
     ></div>
-    <span class="ml-16 f-ui">9px / 0.5625rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">9px / 0.5625rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-10 h-10"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-10 asvntntw:h-10"
     ></div>
-    <span class="ml-16 f-ui">10px / 0.625rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">10px / 0.625rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-12 h-12"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-12 asvntntw:h-12"
     ></div>
-    <span class="ml-16 f-ui">12px / 0.75rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">12px / 0.75rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-16 h-16"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-16 asvntntw:h-16"
     ></div>
-    <span class="ml-16 f-ui">16px / 1rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">16px / 1rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-20 h-20"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-20 asvntntw:h-20"
     ></div>
-    <span class="ml-16 f-ui">20px / 1.25rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">20px / 1.25rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-24 h-24"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-24 asvntntw:h-24"
     ></div>
-    <span class="ml-16 f-ui">24px / 1.5rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">24px / 1.5rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-28 h-28"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-28 asvntntw:h-28"
     >
       28
     </div>
-    <span class="ml-16 f-ui">28px / 1.75rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">28px / 1.75rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-32 h-32"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-32 asvntntw:h-32"
     >
       32
     </div>
-    <span class="ml-16 f-ui">32px / 2rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">32px / 2rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-36 h-36"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-36 asvntntw:h-36"
     >
       36
     </div>
-    <span class="ml-16 f-ui">36px / 2.25rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">36px / 2.25rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-40 h-40"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-40 asvntntw:h-40"
     >
       40
     </div>
-    <span class="ml-16 f-ui">40px / 2.5rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">40px / 2.5rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-44 h-44"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-44 asvntntw:h-44"
     >
       44
     </div>
-    <span class="ml-16 f-ui">44px / 2.75rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">44px / 2.75rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-48 h-48"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-48 asvntntw:h-48"
     >
       48
     </div>
-    <span class="ml-16 f-ui">48px / 3rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">48px / 3rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-52 h-52"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-52 asvntntw:h-52"
     >
       52
     </div>
-    <span class="ml-16 f-ui">52px / 3.25rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">52px / 3.25rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-56 h-56"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-56 asvntntw:h-56"
     >
       56
     </div>
-    <span class="ml-16 f-ui">56px / 3.5rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">56px / 3.5rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-60 h-60"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-60 asvntntw:h-60"
     >
       60
     </div>
-    <span class="ml-16 f-ui">60px / 3.75rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">60px / 3.75rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-64 h-64"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-64 asvntntw:h-64"
     >
       64
     </div>
-    <span class="ml-16 f-ui">64px / 4rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">64px / 4rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-68 h-68"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-68 asvntntw:h-68"
     >
       68
     </div>
-    <span class="ml-16 f-ui">68px / 4.25rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">68px / 4.25rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-72 h-72"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-72 asvntntw:h-72"
     >
       72
     </div>
-    <span class="ml-16 f-ui">72px / 4.5rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">72px / 4.5rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-76 h-76"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-76 asvntntw:h-76"
     >
       76
     </div>
-    <span class="ml-16 f-ui">76px / 4.75rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">76px / 4.75rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-80 h-80"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-80 asvntntw:h-80"
     >
       80
     </div>
-    <span class="ml-16 f-ui">80px / 5rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">80px / 5rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-84 h-84"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-84 asvntntw:h-84"
     >
       84
     </div>
-    <span class="ml-16 f-ui">84px / 5.25rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">84px / 5.25rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-88 h-88"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-88 asvntntw:h-88"
     >
       88
     </div>
-    <span class="ml-16 f-ui">88px / 5.5rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">88px / 5.5rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-92 h-92"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-92 asvntntw:h-92"
     >
       92
     </div>
-    <span class="ml-16 f-ui">92px / 5.75rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">92px / 5.75rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-96 h-96"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-96 asvntntw:h-96"
     >
       96
     </div>
-    <span class="ml-16 f-ui">96px / 6rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">96px / 6rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-100 h-100"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-100 asvntntw:h-100"
     >
       100
     </div>
-    <span class="ml-16 f-ui">100px / 6.25rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">100px / 6.25rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-400 h-400"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-400 asvntntw:h-400"
     >
       400
     </div>
-    <span class="ml-16 f-ui">400px / 25rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">400px / 25rem</span>
   </li>
-  <li class="mb-16 flex flex-row items-center">
+  <li class="asvntntw:mb-16 asvntntw:flex asvntntw:flex-row iteasvntntw:ms-center">
     <div
-      class="flex items-center justify-center text-center bg-column f-ui w-600 h-600"
+      class="asvntntw:flex iteasvntntw:ms-center asvntntw:justify-center asvntntw:text-center asvntntw:bg-column asvntntw:f-ui asvntntw:w-600 asvntntw:h-600"
     >
       600
     </div>
-    <span class="ml-16 f-ui">600px / 37.5rem</span>
+    <span class="asvntntw:ml-16 asvntntw:f-ui">600px / 37.5rem</span>
   </li>
 </ul>
 
