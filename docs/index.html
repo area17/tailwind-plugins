@@ -23,17 +23,172 @@ title: A17 Tailwind Plugins
     common styling requirements.
   </p>
 
-  <p>Firstly, our Tailwind setup:</p>
+  <ul>
+    <li>
+      Our <a href="./tailwind-setup.html">Tailwind setup</a> - a walk through of our
+      basic Tailwind setup, consuming a config JSON and applying plugins.
+    </li>
+    <li><a href="./migrating.html">Migration guide</a> from A17 Tailwind Plugins <code>v4</code> to <code>v5</code> and migrating from Tailwind <code>v3</code> to <code>v4</code></li>
+  </ul>
+
+  <h2 class="f-h2" id="plugins">Available Plugins</h2>
+
+  <div class="grid gap-gutter md:grid-cols-2 mb-60 !max-w-full">
+    <div>
+      <h3 class="f-h3">Setup</h3>
+      <ul>
+        <li>
+          <a href="./Setup.html">Setup</a> - the center pin of many of our
+          plugins, creates the basis the other plugins build of
+        </li>
+        <li>
+          <a href="./DevTools.html">DevTools</a> - generates the CSS for the
+          grid helper (in the bottom left corner of the page)
+        </li>
+        <li>
+          <a href="./ColorTokens.html">ColorTokens</a> - generates colour
+          variables
+        </li>
+        <li>
+          <a href="./ApplyColourVariables.html">ApplyColourVariables</a> -
+          generates utility classes
+        </li>
+        <li>
+          <a href="./SpacingTokens.html">SpacingTokens</a> - generates
+          <code>rem</code> based spacing tokens based on pixel based scales or
+          inputs
+          <ul>
+            <li>Not required in Tailwind v4</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="border-t border-t-secondary pt-20 md:border-t-0 md:pt-0">
+      <h3 class="f-h3">Layout</h3>
+      <ul>
+        <li>
+          <a href="./Spacing.html">Spacing</a> - generates responsive spacing
+          classes
+        </li>
+        <li>
+          <a href="./Container.html">Container</a> - generates a custom
+          container class based on supplied config (resets and more useful
+          breakout styles new in <code>v3.6.0</code>)
+        </li>
+        <li>
+          <a href="./Layout.html">Layout</a> - generates utility classes to set
+          elements onto the design grid
+          <ul>
+            <li>
+              Breaking change from <code>&lt;v5.0.0</code> to <code>v5.0.0</code>: <br>
+              The format of the class names has been updated from <code>.w-N-cols</code> to <code>.w-cols-N</code>.
+            </li>
+            <li>In <code>v5.0.0</code> <code>.cols-container</code> is deprecated to be removed in <code>v6.0.0</code></li>
+          </ul>
+        </li>
+        <li>
+          <a href="./GridLayout.html">GridLayout</a> - creates classes to handle
+          css grid layouts
+        </li>
+        <li>
+          <a href="./GridGap.html">GridGap</a> - generates grid gap utilities
+          based on the configured grid
+        </li>
+      </ul>
+    </div>
+    <div class="border-t border-t-secondary pt-20">
+      <h3 class="f-h3">Typography</h3>
+      <ul>
+        <li>
+          <a href="./Typography.html">Typography</a> - generates responsive
+          typography classes with ability to
+          <a href="./Typography.html#overriding"
+            >overriding styles at breakpoints</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="border-t border-t-secondary pt-20">
+      <h3 class="f-h3">Grid gutter borders</h3>
+      <ul>
+        <li>
+          <a href="./GridLine.html">GridLine</a> - generates vertical and
+          horizontal grid line/stroke classes (borders in the gutters between
+          elements)
+          <ul>
+            <li><strong>Needs refactor to reduce outputted CSS</strong></li>
+            <li>For now ensure you purge your CSS</li>
+            <li>Notes in JS src file</li>
+          </ul>
+        </li>
+        <li>
+          <a href="./Keyline.html">Keyline</a> - generates keylines in the
+          gutter between elements
+        </li>
+      </ul>
+    </div>
+    <div class="border-t border-t-secondary pt-20">
+      <h3 class="f-h3">General Styling Utilities</h3>
+      <ul>
+        <li>
+          <a href="./BackgroundFill.html">BackgroundFill</a> - draws a 100vw
+          background colour pseudo layer
+        </li>
+        <li>
+          <a href="./StrokeFull.html">StrokeFull</a> - draws a 100vw key pseudo
+          layer
+        </li>
+        <li>
+          <a href="./Underline.html">Underline</a> - generates text underline
+          styling classes
+        </li>
+        <li>
+          <a href="./FullBleedScroller.html">FullBleedScroller</a> - easy full
+          bleed `overflow-x: auto` scrolling containers
+        </li>
+        <li>
+          <a href="./Scrollbar.html">Scrollbar</a> - scrollbar styling, unifies
+          the CSS standard and non-standard scrollbar styling
+        </li>
+      </ul>
+    </div>
+    <div class="border-t border-t-secondary pt-20">
+      <h3 class="f-h3">General Utilities</h3>
+      <ul>
+        <li>
+          <a href="./PseudoElements.html">PseudoElements</a> - adds additional
+          pseudo classes
+        </li>
+        <li>
+          <a href="./InteractionMediaQueries.html">InteractionMediaQueries</a> -
+          adds interaction based media queries, think targeting devices with
+          hover capability
+        </li>
+        <li>
+          <a href="./RatioBox.html">RatioBox</a> - generates ratio box utilities
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="f-h2" id="removed-plugins">Removed Plugins in <code>5.x.x</code></h2>
+
+  <p>The following plugins are no longer available in <code>5.x.x</code> due to incompatibility with Tailwind 4. You'll need to move any styles specified in your config to inside your CSS if you used these plugins:</p>
 
   <ul>
     <li>
-      <a href="./tailwind-setup.html">tailwind-setup</a> - a walk through of our
-      basic Tailwind setup, consuming a config JSON and applying plugins. <br>
-      Updated for <code>v.5/Tailwind v4</code>
+      <a href="./v4/CssInJs.html">CssInJs</a> - allows you to pass through CSS
+      from your Tailwind config
+    </li>
+    <li>
+      <a href="./v4/Components.html">Components</a> - allows you to generate
+      component CSS from your Tailwind config
     </li>
   </ul>
 
   <h2 class="f-h2" id="compatibility">Compatibility</h2>
+
+  <p>You are currently viewing docs for <code>5.x.x</code></p>
 
   <table>
     <thead>
@@ -59,6 +214,8 @@ title: A17 Tailwind Plugins
         <td><code>5.0.0</code></td>
         <td>⁇ <sup><a href="#compatibility-1" id="compatibility-1-ref">1</a></sup></td>
       </tr>
+    </tbody>
+    <tbody class="opacity-50">
       <tr>
         <td><code>4.0.x</code></td>
         <td><code><=4.0.6</code></td>
@@ -87,182 +244,6 @@ title: A17 Tailwind Plugins
       </tr>
     </tfoot>
   </table>
-
-  <h2 class="f-h2" id="plugins">Available Plugins</h2>
-
-  <div class="grid gap-gutter md:grid-cols-2 mb-60 !max-w-full">
-    <div>
-      <h3 class="f-h3">Setup</h3>
-      <ul>
-        <li>
-          <code>v.5 ✅</code> <a href="./Setup.html">Setup</a> - the center pin of many of our
-          plugins, creates the basis the other plugins build of
-        </li>
-        <li>
-          <code>v.5 ✅</code> <a href="./DevTools.html">DevTools</a> - generates the CSS for the
-          grid helper (in the bottom left corner of the page)
-        </li>
-        <li>
-          <code>v.5 ✅</code> <a href="./ColorTokens.html">ColorTokens</a> - generates colour
-          variables
-        </li>
-        <li>
-          <code>v.5 ✅</code> <a href="./ApplyColourVariables.html">ApplyColourVariables</a> -
-          generates utility classes
-        </li>
-        <li>
-          <code>v.5 ❌ - not required in Tailwind v4</code> <a href="./SpacingTokens.html">SpacingTokens</a> - generates
-          <code>rem</code> based spacing tokens based on pixel based scales or
-          inputs (updated in <code>v3.4.0</code>)
-        </li>
-      </ul>
-    </div>
-    <div class="border-t border-t-secondary pt-20 md:border-t-0 md:pt-0">
-      <h3 class="f-h3">Layout</h3>
-      <ul>
-        <li>
-          <code>v.5 ✅</code> <a href="./Spacing.html">Spacing</a> - generates responsive spacing
-          classes
-          <ul>
-            <li>
-              <code>v4.0.5</code> adds logical properties
-              <code>margin-inline-start</code>/<code>ms-</code>,
-              <code>margin-inline-end</code>/<code>me-</code>,
-              <code>padding-inline-start</code>/<code>ps-</code>,
-              <code>padding-inline-end</code>/<code>pe-</code>,
-              <code>inset-inline-start</code>/<code>start</code> and
-              <code>inset-inline-end</code>/<code>end</code>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <code>v.5 ✅</code> <a href="./Container.html">Container</a> - generates a custom
-          container class based on supplied config (resets and more useful
-          breakout styles new in <code>v3.6.0</code>)
-        </li>
-        <li>
-          <code>v.5 ✅</code> <a href="./Layout.html">Layout</a> - generates utility classes to set
-          elements onto the design grid
-          <ul>
-            <li>
-              <code>v3.6.0</code> adds <code>vw</code> based calcs variants
-            </li>
-            <li>
-              <code>v3.10.0</code> adds logical properties
-              <code>margin-inline-start</code>/<code>ms-</code>,
-              <code>margin-inline-end</code>/<code>me-</code>,
-              <code>padding-inline-start</code>/<code>ps-</code>,
-              <code>padding-inline-end</code>/<code>pe-</code>,
-              <code>inset-inline-start</code>/<code>start</code> and
-              <code>inset-inline-end</code>/<code>end</code>
-            </li>
-            <li>
-              <code>v5.0.0</code> The format of the class names has been updated from <code>.w-N-cols</code> to <code>.w-cols-N</code> and <code>.cols-container</code> is deprecated.
-            </li>
-          </ul>
-        </li>
-        <li>
-          <code>v.5 ✅</code> <a href="./GridLayout.html">GridLayout</a> - creates classes to handle
-          css grid layouts
-        </li>
-        <li>
-          <code>v.5 ✅</code> <a href="./GridGap.html">GridGap</a> - generates grid gap utilities
-          based on the configured grid
-        </li>
-      </ul>
-    </div>
-    <div class="border-t border-t-secondary pt-20">
-      <h3 class="f-h3">Typography</h3>
-      <ul>
-        <li>
-          <code>v.5 ✅</code> <a href="./Typography.html">Typography</a> - generates responsive
-          typography classes (updated in <code>v3.9.0</code> to allow
-          <a href="./Typography.html#overriding"
-            >Typography overriding styles</a
-          >
-          at breakpoints)
-        </li>
-      </ul>
-    </div>
-    <div class="border-t border-t-secondary pt-20">
-      <h3 class="f-h3">Grid gutter borders</h3>
-      <ul>
-        <li>
-          <code>v.5 ✅ - needs refactor (see file)</code> <a href="./GridLine.html">GridLine</a> - generates vertical and
-          horizontal grid line/stroke classes (borders in the gutters between
-          elements)
-        </li>
-        <li>
-          <code>v.5 ✅</code> <a href="./Keyline.html">Keyline</a> - generates keylines in the
-          gutter between elements
-        </li>
-      </ul>
-    </div>
-    <div class="border-t border-t-secondary pt-20">
-      <h3 class="f-h3">General Styling Utilities</h3>
-      <ul>
-        <li>
-          <code>v.5 ✅</code> <a href="./BackgroundFill.html">BackgroundFill</a> - draws a 100vw
-          background colour pseudo layer (new in <code>v3.8.0</code>)
-        </li>
-        <li>
-          <code>v.5 ✅</code> <a href="./StrokeFull.html">StrokeFull</a> - draws a 100vw key pseudo
-          layer (new in <code>v3.8.0</code>)
-        </li>
-        <li>
-          <code>v.5 ✅</code> <a href="./Underline.html">Underline</a> - generates text underline
-          styling classes (new in <code>v3.1.0</code>)
-        </li>
-        <li>
-          <code>v.5 ✅</code> <a href="./FullBleedScroller.html">FullBleedScroller</a> - easy full
-          bleed `overflow-x: auto` scrolling containers (new in
-          <code>v3.6.0</code>)
-        </li>
-        <li>
-          <code>v.5 ✅</code> <a href="./Scrollbar.html">Scrollbar</a> - scrollbar styling, unifies
-          the CSS standard and non-standard scrollbar styling (new in
-          <code>v3.6.0</code>)
-        </li>
-      </ul>
-    </div>
-    <div class="border-t border-t-secondary pt-20">
-      <h3 class="f-h3">General Utilities</h3>
-      <ul>
-        <li>
-          <code>v.5 ✅</code> <a href="./PseudoElements.html">PseudoElements</a> - adds additional
-          pseudo classes
-        </li>
-        <li>
-          <code>v.5 ✅</code> <a href="./InteractionMediaQueries.html">InteractionMediaQueries</a> -
-          adds interaction based media queries, think targeting devices with
-          hover capability (new in <code>v3.6.0</code>)
-        </li>
-        <li>
-          <code>v.5 ✅</code> <a href="./RatioBox.html">RatioBox</a> - generates ratio box utilities
-        </li>
-        <li>
-          <code>v.5 ❌ not possible - use CSS</code> <a href="./CssInJs.html">CssInJs</a> - allows you to pass through CSS
-          from your Tailwind config (new in <code>v3.2.0</code>)
-        </li>
-        <li>
-          <code>v.5 ❌ not possible - use CSS</code> <a href="./Components.html">Components</a> - allows you to generate
-          component CSS from your Tailwind config (new in <code>v3.2.0</code>)
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <p>
-    For AREA 17 staffers used to the legacy
-    <a
-      href="https://code.area17.com/a17/fe-boilerplate/-/tree/main"
-      target="_blank"
-      >A17 Boilerplate</a
-    >
-    - these classes bring into Tailwind some of the useful classes from there
-    (and in return, some of the Tailwind classes have been taken back to the A17
-    SCSS set up).
-  </p>
 </div>
 
 {% include_relative includes/_footer.html %}
