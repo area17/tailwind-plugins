@@ -30,6 +30,26 @@ title: Migrating
     <li>Replace with <code>$1-cols-$2</code></li>
   </ol>
 
+  <h3>Migrate font family settings:</h3>
+
+  <p>In your <code>frontend.config.json</code> you may have have had:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">frontend.config.json</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">"font-family": "var(--sans)",</code></pre>
+  </figure>
+
+  <p>Font classes now have a prepended <code>font-</code>. So, you'll need to update to:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">frontend.config.json</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">"font-family": "var(--font-sans)",</code></pre>
+  </figure>
+
   <h3>Migrate any CSS in config JSON</h3>
 
   <p>You'll need to move any styles specified in your config to inside your CSS if you used these plugins.</p>
