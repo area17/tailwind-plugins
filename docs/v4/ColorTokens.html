@@ -1,0 +1,87 @@
+---
+title: ColorTokens
+---
+
+{% include_relative includes/_header.html %}
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>
+    This plugin turns colour tokens into CSS variables on the
+    <code>:root</code>. These will later be mapped to text, background and
+    border colours with the <code>ApplyColourVariables</code> plugin.
+  </p>
+
+  <p>
+    You can set Hex, RGB, RGBA, HSL, colour name or any valid CSS colour value.
+  </p>
+
+  <h2 id="setup">Setup</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">const { ColorTokens } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  plugins: [ColorTokens],
+  theme: {
+    colors: {
+      "white": "#fff",
+      "grey-5": "#f2f2f2",
+      "grey-10": "#e6e6e6",
+      "grey-15": "#d9d9d9",
+      "grey-54": "#757575",
+      "grey-90": "#1a1a1a",
+      "black": "#000",
+      "blue-01": "#0A152B",
+      "blue-02": "#001F5C",
+      "blue-03": "#004F91",
+      "blue-04": "#313BFB",
+      "blue-05": "#81EEF3",
+      "red-01": "#f00"
+    }
+  }
+  ...
+};</code></pre>
+  </figure>
+
+  <h2 id="output">Output</h2>
+
+  <p>
+    Based on the reference config mentioned in this guide, we would get the
+    following in our CSS:
+  </p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">app.css</figcaption>
+    <pre class="code-example-code"><code class="language-css">:root {
+  --white: #fff;
+  --grey-5: #f2f2f2;
+  --grey-10: #e6e6e6;
+  --grey-15: #d9d9d9;
+  --grey-54: #757575;
+  --grey-90: #1a1a1a;
+  --black: #000;
+  --blue-01: #0A152B;
+  --blue-02: #001F5C;
+  --blue-03: #004F91;
+  --blue-04: #313BFB;
+  --blue-05: #81EEF3;
+  --red-01: #f00;
+}</code></pre>
+  </figure>
+
+  <h2 id="notes">Notes</h2>
+
+  <p>
+    This is step 1 of abstracting colour tokens from colour usage. The next step
+    is applying these variables to named-by-usage text, background and border
+    colours with the <code>ApplyColourVariables</code> plugin.
+  </p>
+</div>
+
+{% include_relative includes/_footer.html %}

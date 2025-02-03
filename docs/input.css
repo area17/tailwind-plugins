@@ -12,6 +12,10 @@
   --spacing: 1px;
 }
 
+@utility container {
+  max-width: 100%;
+}
+
 @layer components {
   .show-grid {
     --grid-column-bg: rgba(0, 0, 0, 0.05);

@@ -1,0 +1,532 @@
+---
+title: GridLine
+---
+
+{% include_relative includes/_header.html %}
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>
+    A series of classes to draw grid strokes inside the gutters of a grid. This
+    is specifically intended to be used with Tailwind's
+    <code>grid</code> classes and assumes your column gutters gutters are
+    <code>--inner-gutter</code> in size set with <code>gap-x-gutter</code> from
+    the GridGap plugin.
+  </p>
+
+  <p>
+    The classes automatically account for first row, first of row, last row and
+    last of row to only draw the internal grid lines and have no undesired lines
+    outside of the grid of items. They will do this for any amount of columns at
+    any breakpoint.
+  </p>
+
+  <p>
+    The classes support up to the maximum amount of columns at each breakpoint;
+    so if your breakpoint has 12 design columns, you could have functioning grid
+    lines up to 12 columns. If you need more, you can specify more with a
+    <code>maxGridCols</code> object in your config.
+  </p>
+
+  <p>
+    You can mix item width, item height, row and column classes and control the
+    color of the horizontal and vertical strokes independently.
+  </p>
+
+  <ul>
+    <li>
+      <code>grid-line-x</code> - draws grid lines above each child, each is the
+      width of the child, except the first row
+    </li>
+    <li><code>grid-line-xfull</code> - essentially draws row lines</li>
+    <li>
+      <code>grid-line-y</code> - draws grid lines to the left of each child,
+      each is the height of the child, except the first column
+    </li>
+    <li><code>grid-line-yfull</code> - essentially draws column lines</li>
+    <li>
+      <code>grid-line-x-primary</code> - makes the horizontal grid lines the
+      primary border color
+    </li>
+    <li>
+      <code>grid-line-y-primary</code> - makes the vertical grid lines the
+      primary border color
+    </li>
+    <li>
+      <code>grid-line-xy-primary</code> - makes both the horizontal and vertical
+      grid lines the primary border color
+    </li>
+    <li>
+      <code>grid-line-x-0</code> - hides the horizontal grid lines, especially
+      useful when making responsive/adaptive grids
+    </li>
+    <li>
+      <code>grid-line-y-0</code> - hides the vertical grid lines, especially
+      useful when making responsive/adaptive grids
+    </li>
+  </ul>
+
+  <p>
+    The <code>GridLine</code> classes assume your grid gutters are equal to
+    <code>--inner-gutter</code>, which we would set using <code>GridGap</code> -
+    <code>grid-gap-gutter</code>. If you have taller row gaps, you need to set
+    some <code>GridLine</code> classes to shift the lines it draws:
+  </p>
+
+  <ul>
+    <li>
+      For <code>gap-y-48</code> (standard Tailwind class) you would set
+      <code>grid-line-x-24</code> - to position the drawn line in the middle of
+      the 48 gap. Of course you could set it higher or lower by changing the
+      <code>-24</code>
+    </li>
+  </ul>
+
+  <p>
+    The gridline classes also have responsive states using Tailwind responsive
+    prefixes, eg:
+  </p>
+
+  <ul>
+    <li>
+      <code>md:grid-line-x-primary</code> - switches primary border color
+      horizontal grid lines at <code>md</code> breakpoint
+    </li>
+    <li>
+      <code>lg:grid-line-y-0</code> - removes the vertical grid lines at
+      <code>lg</code> breakpoint
+    </li>
+  </ul>
+
+  <p>
+    <strong>NB:</strong> there is nothing stopping you using these classes with
+    a flex layout, its just more complex to set up grids like this with flex.
+  </p>
+
+  <h2 id="setup">Setup</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { Setup, GridGap, GridLine } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  plugins: [Setup, GridGap, GridLine],
+  theme: {
+    innerGutters: {
+      xs: "10px",
+      sm: "15px",
+      md: "20px",
+      lg: "30px",
+      xl: "40px",
+      xxl: "40px"
+    },
+    borderColor: {
+      "primary": "#757575",
+      "secondary": "#f00",
+      "tertiary": "#d9d9d9"
+    }
+  }
+  ...
+};</code></pre>
+  </figure>
+
+  <p>
+    Requires <code>Setup</code> plugin with <code>theme.innerGutters</code> and
+    <code>theme.borderColor</code> configured and also the
+    <code>GridGap</code> plugin.
+  </p>
+
+  <p>
+    You will 100% want to make sure your CSS is purged when using this plugin -
+    as this plugin can create a lot of CSS to cover all the variations.
+  </p>
+
+  <h2 id="demo">Demo</h2>
+
+  <p>Row grid lines, <code>grid-line-x grid-line-x-primary</code>:</p>
+</div>
+
+<div
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-x-primary mt-20"
+>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-x-primary"></code></pre>
+  </figure>
+
+  <p>Full width row gridlines, <code>grid-line-x grid-line-x-primary</code>:</p>
+</div>
+
+<div
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-xfull grid-line-x-primary mt-20"
+>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-xfull grid-line-x-primary"></code></pre>
+  </figure>
+
+  <p>Column gridlines, <code>grid-line-y grid-line-y-primary</code>:</p>
+</div>
+
+<div
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-y grid-line-y-primary mt-20"
+>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-y grid-line-y-primary"></code></pre>
+  </figure>
+
+  <p>
+    Full height column gridlines,
+    <code>grid-line-yfull grid-line-y-primary</code>:
+  </p>
+</div>
+
+<div
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-yfull grid-line-y-primary mt-20"
+>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-yfull grid-line-y-primary"></code></pre>
+  </figure>
+
+  <h3>Combining row and column grid lines</h3>
+
+  <p><code>grid-line-x grid-line-y grid-line-xy-primary</code>:</p>
+</div>
+
+<div
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-y grid-line-xy-primary mt-20"
+>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-y grid-line-xy-primary"></code></pre>
+  </figure>
+
+  <p>
+    Setting full width and full height grid lines,
+    <code>grid-line-xfull grid-line-yfull grid-line-xy-primary</code>:
+  </p>
+</div>
+
+<div
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-xfull grid-line-yfull grid-line-xy-primary mt-20"
+>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-xfull grid-line-yfull grid-line-xy-primary"></code></pre>
+  </figure>
+
+  <p>
+    Full width row gridlines and item height column gridlines,
+    <code>grid-line-xfull grid-line-y grid-line-xy-primary</code>:
+  </p>
+</div>
+
+<div
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-xfull grid-line-y grid-line-xy-primary mt-20"
+>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-xfull grid-line-y grid-line-xy-primary"></code></pre>
+  </figure>
+
+  <p>
+    Item width row gridlines and full height column gridlines,
+    <code>grid-line-x grid-line-yfull grid-line-xy-primary</code>:
+  </p>
+</div>
+
+<div
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-yfull grid-line-xy-primary mt-20"
+>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-yfull grid-line-xy-primary"></code></pre>
+  </figure>
+
+  <h3>Taller row gaps</h3>
+
+  <p>
+    Maybe you require taller row gaps in comparison with our column gaps,
+    <code>gap-y-80 grid-line-x-40</code>:
+  </p>
+</div>
+
+<div
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-80 grid-line-x grid-line-x-40 grid-line-yfull grid-line-xy-primary mt-20"
+>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-80 grid-line-x grid-line-x-40 grid-line-yfull grid-line-xy-primary"></code></pre>
+  </figure>
+
+  <h3>Changing the colours of the gridlines</h3>
+
+  <p>You set the colour of the gridlines with:</p>
+
+  <ul>
+    <li><code>grid-line-xy-COLORNAME</code></li>
+  </ul>
+
+  <p>And you can set the grid line colours for each axis with:</p>
+
+  <ul>
+    <li><code>grid-line-x-COLORNAME</code></li>
+    <li><code>grid-line-y-COLORNAME</code></li>
+  </ul>
+
+  <p>Where the colour name is any of your theme border colours.</p>
+
+  <p>
+    So, to make gridlines the secondary border colour, use
+    <code>grid-line-xy-secondary</code>, to give
+    <code>grid-line-x grid-line-y grid-line-xy-secondary</code>:
+  </p>
+</div>
+
+<div
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-y grid-line-xy-secondary mt-20"
+>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x  grid-line-y grid-line-xy-secondary"></code></pre>
+  </figure>
+
+  <p>
+    And to make secondary border colour row grid lines
+    <code>grid-line-x-secondary</code> and tertiary border colour column grid
+    lines <code>grid-line-y-tertiary</code> - to give
+    <code
+      >grid-line-x grid-line-x-secondary grid-line-y grid-line-y-tertiary</code
+    >:
+  </p>
+</div>
+
+<div
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-x-secondary grid-line-y grid-line-y-tertiary mt-20"
+>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-x-secondary grid-line-y grid-line-y-tertiary"></code></pre>
+  </figure>
+
+  <h3>Responsive</h3>
+
+  <p>
+    The following example is an overly complex arrangement, where we start with
+    a 2 column grid and full width row grid lines. At <code>md</code> those row
+    grid lines change colour and item height column grid lines appear. At
+    <code>lg</code> the row grid lines hide and the column grid lines change
+    colour. And then finally, at <code>xxl</code> the row grid lines return:
+  </p>
+</div>
+
+<div
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-48 md:gap-y-64 grid-line-x-24 md:grid-line-x-32 xl:grid-line-x-32 grid-line-xfull grid-line-x-primary grid-line-y-0 md:grid-line-y md:grid-line-y-primary md:grid-line-x-tertiary lg:grid-line-y-secondary lg:grid-line-x-0 xl:grid-line-x xl:grid-line-x-primary mt-20"
+>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column"></div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre class="code-example-code"><code class="language-html">&lt;div class="
+  grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4
+  gap-x-gutter
+  gap-y-48 md:gap-y-64 grid-line-x-24 md:grid-line-x-32 xl:grid-line-x-32
+  grid-line-xfull grid-line-x-primary
+  grid-line-y-0 md:grid-line-y md:grid-line-y-primary md:grid-line-x-tertiary
+  lg:grid-line-y-secondary lg:grid-line-x-0
+  xl:grid-line-x xl:grid-line-x-primary"></code></pre>
+  </figure>
+
+  <p>
+    It is doubtful that you'll ever need anything so complex and in all honesty,
+    it is possible to make combinations that don't work as expected. If you saw
+    the CSS you'd understand why - we really need a native way of doing this in
+    CSS. One "trick" used to make the above work was to set
+    <code>grid-line-y-0</code> and then override it at <code>md</code> with
+    <code>md:grid-line-y</code>
+  </p>
+</div>
+
+{% include_relative includes/_footer.html %}

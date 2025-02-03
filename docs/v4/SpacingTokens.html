@@ -1,0 +1,481 @@
+---
+title: SpacingTokens
+---
+
+{% include_relative includes/_header.html %}
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>
+    This plugin helps replace the standard Tailwind spacing tokens
+    <code>rems</code> to <code>pixels</code> (but with the final output in the
+    CSS remaining in <code>rems</code>).
+  </p>
+
+  <p>
+    As humans often specify spacing in terms of pixels, using this set up you
+    can see "padding top 40px" and then use <code>.pt-40</code> in your HTML.
+    Tailwind like spacing classes are generated, eg. <code>mt-</code>,
+    <code>pt-</code>, <code>h-</code>, <code>max-h-</code> etc. by the Tailwind
+    core plugins for <code>padding</code>, <code>margin</code>,
+    <code>width</code>, <code>height</code>, <code>maxHeight</code>,
+    <code>gap</code>, <code>inset</code>, <code>space</code>, and
+    <code>translate</code>.
+  </p>
+
+  <p>
+    Key to understand is that <code>.mt-4</code> will
+    <strong>not</strong> produce <code>margin-top: 1rem;</code>,
+    <em>but</em> instead will produce <code>margin-top: 0.25rem;</code> which is
+    equivalent to <code>4px</code>.
+  </p>
+
+  <p>
+    Before <code>v3.4.0</code> you had to provide your own scale, the typing of
+    which was tedious. After <code>v3.4.0</code>, this plugin outputs a scale
+    based on multiples of <code>5</code>, to a maximum of <code>100</code> with
+    arbitrary values between 0 - 10px. Or, you can describe the scale and add
+    any arbitrary values and the function will generate your scale for you.
+  </p>
+
+  <h2 id="setup">Setup</h2>
+
+  <h3 id="default">Default</h3>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { SpacingTokens } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  theme: {
+    spacing: SpacingTokens()
+  }
+  ...
+}</code></pre>
+  </figure>
+
+  <p>
+    With no options specified <code>SpacingTokens</code> will generate a spacing
+    scale based on multiples of <code>5</code>, to a maximum of
+    <code>100</code> with arbitrary values of 0 - 10px.
+  </p>
+
+  <h3 id="defined">Scale defined:</h3>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { SpacingTokens } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  theme: {
+    spacing: SpacingTokens({
+      scaler: 4,
+      max: 200,
+      arbitraries: {
+        "400": "400px"
+      }
+    })
+  }
+  ...
+}</code></pre>
+  </figure>
+
+  <p>
+    With this config, <code>SpacingTokens</code> will generate a spacing scale
+    based on multiples of <code>4</code>, to a maximum of <code>200</code> along
+    with arbitrary values of 0 - 10px and 400px as specified.
+  </p>
+
+  <p>
+    Unless you specify a scale manually, <code>SpacingTokens</code> will always
+    output arbitrary values of 0 - 10px, because we always randomly need a
+    <code>mt-1</code> or <code>pl-3</code> regardless of your spacing scale.
+  </p>
+
+  <h3 id="manual">Manual scale</h3>
+
+  <p>
+    <strong>Note</strong> before <code>v3.4.0</code> you have to provide your
+    own token scale.
+  </p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { SpacingTokens } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  theme: {
+    spacing: SpacingTokens({
+      "0": "0",
+      "1": "1px",
+      "2": "2px",
+      "3": "3px",
+      "4": "4px",
+      "5": "5px",
+      "6": "6px",
+      "7": '7px',
+      "8": "8px",
+      "9": "9px",
+      "10": "10px",
+      "12": "12px",
+      "16": "16px",
+      "20": "20px",
+      "24": "24px",
+      "28": "28px",
+      "32": "32px",
+      "36": "36px",
+      "40": "40px",
+      "44": "44px",
+      "48": "48px",
+      "52": "52px",
+      "56": "56px",
+      "60": "60px",
+      "64": "64px",
+      "68": "68px",
+      "72": "72px",
+      "76": "76px",
+      "80": "80px",
+      "84": "84px",
+      "88": "88px",
+      "92": "92px",
+      "96": "96px",
+      "100": "100px",
+      "400": "400px",
+      "600": "600px"
+    })
+  }
+  ...
+}</code></pre>
+  </figure>
+
+  <p>
+    This manual scale is essentially what the defined scale above builds for you
+    (although the manual scale stops at 100px and not 200px because typing it
+    became tedious).
+  </p>
+
+  <h3 class="minheight">The curious case of <code>minHeight</code></h3>
+
+  <p>
+    Tailwind documentation on
+    <a href="https://tailwindcss.com/docs/customizing-spacing" target="_blank"
+      >customising spacing</a
+    >
+    doesn't mention <code>minHeight</code> and, by default, Tailwind does not
+    generate <code>minHeight</code> classes based on the spacing tokens. If you
+    want to include <code>minHeight</code>, you'll need to extend it:
+  </p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">module.exports = {
+  ...
+  theme: {
+    ...
+    extend: {
+      minHeight: ({ theme }) => theme('spacing')
+    }
+    ...
+  }
+  ...
+}</code></pre>
+  </figure>
+
+  <h2 id="demo">Demo</h2>
+
+  <p>Using:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">SpacingTokens({
+  scaler: 4,
+  arbitraries: {
+    "400": "400px"
+  }
+})</code></pre>
+  </figure>
+
+  <p>
+    We would get <code>padding</code>, <code>margin</code>, <code>width</code>,
+    <code>height</code>, <code>maxHeight</code>, <code>gap</code>,
+    <code>inset</code>, <code>space</code>, and <code>translate</code> classes.
+    Demonstrated here are the <code>width</code>and <code>height</code> classes:
+  </p>
+</div>
+
+<ul class="mt-20">
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-0 h-0"
+    ></div>
+    <span class="ml-16 f-ui">0px / 0rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-1 h-1"
+    ></div>
+    <span class="ml-16 f-ui">1px / 0.0625rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-2 h-2"
+    ></div>
+    <span class="ml-16 f-ui">2px / 0.125rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-3 h-3"
+    ></div>
+    <span class="ml-16 f-ui">3px / 0.1875rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-4 h-4"
+    ></div>
+    <span class="ml-16 f-ui">4px / 0.25rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-5 h-5"
+    ></div>
+    <span class="ml-16 f-ui">5px / 0.3125rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-6 h-6"
+    ></div>
+    <span class="ml-16 f-ui">6px / 0.375rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-7 h-7"
+    ></div>
+    <span class="ml-16 f-ui">7px / 0.4375rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-8 h-8"
+    ></div>
+    <span class="ml-16 f-ui">8px / 0.5rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-9 h-9"
+    ></div>
+    <span class="ml-16 f-ui">9px / 0.5625rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-10 h-10"
+    ></div>
+    <span class="ml-16 f-ui">10px / 0.625rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-12 h-12"
+    ></div>
+    <span class="ml-16 f-ui">12px / 0.75rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-16 h-16"
+    ></div>
+    <span class="ml-16 f-ui">16px / 1rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-20 h-20"
+    ></div>
+    <span class="ml-16 f-ui">20px / 1.25rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-24 h-24"
+    ></div>
+    <span class="ml-16 f-ui">24px / 1.5rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-28 h-28"
+    >
+      28
+    </div>
+    <span class="ml-16 f-ui">28px / 1.75rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-32 h-32"
+    >
+      32
+    </div>
+    <span class="ml-16 f-ui">32px / 2rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-36 h-36"
+    >
+      36
+    </div>
+    <span class="ml-16 f-ui">36px / 2.25rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-40 h-40"
+    >
+      40
+    </div>
+    <span class="ml-16 f-ui">40px / 2.5rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-44 h-44"
+    >
+      44
+    </div>
+    <span class="ml-16 f-ui">44px / 2.75rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-48 h-48"
+    >
+      48
+    </div>
+    <span class="ml-16 f-ui">48px / 3rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-52 h-52"
+    >
+      52
+    </div>
+    <span class="ml-16 f-ui">52px / 3.25rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-56 h-56"
+    >
+      56
+    </div>
+    <span class="ml-16 f-ui">56px / 3.5rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-60 h-60"
+    >
+      60
+    </div>
+    <span class="ml-16 f-ui">60px / 3.75rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-64 h-64"
+    >
+      64
+    </div>
+    <span class="ml-16 f-ui">64px / 4rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-68 h-68"
+    >
+      68
+    </div>
+    <span class="ml-16 f-ui">68px / 4.25rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-72 h-72"
+    >
+      72
+    </div>
+    <span class="ml-16 f-ui">72px / 4.5rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-76 h-76"
+    >
+      76
+    </div>
+    <span class="ml-16 f-ui">76px / 4.75rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-80 h-80"
+    >
+      80
+    </div>
+    <span class="ml-16 f-ui">80px / 5rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-84 h-84"
+    >
+      84
+    </div>
+    <span class="ml-16 f-ui">84px / 5.25rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-88 h-88"
+    >
+      88
+    </div>
+    <span class="ml-16 f-ui">88px / 5.5rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-92 h-92"
+    >
+      92
+    </div>
+    <span class="ml-16 f-ui">92px / 5.75rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-96 h-96"
+    >
+      96
+    </div>
+    <span class="ml-16 f-ui">96px / 6rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-100 h-100"
+    >
+      100
+    </div>
+    <span class="ml-16 f-ui">100px / 6.25rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-400 h-400"
+    >
+      400
+    </div>
+    <span class="ml-16 f-ui">400px / 25rem</span>
+  </li>
+  <li class="mb-16 flex flex-row items-center">
+    <div
+      class="flex items-center justify-center text-center bg-column f-ui w-600 h-600"
+    >
+      600
+    </div>
+    <span class="ml-16 f-ui">600px / 37.5rem</span>
+  </li>
+</ul>
+
+{% include_relative includes/_footer.html %}

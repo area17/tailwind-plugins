@@ -21,18 +21,12 @@
   >
     <header id="a17" class="border-b border-primary">
       <ul class="container py-12 sm:flex sm:flex-row">
-        {% if page.index %}
         <li class="f-body sm:mr-20">
-          <a href="https://area17.com/" target="_blank">AREA 17</a>
+          <a href="/">AREA 17 - Tailwind Plugins</a>
         </li>
-        {% else %}
-        <li class="f-body sm:mr-20">
-          <a href="./">AREA 17 - Tailwind Plugins</a>
-        </li>
-        {% endif %}
         <li class="sm:mr-auto">
-          <code class="f-code text-code bg-code px-8 pt-4 pb-2">v5.x.x</code>
-          <a href="/v4" class="opacity-50 hover:opacity-100"><code class="f-code text-code bg-code px-8 pt-4 pb-2"><= v4.0.6</code></a>
+          <a href="/" class="opacity-50 hover:opacity-100"><code class="f-code text-code bg-code px-8 pt-4 pb-2">v5.0.6</code></a>
+          <code class="f-code text-code bg-code px-8 pt-4 pb-2"><= v4.0.6</code>
         </li>
         {% if page.index %}
         {% else %}
@@ -62,7 +56,7 @@
       </ul>
       <div class="container pb-40 pt-60 md:pt-80 lg:pt-100">
         <h1 class="f-h1">{{ page.title ?? '--' }}</h1>
-        <code class="f-code text-code bg-code px-8 pt-4 pb-2">v5.x.x</code>
+        <code class="f-code text-code bg-code px-8 pt-4 pb-2"><= v4.0.6</code>
       </div>
     </header>
 

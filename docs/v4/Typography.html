@@ -1,0 +1,301 @@
+---
+title: Typography
+---
+
+{% include_relative includes/_header.html %}
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>
+    This plugin generates classes for responsive typography sets. The idea being
+    that instead of giving text styles with multiple Tailwind classes and
+    manually overriding at different breakpoints - you would instead have a
+    responsive system set up.
+  </p>
+
+  <p>
+    Similiar to responsive spacing, at AREA 17 we like responsive typesets
+    classes so that the type across a site can be known and predictable. We
+    define our type system and then use them consistently across a site. We
+    never have a unique type style or a unique style at a breakpoint -
+    everything is part of the system.
+  </p>
+
+  <p>
+    New in <code>v3.9.0</code> -
+    <a href="#overriding">overriding type styles</a>.
+  </p>
+
+  <h2 id="setup">Setup</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { Typography } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  plugins: [Typography],
+  theme: {
+    fontFamilies: {
+      "sans": "SuisseIntl, Helvetica, Arial, sans-serif",
+      "serif": "\"Times New Roman\", Georgia, serif",
+      "mono": "\"Lucida Console\", Courier, monospace"
+    },
+    typesets: {
+      "h1": {
+        "xs": {
+          "font-family": "var(--sans)",
+          "bold-weight": 500,
+          "font-size": "32",
+          "line-height": 1.2,
+          "letter-spacing": "-0.02em",
+          "font-smoothing": "true"
+        },
+        "md": {
+          "font-size": "36px"
+        },
+        "lg": {
+          "font-size": "48px"
+        }
+      },
+      "h2": {
+        "xs": {
+          "font-family": "var(--sans)",
+          "bold-weight": "500",
+          "font-size": "28px",
+          "line-height": "1.2",
+          "letter-spacing": "-0.02em",
+          "font-smoothing": "true"
+        },
+        "md": {
+          "font-size": "32px"
+        },
+        "lg": {
+          "font-size": "36px"
+        }
+      },
+      "body": {
+        "xs": {
+          "font-family": "var(--sans)",
+          "bold-weight": "600",
+          "font-size": "14px",
+          "line-height": "1.7",
+          "font-smoothing": "true"
+        },
+        "md": {
+          "font-size": "16px"
+        }
+      }
+    }
+  }
+  ...
+};</code></pre>
+  </figure>
+
+  <h3 id="props">Settable type properties</h3>
+
+  <p>
+    You can set any CSS key/value type for fonts/text styles and also two some
+    special, none standard font properties you can set:
+  </p>
+
+  <ul>
+    <li>
+      <code>bold-weight</code> - sets a variable of
+      <code>--bold-weight</code> and sets any <code>b</code> or
+      <code>strong</code> children of the element to use
+      <code>font-weight: var(--bold-weight);</code> to give you control over the
+      font weights
+    </li>
+    <li>
+      <code>font-smoothing</code> - <code>true</code> or <code>false</code>,
+      equivalent to Tailwind's <code>antialiased</code> and
+      <code>subpixel-antialiased</code> classes
+    </li>
+  </ul>
+
+  <h2 id="output">Output</h2>
+
+  <p>
+    Based on the reference config mentioned in this guide, for the typeset named
+    <code>h1</code> we'd get the following in our CSS:
+  </p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">app.css</figcaption>
+    <pre class="code-example-code"><code class="language-css">:root {
+  --sans: SuisseIntl, Helvetica, Arial, sans-serif;
+  --serif: "Times New Roman", Georgia, serif;
+  --mono: "Lucida Console", Courier, monospace;
+  --f-h1-font-family: var(--sans);
+  --f-h1-font-size: 2rem;
+  --f-h1-font-weight: 500;
+  --f-h1-line-height: 1.2;
+  --f-h1-letter-spacing: -0.02em;
+  --f-h1--moz-osx-font-smoothing: grayscale;
+  --f-h1--webkit-font-smoothing: antialiased;
+  --f-h1---bold-weight: 500;
+}
+
+.f-h1 {
+  font-family: var(--f-h1-font-family);
+  font-size: var(--f-h1-font-size);
+  font-stretch: var(--f-h1-font-stretch);
+  font-style: var(--f-h1-font-style);
+  font-variant: var(--f-h1-font-variant);
+  font-weight: var(--f-h1-font-weight);
+  line-height: var(--f-h1-line-height);
+  letter-spacing: var(--f-h1-letter-spacing);
+  font-feature-settings: var(--f-h1-font-feature-settings);
+  -moz-osx-font-smoothing: var(--f-h1--moz-osx-font-smoothing);
+  -webkit-font-smoothing: var(--f-h1--webkit-font-smoothing);
+  --bold-weight: var(--f-h1---bold-weight);
+}
+
+@media (min-width: 650px) {
+  :root {
+    --f-h1-font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 990px) {
+  :root {
+    --f-h1-font-size: 3rem;
+  }
+}</code></pre>
+  </figure>
+
+  <p>
+    Similarly for the typeset named <code>h1</code> we would get classes for
+    each of the other typesets - in this guide that would include
+    <code>f-h2</code>, <code>f-body</code> etc.
+  </p>
+
+  <h2 id="demo">Demo</h2>
+
+  <p>
+    Based on the reference config mentioned in this guide, we would get the
+    following in our CSS:
+  </p>
+</div>
+
+<p class="f-h1 mt-20">f-h1 The quick brown fox jumps over the lazy dog</p>
+<p class="f-h2">f-h2 The quick brown fox jumps over the lazy dog</p>
+<p class="f-body">f-body The quick brown fox jumps over the lazy dog</p>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;p class="f-h1">f-h1 The quick brown fox jumps over the lazy dog&lt;/p>
+&lt;p class="f-h2">f-h2 The quick brown fox jumps over the lazy dog&lt;/p>
+&lt;p class="f-body">f-body The quick brown fox jumps over the lazy dog&lt;/p>
+</code></pre>
+  </figure>
+
+  <h2 id="overriding">Overriding type styles</h2>
+
+  <p>Introduced in <code>v3.9.0</code>.</p>
+
+  <p>
+    <a href="https://area17.com/" target="_blank">AREA 17</a> have been using
+    responsive typography classes for a number of years on every build we have
+    done, where the number 1 rule has always been "if its a type style, its that
+    type style at all breakpoints". That is, if its our responsive "h1" class,
+    then its the responsive "h1" class at all breakpoints. This rule was
+    initially frustrating but has become the accepted norm at AREA 17. But, it
+    is occasionally still a frustration - usually when it comes to product
+    listing or article listing designs.
+  </p>
+  <p>
+    <code>v3.9.0</code> brings the ability to override type styles at different
+    breakpoints. For example, the following example displays as a
+    <code>f-h4</code> on smaller screens and as <code>f-code</code> at larger
+    screens:
+  </p>
+</div>
+
+<p class="f-h4 lg:f-code mt-20">
+  f-h4 lg:f-code The quick brown fox jumps over the lazy dog
+</p>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;p class="f-h4 lg:f-code">f-h4 md:f-code The quick brown fox jumps over the lazy dog&lt;/p></code></pre>
+  </figure>
+
+  <h3 id="overriding-caveat">Overriding caveat - only versions before <code>v4.0.3</code></h3>
+
+  <p>
+    <strong>Note:</strong> this caveat was fixed in <code>v4.0.3</code>.
+  </p>
+
+  <p>
+    This typography plugin sets common typography values to
+    <code>initial</code>:
+  </p>
+
+  <figure class="code-example">
+    <pre class="code-example-code"><code class="language-css">.defaults {
+  font-family: initial;
+  font-size: initial;
+  font-stretch: initial;
+  font-style: initial;
+  font-variant: initial;
+  font-weight: initial;
+  line-height: initial;
+  letter-spacing: initial;
+  font-feature-settings: initial;
+  -moz-osx-font-smoothing: initial;
+  -webkit-font-smoothing: initial;
+  --bold-weight: initial;
+}</code></pre>
+  </figure>
+
+  <p>
+    Only these settings will be overridden when using responsive override
+    classes.
+  </p>
+
+  <p>
+    It is possible to set other font type attributes such as
+    <code>font-size-adjust</code> when setting up your typography classes:
+  </p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { Typography } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  plugins: [Typography],
+  theme: {
+    fontFamilies: { ... },
+    typesets: {
+      "h1": {
+        "xs": {
+          ...
+          "font-size-adjust": "ex-height 0.5"
+        },
+      },
+    }
+    ...
+};</code></pre>
+  </figure>
+
+  <p>
+    These more unusual font settings will not be overridden and so you will have
+    to handle these separately.
+  </p>
+</div>
+
+{% include_relative includes/_footer.html %}

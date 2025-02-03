@@ -335,7 +335,11 @@
           }
         },
         "hr": "border-secondary my-40",
-        ".blockquote": "mt-20"
+        ".blockquote": "mt-20",
+        "table": "mt-20",
+        "th, td": "px-10 pb-4 border-secondary border-l-1",
+        "th:first-child, td:first-child": "ps-0 border-l-0",
+        "th:last-child, td:last-child": "pe-0"
       }
     }
   }

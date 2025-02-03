@@ -1,0 +1,90 @@
+---
+title: CSS in JS
+---
+
+{% include_relative includes/_header.html %}
+
+<div class="copy foo bar">
+  <h2 id="description">Description</h2>
+
+  <p>Added in <code>v3.2.0</code></p>
+
+  <p>
+    All you to pass through CSS in JS straight through to your output CSS.
+    <br /><a
+      href="https://tailwindcss.com/docs/plugins#css-in-js-syntax"
+      target="_blank"
+      >See Tailwind's notes on CSS-in-JS</a
+    >.
+  </p>
+
+  <h2 id="setup">Setup</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { CssInJs } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  plugins: [CssInJs],
+  theme: {
+    css: {
+      ".box": {
+        "@apply mt-60 py-gutter bg-header": "",
+        "--xpadding": "var(--inner-gutter)",
+        "padding-right": "var(--xpadding)",
+        "padding-left": "var(--xpadding)",
+        "&:hover": {
+          "box-shadow": "0 10px 15px rgba(0,0,0,0.2)"
+        },
+        "@screen lg": {
+          "--xpadding": "calc(2 * var(--inner-gutter))"
+        }
+      }
+    }
+  }
+  ...
+};</code></pre>
+  </figure>
+
+  <h2 id="output">Output</h2>
+
+  <p>Based on the reference config above:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">app.css</figcaption>
+    <pre class="code-example-code"><code class="language-css">.box {
+  margin-top: 3.75rem;
+  background-color: var(--grey-10);
+  padding-top: var(--inner-gutter);
+  padding-bottom: var(--inner-gutter);
+  --xpadding: var(--inner-gutter);
+  padding-right: var(--xpadding);
+  padding-left: var(--xpadding);
+}
+
+.box:hover {
+  box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+}
+
+@media (min-width: 990px) {
+  .box {
+    --xpadding: calc(2 * var(--inner-gutter));
+  }
+}</code></pre>
+  </figure>
+
+  <p>
+    Your Tailwind build will error out if you <code>@apply</code> classes that
+    aren't defined or if you use <code>@screen</code> with breakpoints that
+    don't exist.
+  </p>
+
+  <p>
+    <strong>Note:</strong> this plugin doesn't attempt to validate your input.
+  </p>
+</div>
+
+{% include_relative includes/_footer.html %}

@@ -1,0 +1,252 @@
+---
+title: Full Bleed Scroller
+---
+
+{% include_relative includes/_header.html %}
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>
+    Sometimes you need to switch to/from an
+    <code>overflow-x: scroll;</code> single line scroller from a grid, whilst
+    still keeping the content on grid.
+  </p>
+
+  <ul>
+    <li>
+      <code>.full-bleed-scroller</code> sets a container to being an overflow
+      scrolling container with outer gutter shims
+    </li>
+    <li><code>.full-bleed-scroller-reset</code> resets the container</li>
+  </ul>
+
+  <p>
+    Note: works with both fluid and fixed width <code>.container</code> thanks
+    to a <code>.breakout</code>'s clever outer gutter handling.
+  </p>
+
+  <h2 id="setup">Setup</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { Setup, Container, FullBleedScroller } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  plugins: [Setup, Layout, FullBleedScroller],
+  theme: {
+    screens: {
+      xs: "0",
+      sm: "544px",
+      md: "650px",
+      lg: "990px",
+      xl: "1300px",
+      xxl: "1520px"
+    },
+    mainColWidths: {
+      xs: "auto",
+      sm: "auto",
+      md: "auto",
+      lg: "auto",
+      xl: "auto",
+      xxl: "1440px"
+    },
+    innerGutters: {
+      xs: "10px",
+      sm: "15px",
+      md: "20px",
+      lg: "30px",
+      xl: "40px",
+      xxl: "40px"
+    },
+    outerGutters: {
+      xs: "20px",
+      sm: "30px",
+      md: "40px",
+      lg: "40px",
+      xl: "40px",
+      xxl: "0px"
+    },
+    columnCount: {
+      xs: "4",
+      sm: "4",
+      md: "8",
+      lg: "12",
+      xl: "12",
+      xxl: "12"
+    },
+  }
+  ...
+};</code></pre>
+  </figure>
+
+  <p>
+    Requires <code>Setup</code> and <code>Container</code> plugin with
+    <code>theme.screens</code>, <code>theme.mainColWidths</code>,
+    <code>theme.innerGutters</code>, <code>theme.outerGutters</code> and
+    <code>theme.columnCount</code> configured.
+  </p>
+
+  <h2 id="demo">Demo</h2>
+
+  <h3>A full bleed scroller, at all breakpoints:</h3>
+</div>
+
+<div class="breakout mt-20">
+  <ul class="full-bleed-scroller">
+    <li class="flex-none w-1-cols-vw h-40 bg-column"></li>
+    <li class="flex-none w-2-cols-vw h-40 bg-column"></li>
+    <li class="flex-none w-3-cols-vw h-40 bg-column"></li>
+    <li class="flex-none w-4-cols-vw h-40 bg-column"></li>
+    <li class="flex-none w-5-cols-vw h-40 bg-column"></li>
+    <li class="flex-none w-6-cols-vw h-40 bg-column"></li>
+    <li class="flex-none w-7-cols-vw h-40 bg-column"></li>
+    <li class="flex-none w-8-cols-vw h-40 bg-column"></li>
+  </ul>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="breakout">
+  &lt;ul class="full-bleed-scroller">
+    &lt;li class="flex-none w-1-cols-vw">&lt;/li>
+    &lt;li class="flex-none w-2-cols-vw">&lt;/li>
+    &lt;li class="flex-none w-3-cols-vw">&lt;/li>
+    &lt;li class="flex-none w-4-cols-vw">&lt;/li>
+    &lt;li class="flex-none w-5-cols-vw">&lt;/li>
+    &lt;li class="flex-none w-6-cols-vw">&lt;/li>
+    &lt;li class="flex-none w-7-cols-vw">&lt;/li>
+    &lt;li class="flex-none w-8-cols-vw">&lt;/li>
+  &lt;/ul>
+&lt;/div></code></pre>
+  </figure>
+
+  <p>
+    Using a <code>.breakout</code> class (from
+    <a href="./Container.html#breakout">Container#breakout</a>) to get a
+    <code>100vw</code> container. <br /><code>full-bleed-scroller</code> by
+    default sets
+    <code>display: flex; flex-flow: row nowrap; gap: var(--inner-gutter);</code
+    >.
+  </p>
+
+  <p>
+    Note the children use <code>.*-vw</code> type
+    <a href="./Layout.html#vwvariants">Layout</a>width classes, this is because
+    the container here is wider that <code>.container</code>. Also note that
+    each child has <code>flex-none</code> set, so the width is controlled by the
+    width class and not the child content.
+  </p>
+
+  <h3>
+    Full bleed scroller on smaller screens, constrained by container width at
+    <code>md</code> breakpoint and up
+  </h3>
+</div>
+
+<div class="breakout md:breakout-reset mt-20">
+  <ul class="full-bleed-scroller md:before:hidden md:after:hidden">
+    <li class="flex-none w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
+    <li class="flex-none w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
+    <li class="flex-none w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
+    <li class="flex-none w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
+    <li class="flex-none w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
+    <li class="flex-none w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
+    <li class="flex-none w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
+    <li class="flex-none w-3-cols-vw md:w-3-cols h-40 bg-column"></li>
+  </ul>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="breakout md:breakout-reset">
+  &lt;ul class="full-bleed-scroller md:before:hidden md:after:hidden">
+    &lt;li class="flex-none w-3-cols-vw md:w-3-cols">&lt;/li>
+    &lt;li class="flex-none w-3-cols-vw md:w-3-cols">&lt;/li>
+    &lt;li class="flex-none w-3-cols-vw md:w-3-cols">&lt;/li>
+    &lt;li class="flex-none w-3-cols-vw md:w-3-cols">&lt;/li>
+    &lt;li class="flex-none w-3-cols-vw md:w-3-cols">&lt;/li>
+    &lt;li class="flex-none w-3-cols-vw md:w-3-cols">&lt;/li>
+    &lt;li class="flex-none w-3-cols-vw md:w-3-cols">&lt;/li>
+    &lt;li class="flex-none w-3-cols-vw md:w-3-cols">&lt;/li>
+  &lt;/ul>
+&lt;/div></code></pre>
+  </figure>
+
+  <p>
+    Again using a <code>.breakout</code> class to get a
+    <code>100vw</code> container and then at <code>md</code> breakpoint,
+    resetting the breakout with <code>md:breakpoint-reset</code>.
+  </p>
+
+  <p>
+    On the <code>full-bleed-scroller</code> element, at
+    <code>md</code> breakpoint, removing the <code>::before</code> and
+    <code>::after</code> content that <code>full-bleed-scroller</code> inserts
+    to add the outer gutter spacing.
+  </p>
+
+  <p>
+    And the children swap there <code>w-3-cols-vw</code> for
+    <code>md:w-3-cols</code> at the <code>md</code> breakpoint (although this
+    isn't strictly necessary, it does serve to demonstrate when to use the
+    <code>.*-vw</code> Layout classes over the regular ones).
+  </p>
+
+  <h3>
+    A full bleed scroller on smaller screens, resets to a grid at
+    <code>md</code> breakpoint
+  </h3>
+</div>
+
+<div class="breakout md:breakout-reset mt-20">
+  <ul
+    class="full-bleed-scroller md:full-bleed-scroller-reset md:grid md:gap-gutter md:grid-cols-2 lg:grid-cols-3"
+  >
+    <li class="flex-none w-3-cols-vw md:w-auto h-40 bg-column"></li>
+    <li class="flex-none w-3-cols-vw md:w-auto h-40 bg-column"></li>
+    <li class="flex-none w-3-cols-vw md:w-auto h-40 bg-column"></li>
+    <li class="flex-none w-3-cols-vw md:w-auto h-40 bg-column"></li>
+    <li class="flex-none w-3-cols-vw md:w-auto h-40 bg-column"></li>
+    <li class="flex-none w-3-cols-vw md:w-auto h-40 bg-column"></li>
+    <li class="flex-none w-3-cols-vw md:w-auto h-40 bg-column"></li>
+    <li class="flex-none w-3-cols-vw md:w-auto h-40 bg-column"></li>
+  </ul>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="breakout md:breakout-reset">&lt;div class="breakout md:unbreakout">
+  &lt;ul class="full-bleed-scroller md:full-bleed-scroller-reset md:grid md:gap-gutter md:grid-cols-2 lg:grid-cols-3">
+    &lt;li class="flex-none w-3-cols-vw md:w-auto">&lt;/li>
+    &lt;li class="flex-none w-3-cols-vw md:w-auto">&lt;/li>
+    &lt;li class="flex-none w-3-cols-vw md:w-auto">&lt;/li>
+    &lt;li class="flex-none w-3-cols-vw md:w-auto">&lt;/li>
+    &lt;li class="flex-none w-3-cols-vw md:w-auto">&lt;/li>
+    &lt;li class="flex-none w-3-cols-vw md:w-auto">&lt;/li>
+    &lt;li class="flex-none w-3-cols-vw md:w-auto">&lt;/li>
+    &lt;li class="flex-none w-3-cols-vw md:w-auto">&lt;/li>
+  &lt;/ul>
+&lt;/div></code></pre>
+  </figure>
+
+  <p>
+    Similar to above, only now at the <code>md</code> breakpoint we reset the
+    scroller with <code>md:full-bleed-scroller-reset</code> and add Tailwind
+    grid classes.
+  </p>
+</div>
+
+{% include_relative includes/_footer.html %}
