@@ -8,17 +8,13 @@ title: Container
 
   <p>By default all components render across the full width of the viewport. You can use the <code>.container</code> class to create a contained layout. The container class uses the values set in <code>outerGutters</code> and <code>mainColWidths</code> in your <code>tailwind.config.js</code> to create a responsive container.</p>
 
-  <p>Note that the default Tailwind container plugin will need to be disabled.</p>
-
-  <p>Also includes a <code>.breakout</code> class to allow full 100vw elements inside a container.</p>
-
-  <p>From <code>v3.6.0</code> we have a <code>.container-reset</code>, <code>.breakout-reset</code> and there are changes to <code>.breakout</code> to make it more useful.</p>
+  <p>Note that the default Tailwind container plugin will need to be <a href="./tailwind-setup.html">overidden/disabled.</a></p>
 
   <ul>
     <li><code>.container</code> makes a container that conforms to your <code>theme.mainColWidths</code> taking into account your <code>theme.outerGutters</code></li>
     <li><code>.breakout</code> breaks out of a <code>.container</code>, to make your element <code>100vw</code> wide</li>
-    <li><code>.container-reset</code> resets a <code>.container</code> (from <code>v3.6.0</code>)</li>
-    <li><code>.breakout-reset</code> resets a <code>.breakout</code> (from <code>v3.6.0</code>)</li>
+    <li><code>.container-reset</code> resets a <code>.container</code></li>
+    <li><code>.breakout-reset</code> resets a <code>.breakout</code></li>
   </ul>
 
   <h2 id="setup">Setup</h2>
@@ -68,9 +64,6 @@ module.exports = {
   <p>This site has its content wrapped in <code>&lt;div class="container"></code>. You'll see it is fluid with outer margins set to the <code>frontend.config.json</code> <code>structure.gutters.outer</code> for each breakpoint. At then, when the window is wider than 1520px wide (<code>structure.breakpoints.xxl</code>) the main column is a fixed width of 1440px (<code>structure.breakpoints.container.xxl</code>) and centered within the window.</p>
 
   <h4 id="container-nesting">Container nesting</h4>
-
-  <p>Introduced in <code>v3.6.0</code>.</p>
-
 </div>
 
 <div class="container bg-column mt-20 py-20">
@@ -94,8 +87,6 @@ module.exports = {
   <p>Nesting of <code>.container</code> inside of <code>.breakout</code>, <code>.breakout-reset</code> and <code>.container-reset</code> should <a href="./container-nesting-tests.html">all work as expected</a>.</p>
 
   <h3 id="container_reset">Container Reset</h3>
-
-  <p>Introduced in <code>v3.6.0</code>.</p>
 
   <p>Instead of wrapping all your pages in <code>.container</code>, perhaps you wrap each of your components, and then perhaps at some breakpoint you want go full bleed. In which case <code>.container-reset</code> will be useful. Here, at the <code>lg</code> breakpoint, a <code>.container</code> resets to full bleed:</p>
 
@@ -143,8 +134,6 @@ module.exports = {
 
   <h3 id="breakout_reset">Breakout Reset</h3>
 
-  <p>Introduced in <code>v3.6.0</code>.</p>
-
   <p>Breaking out until a breakpoint, in this case <code>lg</code>, at which point the div is contained once again inside of the parent <code>&lt;div class="container"></code>:</p>
 </div>
 
@@ -161,8 +150,6 @@ module.exports = {
   </figure>
 
   <h3 id="container_inside_breakout">Container width elements inside of breakouts</h3>
-
-  <p>Introduced in <code>v3.6.0</code>.</p>
 
   <p>You might want to use a breakout as a full bleed colour block, where some items are full bleed and some items within are constrained by the main container. There are a few ways to do this.</p>
 

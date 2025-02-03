@@ -6,8 +6,7 @@ title: Tailwind Setup
 
 <div class="copy">
   <p>
-    Our general Tailwind setup involves a <code>frontend.config.json</code> and
-    the usual <code>tailwind.config.js</code> file.
+    Our general Tailwind setup involves a <code>frontend.config.json</code>, <code>tailwind.config.js</code> and an <code>input.css</code> file.
   </p>
 
   <p>
@@ -23,73 +22,22 @@ title: Tailwind Setup
     this page documents the config files used for this site.
   </p>
 
-  <h2><code>v.5</code> tailwind.config.js and input.css</h2>
+  <p>With the introduction of Tailwind 4, the setup of your project changes. Both use the same <code>frontend.config.json</code>.</p>
+
+  <ul>
+    <li><a href="#config">frontend.config.json</a></li>
+    <li><a href="#tailwind-4">Tailwind 4 setup</a></li>
+    <li><a href="#tailwind-3">Tailwind 3 setup</a></li>
+  </ul>
+
+  <h2 id="config">frontend.config.json</h2>
 
   <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <figcaption class="code-example-filename">frontend.config.json</figcaption>
     <pre
       class="code-example-code"
-    ><code class="language-javascript">{% include_relative tailwind.config.js %}</code></pre>
+    ><code class="language-json">{% include_relative frontend.config.json %}</code></pre>
   </figure>
-
-  <p>And then input this tailwind.config.js and configure the Tailwind theme in CSS:</p>
-
-  <figure class="code-example">
-    <figcaption class="code-example-filename">input.css</figcaption>
-    <pre
-      class="code-example-code"
-    ><code class="language-css">@config "./tailwind.config.js";
-@import "tailwindcss";
-
-@theme {
-  --container-*: initial;
-  --breakpoint-*: initial;
-  --color-*: initial;
-  --font-*: initial;
-  --text-*: initial;
-  --tracking-*: initial;
-  --leading-*: initial;
-  --spacing: 1px;
-}
-
-@utility container {
-  max-width: 100%;
-}</code></pre>
-  </figure>
-
-
-  <h2><code>>v.5</code> tailwind.config.js</h2>
-
-  <figure class="code-example">
-    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
-    <pre
-      class="code-example-code"
-    ><code class="language-javascript">{% include_relative v4/tailwind.config.js %}</code></pre>
-  </figure>
-
-  <p>
-    Breaking that down a little. Firstly require the plugins and then bring in
-    the front end config file. Then set up Tailwind, JIT if you prefer.
-  </p>
-
-  <p>
-    As we have a custom <code>container</code> plugin, we disable the default
-    Tailwind container class.
-  </p>
-
-  <p>Then we bring in the plugins.</p>
-
-  <p>
-    Then some we set the various TW theme items to their counterparts in the
-    config JSON - with some examples like <code>spacing</code> and colours use
-    plugins as functions to process values from the config JSON.
-  </p>
-
-  <p>And finally, a few useful spacing extends.</p>
-
-  <h2>frontend.config.json</h2>
-
-  <p>Our config JSON is broken down into:</p>
 
   <ul>
     <li>
@@ -127,6 +75,7 @@ title: Tailwind Setup
           values and use a function to convert them to <code>rems</code> and so
           <code>mt-16</code> will give you a margin top of
           <code>16px</code> (which in the output CSS will be <code>1rem</code>)
+          <br> <strong>Note:</strong> not required for Tailwind 4
         </li>
         <li>
           <code>groups</code> - responsive spacing utility classes, create
@@ -167,17 +116,58 @@ title: Tailwind Setup
         </li>
       </ul>
     </li>
-    <li><code>components</code> - define any arbitrary components</li>
-    <li><code>css</code> - define any arbitrary CSS</li>
   </ul>
 
-  <p>And so, in full:</p>
+  <h2 id="tailwind-4">Tailwind 4 tailwind.config.js and input.css</h2>
 
   <figure class="code-example">
-    <figcaption class="code-example-filename">frontend.config.json</figcaption>
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
     <pre
       class="code-example-code"
-    ><code class="language-json">{% include_relative frontend.config.json %}</code></pre>
+    ><code class="language-javascript">{% include_relative tailwind.config.js %}</code></pre>
+  </figure>
+
+  <p>And then input this tailwind.config.js and configure the Tailwind theme in CSS:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">input.css</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-css">@config "./tailwind.config.js";
+@import "tailwindcss";
+
+@theme {
+  --container-*: initial;
+  --breakpoint-*: initial;
+  --color-*: initial;
+  --font-*: initial;
+  --text-*: initial;
+  --tracking-*: initial;
+  --leading-*: initial;
+  --spacing: 1px;
+}
+
+@utility container {
+  max-width: 100%;
+}</code></pre>
+  </figure>
+
+  <h2 id="tailwind-3">Tailwind 3 tailwind.config.js</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">{% include_relative v4/tailwind.config.js %}</code></pre>
+  </figure>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">input.css</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-css">@tailwind base;
+@tailwind components;
+@tailwind utilities;</code></pre>
   </figure>
 </div>
 

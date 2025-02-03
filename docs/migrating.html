@@ -5,7 +5,7 @@ title: Migrating
 {% include_relative includes/_header.html %}
 
 <div class="copy">
-  <h2>Mirating from A17 Tailwind Plugins 4 to A17 Tailwind Plugins 5</h2>
+  <h2>Migrating from A17 Tailwind Plugins 4 to A17 Tailwind Plugins 5</h2>
 
   <figure class="code-example">
     <figcaption class="code-example-filename">terminal</figcaption>
@@ -38,7 +38,35 @@ title: Migrating
 
   <p>Tailwind provide an <a href="https://tailwindcss.com/docs/upgrade-guide" target="_blank">upgrade guide</a>, you may need to do a mix of automatic and manual updates. Check those <a href="https://tailwindcss.com/docs/upgrade-guide#changes-from-v3">changes from v3</a> class name renames and removals.</p>
 
-  <h3>Confirm updates to your tailwind.config.js and input.css</h3>
+  <h3>Remove <code>tokens</code> from <code>spacing</code> in the config JSON</h3>
+
+  <p>You no longer require the Spacing tokens plugin or setup:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">frontend.config.json</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">"tokens": {
+    "scaler": 4,
+    "arbitraries": {
+      "400": "400px",
+      "600": "600px"
+    }
+  },</code></pre>
+  </figure>
+
+  <p>Instead you add:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">input.css</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-css">@theme {
+  --spacing: 1px;
+}</code></pre>
+  </figure>
+
+  <h3>Confirm updates to your tailwind.config.js, input.css and postcss.config.js</h3>
 
   <figure class="code-example">
     <figcaption class="code-example-filename">tailwind.config.js</figcaption>
@@ -68,6 +96,13 @@ title: Migrating
 @utility container {
   max-width: 100%;
 }</code></pre>
+  </figure>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">postcss.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">{% include_relative postcss.config.js %}</code></pre>
   </figure>
 </div>
 
