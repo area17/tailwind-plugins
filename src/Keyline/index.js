@@ -4,6 +4,8 @@ module.exports = function ({ addBase, theme, config }) {
   const directions = { l: 'inline-start', r: 'inline-end' };
   const prefixString = config('prefix');
 
+  // TODO: refactor to use `addUtilities` (see BackgroundFill/index.js)
+
   let styles = [
     {
       [`[class*="${prefixString}keyline-"]`]: {
