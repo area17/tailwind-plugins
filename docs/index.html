@@ -33,11 +33,66 @@ title: A17 Tailwind Plugins
     </li>
   </ul>
 
-  <p>And then, the our plugins themselves:</p>
+  <h2 class="f-h2" id="compatibility">Compatibility</h2>
 
-  <div class="grid gap-gutter md:grid-cols-2 my-60 !max-w-full">
-    <div class="border-t border-t-secondary pt-20">
-      <h2 class="f-h2">Setup</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Tailwind version</th>
+        <th>A17 Tailwind Plugins version</th>
+        <th>Compatible</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>4.0.x</code></td>
+        <td><code>5.x.x</code></td>
+        <td>✅</td>
+      </tr>
+      <tr>
+        <td><code>3.4.x</code></td>
+        <td><code>==5.0.0</code></td>
+        <td>✅</td>
+      </tr>
+      <tr>
+        <td><code>2.2.x</code></td>
+        <td><code>5.0.0</code></td>
+        <td>⁇ <sup><a href="#compatibility-1" id="compatibility-1-ref">1</a></sup></td>
+      </tr>
+      <tr>
+        <td><code>4.0.x</code></td>
+        <td><code><=4.0.6</code></td>
+        <td>❌ <sup><a href="#compatibility-2" id="compatibility-2-ref">2</a></sup></td>
+      </tr>
+      <tr>
+        <td><code>3.4.x</code></td>
+        <td><code><=4.0.6</code></td>
+        <td>✅</td>
+      </tr>
+      <tr>
+        <td><code>2.2.x</code></td>
+        <td><code><=4.0.6</code></td>
+        <td>✅ <sup><a href="#compatibility-3" id="compatibility-3-ref">3</a></sup></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3">
+          <ol class="f-ui">
+            <li id="compatibility-1">Untested <a href="#compatibility-1-ref">&#8617;</a></li>
+            <li id="compatibility-2">Tailwind 4 introduced <a href="https://tailwindcss.com/docs/upgrade-guide#changes-from-v3" target="_blank">lots of changes</a> <a href="#compatibility-2-ref">&#8617;</a></li>
+            <li id="compatibility-3">As far as we know <a href="#compatibility-3-ref">&#8617;</a></li>
+          </ol>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <h2 class="f-h2" id="plugins">Available Plugins</h2>
+
+  <div class="grid gap-gutter md:grid-cols-2 mb-60 !max-w-full">
+    <div>
+      <h3 class="f-h3">Setup</h3>
       <ul>
         <li>
           <code>v.5 ✅</code> <a href="./Setup.html">Setup</a> - the center pin of many of our
@@ -62,8 +117,8 @@ title: A17 Tailwind Plugins
         </li>
       </ul>
     </div>
-    <div class="border-t border-t-secondary pt-20">
-      <h2 class="f-h2">Layout</h2>
+    <div class="border-t border-t-secondary pt-20 md:border-t-0 md:pt-0">
+      <h3 class="f-h3">Layout</h3>
       <ul>
         <li>
           <code>v.5 ✅</code> <a href="./Spacing.html">Spacing</a> - generates responsive spacing
@@ -117,7 +172,7 @@ title: A17 Tailwind Plugins
       </ul>
     </div>
     <div class="border-t border-t-secondary pt-20">
-      <h2 class="f-h2">Typography</h2>
+      <h3 class="f-h3">Typography</h3>
       <ul>
         <li>
           <code>v.5 ✅</code> <a href="./Typography.html">Typography</a> - generates responsive
@@ -130,7 +185,7 @@ title: A17 Tailwind Plugins
       </ul>
     </div>
     <div class="border-t border-t-secondary pt-20">
-      <h2 class="f-h2">Grid gutter borders</h2>
+      <h3 class="f-h3">Grid gutter borders</h3>
       <ul>
         <li>
           <code>v.5 ✅ - needs refactor (see file)</code> <a href="./GridLine.html">GridLine</a> - generates vertical and
@@ -144,7 +199,7 @@ title: A17 Tailwind Plugins
       </ul>
     </div>
     <div class="border-t border-t-secondary pt-20">
-      <h2 class="f-h2">General Styling Utilities</h2>
+      <h3 class="f-h3">General Styling Utilities</h3>
       <ul>
         <li>
           <code>v.5 ✅</code> <a href="./BackgroundFill.html">BackgroundFill</a> - draws a 100vw
@@ -171,7 +226,7 @@ title: A17 Tailwind Plugins
       </ul>
     </div>
     <div class="border-t border-t-secondary pt-20">
-      <h2 class="f-h2">General Utilities</h2>
+      <h3 class="f-h3">General Utilities</h3>
       <ul>
         <li>
           <code>v.5 ✅</code> <a href="./PseudoElements.html">PseudoElements</a> - adds additional
@@ -207,11 +262,6 @@ title: A17 Tailwind Plugins
     - these classes bring into Tailwind some of the useful classes from there
     (and in return, some of the Tailwind classes have been taken back to the A17
     SCSS set up).
-  </p>
-
-  <p>
-    Tested in Tailwind <code>2.x.x</code> (with and without JIT) and
-    <code>3.2.x</code>.
   </p>
 </div>
 

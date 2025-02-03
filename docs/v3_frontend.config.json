@@ -1,0 +1,342 @@
+{
+  "structure": {
+    "breakpoints": {
+      "xs": "0",
+      "sm": "544px",
+      "md": "650px",
+      "lg": "990px",
+      "xl": "1300px",
+      "xxl": "1520px"
+    },
+    "columns": {
+      "xs": "4",
+      "sm": "4",
+      "md": "8",
+      "lg": "12",
+      "xl": "12",
+      "xxl": "12"
+    },
+    "container": {
+      "xs": "auto",
+      "sm": "auto",
+      "md": "auto",
+      "lg": "auto",
+      "xl": "auto",
+      "xxl": "1440px"
+    },
+    "gutters": {
+      "inner": {
+        "xs": "10px",
+        "sm": "15px",
+        "md": "20px",
+        "lg": "30px",
+        "xl": "40px",
+        "xxl": "40px"
+      },
+      "outer": {
+        "xs": "20px",
+        "sm": "30px",
+        "md": "40px",
+        "lg": "40px",
+        "xl": "40px",
+        "xxl": "0px"
+      }
+    }
+  },
+  "ratios": {
+    "1x1": "1:1",
+    "16x9": "16:9"
+  },
+  "spacing": {
+    "tokens": {
+      "scaler": 4,
+      "arbitraries": {
+        "400": "400px",
+        "600": "600px"
+      }
+    },
+    "groups": {
+      "outer-1": {
+        "xs": 64,
+        "lg": 96
+      },
+      "inner-1": {
+        "xs": 24,
+        "md": 40,
+        "lg": 64
+      },
+      "inner-2": {
+        "xs": 16,
+        "md": 24,
+        "lg": 32
+      }
+    }
+  },
+  "color": {
+    "tokens": {
+      "white": "#fff",
+      "grey-3": "#f8f8f8",
+      "grey-5": "#f2f2f2",
+      "grey-10": "#e6e6e6",
+      "grey-15": "#d9d9d9",
+      "grey-54": "#757575",
+      "grey-90": "#1a1a1a",
+      "black": "#000",
+      "blue-01": "#0A152B",
+      "blue-02": "#001F5C",
+      "blue-03": "#004F91",
+      "blue-04": "#313BFB",
+      "blue-05": "#81EEF3",
+      "blue-06": "#ADD8E6",
+      "red-01": "#f00"
+    },
+    "border": {
+      "primary": "black",
+      "secondary": "grey-15",
+      "tertiary": "grey-54",
+      "code-example-filename": "blue-05"
+    },
+    "text": {
+      "title": "black",
+      "primary": "grey-90",
+      "inverse": "white",
+      "secondary": "grey-54",
+      "accent": "blue-03",
+      "code": "black",
+      "code-example": "grey-3",
+      "code-example-filename": "blue-05"
+    },
+    "background": {
+      "primary": "white",
+      "header": "grey-10",
+      "footer": "grey-10",
+      "banner": "grey-90",
+      "accent": "blue-03",
+      "column": "blue-05",
+      "column-alt": "blue-04",
+      "code": "grey-10",
+      "code-example": "grey-90",
+      "quote": "grey-5"
+    },
+    "underline": {
+      "primary": "grey-54",
+      "secondary": "blue-03"
+    },
+    "scrollbar": {
+      "track": {
+        "primary": "blue-06"
+      },
+      "thumb": {
+        "primary": "blue-03"
+      }
+    }
+  },
+  "typography": {
+    "families": {
+      "sans": "SuisseIntl, Helvetica, Arial, sans-serif",
+      "serif": "\"Times New Roman\", Georgia, serif",
+      "mono": "\"Lucida Console\", Courier, monospace"
+    },
+    "typesets": {
+      "h1": {
+        "xs": {
+          "font-family": "var(--sans)",
+          "font-weight": "500",
+          "bold-weight": "500",
+          "font-size": "32px",
+          "line-height": "1.2",
+          "letter-spacing": "-0.02em",
+          "font-smoothing": "true"
+        },
+        "md": {
+          "font-size": "36px"
+        },
+        "lg": {
+          "font-size": "48px"
+        }
+      },
+      "h2": {
+        "xs": {
+          "font-family": "var(--sans)",
+          "font-weight": "500",
+          "bold-weight": "500",
+          "font-size": "20px",
+          "line-height": "1.2",
+          "letter-spacing": "-0.02em",
+          "font-smoothing": "true"
+        },
+        "md": {
+          "font-size": "24px"
+        },
+        "lg": {
+          "font-size": "28px"
+        }
+      },
+      "h3": {
+        "xs": {
+          "font-family": "var(--sans)",
+          "bold-weight": "500",
+          "font-weight": "500",
+          "font-size": "16px",
+          "line-height": "1.2",
+          "letter-spacing": "-0.02em",
+          "font-smoothing": "true"
+        },
+        "md": {
+          "font-size": "20px"
+        }
+      },
+      "h4": {
+        "xs": {
+          "font-family": "var(--sans)",
+          "bold-weight": "600",
+          "font-weight": "600",
+          "font-size": "14px",
+          "line-height": "1.2",
+          "letter-spacing": "-0.02em",
+          "font-smoothing": "true"
+        },
+        "md": {
+          "font-size": "16px"
+        }
+      },
+      "body": {
+        "xs": {
+          "font-family": "var(--sans)",
+          "bold-weight": "600",
+          "font-size": "14px",
+          "line-height": "1.7",
+          "font-smoothing": "true"
+        },
+        "md": {
+          "font-size": "16px"
+        }
+      },
+      "ui": {
+        "xs": {
+          "font-family": "var(--sans)",
+          "font-size": "12px",
+          "line-height": 1.2,
+          "font-weight": 400
+        }
+      },
+      "code": {
+        "xs": {
+          "font-family": "var(--mono)",
+          "font-size": "14px",
+          "line-height": 1.2,
+          "font-weight": 400
+        }
+      }
+    }
+  },
+  "components": {
+    ".show-grid": {
+      "apply": "relative",
+      "attributes": {
+        "--grid-column-bg": "rgba(0, 0, 0, 0.05)"
+      },
+      "selectors": {
+        "::after": "dev-tools-grid absolute w-full content-['']"
+      }
+    },
+    ".blockquote": {
+      "apply": "bg-quote py-20",
+      "selectors": {
+        "blockquote": "block px-20 md:px-40",
+        "blockquote p": "italic",
+        "blockquote p:first-child": "mt-0 relative",
+        "blockquote p:first-child::before": "content-[open-quote] absolute top-0 right-full -left-8",
+        "blockquote p:last-child::after": "content-[close-quote]",
+        "figcaption": "block mt-8 px-20 md:px-40",
+        "cite": "not-italic",
+        "cite::before": "content-['—'] mr-8"
+      }
+    },
+    ".code-example": {
+      "apply": "block bg-code-example",
+      "selectors": {
+        ".code-example-filename": {
+          "apply": "inline-block f-ui text-inverse px-20  py-12 border-b text-code-example-filename border-code-example-filename",
+          "attributes": {
+            "min-width": "160px"
+          }
+        },
+        ".code-example-code": "block f-code bg-code-example text-code-example bg-code-example",
+        ".code-example-code code": {
+          "apply": "bg-code-example max-h-600 overflow-auto",
+          "attributes": {
+            "scrollbar-color": "var(--grey-54) var(--grey-90)",
+            "scrollbar-width": "thin"
+          },
+          "selectors": {
+            "::-webkit-scrollbar": {
+              "attributes": {
+                "width": "8px",
+                "height": "8px"
+              }
+            },
+            "::-webkit-scrollbar-track": {
+              "attributes": {
+                "background": "var(--grey-90)"
+              }
+            },
+            "::-webkit-scrollbar-thumb": {
+              "attributes": {
+                "background": "var(--grey-54)",
+                "width": "8px",
+                "height": "8px"
+              }
+            }
+          }
+        }
+      }
+    },
+    ".copy": {
+      "breakpoints": {
+        "md": {
+          "selectors": {
+            "> *:not(.code-example, h2, hr)": {
+              "attributes": {
+                "max-width": "80%"
+              }
+            }
+          }
+        },
+        "lg": {
+          "selectors": {
+            "> *:not(.code-example, h2, hr)": {
+              "attributes": {
+                "max-width": "60%"
+              }
+            }
+          }
+        }
+      },
+      "selectors": {
+        "h2": "f-h2",
+        "h2:not(:first-child)": "mt-56 pt-48 border-t border-secondary",
+        "h3": "f-h3 mt-40",
+        "h4": "f-h4 mt-40",
+        "p": "f-body mt-20",
+        "p:first-child": "mt-0",
+        "ul": "f-body mt-20 list-disc pl-16",
+        "ul ul": "mt-0",
+        ".code-example": "mt-20",
+        "code:not([class])": "f-code text-code bg-code px-8 pt-4 pb-2",
+        "pre:not([class])": "block mt-20 f-code max-h-400 overflow-y-scroll",
+        "pre:not([class]) code:not([class])": "block p-8",
+        "a": {
+          "apply": "text-accent underline",
+          "selectors": {
+            ":hover, :focus": {
+              "apply": "text-primary"
+            }
+          }
+        },
+        "hr": "border-secondary my-40",
+        ".blockquote": "mt-20"
+      }
+    }
+  }
+}

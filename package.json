@@ -1,6 +1,6 @@
 {
   "name": "@area17/a17-tailwind-plugins",
-  "version": "4.0.6",
+  "version": "5.0.0",
   "author": "A17 <dev@area17.com> (https://area17.com/)",
   "description": "A collection of Tailwind plugins to help build responsive design systems in collaboration with A17 design and development build methodologies",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "test": "jest --watchAll",
     "dev": "npx @tailwindcss/cli -i ./docs/input.css -o ./docs/tailwind.css",
     "watch": "npx @tailwindcss/cli -i ./docs/input.css -o ./docs/tailwind.css --watch",
-    "prod": "NODE_ENV=production npx tailwindcss -i ./docs/input.css -o ./docs/tailwind.css --minify",
+    "prod": "NODE_ENV=production npx @tailwindcss/cli -i ./docs/input.css -o ./docs/tailwind.css --minify",
     "sync": "browser-sync start --config bs-config.js --no-open",
     "eslint": "eslint .",
     "prettier": "prettier . --write"

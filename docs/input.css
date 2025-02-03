@@ -177,4 +177,23 @@
       max-width: 60%;
     }
   }
+
+  .copy table {
+    @apply mt-20;
+  }
+
+  .copy th,
+  .copy td {
+    @apply px-10 pb-4 border-secondary border-l-1;
+  }
+
+  .copy th:first-child,
+  .copy td:first-child {
+    @apply ps-0 border-l-0;
+  }
+
+  .copy th:last-child,
+  .copy td:last-child {
+    @apply pe-0;
+  }
 }

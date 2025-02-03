@@ -7,7 +7,7 @@ title: Spacing
 <div class="copy">
   <h2 id="description">Description</h2>
 
-  <p>The spacing plugin allows you to create preset responsive spacing groups to use with Tailwind 4's <code>&lt;custom-property&gt;</code> spacing rules.</p>
+  <p>The spacing plugin extends the built in Tailwind spacing config and allows you to create preset responsive spacing groups. It will generate single class names following Tailwinds spacing classes for margin and padding which have responsive spacing instead of single fixed spacing.</p>
 
   <p>
     Similiar to responsive typesets, at AREA 17 we like responsive spacing
@@ -136,7 +136,9 @@ module.exports = {
 &lt;/div></code></pre>
   </figure>
 
-  <p>As this plugin generates CSS responsive custom properties, you can also use these directly:</p>
+  <p>As this plugin generates CSS responsive custom properties, you can also use these directly in Tailwind 4's <code>&lt;custom-property&gt;</code> spacing.</p>
+
+  <p><strong>Note:</strong> Tailwind 4 updated how it handles <a href="https://tailwindcss.com/docs/upgrade-guide#variables-in-arbitrary-values" target="_blank">arbitrary values</a>.</p>
 </div>
 
 <div class="mt-(--spacing-outer-1) p-(--spacing-inner-1) bg-column">
