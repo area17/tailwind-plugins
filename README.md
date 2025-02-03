@@ -8,10 +8,15 @@ AREA 17 strongly believes in design systems and then using these systems to buil
 
 We also wanted to include a few utility classes that would simplify some common styling requirements.
 
+## Documentation and demos
+
+* [area17.github.io/tailwind-plugins/](https://area17.github.io/tailwind-plugins/)
+
 ## Requirements
 
 * [TailwindCSS](https://tailwindcss.com/)
-  * tested in Tailwind <code>2.x.x</code> (with and without JIT) and <code>3.4.x</code>
+  * `v5.0.0` is tested with Tailwind `v4.0.0` and Tailwind `v3.4.17`
+  * Versions before `v5.0.0` (`<=4.0.6`) are tested with Tailwind `v`2.x.x` (with and without JIT) and `v3.x.x`</code>`
 
 ## Setup
 
@@ -26,16 +31,14 @@ Include plugins in `tailwind.config.js`:
 
 ## Sample set up files
 
-* [tailwind.config.js](https://github.com/area17/tailwind-plugins/blob/main/docs/tailwind.config.js)
 * [frontend.config.json](https://github.com/area17/tailwind-plugins/blob/main/docs/frontend.config.json)
+* [tailwind.config.js](https://github.com/area17/tailwind-plugins/blob/main/docs/tailwind.config.js)
+* [input.css](https://github.com/area17/tailwind-plugins/blob/main/docs/input.css)
 
-## Documentation and demos
+### Breaking changes to Layout in `v5-0-0`
 
-* [area17.github.io/tailwind-plugins/](https://area17.github.io/tailwind-plugins/)
-
-### Breaking changes to Layout in `v3.0.0`
-
-The generated class names in the Layout plugin have been changed to align them closer to Tailwind. [See the migration notes](https://area17.github.io/tailwind-plugins/Layout.html#v3-0-0) and also [see the changelog](https://github.com/area17/tailwind-plugins/blob/main/changelog.md#300---2021-12-07).
+The generated class names in the Layout plugin have been changed to align them closer to Tailwind. In `v3.x.x`/`v4.x.x` the format of the Layout class names was `.w-N-cols`, from `v5.x.x` it is `.w-cols-N`.
+[See the migration notes](https://area17.github.io/tailwind-plugins/Layout.html#v5-0-0).
 
 ## Contribution
 
