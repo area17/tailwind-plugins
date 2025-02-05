@@ -333,12 +333,12 @@
     }
     & > *::before {
       content: "";
-      inset-inline-start: 0;
-      inset-inline-end: 0;
+      inset-inline-start: var(--gridline-x-start, 0);
+      inset-inline-end: var(--gridline-x-end, 0);
       top: 0;
-      bottom: var(--gridline-x-offset, calc(var(--inner-gutter) / -2));
+      bottom: var(--gridline-x-bottom, calc(var(--inner-gutter) / -2));
       border-top: 0 solid transparent;
-      border-bottom: 0 solid var(--gridline-x-color, transparent);
+      border-bottom: var(--gridline-x-width, 0) solid var(--gridline-x-color, transparent);
     }
   }
   .grid-line-xfull {
@@ -352,12 +352,12 @@
     }
     & > *::before {
       content: "";
-      inset-inline-start: calc(var(--inner-gutter) / -2);
-      inset-inline-end: calc(var(--inner-gutter) / -2);
+      inset-inline-start: var(--gridline-x-start, calc(var(--inner-gutter) / -2));
+      inset-inline-end: var(--gridline-x-end, calc(var(--inner-gutter) / -2));
       top: 0;
-      bottom: var(--gridline-x-offset, calc(var(--inner-gutter) / -2));
+      bottom: var(--gridline-x-bottom, calc(var(--inner-gutter) / -2));
       border-top: 0 solid transparent;
-      border-bottom: 0 solid var(--gridline-x-color, transparent);
+      border-bottom: var(--gridline-x-width, 0) solid var(--gridline-x-color, transparent);
     }
   }
   .grid-line-y {
@@ -376,7 +376,7 @@
       top: 0;
       bottom: 0;
       border-inline-start: 0 solid transparent;
-      border-inline-end: 0 solid var(--gridline-y-color, transparent);
+      border-inline-end: var(--gridline-y-width, 0) solid var(--gridline-y-color, transparent);
     }
   }
   .grid-line-yfull {
@@ -392,18 +392,18 @@
       content: "";
       inset-inline-start: 0;
       inset-inline-end: calc(var(--inner-gutter) / -2);
-      top: var(--gridline-x-offset, calc(var(--inner-gutter) / -2));
+      top: var(--gridline-y-top, calc(var(--inner-gutter) / -1));
       bottom: 0;
       border-inline-start: 0 solid transparent;
-      border-inline-end: 0 solid var(--gridline-y-color, transparent);
+      border-inline-end: var(--gridline-y-width, 0) solid var(--gridline-y-color, transparent);
     }
-    &.grid-line-x > *::after {
+    &.grid-line-x > *::after, &.grid-line-xfull > *::after {
       inset-inline-start: 0;
       inset-inline-end: calc(var(--inner-gutter) / -2);
-      top: var(--gridline-x-offset, calc(var(--inner-gutter) / -2));
-      bottom: var(--gridline-x-offset, calc(var(--inner-gutter) / -2));
+      top: var(--gridline-y-top, calc(var(--inner-gutter) / -2));
+      bottom: var(--gridline-y-bottom, calc(var(--inner-gutter) / -2));
       border-inline-start: 0 solid transparent;
-      border-inline-end: 0 solid var(--gridline-y-color, transparent);
+      border-inline-end: var(--gridline-y-width, 0) solid var(--gridline-y-color, transparent);
     }
   }
   .keyline-l-primary {
@@ -636,363 +636,6 @@
   }
   .static {
     position: static;
-  }
-  .grid-cols-2 {
-    &.grid-line-x > *:nth-child(n)::before {
-      border-bottom-width: 1px;
-    }
-    &.grid-line-xfull > *:nth-child(n)::before {
-      inset-inline-start: calc(var(--inner-gutter) / -2);
-      inset-inline-end: calc(var(--inner-gutter) / -2);
-    }
-    &.grid-line-x > *:nth-child(2n+1)::before {
-      inset-inline-start: 0;
-    }
-    &.grid-line-xfull > *:nth-child(2n+1)::before {
-      inset-inline-start: 0;
-    }
-    &.grid-line-x > *:nth-child(2n+2)::before {
-      inset-inline-end: 0;
-    }
-    &.grid-line-xfull > *:nth-child(2n+2)::before {
-      inset-inline-end: 0;
-    }
-    &.grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-      border-bottom-width: 0;
-    }
-    &.grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-      border-bottom-width: 0;
-    }
-    &.grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-      border-bottom-width: 0;
-    }
-    &.grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-      border-bottom-width: 0;
-    }
-    &.grid-line-y > *:nth-child(n)::after {
-      border-inline-end-width: 1px;
-    }
-    &.grid-line-yfull > *:nth-child(n)::after {
-      border-inline-end-width: 1px;
-    }
-    &.grid-line-y > *:nth-child(2n+2)::after {
-      border-inline-end-width: 0;
-    }
-    &.grid-line-yfull > *:nth-child(2n+2)::after {
-      border-inline-end-width: 0;
-    }
-    &.grid-line-y > *:nth-child(-n+2)::after {
-      top: 0;
-    }
-    &.grid-line-yfull > *:nth-child(-n+2)::after {
-      top: 0;
-    }
-    &.grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-      bottom: 0;
-    }
-    &.grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-      bottom: 0;
-    }
-  }
-  .grid-cols-2 {
-    &.sm\:grid-line-x > *:nth-child(n)::before {
-      border-bottom-width: 1px;
-    }
-    &.grid-line-xfull > *:nth-child(n)::before {
-      border-bottom-width: 1px;
-    }
-    &.sm\:grid-line-xfull > *:nth-child(n)::before {
-      inset-inline-start: calc(var(--inner-gutter) / -2);
-      inset-inline-end: calc(var(--inner-gutter) / -2);
-    }
-    &.sm\:grid-line-x > *:nth-child(2n+1)::before {
-      inset-inline-start: 0;
-    }
-    &.sm\:grid-line-xfull > *:nth-child(2n+1)::before {
-      inset-inline-start: 0;
-    }
-    &.sm\:grid-line-x > *:nth-child(2n+2)::before {
-      inset-inline-end: 0;
-    }
-    &.sm\:grid-line-xfull > *:nth-child(2n+2)::before {
-      inset-inline-end: 0;
-    }
-    &.sm\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-      border-bottom-width: 0;
-    }
-    &.sm\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-      border-bottom-width: 0;
-    }
-    &.sm\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-      border-bottom-width: 0;
-    }
-    &.sm\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-      border-bottom-width: 0;
-    }
-    &.sm\:grid-line-y > *:nth-child(n)::after {
-      border-inline-end-width: 1px;
-    }
-    &.sm\:grid-line-yfull > *:nth-child(n)::after {
-      border-inline-end-width: 1px;
-    }
-    &.sm\:grid-line-y > *:nth-child(2n+2)::after {
-      border-inline-end-width: 0;
-    }
-    &.sm\:grid-line-yfull > *:nth-child(2n+2)::after {
-      border-inline-end-width: 0;
-    }
-    &.sm\:grid-line-y > *:nth-child(-n+2)::after {
-      top: 0;
-    }
-    &.sm\:grid-line-yfull > *:nth-child(-n+2)::after {
-      top: 0;
-    }
-    &.sm\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-      bottom: 0;
-    }
-    &.sm\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-      bottom: 0;
-    }
-  }
-  .grid-cols-2 {
-    &.md\:grid-line-x > *:nth-child(n)::before {
-      border-bottom-width: 1px;
-    }
-    &.grid-line-xfull > *:nth-child(n)::before {
-      border-bottom-width: 1px;
-    }
-    &.md\:grid-line-xfull > *:nth-child(n)::before {
-      inset-inline-start: calc(var(--inner-gutter) / -2);
-      inset-inline-end: calc(var(--inner-gutter) / -2);
-    }
-    &.md\:grid-line-x > *:nth-child(2n+1)::before {
-      inset-inline-start: 0;
-    }
-    &.md\:grid-line-xfull > *:nth-child(2n+1)::before {
-      inset-inline-start: 0;
-    }
-    &.md\:grid-line-x > *:nth-child(2n+2)::before {
-      inset-inline-end: 0;
-    }
-    &.md\:grid-line-xfull > *:nth-child(2n+2)::before {
-      inset-inline-end: 0;
-    }
-    &.md\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-      border-bottom-width: 0;
-    }
-    &.md\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-      border-bottom-width: 0;
-    }
-    &.md\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-      border-bottom-width: 0;
-    }
-    &.md\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-      border-bottom-width: 0;
-    }
-    &.md\:grid-line-y > *:nth-child(n)::after {
-      border-inline-end-width: 1px;
-    }
-    &.md\:grid-line-yfull > *:nth-child(n)::after {
-      border-inline-end-width: 1px;
-    }
-    &.md\:grid-line-y > *:nth-child(2n+2)::after {
-      border-inline-end-width: 0;
-    }
-    &.md\:grid-line-yfull > *:nth-child(2n+2)::after {
-      border-inline-end-width: 0;
-    }
-    &.md\:grid-line-y > *:nth-child(-n+2)::after {
-      top: 0;
-    }
-    &.md\:grid-line-yfull > *:nth-child(-n+2)::after {
-      top: 0;
-    }
-    &.md\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-      bottom: 0;
-    }
-    &.md\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-      bottom: 0;
-    }
-  }
-  .grid-cols-2 {
-    &.lg\:grid-line-x > *:nth-child(n)::before {
-      border-bottom-width: 1px;
-    }
-    &.grid-line-xfull > *:nth-child(n)::before {
-      border-bottom-width: 1px;
-    }
-    &.lg\:grid-line-xfull > *:nth-child(n)::before {
-      inset-inline-start: calc(var(--inner-gutter) / -2);
-      inset-inline-end: calc(var(--inner-gutter) / -2);
-    }
-    &.lg\:grid-line-x > *:nth-child(2n+1)::before {
-      inset-inline-start: 0;
-    }
-    &.lg\:grid-line-xfull > *:nth-child(2n+1)::before {
-      inset-inline-start: 0;
-    }
-    &.lg\:grid-line-x > *:nth-child(2n+2)::before {
-      inset-inline-end: 0;
-    }
-    &.lg\:grid-line-xfull > *:nth-child(2n+2)::before {
-      inset-inline-end: 0;
-    }
-    &.lg\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-      border-bottom-width: 0;
-    }
-    &.lg\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-      border-bottom-width: 0;
-    }
-    &.lg\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-      border-bottom-width: 0;
-    }
-    &.lg\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-      border-bottom-width: 0;
-    }
-    &.lg\:grid-line-y > *:nth-child(n)::after {
-      border-inline-end-width: 1px;
-    }
-    &.lg\:grid-line-yfull > *:nth-child(n)::after {
-      border-inline-end-width: 1px;
-    }
-    &.lg\:grid-line-y > *:nth-child(2n+2)::after {
-      border-inline-end-width: 0;
-    }
-    &.lg\:grid-line-yfull > *:nth-child(2n+2)::after {
-      border-inline-end-width: 0;
-    }
-    &.lg\:grid-line-y > *:nth-child(-n+2)::after {
-      top: 0;
-    }
-    &.lg\:grid-line-yfull > *:nth-child(-n+2)::after {
-      top: 0;
-    }
-    &.lg\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-      bottom: 0;
-    }
-    &.lg\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-      bottom: 0;
-    }
-  }
-  .grid-cols-2 {
-    &.xl\:grid-line-x > *:nth-child(n)::before {
-      border-bottom-width: 1px;
-    }
-    &.grid-line-xfull > *:nth-child(n)::before {
-      border-bottom-width: 1px;
-    }
-    &.xl\:grid-line-xfull > *:nth-child(n)::before {
-      inset-inline-start: calc(var(--inner-gutter) / -2);
-      inset-inline-end: calc(var(--inner-gutter) / -2);
-    }
-    &.xl\:grid-line-x > *:nth-child(2n+1)::before {
-      inset-inline-start: 0;
-    }
-    &.xl\:grid-line-xfull > *:nth-child(2n+1)::before {
-      inset-inline-start: 0;
-    }
-    &.xl\:grid-line-x > *:nth-child(2n+2)::before {
-      inset-inline-end: 0;
-    }
-    &.xl\:grid-line-xfull > *:nth-child(2n+2)::before {
-      inset-inline-end: 0;
-    }
-    &.xl\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-      border-bottom-width: 0;
-    }
-    &.xl\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-      border-bottom-width: 0;
-    }
-    &.xl\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-      border-bottom-width: 0;
-    }
-    &.xl\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-      border-bottom-width: 0;
-    }
-    &.xl\:grid-line-y > *:nth-child(n)::after {
-      border-inline-end-width: 1px;
-    }
-    &.xl\:grid-line-yfull > *:nth-child(n)::after {
-      border-inline-end-width: 1px;
-    }
-    &.xl\:grid-line-y > *:nth-child(2n+2)::after {
-      border-inline-end-width: 0;
-    }
-    &.xl\:grid-line-yfull > *:nth-child(2n+2)::after {
-      border-inline-end-width: 0;
-    }
-    &.xl\:grid-line-y > *:nth-child(-n+2)::after {
-      top: 0;
-    }
-    &.xl\:grid-line-yfull > *:nth-child(-n+2)::after {
-      top: 0;
-    }
-    &.xl\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-      bottom: 0;
-    }
-    &.xl\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-      bottom: 0;
-    }
-  }
-  .grid-cols-2 {
-    &.xxl\:grid-line-x > *:nth-child(n)::before {
-      border-bottom-width: 1px;
-    }
-    &.grid-line-xfull > *:nth-child(n)::before {
-      border-bottom-width: 1px;
-    }
-    &.xxl\:grid-line-xfull > *:nth-child(n)::before {
-      inset-inline-start: calc(var(--inner-gutter) / -2);
-      inset-inline-end: calc(var(--inner-gutter) / -2);
-    }
-    &.xxl\:grid-line-x > *:nth-child(2n+1)::before {
-      inset-inline-start: 0;
-    }
-    &.xxl\:grid-line-xfull > *:nth-child(2n+1)::before {
-      inset-inline-start: 0;
-    }
-    &.xxl\:grid-line-x > *:nth-child(2n+2)::before {
-      inset-inline-end: 0;
-    }
-    &.xxl\:grid-line-xfull > *:nth-child(2n+2)::before {
-      inset-inline-end: 0;
-    }
-    &.xxl\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-      border-bottom-width: 0;
-    }
-    &.xxl\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-      border-bottom-width: 0;
-    }
-    &.xxl\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-      border-bottom-width: 0;
-    }
-    &.xxl\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-      border-bottom-width: 0;
-    }
-    &.xxl\:grid-line-y > *:nth-child(n)::after {
-      border-inline-end-width: 1px;
-    }
-    &.xxl\:grid-line-yfull > *:nth-child(n)::after {
-      border-inline-end-width: 1px;
-    }
-    &.xxl\:grid-line-y > *:nth-child(2n+2)::after {
-      border-inline-end-width: 0;
-    }
-    &.xxl\:grid-line-yfull > *:nth-child(2n+2)::after {
-      border-inline-end-width: 0;
-    }
-    &.xxl\:grid-line-y > *:nth-child(-n+2)::after {
-      top: 0;
-    }
-    &.xxl\:grid-line-yfull > *:nth-child(-n+2)::after {
-      top: 0;
-    }
-    &.xxl\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-      bottom: 0;
-    }
-    &.xxl\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-      bottom: 0;
-    }
   }
   .start-cols-2 {
     inset-inline-start: calc(((((2 / var(--container-grid-columns, var(--grid-columns))) * (100% - (var(--inner-gutter) * var(--cols-container, 0)))) - (var(--inner-gutter) - (2 / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))) + var(--inner-gutter)));
@@ -3142,20 +2785,388 @@
     --tw-content: open-quote;
     content: var(--tw-content);
   }
+  .grid-cols-2 {
+    &.grid-line-x > *:nth-child(n)::before {
+      --gridline-x-width: 1px;
+      --gridline-x-start: 0;
+      --gridline-x-end: 0;
+    }
+    &.grid-line-xfull > *:nth-child(n)::before {
+      --gridline-x-width: 1px;
+      --gridline-x-start: calc(var(--inner-gutter) / -2);
+      --gridline-x-end: calc(var(--inner-gutter) / -2);
+    }
+    &.grid-line-x > *:nth-child(2n+1)::before {
+      --gridline-x-start: 0;
+    }
+    &.grid-line-xfull > *:nth-child(2n+1)::before {
+      --gridline-x-start: 0;
+    }
+    &.grid-line-x > *:nth-child(2n+2)::before {
+      --gridline-x-end: 0;
+    }
+    &.grid-line-xfull > *:nth-child(2n+2)::before {
+      --gridline-x-end: 0;
+    }
+    &.grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+      --gridline-x-width: 0;
+    }
+    &.grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+      --gridline-x-width: 0;
+    }
+    &.grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+      --gridline-x-width: 0;
+    }
+    &.grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+      --gridline-x-width: 0;
+    }
+    &.grid-line-y > *:nth-child(n)::after {
+      --gridline-y-width: 1px;
+    }
+    &.grid-line-yfull > *:nth-child(n)::after {
+      --gridline-y-width: 1px;
+    }
+    &.grid-line-y > *:nth-child(2n+2)::after {
+      --gridline-y-width: 0;
+    }
+    &.grid-line-yfull > *:nth-child(2n+2)::after {
+      --gridline-y-width: 0;
+    }
+    &.grid-line-y > *:nth-child(-n+2)::after {
+      --gridline-y-top: 0;
+    }
+    &.grid-line-yfull > *:nth-child(-n+2)::after {
+      --gridline-y-top: 0;
+    }
+    &.grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+      --gridline-y-bottom: 0;
+    }
+    &.grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+      --gridline-y-bottom: 0;
+    }
+  }
+  .grid-cols-2 {
+    &.sm\:grid-line-x > *:nth-child(n)::before {
+      --gridline-x-width: 1px;
+      --gridline-x-start: 0;
+      --gridline-x-end: 0;
+    }
+    &.sm\:grid-line-xfull > *:nth-child(n)::before {
+      --gridline-x-width: 1px;
+      --gridline-x-start: calc(var(--inner-gutter) / -2);
+      --gridline-x-end: calc(var(--inner-gutter) / -2);
+    }
+    &.sm\:grid-line-x > *:nth-child(2n+1)::before {
+      --gridline-x-start: 0;
+    }
+    &.sm\:grid-line-xfull > *:nth-child(2n+1)::before {
+      --gridline-x-start: 0;
+    }
+    &.sm\:grid-line-x > *:nth-child(2n+2)::before {
+      --gridline-x-end: 0;
+    }
+    &.sm\:grid-line-xfull > *:nth-child(2n+2)::before {
+      --gridline-x-end: 0;
+    }
+    &.sm\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+      --gridline-x-width: 0;
+    }
+    &.sm\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+      --gridline-x-width: 0;
+    }
+    &.sm\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+      --gridline-x-width: 0;
+    }
+    &.sm\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+      --gridline-x-width: 0;
+    }
+    &.sm\:grid-line-y > *:nth-child(n)::after {
+      --gridline-y-width: 1px;
+    }
+    &.sm\:grid-line-yfull > *:nth-child(n)::after {
+      --gridline-y-width: 1px;
+    }
+    &.sm\:grid-line-y > *:nth-child(2n+2)::after {
+      --gridline-y-width: 0;
+    }
+    &.sm\:grid-line-yfull > *:nth-child(2n+2)::after {
+      --gridline-y-width: 0;
+    }
+    &.sm\:grid-line-y > *:nth-child(-n+2)::after {
+      --gridline-y-top: 0;
+    }
+    &.sm\:grid-line-yfull > *:nth-child(-n+2)::after {
+      --gridline-y-top: 0;
+    }
+    &.sm\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+      --gridline-y-bottom: 0;
+    }
+    &.sm\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+      --gridline-y-bottom: 0;
+    }
+  }
+  .grid-cols-2 {
+    &.md\:grid-line-x > *:nth-child(n)::before {
+      --gridline-x-width: 1px;
+      --gridline-x-start: 0;
+      --gridline-x-end: 0;
+    }
+    &.md\:grid-line-xfull > *:nth-child(n)::before {
+      --gridline-x-width: 1px;
+      --gridline-x-start: calc(var(--inner-gutter) / -2);
+      --gridline-x-end: calc(var(--inner-gutter) / -2);
+    }
+    &.md\:grid-line-x > *:nth-child(2n+1)::before {
+      --gridline-x-start: 0;
+    }
+    &.md\:grid-line-xfull > *:nth-child(2n+1)::before {
+      --gridline-x-start: 0;
+    }
+    &.md\:grid-line-x > *:nth-child(2n+2)::before {
+      --gridline-x-end: 0;
+    }
+    &.md\:grid-line-xfull > *:nth-child(2n+2)::before {
+      --gridline-x-end: 0;
+    }
+    &.md\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+      --gridline-x-width: 0;
+    }
+    &.md\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+      --gridline-x-width: 0;
+    }
+    &.md\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+      --gridline-x-width: 0;
+    }
+    &.md\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+      --gridline-x-width: 0;
+    }
+    &.md\:grid-line-y > *:nth-child(n)::after {
+      --gridline-y-width: 1px;
+    }
+    &.md\:grid-line-yfull > *:nth-child(n)::after {
+      --gridline-y-width: 1px;
+    }
+    &.md\:grid-line-y > *:nth-child(2n+2)::after {
+      --gridline-y-width: 0;
+    }
+    &.md\:grid-line-yfull > *:nth-child(2n+2)::after {
+      --gridline-y-width: 0;
+    }
+    &.md\:grid-line-y > *:nth-child(-n+2)::after {
+      --gridline-y-top: 0;
+    }
+    &.md\:grid-line-yfull > *:nth-child(-n+2)::after {
+      --gridline-y-top: 0;
+    }
+    &.md\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+      --gridline-y-bottom: 0;
+    }
+    &.md\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+      --gridline-y-bottom: 0;
+    }
+  }
+  .grid-cols-2 {
+    &.lg\:grid-line-x > *:nth-child(n)::before {
+      --gridline-x-width: 1px;
+      --gridline-x-start: 0;
+      --gridline-x-end: 0;
+    }
+    &.lg\:grid-line-xfull > *:nth-child(n)::before {
+      --gridline-x-width: 1px;
+      --gridline-x-start: calc(var(--inner-gutter) / -2);
+      --gridline-x-end: calc(var(--inner-gutter) / -2);
+    }
+    &.lg\:grid-line-x > *:nth-child(2n+1)::before {
+      --gridline-x-start: 0;
+    }
+    &.lg\:grid-line-xfull > *:nth-child(2n+1)::before {
+      --gridline-x-start: 0;
+    }
+    &.lg\:grid-line-x > *:nth-child(2n+2)::before {
+      --gridline-x-end: 0;
+    }
+    &.lg\:grid-line-xfull > *:nth-child(2n+2)::before {
+      --gridline-x-end: 0;
+    }
+    &.lg\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+      --gridline-x-width: 0;
+    }
+    &.lg\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+      --gridline-x-width: 0;
+    }
+    &.lg\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+      --gridline-x-width: 0;
+    }
+    &.lg\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+      --gridline-x-width: 0;
+    }
+    &.lg\:grid-line-y > *:nth-child(n)::after {
+      --gridline-y-width: 1px;
+    }
+    &.lg\:grid-line-yfull > *:nth-child(n)::after {
+      --gridline-y-width: 1px;
+    }
+    &.lg\:grid-line-y > *:nth-child(2n+2)::after {
+      --gridline-y-width: 0;
+    }
+    &.lg\:grid-line-yfull > *:nth-child(2n+2)::after {
+      --gridline-y-width: 0;
+    }
+    &.lg\:grid-line-y > *:nth-child(-n+2)::after {
+      --gridline-y-top: 0;
+    }
+    &.lg\:grid-line-yfull > *:nth-child(-n+2)::after {
+      --gridline-y-top: 0;
+    }
+    &.lg\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+      --gridline-y-bottom: 0;
+    }
+    &.lg\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+      --gridline-y-bottom: 0;
+    }
+  }
+  .grid-cols-2 {
+    &.xl\:grid-line-x > *:nth-child(n)::before {
+      --gridline-x-width: 1px;
+      --gridline-x-start: 0;
+      --gridline-x-end: 0;
+    }
+    &.xl\:grid-line-xfull > *:nth-child(n)::before {
+      --gridline-x-width: 1px;
+      --gridline-x-start: calc(var(--inner-gutter) / -2);
+      --gridline-x-end: calc(var(--inner-gutter) / -2);
+    }
+    &.xl\:grid-line-x > *:nth-child(2n+1)::before {
+      --gridline-x-start: 0;
+    }
+    &.xl\:grid-line-xfull > *:nth-child(2n+1)::before {
+      --gridline-x-start: 0;
+    }
+    &.xl\:grid-line-x > *:nth-child(2n+2)::before {
+      --gridline-x-end: 0;
+    }
+    &.xl\:grid-line-xfull > *:nth-child(2n+2)::before {
+      --gridline-x-end: 0;
+    }
+    &.xl\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+      --gridline-x-width: 0;
+    }
+    &.xl\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+      --gridline-x-width: 0;
+    }
+    &.xl\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+      --gridline-x-width: 0;
+    }
+    &.xl\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+      --gridline-x-width: 0;
+    }
+    &.xl\:grid-line-y > *:nth-child(n)::after {
+      --gridline-y-width: 1px;
+    }
+    &.xl\:grid-line-yfull > *:nth-child(n)::after {
+      --gridline-y-width: 1px;
+    }
+    &.xl\:grid-line-y > *:nth-child(2n+2)::after {
+      --gridline-y-width: 0;
+    }
+    &.xl\:grid-line-yfull > *:nth-child(2n+2)::after {
+      --gridline-y-width: 0;
+    }
+    &.xl\:grid-line-y > *:nth-child(-n+2)::after {
+      --gridline-y-top: 0;
+    }
+    &.xl\:grid-line-yfull > *:nth-child(-n+2)::after {
+      --gridline-y-top: 0;
+    }
+    &.xl\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+      --gridline-y-bottom: 0;
+    }
+    &.xl\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+      --gridline-y-bottom: 0;
+    }
+  }
+  .grid-cols-2 {
+    &.xxl\:grid-line-x > *:nth-child(n)::before {
+      --gridline-x-width: 1px;
+      --gridline-x-start: 0;
+      --gridline-x-end: 0;
+    }
+    &.xxl\:grid-line-xfull > *:nth-child(n)::before {
+      --gridline-x-width: 1px;
+      --gridline-x-start: calc(var(--inner-gutter) / -2);
+      --gridline-x-end: calc(var(--inner-gutter) / -2);
+    }
+    &.xxl\:grid-line-x > *:nth-child(2n+1)::before {
+      --gridline-x-start: 0;
+    }
+    &.xxl\:grid-line-xfull > *:nth-child(2n+1)::before {
+      --gridline-x-start: 0;
+    }
+    &.xxl\:grid-line-x > *:nth-child(2n+2)::before {
+      --gridline-x-end: 0;
+    }
+    &.xxl\:grid-line-xfull > *:nth-child(2n+2)::before {
+      --gridline-x-end: 0;
+    }
+    &.xxl\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+      --gridline-x-width: 0;
+    }
+    &.xxl\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+      --gridline-x-width: 0;
+    }
+    &.xxl\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+      --gridline-x-width: 0;
+    }
+    &.xxl\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+      --gridline-x-width: 0;
+    }
+    &.xxl\:grid-line-y > *:nth-child(n)::after {
+      --gridline-y-width: 1px;
+    }
+    &.xxl\:grid-line-yfull > *:nth-child(n)::after {
+      --gridline-y-width: 1px;
+    }
+    &.xxl\:grid-line-y > *:nth-child(2n+2)::after {
+      --gridline-y-width: 0;
+    }
+    &.xxl\:grid-line-yfull > *:nth-child(2n+2)::after {
+      --gridline-y-width: 0;
+    }
+    &.xxl\:grid-line-y > *:nth-child(-n+2)::after {
+      --gridline-y-top: 0;
+    }
+    &.xxl\:grid-line-yfull > *:nth-child(-n+2)::after {
+      --gridline-y-top: 0;
+    }
+    &.xxl\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+      --gridline-y-bottom: 0;
+    }
+    &.xxl\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+      --gridline-y-bottom: 0;
+    }
+  }
   .grid-line-x-24 {
     & > *::before {
-      --gridline-x-offset: -24px;
+      --gridline-x-bottom: -24px;
+      --gridline-y-top: -24px;
+      --gridline-y-bottom: -24px;
     }
     &.grid-line-yfull > *::after {
-      --gridline-x-offset: -24px;
+      --gridline-x-bottom: -24px;
+      --gridline-y-top: -24px;
+      --gridline-y-bottom: -24px;
     }
   }
   .grid-line-x-40 {
     & > *::before {
-      --gridline-x-offset: -40px;
+      --gridline-x-bottom: -40px;
+      --gridline-y-top: -40px;
+      --gridline-y-bottom: -40px;
     }
     &.grid-line-yfull > *::after {
-      --gridline-x-offset: -40px;
+      --gridline-x-bottom: -40px;
+      --gridline-y-top: -40px;
+      --gridline-y-bottom: -40px;
     }
   }
   .grid-line-x-primary {
@@ -3491,7 +3502,7 @@
         top: 0;
         bottom: 0;
         border-inline-start: 0 solid transparent;
-        border-inline-end: 0 solid var(--gridline-y-color, transparent);
+        border-inline-end: var(--gridline-y-width, 0) solid var(--gridline-y-color, transparent);
       }
     }
   }
@@ -3541,744 +3552,6 @@
       inset-inline-start: unset;
       width: unset;
       margin-inline-start: unset;
-    }
-  }
-  .md\:grid-cols-2 {
-    @media (width >= 650px) {
-      &.grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.grid-line-x > *:nth-child(2n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.grid-line-xfull > *:nth-child(2n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.grid-line-x > *:nth-child(2n+2)::before {
-        inset-inline-end: 0;
-      }
-      &.grid-line-xfull > *:nth-child(2n+2)::before {
-        inset-inline-end: 0;
-      }
-      &.grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-        border-bottom-width: 0;
-      }
-      &.grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-        border-bottom-width: 0;
-      }
-      &.grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.grid-line-y > *:nth-child(2n+2)::after {
-        border-inline-end-width: 0;
-      }
-      &.grid-line-yfull > *:nth-child(2n+2)::after {
-        border-inline-end-width: 0;
-      }
-      &.grid-line-y > *:nth-child(-n+2)::after {
-        top: 0;
-      }
-      &.grid-line-yfull > *:nth-child(-n+2)::after {
-        top: 0;
-      }
-      &.grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-        bottom: 0;
-      }
-      &.grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .md\:grid-cols-2 {
-    @media (width >= 650px) {
-      &.sm\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.sm\:grid-line-x > *:nth-child(2n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(2n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.sm\:grid-line-x > *:nth-child(2n+2)::before {
-        inset-inline-end: 0;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(2n+2)::before {
-        inset-inline-end: 0;
-      }
-      &.sm\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-        border-bottom-width: 0;
-      }
-      &.sm\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-        border-bottom-width: 0;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.sm\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.sm\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.sm\:grid-line-y > *:nth-child(2n+2)::after {
-        border-inline-end-width: 0;
-      }
-      &.sm\:grid-line-yfull > *:nth-child(2n+2)::after {
-        border-inline-end-width: 0;
-      }
-      &.sm\:grid-line-y > *:nth-child(-n+2)::after {
-        top: 0;
-      }
-      &.sm\:grid-line-yfull > *:nth-child(-n+2)::after {
-        top: 0;
-      }
-      &.sm\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-        bottom: 0;
-      }
-      &.sm\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .md\:grid-cols-2 {
-    @media (width >= 650px) {
-      &.md\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.md\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.md\:grid-line-x > *:nth-child(2n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.md\:grid-line-xfull > *:nth-child(2n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.md\:grid-line-x > *:nth-child(2n+2)::before {
-        inset-inline-end: 0;
-      }
-      &.md\:grid-line-xfull > *:nth-child(2n+2)::before {
-        inset-inline-end: 0;
-      }
-      &.md\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-        border-bottom-width: 0;
-      }
-      &.md\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.md\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-        border-bottom-width: 0;
-      }
-      &.md\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.md\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.md\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.md\:grid-line-y > *:nth-child(2n+2)::after {
-        border-inline-end-width: 0;
-      }
-      &.md\:grid-line-yfull > *:nth-child(2n+2)::after {
-        border-inline-end-width: 0;
-      }
-      &.md\:grid-line-y > *:nth-child(-n+2)::after {
-        top: 0;
-      }
-      &.md\:grid-line-yfull > *:nth-child(-n+2)::after {
-        top: 0;
-      }
-      &.md\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-        bottom: 0;
-      }
-      &.md\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .md\:grid-cols-2 {
-    @media (width >= 650px) {
-      &.lg\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.lg\:grid-line-x > *:nth-child(2n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(2n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.lg\:grid-line-x > *:nth-child(2n+2)::before {
-        inset-inline-end: 0;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(2n+2)::before {
-        inset-inline-end: 0;
-      }
-      &.lg\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-        border-bottom-width: 0;
-      }
-      &.lg\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-        border-bottom-width: 0;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.lg\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.lg\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.lg\:grid-line-y > *:nth-child(2n+2)::after {
-        border-inline-end-width: 0;
-      }
-      &.lg\:grid-line-yfull > *:nth-child(2n+2)::after {
-        border-inline-end-width: 0;
-      }
-      &.lg\:grid-line-y > *:nth-child(-n+2)::after {
-        top: 0;
-      }
-      &.lg\:grid-line-yfull > *:nth-child(-n+2)::after {
-        top: 0;
-      }
-      &.lg\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-        bottom: 0;
-      }
-      &.lg\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .md\:grid-cols-2 {
-    @media (width >= 650px) {
-      &.xl\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.xl\:grid-line-x > *:nth-child(2n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(2n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.xl\:grid-line-x > *:nth-child(2n+2)::before {
-        inset-inline-end: 0;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(2n+2)::before {
-        inset-inline-end: 0;
-      }
-      &.xl\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-        border-bottom-width: 0;
-      }
-      &.xl\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-        border-bottom-width: 0;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.xl\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.xl\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.xl\:grid-line-y > *:nth-child(2n+2)::after {
-        border-inline-end-width: 0;
-      }
-      &.xl\:grid-line-yfull > *:nth-child(2n+2)::after {
-        border-inline-end-width: 0;
-      }
-      &.xl\:grid-line-y > *:nth-child(-n+2)::after {
-        top: 0;
-      }
-      &.xl\:grid-line-yfull > *:nth-child(-n+2)::after {
-        top: 0;
-      }
-      &.xl\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-        bottom: 0;
-      }
-      &.xl\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .md\:grid-cols-2 {
-    @media (width >= 650px) {
-      &.xxl\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.xxl\:grid-line-x > *:nth-child(2n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(2n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.xxl\:grid-line-x > *:nth-child(2n+2)::before {
-        inset-inline-end: 0;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(2n+2)::before {
-        inset-inline-end: 0;
-      }
-      &.xxl\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-        border-bottom-width: 0;
-      }
-      &.xxl\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
-        border-bottom-width: 0;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.xxl\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.xxl\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.xxl\:grid-line-y > *:nth-child(2n+2)::after {
-        border-inline-end-width: 0;
-      }
-      &.xxl\:grid-line-yfull > *:nth-child(2n+2)::after {
-        border-inline-end-width: 0;
-      }
-      &.xxl\:grid-line-y > *:nth-child(-n+2)::after {
-        top: 0;
-      }
-      &.xxl\:grid-line-yfull > *:nth-child(-n+2)::after {
-        top: 0;
-      }
-      &.xxl\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-        bottom: 0;
-      }
-      &.xxl\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .md\:grid-cols-3 {
-    @media (width >= 650px) {
-      &.grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.grid-line-x > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.grid-line-xfull > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.grid-line-x > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.grid-line-xfull > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.grid-line-y > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.grid-line-yfull > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.grid-line-y > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.grid-line-yfull > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-      &.grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .md\:grid-cols-3 {
-    @media (width >= 650px) {
-      &.sm\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.sm\:grid-line-x > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.sm\:grid-line-x > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.sm\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.sm\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.sm\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.sm\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.sm\:grid-line-y > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.sm\:grid-line-yfull > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.sm\:grid-line-y > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.sm\:grid-line-yfull > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.sm\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-      &.sm\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .md\:grid-cols-3 {
-    @media (width >= 650px) {
-      &.md\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.md\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.md\:grid-line-x > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.md\:grid-line-xfull > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.md\:grid-line-x > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.md\:grid-line-xfull > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.md\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.md\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.md\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.md\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.md\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.md\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.md\:grid-line-y > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.md\:grid-line-yfull > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.md\:grid-line-y > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.md\:grid-line-yfull > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.md\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-      &.md\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .md\:grid-cols-3 {
-    @media (width >= 650px) {
-      &.lg\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.lg\:grid-line-x > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.lg\:grid-line-x > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.lg\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.lg\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.lg\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.lg\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.lg\:grid-line-y > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.lg\:grid-line-yfull > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.lg\:grid-line-y > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.lg\:grid-line-yfull > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.lg\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-      &.lg\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .md\:grid-cols-3 {
-    @media (width >= 650px) {
-      &.xl\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.xl\:grid-line-x > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.xl\:grid-line-x > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.xl\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.xl\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.xl\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.xl\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.xl\:grid-line-y > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.xl\:grid-line-yfull > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.xl\:grid-line-y > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.xl\:grid-line-yfull > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.xl\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-      &.xl\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .md\:grid-cols-3 {
-    @media (width >= 650px) {
-      &.xxl\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.xxl\:grid-line-x > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.xxl\:grid-line-x > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.xxl\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.xxl\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.xxl\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.xxl\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.xxl\:grid-line-y > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.xxl\:grid-line-yfull > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.xxl\:grid-line-y > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.xxl\:grid-line-yfull > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.xxl\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-      &.xxl\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
     }
   }
   .md\:grid-col-span-2 {
@@ -4417,13 +3690,761 @@
       }
     }
   }
+  .md\:grid-cols-2 {
+    @media (width >= 650px) {
+      &.grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.grid-line-x > *:nth-child(2n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.grid-line-xfull > *:nth-child(2n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.grid-line-x > *:nth-child(2n+2)::before {
+        --gridline-x-end: 0;
+      }
+      &.grid-line-xfull > *:nth-child(2n+2)::before {
+        --gridline-x-end: 0;
+      }
+      &.grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+        --gridline-x-width: 0;
+      }
+      &.grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+        --gridline-x-width: 0;
+      }
+      &.grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.grid-line-y > *:nth-child(2n+2)::after {
+        --gridline-y-width: 0;
+      }
+      &.grid-line-yfull > *:nth-child(2n+2)::after {
+        --gridline-y-width: 0;
+      }
+      &.grid-line-y > *:nth-child(-n+2)::after {
+        --gridline-y-top: 0;
+      }
+      &.grid-line-yfull > *:nth-child(-n+2)::after {
+        --gridline-y-top: 0;
+      }
+      &.grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .md\:grid-cols-2 {
+    @media (width >= 650px) {
+      &.sm\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.sm\:grid-line-x > *:nth-child(2n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(2n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.sm\:grid-line-x > *:nth-child(2n+2)::before {
+        --gridline-x-end: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(2n+2)::before {
+        --gridline-x-end: 0;
+      }
+      &.sm\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+        --gridline-x-width: 0;
+      }
+      &.sm\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+        --gridline-x-width: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.sm\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.sm\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.sm\:grid-line-y > *:nth-child(2n+2)::after {
+        --gridline-y-width: 0;
+      }
+      &.sm\:grid-line-yfull > *:nth-child(2n+2)::after {
+        --gridline-y-width: 0;
+      }
+      &.sm\:grid-line-y > *:nth-child(-n+2)::after {
+        --gridline-y-top: 0;
+      }
+      &.sm\:grid-line-yfull > *:nth-child(-n+2)::after {
+        --gridline-y-top: 0;
+      }
+      &.sm\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.sm\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .md\:grid-cols-2 {
+    @media (width >= 650px) {
+      &.md\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.md\:grid-line-x > *:nth-child(2n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(2n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.md\:grid-line-x > *:nth-child(2n+2)::before {
+        --gridline-x-end: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(2n+2)::before {
+        --gridline-x-end: 0;
+      }
+      &.md\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+        --gridline-x-width: 0;
+      }
+      &.md\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+        --gridline-x-width: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.md\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.md\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.md\:grid-line-y > *:nth-child(2n+2)::after {
+        --gridline-y-width: 0;
+      }
+      &.md\:grid-line-yfull > *:nth-child(2n+2)::after {
+        --gridline-y-width: 0;
+      }
+      &.md\:grid-line-y > *:nth-child(-n+2)::after {
+        --gridline-y-top: 0;
+      }
+      &.md\:grid-line-yfull > *:nth-child(-n+2)::after {
+        --gridline-y-top: 0;
+      }
+      &.md\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.md\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .md\:grid-cols-2 {
+    @media (width >= 650px) {
+      &.lg\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.lg\:grid-line-x > *:nth-child(2n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(2n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.lg\:grid-line-x > *:nth-child(2n+2)::before {
+        --gridline-x-end: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(2n+2)::before {
+        --gridline-x-end: 0;
+      }
+      &.lg\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+        --gridline-x-width: 0;
+      }
+      &.lg\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+        --gridline-x-width: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.lg\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.lg\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.lg\:grid-line-y > *:nth-child(2n+2)::after {
+        --gridline-y-width: 0;
+      }
+      &.lg\:grid-line-yfull > *:nth-child(2n+2)::after {
+        --gridline-y-width: 0;
+      }
+      &.lg\:grid-line-y > *:nth-child(-n+2)::after {
+        --gridline-y-top: 0;
+      }
+      &.lg\:grid-line-yfull > *:nth-child(-n+2)::after {
+        --gridline-y-top: 0;
+      }
+      &.lg\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.lg\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .md\:grid-cols-2 {
+    @media (width >= 650px) {
+      &.xl\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.xl\:grid-line-x > *:nth-child(2n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(2n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.xl\:grid-line-x > *:nth-child(2n+2)::before {
+        --gridline-x-end: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(2n+2)::before {
+        --gridline-x-end: 0;
+      }
+      &.xl\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+        --gridline-x-width: 0;
+      }
+      &.xl\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+        --gridline-x-width: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.xl\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.xl\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.xl\:grid-line-y > *:nth-child(2n+2)::after {
+        --gridline-y-width: 0;
+      }
+      &.xl\:grid-line-yfull > *:nth-child(2n+2)::after {
+        --gridline-y-width: 0;
+      }
+      &.xl\:grid-line-y > *:nth-child(-n+2)::after {
+        --gridline-y-top: 0;
+      }
+      &.xl\:grid-line-yfull > *:nth-child(-n+2)::after {
+        --gridline-y-top: 0;
+      }
+      &.xl\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.xl\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .md\:grid-cols-2 {
+    @media (width >= 650px) {
+      &.xxl\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.xxl\:grid-line-x > *:nth-child(2n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(2n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.xxl\:grid-line-x > *:nth-child(2n+2)::before {
+        --gridline-x-end: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(2n+2)::before {
+        --gridline-x-end: 0;
+      }
+      &.xxl\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+        --gridline-x-width: 0;
+      }
+      &.xxl\:grid-line-x > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2)::before {
+        --gridline-x-width: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.xxl\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.xxl\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.xxl\:grid-line-y > *:nth-child(2n+2)::after {
+        --gridline-y-width: 0;
+      }
+      &.xxl\:grid-line-yfull > *:nth-child(2n+2)::after {
+        --gridline-y-width: 0;
+      }
+      &.xxl\:grid-line-y > *:nth-child(-n+2)::after {
+        --gridline-y-top: 0;
+      }
+      &.xxl\:grid-line-yfull > *:nth-child(-n+2)::after {
+        --gridline-y-top: 0;
+      }
+      &.xxl\:grid-line-y > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.xxl\:grid-line-yfull > *:nth-child(2n+1):nth-last-child(-n+2)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .md\:grid-cols-3 {
+    @media (width >= 650px) {
+      &.grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.grid-line-x > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.grid-line-xfull > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.grid-line-x > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.grid-line-xfull > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.grid-line-y > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.grid-line-yfull > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.grid-line-y > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.grid-line-yfull > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .md\:grid-cols-3 {
+    @media (width >= 650px) {
+      &.sm\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.sm\:grid-line-x > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.sm\:grid-line-x > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.sm\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.sm\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.sm\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.sm\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.sm\:grid-line-y > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.sm\:grid-line-yfull > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.sm\:grid-line-y > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.sm\:grid-line-yfull > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.sm\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.sm\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .md\:grid-cols-3 {
+    @media (width >= 650px) {
+      &.md\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.md\:grid-line-x > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.md\:grid-line-x > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.md\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.md\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.md\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.md\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.md\:grid-line-y > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.md\:grid-line-yfull > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.md\:grid-line-y > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.md\:grid-line-yfull > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.md\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.md\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .md\:grid-cols-3 {
+    @media (width >= 650px) {
+      &.lg\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.lg\:grid-line-x > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.lg\:grid-line-x > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.lg\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.lg\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.lg\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.lg\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.lg\:grid-line-y > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.lg\:grid-line-yfull > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.lg\:grid-line-y > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.lg\:grid-line-yfull > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.lg\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.lg\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .md\:grid-cols-3 {
+    @media (width >= 650px) {
+      &.xl\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.xl\:grid-line-x > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.xl\:grid-line-x > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.xl\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.xl\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.xl\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.xl\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.xl\:grid-line-y > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.xl\:grid-line-yfull > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.xl\:grid-line-y > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.xl\:grid-line-yfull > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.xl\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.xl\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .md\:grid-cols-3 {
+    @media (width >= 650px) {
+      &.xxl\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.xxl\:grid-line-x > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.xxl\:grid-line-x > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.xxl\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.xxl\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.xxl\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.xxl\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.xxl\:grid-line-y > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.xxl\:grid-line-yfull > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.xxl\:grid-line-y > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.xxl\:grid-line-yfull > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.xxl\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.xxl\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
   .md\:grid-line-x-32 {
     @media (width >= 650px) {
       & > *::before {
-        --gridline-x-offset: -32px;
+        --gridline-x-bottom: -32px;
+        --gridline-y-top: -32px;
+        --gridline-y-bottom: -32px;
       }
       &.grid-line-yfull > *::after {
-        --gridline-x-offset: -32px;
+        --gridline-x-bottom: -32px;
+        --gridline-y-top: -32px;
+        --gridline-y-bottom: -32px;
       }
     }
   }
@@ -4631,744 +4652,6 @@
       margin-inline-start: unset;
     }
   }
-  .lg\:grid-cols-3 {
-    @media (width >= 990px) {
-      &.grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.grid-line-x > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.grid-line-xfull > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.grid-line-x > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.grid-line-xfull > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.grid-line-y > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.grid-line-yfull > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.grid-line-y > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.grid-line-yfull > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-      &.grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .lg\:grid-cols-3 {
-    @media (width >= 990px) {
-      &.sm\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.sm\:grid-line-x > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.sm\:grid-line-x > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.sm\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.sm\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.sm\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.sm\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.sm\:grid-line-y > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.sm\:grid-line-yfull > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.sm\:grid-line-y > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.sm\:grid-line-yfull > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.sm\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-      &.sm\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .lg\:grid-cols-3 {
-    @media (width >= 990px) {
-      &.md\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.md\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.md\:grid-line-x > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.md\:grid-line-xfull > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.md\:grid-line-x > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.md\:grid-line-xfull > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.md\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.md\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.md\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.md\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.md\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.md\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.md\:grid-line-y > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.md\:grid-line-yfull > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.md\:grid-line-y > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.md\:grid-line-yfull > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.md\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-      &.md\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .lg\:grid-cols-3 {
-    @media (width >= 990px) {
-      &.lg\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.lg\:grid-line-x > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.lg\:grid-line-x > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.lg\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.lg\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.lg\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.lg\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.lg\:grid-line-y > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.lg\:grid-line-yfull > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.lg\:grid-line-y > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.lg\:grid-line-yfull > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.lg\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-      &.lg\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .lg\:grid-cols-3 {
-    @media (width >= 990px) {
-      &.xl\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.xl\:grid-line-x > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.xl\:grid-line-x > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.xl\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.xl\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.xl\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.xl\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.xl\:grid-line-y > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.xl\:grid-line-yfull > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.xl\:grid-line-y > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.xl\:grid-line-yfull > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.xl\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-      &.xl\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .lg\:grid-cols-3 {
-    @media (width >= 990px) {
-      &.xxl\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.xxl\:grid-line-x > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(3n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.xxl\:grid-line-x > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(3n+3)::before {
-        inset-inline-end: 0;
-      }
-      &.xxl\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.xxl\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
-        border-bottom-width: 0;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.xxl\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.xxl\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.xxl\:grid-line-y > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.xxl\:grid-line-yfull > *:nth-child(3n+3)::after {
-        border-inline-end-width: 0;
-      }
-      &.xxl\:grid-line-y > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.xxl\:grid-line-yfull > *:nth-child(-n+3)::after {
-        top: 0;
-      }
-      &.xxl\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-      &.xxl\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .lg\:grid-cols-4 {
-    @media (width >= 990px) {
-      &.grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.grid-line-x > *:nth-child(4n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.grid-line-xfull > *:nth-child(4n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.grid-line-x > *:nth-child(4n+4)::before {
-        inset-inline-end: 0;
-      }
-      &.grid-line-xfull > *:nth-child(4n+4)::before {
-        inset-inline-end: 0;
-      }
-      &.grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4)::before {
-        border-bottom-width: 0;
-      }
-      &.grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4)::before {
-        border-bottom-width: 0;
-      }
-      &.grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.grid-line-y > *:nth-child(4n+4)::after {
-        border-inline-end-width: 0;
-      }
-      &.grid-line-yfull > *:nth-child(4n+4)::after {
-        border-inline-end-width: 0;
-      }
-      &.grid-line-y > *:nth-child(-n+4)::after {
-        top: 0;
-      }
-      &.grid-line-yfull > *:nth-child(-n+4)::after {
-        top: 0;
-      }
-      &.grid-line-y > *:nth-child(4n+1):nth-last-child(-n+4)::after {
-        bottom: 0;
-      }
-      &.grid-line-yfull > *:nth-child(4n+1):nth-last-child(-n+4)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .lg\:grid-cols-4 {
-    @media (width >= 990px) {
-      &.sm\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.sm\:grid-line-x > *:nth-child(4n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(4n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.sm\:grid-line-x > *:nth-child(4n+4)::before {
-        inset-inline-end: 0;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(4n+4)::before {
-        inset-inline-end: 0;
-      }
-      &.sm\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4)::before {
-        border-bottom-width: 0;
-      }
-      &.sm\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4)::before {
-        border-bottom-width: 0;
-      }
-      &.sm\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.sm\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.sm\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.sm\:grid-line-y > *:nth-child(4n+4)::after {
-        border-inline-end-width: 0;
-      }
-      &.sm\:grid-line-yfull > *:nth-child(4n+4)::after {
-        border-inline-end-width: 0;
-      }
-      &.sm\:grid-line-y > *:nth-child(-n+4)::after {
-        top: 0;
-      }
-      &.sm\:grid-line-yfull > *:nth-child(-n+4)::after {
-        top: 0;
-      }
-      &.sm\:grid-line-y > *:nth-child(4n+1):nth-last-child(-n+4)::after {
-        bottom: 0;
-      }
-      &.sm\:grid-line-yfull > *:nth-child(4n+1):nth-last-child(-n+4)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .lg\:grid-cols-4 {
-    @media (width >= 990px) {
-      &.md\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.md\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.md\:grid-line-x > *:nth-child(4n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.md\:grid-line-xfull > *:nth-child(4n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.md\:grid-line-x > *:nth-child(4n+4)::before {
-        inset-inline-end: 0;
-      }
-      &.md\:grid-line-xfull > *:nth-child(4n+4)::before {
-        inset-inline-end: 0;
-      }
-      &.md\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4)::before {
-        border-bottom-width: 0;
-      }
-      &.md\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.md\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4)::before {
-        border-bottom-width: 0;
-      }
-      &.md\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.md\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.md\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.md\:grid-line-y > *:nth-child(4n+4)::after {
-        border-inline-end-width: 0;
-      }
-      &.md\:grid-line-yfull > *:nth-child(4n+4)::after {
-        border-inline-end-width: 0;
-      }
-      &.md\:grid-line-y > *:nth-child(-n+4)::after {
-        top: 0;
-      }
-      &.md\:grid-line-yfull > *:nth-child(-n+4)::after {
-        top: 0;
-      }
-      &.md\:grid-line-y > *:nth-child(4n+1):nth-last-child(-n+4)::after {
-        bottom: 0;
-      }
-      &.md\:grid-line-yfull > *:nth-child(4n+1):nth-last-child(-n+4)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .lg\:grid-cols-4 {
-    @media (width >= 990px) {
-      &.lg\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.lg\:grid-line-x > *:nth-child(4n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(4n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.lg\:grid-line-x > *:nth-child(4n+4)::before {
-        inset-inline-end: 0;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(4n+4)::before {
-        inset-inline-end: 0;
-      }
-      &.lg\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4)::before {
-        border-bottom-width: 0;
-      }
-      &.lg\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4)::before {
-        border-bottom-width: 0;
-      }
-      &.lg\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.lg\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.lg\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.lg\:grid-line-y > *:nth-child(4n+4)::after {
-        border-inline-end-width: 0;
-      }
-      &.lg\:grid-line-yfull > *:nth-child(4n+4)::after {
-        border-inline-end-width: 0;
-      }
-      &.lg\:grid-line-y > *:nth-child(-n+4)::after {
-        top: 0;
-      }
-      &.lg\:grid-line-yfull > *:nth-child(-n+4)::after {
-        top: 0;
-      }
-      &.lg\:grid-line-y > *:nth-child(4n+1):nth-last-child(-n+4)::after {
-        bottom: 0;
-      }
-      &.lg\:grid-line-yfull > *:nth-child(4n+1):nth-last-child(-n+4)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .lg\:grid-cols-4 {
-    @media (width >= 990px) {
-      &.xl\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.xl\:grid-line-x > *:nth-child(4n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(4n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.xl\:grid-line-x > *:nth-child(4n+4)::before {
-        inset-inline-end: 0;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(4n+4)::before {
-        inset-inline-end: 0;
-      }
-      &.xl\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4)::before {
-        border-bottom-width: 0;
-      }
-      &.xl\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4)::before {
-        border-bottom-width: 0;
-      }
-      &.xl\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.xl\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.xl\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.xl\:grid-line-y > *:nth-child(4n+4)::after {
-        border-inline-end-width: 0;
-      }
-      &.xl\:grid-line-yfull > *:nth-child(4n+4)::after {
-        border-inline-end-width: 0;
-      }
-      &.xl\:grid-line-y > *:nth-child(-n+4)::after {
-        top: 0;
-      }
-      &.xl\:grid-line-yfull > *:nth-child(-n+4)::after {
-        top: 0;
-      }
-      &.xl\:grid-line-y > *:nth-child(4n+1):nth-last-child(-n+4)::after {
-        bottom: 0;
-      }
-      &.xl\:grid-line-yfull > *:nth-child(4n+1):nth-last-child(-n+4)::after {
-        bottom: 0;
-      }
-    }
-  }
-  .lg\:grid-cols-4 {
-    @media (width >= 990px) {
-      &.xxl\:grid-line-x > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.grid-line-xfull > *:nth-child(n)::before {
-        border-bottom-width: 1px;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(n)::before {
-        inset-inline-start: calc(var(--inner-gutter) / -2);
-        inset-inline-end: calc(var(--inner-gutter) / -2);
-      }
-      &.xxl\:grid-line-x > *:nth-child(4n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(4n+1)::before {
-        inset-inline-start: 0;
-      }
-      &.xxl\:grid-line-x > *:nth-child(4n+4)::before {
-        inset-inline-end: 0;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(4n+4)::before {
-        inset-inline-end: 0;
-      }
-      &.xxl\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4)::before {
-        border-bottom-width: 0;
-      }
-      &.xxl\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4)::before {
-        border-bottom-width: 0;
-      }
-      &.xxl\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
-        border-bottom-width: 0;
-      }
-      &.xxl\:grid-line-y > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.xxl\:grid-line-yfull > *:nth-child(n)::after {
-        border-inline-end-width: 1px;
-      }
-      &.xxl\:grid-line-y > *:nth-child(4n+4)::after {
-        border-inline-end-width: 0;
-      }
-      &.xxl\:grid-line-yfull > *:nth-child(4n+4)::after {
-        border-inline-end-width: 0;
-      }
-      &.xxl\:grid-line-y > *:nth-child(-n+4)::after {
-        top: 0;
-      }
-      &.xxl\:grid-line-yfull > *:nth-child(-n+4)::after {
-        top: 0;
-      }
-      &.xxl\:grid-line-y > *:nth-child(4n+1):nth-last-child(-n+4)::after {
-        bottom: 0;
-      }
-      &.xxl\:grid-line-yfull > *:nth-child(4n+1):nth-last-child(-n+4)::after {
-        bottom: 0;
-      }
-    }
-  }
   .lg\:grid-col-span-4 {
     @media (width >= 990px) {
       --container-grid-columns: 4;
@@ -5513,6 +4796,750 @@
       }
     }
   }
+  .lg\:grid-cols-3 {
+    @media (width >= 990px) {
+      &.grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.grid-line-x > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.grid-line-xfull > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.grid-line-x > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.grid-line-xfull > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.grid-line-y > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.grid-line-yfull > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.grid-line-y > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.grid-line-yfull > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .lg\:grid-cols-3 {
+    @media (width >= 990px) {
+      &.sm\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.sm\:grid-line-x > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.sm\:grid-line-x > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.sm\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.sm\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.sm\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.sm\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.sm\:grid-line-y > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.sm\:grid-line-yfull > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.sm\:grid-line-y > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.sm\:grid-line-yfull > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.sm\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.sm\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .lg\:grid-cols-3 {
+    @media (width >= 990px) {
+      &.md\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.md\:grid-line-x > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.md\:grid-line-x > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.md\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.md\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.md\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.md\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.md\:grid-line-y > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.md\:grid-line-yfull > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.md\:grid-line-y > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.md\:grid-line-yfull > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.md\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.md\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .lg\:grid-cols-3 {
+    @media (width >= 990px) {
+      &.lg\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.lg\:grid-line-x > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.lg\:grid-line-x > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.lg\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.lg\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.lg\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.lg\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.lg\:grid-line-y > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.lg\:grid-line-yfull > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.lg\:grid-line-y > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.lg\:grid-line-yfull > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.lg\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.lg\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .lg\:grid-cols-3 {
+    @media (width >= 990px) {
+      &.xl\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.xl\:grid-line-x > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.xl\:grid-line-x > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.xl\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.xl\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.xl\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.xl\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.xl\:grid-line-y > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.xl\:grid-line-yfull > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.xl\:grid-line-y > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.xl\:grid-line-yfull > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.xl\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.xl\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .lg\:grid-cols-3 {
+    @media (width >= 990px) {
+      &.xxl\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.xxl\:grid-line-x > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(3n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.xxl\:grid-line-x > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(3n+3)::before {
+        --gridline-x-end: 0;
+      }
+      &.xxl\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.xxl\:grid-line-x > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3)::before {
+        --gridline-x-width: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.xxl\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.xxl\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.xxl\:grid-line-y > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.xxl\:grid-line-yfull > *:nth-child(3n+3)::after {
+        --gridline-y-width: 0;
+      }
+      &.xxl\:grid-line-y > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.xxl\:grid-line-yfull > *:nth-child(-n+3)::after {
+        --gridline-y-top: 0;
+      }
+      &.xxl\:grid-line-y > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.xxl\:grid-line-yfull > *:nth-child(3n+1):nth-last-child(-n+3)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .lg\:grid-cols-4 {
+    @media (width >= 990px) {
+      &.grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.grid-line-x > *:nth-child(4n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.grid-line-xfull > *:nth-child(4n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.grid-line-x > *:nth-child(4n+4)::before {
+        --gridline-x-end: 0;
+      }
+      &.grid-line-xfull > *:nth-child(4n+4)::before {
+        --gridline-x-end: 0;
+      }
+      &.grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+        --gridline-x-width: 0;
+      }
+      &.grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+        --gridline-x-width: 0;
+      }
+      &.grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.grid-line-y > *:nth-child(4n+4)::after {
+        --gridline-y-width: 0;
+      }
+      &.grid-line-yfull > *:nth-child(4n+4)::after {
+        --gridline-y-width: 0;
+      }
+      &.grid-line-y > *:nth-child(-n+4)::after {
+        --gridline-y-top: 0;
+      }
+      &.grid-line-yfull > *:nth-child(-n+4)::after {
+        --gridline-y-top: 0;
+      }
+      &.grid-line-y > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.grid-line-yfull > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .lg\:grid-cols-4 {
+    @media (width >= 990px) {
+      &.sm\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.sm\:grid-line-x > *:nth-child(4n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(4n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.sm\:grid-line-x > *:nth-child(4n+4)::before {
+        --gridline-x-end: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(4n+4)::before {
+        --gridline-x-end: 0;
+      }
+      &.sm\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+        --gridline-x-width: 0;
+      }
+      &.sm\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+        --gridline-x-width: 0;
+      }
+      &.sm\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.sm\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.sm\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.sm\:grid-line-y > *:nth-child(4n+4)::after {
+        --gridline-y-width: 0;
+      }
+      &.sm\:grid-line-yfull > *:nth-child(4n+4)::after {
+        --gridline-y-width: 0;
+      }
+      &.sm\:grid-line-y > *:nth-child(-n+4)::after {
+        --gridline-y-top: 0;
+      }
+      &.sm\:grid-line-yfull > *:nth-child(-n+4)::after {
+        --gridline-y-top: 0;
+      }
+      &.sm\:grid-line-y > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.sm\:grid-line-yfull > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .lg\:grid-cols-4 {
+    @media (width >= 990px) {
+      &.md\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.md\:grid-line-x > *:nth-child(4n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(4n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.md\:grid-line-x > *:nth-child(4n+4)::before {
+        --gridline-x-end: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(4n+4)::before {
+        --gridline-x-end: 0;
+      }
+      &.md\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+        --gridline-x-width: 0;
+      }
+      &.md\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+        --gridline-x-width: 0;
+      }
+      &.md\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.md\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.md\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.md\:grid-line-y > *:nth-child(4n+4)::after {
+        --gridline-y-width: 0;
+      }
+      &.md\:grid-line-yfull > *:nth-child(4n+4)::after {
+        --gridline-y-width: 0;
+      }
+      &.md\:grid-line-y > *:nth-child(-n+4)::after {
+        --gridline-y-top: 0;
+      }
+      &.md\:grid-line-yfull > *:nth-child(-n+4)::after {
+        --gridline-y-top: 0;
+      }
+      &.md\:grid-line-y > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.md\:grid-line-yfull > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .lg\:grid-cols-4 {
+    @media (width >= 990px) {
+      &.lg\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.lg\:grid-line-x > *:nth-child(4n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(4n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.lg\:grid-line-x > *:nth-child(4n+4)::before {
+        --gridline-x-end: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(4n+4)::before {
+        --gridline-x-end: 0;
+      }
+      &.lg\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+        --gridline-x-width: 0;
+      }
+      &.lg\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+        --gridline-x-width: 0;
+      }
+      &.lg\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.lg\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.lg\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.lg\:grid-line-y > *:nth-child(4n+4)::after {
+        --gridline-y-width: 0;
+      }
+      &.lg\:grid-line-yfull > *:nth-child(4n+4)::after {
+        --gridline-y-width: 0;
+      }
+      &.lg\:grid-line-y > *:nth-child(-n+4)::after {
+        --gridline-y-top: 0;
+      }
+      &.lg\:grid-line-yfull > *:nth-child(-n+4)::after {
+        --gridline-y-top: 0;
+      }
+      &.lg\:grid-line-y > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.lg\:grid-line-yfull > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .lg\:grid-cols-4 {
+    @media (width >= 990px) {
+      &.xl\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.xl\:grid-line-x > *:nth-child(4n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(4n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.xl\:grid-line-x > *:nth-child(4n+4)::before {
+        --gridline-x-end: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(4n+4)::before {
+        --gridline-x-end: 0;
+      }
+      &.xl\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+        --gridline-x-width: 0;
+      }
+      &.xl\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+        --gridline-x-width: 0;
+      }
+      &.xl\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.xl\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.xl\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.xl\:grid-line-y > *:nth-child(4n+4)::after {
+        --gridline-y-width: 0;
+      }
+      &.xl\:grid-line-yfull > *:nth-child(4n+4)::after {
+        --gridline-y-width: 0;
+      }
+      &.xl\:grid-line-y > *:nth-child(-n+4)::after {
+        --gridline-y-top: 0;
+      }
+      &.xl\:grid-line-yfull > *:nth-child(-n+4)::after {
+        --gridline-y-top: 0;
+      }
+      &.xl\:grid-line-y > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.xl\:grid-line-yfull > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
+  .lg\:grid-cols-4 {
+    @media (width >= 990px) {
+      &.xxl\:grid-line-x > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: 0;
+        --gridline-x-end: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(n)::before {
+        --gridline-x-width: 1px;
+        --gridline-x-start: calc(var(--inner-gutter) / -2);
+        --gridline-x-end: calc(var(--inner-gutter) / -2);
+      }
+      &.xxl\:grid-line-x > *:nth-child(4n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(4n+1)::before {
+        --gridline-x-start: 0;
+      }
+      &.xxl\:grid-line-x > *:nth-child(4n+4)::before {
+        --gridline-x-end: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(4n+4)::before {
+        --gridline-x-end: 0;
+      }
+      &.xxl\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+        --gridline-x-width: 0;
+      }
+      &.xxl\:grid-line-x > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4)::before {
+        --gridline-x-width: 0;
+      }
+      &.xxl\:grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
+        --gridline-x-width: 0;
+      }
+      &.xxl\:grid-line-y > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.xxl\:grid-line-yfull > *:nth-child(n)::after {
+        --gridline-y-width: 1px;
+      }
+      &.xxl\:grid-line-y > *:nth-child(4n+4)::after {
+        --gridline-y-width: 0;
+      }
+      &.xxl\:grid-line-yfull > *:nth-child(4n+4)::after {
+        --gridline-y-width: 0;
+      }
+      &.xxl\:grid-line-y > *:nth-child(-n+4)::after {
+        --gridline-y-top: 0;
+      }
+      &.xxl\:grid-line-yfull > *:nth-child(-n+4)::after {
+        --gridline-y-top: 0;
+      }
+      &.xxl\:grid-line-y > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+        --gridline-y-bottom: 0;
+      }
+      &.xxl\:grid-line-yfull > *:nth-child(4n+1):nth-last-child(-n+4)::after {
+        --gridline-y-bottom: 0;
+      }
+    }
+  }
   .lg\:grid-line-y-secondary {
     @media (width >= 990px) {
       & > *::after {
@@ -5546,12 +5573,12 @@
       }
       & > *::before {
         content: "";
-        inset-inline-start: 0;
-        inset-inline-end: 0;
+        inset-inline-start: var(--gridline-x-start, 0);
+        inset-inline-end: var(--gridline-x-end, 0);
         top: 0;
-        bottom: var(--gridline-x-offset, calc(var(--inner-gutter) / -2));
+        bottom: var(--gridline-x-bottom, calc(var(--inner-gutter) / -2));
         border-top: 0 solid transparent;
-        border-bottom: 0 solid var(--gridline-x-color, transparent);
+        border-bottom: var(--gridline-x-width, 0) solid var(--gridline-x-color, transparent);
       }
     }
   }
@@ -5574,10 +5601,14 @@
   .xl\:grid-line-x-32 {
     @media (width >= 1300px) {
       & > *::before {
-        --gridline-x-offset: -32px;
+        --gridline-x-bottom: -32px;
+        --gridline-y-top: -32px;
+        --gridline-y-bottom: -32px;
       }
       &.grid-line-yfull > *::after {
-        --gridline-x-offset: -32px;
+        --gridline-x-bottom: -32px;
+        --gridline-y-top: -32px;
+        --gridline-y-bottom: -32px;
       }
     }
   }
