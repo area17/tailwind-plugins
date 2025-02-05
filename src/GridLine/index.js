@@ -6,7 +6,6 @@ module.exports = function ({ addComponents, matchComponents, theme, config }) {
   const columnCount = theme('columnCount', {});
   const maxCols = theme('maxGridCols', columnCount);
   const maxColAmount = Math.max.apply(Math, Object.values(maxCols));
-  const prefixString = config('prefix');
 
   const gridlineTypes = {
     'x': 'x',
@@ -35,108 +34,111 @@ module.exports = function ({ addComponents, matchComponents, theme, config }) {
     gridColsValues[i] = i;
   }
 
-  matchComponents(
-    {
-      [`grid-line`]: (value) => {
-        let props = {};
+  Object.keys(gridlineTypes).forEach((value) => {
+    let typeClassName = `.grid-line-${value}`;
 
-        if (value === 'x') {
-          props = {
-            '& > *::before': {
-              content: '""',
-              'inset-inline-start': 'var(--gridline-x-start, 0)',
-              'inset-inline-end': 'var(--gridline-x-end, 0)',
-              top: '0',
-              bottom: 'var(--gridline-x-bottom, calc(var(--inner-gutter) / -2))',
-              'border-top': '0 solid transparent',
-              'border-bottom': 'var(--gridline-x-width, 0) solid var(--gridline-x-color, transparent)',
-            },
-          };
-        }
+    let props = {};
 
-        if (value === 'xfull') {
-          props = {
-            '& > *::before': {
-              content: '""',
-              'inset-inline-start': 'var(--gridline-x-start, calc(var(--inner-gutter) / -2))',
-              'inset-inline-end': 'var(--gridline-x-end, calc(var(--inner-gutter) / -2))',
-              top: '0',
-              bottom: 'var(--gridline-x-bottom, calc(var(--inner-gutter) / -2))',
-              'border-top': '0 solid transparent',
-              'border-bottom': 'var(--gridline-x-width, 0) solid var(--gridline-x-color, transparent)',
-            },
-          };
-        }
-
-        if (value === 'x-0') {
-          props = {
-            '& > *::before': {
-              content: 'none',
-            },
-          };
-        }
-
-        if (value === 'y') {
-          props = {
-            '& > *::after': {
-              content: '""',
-              'inset-inline-start': '0',
-              'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
-              top: '0',
-              bottom: '0',
-              'border-inline-start': '0 solid transparent',
-              'border-inline-end': 'var(--gridline-y-width, 0) solid var(--gridline-y-color, transparent)',
-            },
-          };
-        }
-
-        if (value === 'yfull') {
-          props = {
-            '& > *::after': {
-              content: '""',
-              'inset-inline-start': '0',
-              'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
-              top: 'var(--gridline-y-top, calc(var(--inner-gutter) / -1))',
-              bottom: '0',
-              'border-inline-start': '0 solid transparent',
-              'border-inline-end': 'var(--gridline-y-width, 0) solid var(--gridline-y-color, transparent)',
-            },
-            [`&.${prefixString}grid-line-x > *::after, &.${prefixString}grid-line-xfull > *::after`]: {
-              'inset-inline-start': '0',
-              'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
-              top: 'var(--gridline-y-top, calc(var(--inner-gutter) / -2))',
-              bottom: 'var(--gridline-y-bottom, calc(var(--inner-gutter) / -2))',
-              'border-inline-start': '0 solid transparent',
-              'border-inline-end': 'var(--gridline-y-width, 0) solid var(--gridline-y-color, transparent)',
-            },
-          };
-        }
-
-        if (value === 'y-0') {
-          props = {
-            '& > *::after': {
-              content: 'none',
-            },
-          };
-        }
-
-        return {
-          '& > *': {
-            position: 'relative',
-          },
-          '& > *::before, & > *::after': {
-            position: 'absolute',
-            'z-index': 0,
-            'pointer-events': 'none',
-          },
-          ...props,
-        };
-      },
-    },
-    {
-      values: gridlineTypes,
+    if (value === 'x') {
+      props = {
+        [`${typeClassName} > *::before`]: {
+          content: '""',
+          'inset-inline-start': 'var(--gridline-x-start, 0)',
+          'inset-inline-end': 'var(--gridline-x-end, 0)',
+          top: '0',
+          bottom: 'var(--gridline-x-bottom, calc(var(--inner-gutter) / -2))',
+          'border-top': '0 solid transparent',
+          'border-bottom': 'var(--gridline-x-width, 0) solid var(--gridline-x-color, transparent)',
+        },
+      };
     }
-  );
+
+    if (value === 'xfull') {
+      props = {
+        [`${typeClassName} > *::before`]: {
+          content: '""',
+          'inset-inline-start': 'var(--gridline-x-start, calc(var(--inner-gutter) / -2))',
+          'inset-inline-end': 'var(--gridline-x-end, calc(var(--inner-gutter) / -2))',
+          top: '0',
+          bottom: 'var(--gridline-x-bottom, calc(var(--inner-gutter) / -2))',
+          'border-top': '0 solid transparent',
+          'border-bottom': 'var(--gridline-x-width, 0) solid var(--gridline-x-color, transparent)',
+        },
+      };
+    }
+
+    if (value === 'x-0') {
+      props = {
+        [`${typeClassName} > *::before`]: {
+          content: 'none',
+        },
+      };
+    }
+
+    if (value === 'y') {
+      props = {
+        [`${typeClassName} > *::after`]: {
+          content: '""',
+          'inset-inline-start': '0',
+          'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
+          top: '0',
+          bottom: '0',
+          'border-inline-start': '0 solid transparent',
+          'border-inline-end': 'var(--gridline-y-width, 0) solid var(--gridline-y-color, transparent)',
+        },
+      };
+    }
+
+    if (value === 'yfull') {
+      props = {
+        [`${typeClassName} > *::after`]: {
+          content: '""',
+          'inset-inline-start': '0',
+          'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
+          top: 'var(--gridline-y-top, calc(var(--inner-gutter) / -1))',
+          bottom: '0',
+          'border-inline-start': '0 solid transparent',
+          'border-inline-end': 'var(--gridline-y-width, 0) solid var(--gridline-y-color, transparent)',
+        },
+        [`${typeClassName}.grid-line-x > *::after`]: {
+          'inset-inline-start': '0',
+          'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
+          top: 'var(--gridline-y-top, calc(var(--inner-gutter) / -2))',
+          bottom: 'var(--gridline-y-bottom, calc(var(--inner-gutter) / -2))',
+          'border-inline-start': '0 solid transparent',
+          'border-inline-end': 'var(--gridline-y-width, 0) solid var(--gridline-y-color, transparent)',
+        },
+        [`${typeClassName}.grid-line-xfull > *::after`]: {
+          'inset-inline-start': '0',
+          'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
+          top: 'var(--gridline-y-top, calc(var(--inner-gutter) / -2))',
+          bottom: 'var(--gridline-y-bottom, calc(var(--inner-gutter) / -2))',
+          'border-inline-start': '0 solid transparent',
+          'border-inline-end': 'var(--gridline-y-width, 0) solid var(--gridline-y-color, transparent)',
+        },
+      };
+    }
+
+    if (value === 'y-0') {
+      props = {
+        [`${typeClassName} > *::after`]: {
+          content: 'none',
+        },
+      };
+    }
+
+    addComponents({
+      [`${typeClassName} > *`]: {
+        position: 'relative',
+      },
+      [`${typeClassName} > *::before, ${typeClassName} > *::after`]: {
+        position: 'absolute',
+        'z-index': 0,
+        'pointer-events': 'none',
+      },
+      ...props,
+    });
+  });
 
   // colours
   matchComponents(
@@ -186,7 +188,7 @@ module.exports = function ({ addComponents, matchComponents, theme, config }) {
             '--gridline-y-top': `-${value}`,
             '--gridline-y-bottom': `-${value}`,
           },
-          [`&.${prefixString}grid-line-yfull > *::after`]: {
+          [`&.grid-line-yfull > *::after`]: {
             '--gridline-x-bottom': `-${value}`,
             '--gridline-y-top': `-${value}`,
             '--gridline-y-bottom': `-${value}`,
@@ -202,13 +204,14 @@ module.exports = function ({ addComponents, matchComponents, theme, config }) {
 
   // cols
   Object.keys(breakpoints).forEach((bp) => {
-    const bpString = (bp === firstBp) ? '' : `${bp}\\:`;
+    let bpString = (bp === firstBp) ? '' : `${bp}\\:`;
+    bpString = '';
 
     Object.keys(gridColsValues).forEach((i) => {
       let gridColObj = {};
 
       let obj = {
-        [`&.${bpString + prefixString}grid-line-x > *:nth-child(n)::before`]: {
+        [`&.${bpString}grid-line-x > *:nth-child(n)::before`]: {
           '--gridline-x-width': '1px',
           '--gridline-x-start': '0',
           '--gridline-x-end': '0',
@@ -217,7 +220,7 @@ module.exports = function ({ addComponents, matchComponents, theme, config }) {
       if (i === 1) {
         obj = {
           ...obj,
-          [`&.${bpString + prefixString}grid-line-xfull > *:nth-child(n)::before`]: {
+          [`&.${bpString}grid-line-xfull > *:nth-child(n)::before`]: {
             '--gridline-x-width': '1px',
             '--gridline-x-start': '0',
             '--gridline-x-end': '0',
@@ -226,7 +229,7 @@ module.exports = function ({ addComponents, matchComponents, theme, config }) {
       } else {
         obj = {
           ...obj,
-          [`&.${bpString + prefixString}grid-line-xfull > *:nth-child(n)::before`]: {
+          [`&.${bpString}grid-line-xfull > *:nth-child(n)::before`]: {
             '--gridline-x-width': '1px',
             '--gridline-x-start': 'calc(var(--inner-gutter) / -2)',
             '--gridline-x-end': 'calc(var(--inner-gutter) / -2)',
@@ -236,37 +239,41 @@ module.exports = function ({ addComponents, matchComponents, theme, config }) {
       // horizontal first in row, fix left
       obj = {
         ...obj,
-        [`&.${bpString + prefixString}grid-line-x > *:nth-child(${i}n+1)::before`]: {
+        [`&.${bpString}grid-line-x > *:nth-child(${i}n+1)::before`]: {
           '--gridline-x-start': '0',
         },
-        [`&.${bpString + prefixString}grid-line-xfull > *:nth-child(${i}n+1)::before`]: {
+        [`&.${bpString}grid-line-xfull > *:nth-child(${i}n+1)::before`]: {
           '--gridline-x-start': '0',
         },
       };
       // horizontal last in row, fix right
       obj = {
         ...obj,
-        [`&.${bpString + prefixString}grid-line-x > *:nth-child(${i}n+${i})::before`]: {
+        [`&.${bpString}grid-line-x > *:nth-child(${i}n+${i})::before`]: {
           '--gridline-x-end': '0',
         },
-        [`&.${bpString + prefixString}grid-line-xfull > *:nth-child(${i}n+${i})::before`]: {
+        [`&.${bpString}grid-line-xfull > *:nth-child(${i}n+${i})::before`]: {
           '--gridline-x-end': '0',
         },
       };
       // horizontal last row, hide bottom border
       obj = {
         ...obj,
-        [`&.${bpString + prefixString}grid-line-x > *:nth-child(${i}n+1):nth-last-child(-n+${i})::before`]: {
+        [`&.${bpString}grid-line-x > *:nth-child(${i}n+1):nth-last-child(-n+${i})::before`]: {
           '--gridline-x-width': '0',
+          '--mike': 1,
         },
-        [`&.${bpString + prefixString}grid-line-x > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ *::before`]: {
+        [`&.${bpString}grid-line-x > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ *::before`]: {
           '--gridline-x-width': '0',
+          '--mike': 2,
         },
-        [`&.${bpString + prefixString}grid-line-xfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::before`]: {
+        [`&.${bpString}grid-line-xfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::before`]: {
           '--gridline-x-width': '0',
+          '--mike': 3,
         },
-        [`&.${bpString + prefixString}grid-line-xfull > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ *::before`]: {
+        [`&.${bpString}grid-line-xfull > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ *::before`]: {
           '--gridline-x-width': '0',
+          '--mike': 4,
         },
       };
 
@@ -274,46 +281,46 @@ module.exports = function ({ addComponents, matchComponents, theme, config }) {
         // vertical lines, reset
         obj = {
           ...obj,
-          [`&.${bpString + prefixString}grid-line-y > *:nth-child(n)::after`]: {
+          [`&.${bpString}grid-line-y > *:nth-child(n)::after`]: {
             '--gridline-y-width': '1px',
           },
-          [`&.${bpString + prefixString}grid-line-yfull > *:nth-child(n)::after`]: {
+          [`&.${bpString}grid-line-yfull > *:nth-child(n)::after`]: {
             '--gridline-y-width': '1px',
           },
         };
         // vertical last in row, fix right
         obj = {
           ...obj,
-          [`&.${bpString + prefixString}grid-line-y > *:nth-child(${i}n+${i})::after`]: {
+          [`&.${bpString}grid-line-y > *:nth-child(${i}n+${i})::after`]: {
             '--gridline-y-width': '0',
           },
-          [`&.${bpString + prefixString}grid-line-yfull > *:nth-child(${i}n+${i})::after`]: {
+          [`&.${bpString}grid-line-yfull > *:nth-child(${i}n+${i})::after`]: {
             '--gridline-y-width': '0',
           },
         };
         // vertical lines, fix top position of first row
         obj = {
           ...obj,
-          [`&.${bpString + prefixString}grid-line-y > *:nth-child(-n+${i})::after`]: {
+          [`&.${bpString}grid-line-y > *:nth-child(-n+${i})::after`]: {
             '--gridline-y-top': '0',
           },
-          [`&.${bpString + prefixString}grid-line-yfull > *:nth-child(-n+${i})::after`]: {
+          [`&.${bpString}grid-line-yfull > *:nth-child(-n+${i})::after`]: {
             '--gridline-y-top': '0',
           },
         };
         // vertical lines, fix bottom position of last row
         obj = {
           ...obj,
-          [`&.${bpString + prefixString}grid-line-y > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
+          [`&.${bpString}grid-line-y > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
             '--gridline-y-bottom': '0',
           },
-          [`&.${bpString + prefixString}grid-line-y > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
+          [`&.${bpString}grid-line-y > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
             '--gridline-y-bottom': '0',
           },
-          [`&.${bpString + prefixString}grid-line-yfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
+          [`&.${bpString}grid-line-yfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
             '--gridline-y-bottom': '0',
           },
-          [`&.${bpString + prefixString}grid-line-yfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
+          [`&.${bpString}grid-line-yfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
             '--gridline-y-bottom': '0',
           },
         };
