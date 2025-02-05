@@ -1,76 +1,65 @@
-module.exports = function ({ addBase, theme, config }) {
+module.exports = function ({ matchComponents, theme }) {
   const breakpoints = theme('screens');
   const colors = theme('borderColor', theme('color', {}));
   const directions = { l: 'inline-start', r: 'inline-end' };
-  const prefixString = config('prefix');
+  const componentValues = {
+    [`0`]: '0',
+    'l-0': 'l::0',
+    'r-0': 'r::0',
+  };
 
-  // TODO: refactor to use `addUtilities` (see BackgroundFill/index.js)
+  Object.entries(directions).map((a) => {
+    const [dir, property] = a;
+    Object.entries(colors).map((b) => {
+      const [name, color] = b;
+      componentValues[`${dir}-${name}`] = `${dir}::${color}`;
+    });
+  });
 
-  let styles = [
+  matchComponents(
     {
-      [`[class*="${prefixString}keyline-"]`]: {
-        position: 'relative',
-      },
-      [`[class*="${prefixString}keyline-"]::before`]: {
-        content: 'attr(👻)',
-        position: 'absolute',
-        'z-index': 0,
-        'inset-inline-start': `calc(var(--inner-gutter) / -2 - 1px)`,
-        'inset-inline-end': `calc(var(--inner-gutter) / -2)`,
-        top: 0,
-        bottom: 0,
-        border: '1px solid transparent',
-        'pointer-events': 'none',
-      },
-      [`[class*="${prefixString}keyline-0"]::before`]: {
-        'border-inline-end-color': 'transparent',
-        'border-inline-start-color': 'transparent',
+      [`keyline`]: (value) => {
+        let parts = value.split('::');
+        let borderColours = {
+          '--keyline-l-color': 'transparent',
+          '--keyline-r-color': 'transparent',
+        };
+        let psuedo = {
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            'z-index': 0,
+            'inset-inline-start': `calc(var(--inner-gutter) / -2 - 1px)`,
+            'inset-inline-end': `calc(var(--inner-gutter) / -2)`,
+            top: 0,
+            bottom: 0,
+            borderLeft: '1px solid var(--keyline-l-color, transparent)',
+            borderRight: '1px solid var(--keyline-r-color, transparent)',
+            'pointer-events': 'none',
+          },
+        };
+        if (parts[0] === 'l' && parts[1] && parts[1] !== '0') {
+          borderColours['--keyline-l-color'] = parts[1];
+          borderColours = {
+            position: 'relative',
+            ...borderColours,
+            ...psuedo,
+          };
+        } else if (parts[0] === 'r' && parts[1] && parts[1] !== '0') {
+          borderColours['--keyline-r-color'] = parts[1];
+          borderColours = {
+            position: 'relative',
+            ...borderColours,
+            ...psuedo,
+          };
+        }
+        return {
+          ...borderColours,
+        };
       },
     },
-  ];
-
-  function generateDirectionStyles(bp) {
-    const arr = [];
-    bp = bp ? `${bp}\\:` : '';
-
-    Object.entries(directions).map((a) => {
-      const [dir, property] = a;
-      // add colors
-      Object.entries(colors).map((b) => {
-        const [name, color] = b;
-        arr.push({
-          [`.${bp}${prefixString}keyline-${dir}-${name}::before`]: {
-            [`border-${property}-color`]: color,
-          },
-        });
-      });
-      // add hiding classes
-      arr.push({
-        [`.${bp}${prefixString}keyline-${dir}-0::before`]: {
-          [`border-${property}-color`]: 'transparent',
-        },
-      });
-      arr.push({
-        [`.${bp}${prefixString}keyline-0::before`]: {
-          [`border-${property}-color`]: 'transparent',
-        },
-      });
-    });
-
-    return arr;
-  }
-
-  const directionStyles = generateDirectionStyles();
-
-  const bpStyles = Object.keys(breakpoints).map((bp) => {
-    return {
-      [`@media (width >= ${breakpoints[bp]})`]: generateDirectionStyles(bp),
-    };
-  });
-
-  styles = styles.concat(directionStyles, bpStyles);
-
-  addBase(styles, {
-    respectPrefix: false,
-  });
+    {
+      values: componentValues,
+    }
+  );
 };
