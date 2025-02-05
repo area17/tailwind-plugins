@@ -24,7 +24,7 @@ We leaned that styles added with `addBase` always appear in the CSS, even if not
 - Spacing now uses `matchUtilities`
 - Layout now uses `matchUtilities` and `addComponents` (This requires a format change from `w-N-cols` to `w-cols-N`)
 - GridLine now uses `addBase` (to be refactored)
-- KeyLine now uses `addBase`(to be refactored)
+- KeyLine now uses `matchComponents`
 - BackgroundFill now uses `matchUtilities` and `addUtilities`
 - StrokeFull now uses `matchUtilities` and `addUtilities`
 - Underline now uses `matchUtilities` and refactored class structure
