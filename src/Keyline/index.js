@@ -1,8 +1,7 @@
-module.exports = function ({ matchComponents, theme, config }) {
+module.exports = function ({ matchComponents, theme }) {
   const breakpoints = theme('screens');
   const colors = theme('borderColor', theme('color', {}));
   const directions = { l: 'inline-start', r: 'inline-end' };
-  const prefixString = config('prefix');
   const componentValues = {
     [`0`]: '0',
     'l-0': 'l::0',
@@ -19,7 +18,7 @@ module.exports = function ({ matchComponents, theme, config }) {
 
   matchComponents(
     {
-      [`${prefixString}keyline`]: (value) => {
+      [`keyline`]: (value) => {
         let parts = value.split('::');
         let borderColours = {
           '--keyline-l-color': 'transparent',
