@@ -1,4 +1,4 @@
-module.exports = function ({ addUtilities, matchUtilities, addBase, theme, prefix, config }) {
+module.exports = function ({ addUtilities, matchUtilities, theme, prefix, config }) {
   const className = 'underline';
   const classNameFull = prefix(`.${className}`);
   const classNameNoDot = `${config('prefix')}${className}`;
@@ -15,34 +15,32 @@ module.exports = function ({ addUtilities, matchUtilities, addBase, theme, prefi
     border: theme('borderColor', {}),
   };
 
-  addBase({
-    [`[class*=${classNameNoDot}-]`]: {
-      'text-decoration-line': 'underline',
-    },
-  });
-
   const styles = {};
 
   decorationStyles.map((style) => {
     styles[`${classNameFull}-${style}`] = {
+      'text-decoration-line': 'underline',
       'text-decoration-style': style,
     };
   });
 
   decorationSkip.map((skip) => {
     styles[`${classNameFull}-skip-${skip}`] = {
+      'text-decoration-line': 'underline',
       'text-decoration-skip-ink': skip,
     };
   });
 
   decorationThickness.map((thickness) => {
     styles[`${classNameFull}-thickness-${thickness}`] = {
+      'text-decoration-line': 'underline',
       'text-decoration-thickness': thickness,
     };
   });
 
   for (let i = 1; i < 21; i++) {
     styles[`${classNameFull}-thickness-${i}`] = {
+      'text-decoration-line': 'underline',
       'text-decoration-thickness': `${i}px`,
     };
   }
@@ -57,14 +55,15 @@ module.exports = function ({ addUtilities, matchUtilities, addBase, theme, prefi
       //[`${classNameFull}-offset`]: (value) => {
       [`underline-offset`]: (value) => {
         return {
+          'text-decoration-line': 'underline',
           'text-underline-offset': value,
-        }
+        };
       },
     },
     {
       values: offsets,
       supportsNegativeValues: true,
-    },
+    }
   );
 
   Object.entries(colors).map((a) => {
@@ -77,6 +76,7 @@ module.exports = function ({ addUtilities, matchUtilities, addBase, theme, prefi
       }
       className += name;
       styles[className] = {
+        'text-decoration-line': 'underline',
         'text-decoration-color': color,
       };
     });

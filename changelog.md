@@ -27,7 +27,7 @@ We leaned that styles added with `addBase` always appear in the CSS, even if not
 - KeyLine now uses `addBase`(to be refactored)
 - BackgroundFill now uses `matchUtilities` and `addUtilities`
 - StrokeFull now uses `matchUtilities` and `addUtilities`
-- Underline now uses `matchUtilities` and refactored class struture
+- Underline now uses `matchUtilities` and refactored class structure
 - FullBleedScroller now uses `addComponents`
 - Scrollbar now uses `addBase`, `addComponents` and `matchComponents`
 
