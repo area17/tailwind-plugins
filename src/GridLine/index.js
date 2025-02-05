@@ -20,7 +20,7 @@ module.exports = function ({ addComponents, theme, config }) {
     {
       [`[class*="${prefixString}grid-line-"] > *::before, [class*="${prefixString}grid-line-"] > *::after`]:
         {
-          content: 'attr(👻)',
+          content: '""',
           position: 'absolute',
           'z-index': 0,
           'pointer-events': 'none',
@@ -28,7 +28,7 @@ module.exports = function ({ addComponents, theme, config }) {
     },
     {
       [`.${bpString + prefixString}grid-line-x > *::before`]: {
-        content: 'attr(👻)',
+        content: '""',
         'inset-inline-start': '0',
         'inset-inline-end': '0',
         top: '0',
@@ -39,7 +39,7 @@ module.exports = function ({ addComponents, theme, config }) {
     },
     {
       [`.${bpString + prefixString}grid-line-xfull > *::before`]: {
-        content: 'attr(👻)',
+        content: '""',
         'inset-inline-start': 'calc(var(--inner-gutter) / -2)',
         'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
         top: '0',
@@ -55,7 +55,7 @@ module.exports = function ({ addComponents, theme, config }) {
     },
     {
       [`.${bpString + prefixString}grid-line-y > *::after`]: {
-        content: 'attr(👻)',
+        content: '""',
         'inset-inline-start': '0',
         'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
         top: '0',
@@ -66,7 +66,7 @@ module.exports = function ({ addComponents, theme, config }) {
     },
     {
       [`.${bpString + prefixString}grid-line-yfull > *::after`]: {
-        content: 'attr(👻)',
+        content: '""',
         'inset-inline-start': '0',
         'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
         top: 'calc(var(--inner-gutter) / -1)',
