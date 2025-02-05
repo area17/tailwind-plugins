@@ -203,135 +203,127 @@ module.exports = function ({ addComponents, matchComponents, theme, config }) {
   );
 
   // cols
-  Object.keys(breakpoints).forEach((bp) => {
-    let bpString = (bp === firstBp) ? '' : `${bp}\\:`;
-    bpString = '';
+  Object.keys(gridColsValues).forEach((i) => {
+    let gridColObj = {};
 
-    Object.keys(gridColsValues).forEach((i) => {
-      let gridColObj = {};
-
-      let obj = {
-        [`&.${bpString}grid-line-x > *:nth-child(n)::before`]: {
+    let obj = {
+      [`.grid-cols-${i}.grid-line-x > *:nth-child(n)::before`]: {
+        '--gridline-x-width': '1px',
+        '--gridline-x-start': '0',
+        '--gridline-x-end': '0',
+      },
+    };
+    if (i === 1) {
+      obj = {
+        ...obj,
+        [`.grid-cols-${i}.grid-line-xfull > *:nth-child(n)::before`]: {
           '--gridline-x-width': '1px',
           '--gridline-x-start': '0',
           '--gridline-x-end': '0',
         },
       };
-      if (i === 1) {
-        obj = {
-          ...obj,
-          [`&.${bpString}grid-line-xfull > *:nth-child(n)::before`]: {
-            '--gridline-x-width': '1px',
-            '--gridline-x-start': '0',
-            '--gridline-x-end': '0',
-          },
-        };
-      } else {
-        obj = {
-          ...obj,
-          [`&.${bpString}grid-line-xfull > *:nth-child(n)::before`]: {
-            '--gridline-x-width': '1px',
-            '--gridline-x-start': 'calc(var(--inner-gutter) / -2)',
-            '--gridline-x-end': 'calc(var(--inner-gutter) / -2)',
-          },
-        };
-      }
-      // horizontal first in row, fix left
+    } else {
       obj = {
         ...obj,
-        [`&.${bpString}grid-line-x > *:nth-child(${i}n+1)::before`]: {
-          '--gridline-x-start': '0',
-        },
-        [`&.${bpString}grid-line-xfull > *:nth-child(${i}n+1)::before`]: {
-          '--gridline-x-start': '0',
+        [`.grid-cols-${i}.grid-line-xfull > *:nth-child(n)::before`]: {
+          '--gridline-x-width': '1px',
+          '--gridline-x-start': 'calc(var(--inner-gutter) / -2)',
+          '--gridline-x-end': 'calc(var(--inner-gutter) / -2)',
         },
       };
-      // horizontal last in row, fix right
+    }
+    // horizontal first in row, fix left
+    obj = {
+      ...obj,
+      [`.grid-cols-${i}.grid-line-x > *:nth-child(${i}n+1)::before`]: {
+        '--gridline-x-start': '0',
+      },
+      [`.grid-cols-${i}.grid-line-xfull > *:nth-child(${i}n+1)::before`]: {
+        '--gridline-x-start': '0',
+      },
+    };
+    // horizontal last in row, fix right
+    obj = {
+      ...obj,
+      [`.grid-cols-${i}.grid-line-x > *:nth-child(${i}n+${i})::before`]: {
+        '--gridline-x-end': '0',
+      },
+      [`.grid-cols-${i}.grid-line-xfull > *:nth-child(${i}n+${i})::before`]: {
+        '--gridline-x-end': '0',
+      },
+    };
+    // horizontal last row, hide bottom border
+    obj = {
+      ...obj,
+      [`.grid-cols-${i}.grid-line-x > *:nth-child(n):nth-last-child(n)::before`]: {
+        '--gridline-x-width': '1px',
+      },
+      [`.grid-cols-${i}.grid-line-x > *:nth-child(${i}n+1):nth-last-child(-n+${i})::before`]: {
+        '--gridline-x-width': '0',
+      },
+      [`.grid-cols-${i}.grid-line-x > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ *::before`]: {
+        '--gridline-x-width': '0',
+      },
+      [`.grid-cols-${i}.grid-line-xfull > *:nth-child(n):nth-last-child(n)::before`]: {
+        '--gridline-x-width': '1px',
+      },
+      [`.grid-cols-${i}.grid-line-xfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::before`]: {
+        '--gridline-x-width': '0',
+      },
+      [`.grid-cols-${i}.grid-line-xfull > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ *::before`]: {
+        '--gridline-x-width': '0',
+      },
+    };
+
+    if (i > 1) {
+      // vertical lines, reset
       obj = {
         ...obj,
-        [`&.${bpString}grid-line-x > *:nth-child(${i}n+${i})::before`]: {
-          '--gridline-x-end': '0',
+        [`.grid-cols-${i}.grid-line-y > *:nth-child(n)::after`]: {
+          '--gridline-y-width': '1px',
         },
-        [`&.${bpString}grid-line-xfull > *:nth-child(${i}n+${i})::before`]: {
-          '--gridline-x-end': '0',
+        [`.grid-cols-${i}.grid-line-yfull > *:nth-child(n)::after`]: {
+          '--gridline-y-width': '1px',
         },
       };
-      // horizontal last row, hide bottom border
+      // vertical last in row, fix right
       obj = {
         ...obj,
-        [`&.${bpString}grid-line-x > *:nth-child(${i}n+1):nth-last-child(-n+${i})::before`]: {
-          '--gridline-x-width': '0',
-          '--mike': 1,
+        [`.grid-cols-${i}.grid-line-y > *:nth-child(${i}n+${i})::after`]: {
+          '--gridline-y-width': '0',
         },
-        [`&.${bpString}grid-line-x > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ *::before`]: {
-          '--gridline-x-width': '0',
-          '--mike': 2,
-        },
-        [`&.${bpString}grid-line-xfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::before`]: {
-          '--gridline-x-width': '0',
-          '--mike': 3,
-        },
-        [`&.${bpString}grid-line-xfull > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ *::before`]: {
-          '--gridline-x-width': '0',
-          '--mike': 4,
+        [`.grid-cols-${i}.grid-line-yfull > *:nth-child(${i}n+${i})::after`]: {
+          '--gridline-y-width': '0',
         },
       };
-
-      if (i > 1) {
-        // vertical lines, reset
-        obj = {
-          ...obj,
-          [`&.${bpString}grid-line-y > *:nth-child(n)::after`]: {
-            '--gridline-y-width': '1px',
-          },
-          [`&.${bpString}grid-line-yfull > *:nth-child(n)::after`]: {
-            '--gridline-y-width': '1px',
-          },
-        };
-        // vertical last in row, fix right
-        obj = {
-          ...obj,
-          [`&.${bpString}grid-line-y > *:nth-child(${i}n+${i})::after`]: {
-            '--gridline-y-width': '0',
-          },
-          [`&.${bpString}grid-line-yfull > *:nth-child(${i}n+${i})::after`]: {
-            '--gridline-y-width': '0',
-          },
-        };
-        // vertical lines, fix top position of first row
-        obj = {
-          ...obj,
-          [`&.${bpString}grid-line-y > *:nth-child(-n+${i})::after`]: {
-            '--gridline-y-top': '0',
-          },
-          [`&.${bpString}grid-line-yfull > *:nth-child(-n+${i})::after`]: {
-            '--gridline-y-top': '0',
-          },
-        };
-        // vertical lines, fix bottom position of last row
-        obj = {
-          ...obj,
-          [`&.${bpString}grid-line-y > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
-            '--gridline-y-bottom': '0',
-          },
-          [`&.${bpString}grid-line-y > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
-            '--gridline-y-bottom': '0',
-          },
-          [`&.${bpString}grid-line-yfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
-            '--gridline-y-bottom': '0',
-          },
-          [`&.${bpString}grid-line-yfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
-            '--gridline-y-bottom': '0',
-          },
-        };
-      }
-
-      addComponents({
-        [`.grid-cols-${i}`]: {
-          ...obj,
+      // vertical lines, fix top position of first row
+      obj = {
+        ...obj,
+        [`.grid-cols-${i}.grid-line-y > *:nth-child(-n+${i})::after`]: {
+          '--gridline-y-top': '0',
         },
-      });
-    });
+        [`.grid-cols-${i}.grid-line-yfull > *:nth-child(-n+${i})::after`]: {
+          '--gridline-y-top': '0',
+        },
+      };
+      // vertical lines, fix bottom position of last row
+      obj = {
+        ...obj,
+        [`.grid-cols-${i}.grid-line-y > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
+          '--gridline-y-bottom': '0',
+        },
+        [`.grid-cols-${i}.grid-line-y > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
+          '--gridline-y-bottom': '0',
+        },
+        [`.grid-cols-${i}.grid-line-yfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
+          '--gridline-y-bottom': '0',
+        },
+        [`.grid-cols-${i}.grid-line-yfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
+          '--gridline-y-bottom': '0',
+        },
+      };
+    }
 
+    addComponents(obj);
   });
 };
