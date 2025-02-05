@@ -34,11 +34,9 @@ The site should now be available in a browser at http://localhost:3000 with brow
 Scripts available to run are:
 
 * `npm run dev` - builds the Tailwind CSS file
-* `npm run watch:dev` - builds Tailwind CSS and watches for changes
+* `npm run watch` - builds Tailwind CSS and watches for changes
 * `npm run prod` - builds a minified Tailwind CSS file
 * `npm run sync` - starts browser-sync proxying the documentation and watching for changes for live reload
-* `npm run watch` - runs both `npm run watch:dev` and `npm run sync` (and possibly only works on Linux based systems, you may have to run those tasks in separate Terminal tabs on your system)
-
 
 ## Adding a new plugin
 
