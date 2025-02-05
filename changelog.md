@@ -31,6 +31,15 @@ We leaned that styles added with `addBase` always appear in the CSS, even if not
 - FullBleedScroller now uses `addComponents`
 - Scrollbar now uses `addBase`, `addComponents` and `matchComponents`
 
+## [4.0.8] - 2025-02-05
+
+Patch version to usurp older patch versions and include older changelog entries for `content` property fixes in `GridLine`, `Keyline` and `RatioBox`.
+
+## [4.0.7] - 2025-02-05
+
+### Fixed
+
+- replaced `content` property of `GridLine`, `Keyline` and `RatioBox` for Chrome 133 compatibility
 
 ## [4.0.6] - 2024-06-21
 
@@ -77,6 +86,12 @@ We leaned that styles added with `addBase` always appear in the CSS, even if not
 - Fix typo in frontend config, this is a **breaking change** as this require updating config file when upgrading to this version :
 
 For Spacing now use "arbitraries" instead of "arbritraries"
+
+## [3.14.1] - 2025-02-05
+
+### Fixed
+
+- replaced `content` property of `GridLine`, `Keyline` and `RatioBox` for Chrome 133 compatibility
 
 ## [3.14.0] - 2024-02-18
 
@@ -409,7 +424,11 @@ Refactored Layout plugin, generates more classes which are closer aligned to Tai
   - margins, paddings and positioning assume added inner gutters, a full series of gutter-less versions are also generated
   - the generated class names in the Layout plugin **have been changed** to align them closer to Tailwind. [See the migration notes](http://tailwind-plugins.dev.area17.com/Layout.html#v3-0-0)
 
+## [2.2.2] - 2025-02-05
 
+### Fixed
+
+- replaced `content` property of `GridLine`, `Keyline` and `RatioBox` for Chrome 133 compatibility
 
 ## [2.2.1] - 2021-12-03
 
