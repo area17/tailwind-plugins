@@ -27,7 +27,7 @@ describe('spacing plugin', () => {
       }
 
       .ratio::before {
-        content: 'attr(👻)';
+        content: '""';
         display: block;
         height: 0;
         padding-bottom: 56.25%;

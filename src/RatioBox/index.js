@@ -11,7 +11,7 @@ module.exports = function({ addUtilities, theme, config }) {
       'overflow': 'hidden',
     },
     '.ratio::before': {
-      'content': 'attr(👻)',
+      'content': '""',
       'display': 'block',
       'width': '100%',
       'height': '0',
@@ -32,7 +32,7 @@ module.exports = function({ addUtilities, theme, config }) {
       'margin-left': '-1px',
     },
     '.ratio-expandable::after': {
-      'content': 'attr(👻)',
+      'content': '""',
       'display': 'table',
       'clear': 'both',
     },
