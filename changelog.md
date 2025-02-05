@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.8] - 2025-02-05
+
+Patch version to usurp older patch versions and include older changelog entries for `content` property fixes in `GridLine`, `Keyline` and `RatioBox`.
+
 ## [4.0.7] - 2025-02-05
 
 ### Fixed
@@ -55,6 +59,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Fix typo in frontend config, this is a **breaking change** as this require updating config file when upgrading to this version :
 
 For Spacing now use "arbitraries" instead of "arbritraries"
+
+## [3.14.1] - 2025-02-05
+
+### Fixed
+
+- replaced `content` property of `GridLine`, `Keyline` and `RatioBox` for Chrome 133 compatibility
 
 ## [3.14.0] - 2024-02-18
 
@@ -387,7 +397,11 @@ Refactored Layout plugin, generates more classes which are closer aligned to Tai
   - margins, paddings and positioning assume added inner gutters, a full series of gutter-less versions are also generated
   - the generated class names in the Layout plugin **have been changed** to align them closer to Tailwind. [See the migration notes](http://tailwind-plugins.dev.area17.com/Layout.html#v3-0-0)
 
+## [2.2.2] - 2025-02-05
 
+### Fixed
+
+- replaced `content` property of `GridLine`, `Keyline` and `RatioBox` for Chrome 133 compatibility
 
 ## [2.2.1] - 2021-12-03
 
