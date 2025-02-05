@@ -357,7 +357,7 @@
     position: relative;
     overflow: hidden;
     &::before {
-      content: attr(👻);
+      content: "";
       display: block;
       width: 100%;
       height: 0;
@@ -584,7 +584,7 @@
       margin-inline-start: -1px;
     }
     &::after {
-      content: attr(👻);
+      content: "";
       display: table;
       clear: both;
     }
@@ -3790,13 +3790,13 @@
     position: relative;
   }
   [class*="grid-line-"] > *::before, [class*="grid-line-"] > *::after {
-    content: attr(👻);
+    content: "";
     position: absolute;
     z-index: 0;
     pointer-events: none;
   }
   .grid-line-x > *::before {
-    content: attr(👻);
+    content: "";
     inset-inline-start: 0;
     inset-inline-end: 0;
     top: 0;
@@ -3805,7 +3805,7 @@
     border-bottom: 0 solid transparent;
   }
   .grid-line-xfull > *::before {
-    content: attr(👻);
+    content: "";
     inset-inline-start: calc(var(--inner-gutter) / -2);
     inset-inline-end: calc(var(--inner-gutter) / -2);
     top: 0;
@@ -3817,7 +3817,7 @@
     content: none;
   }
   .grid-line-y > *::after {
-    content: attr(👻);
+    content: "";
     inset-inline-start: 0;
     inset-inline-end: calc(var(--inner-gutter) / -2);
     top: 0;
@@ -3826,7 +3826,7 @@
     border-inline-end: 0 solid transparent;
   }
   .grid-line-yfull > *::after {
-    content: attr(👻);
+    content: "";
     inset-inline-start: 0;
     inset-inline-end: calc(var(--inner-gutter) / -2);
     top: calc(var(--inner-gutter) / -1);
@@ -4173,13 +4173,13 @@
       position: relative;
     }
     [class*="grid-line-"] > *::before, [class*="grid-line-"] > *::after {
-      content: attr(👻);
+      content: "";
       position: absolute;
       z-index: 0;
       pointer-events: none;
     }
     .sm\:grid-line-x > *::before {
-      content: attr(👻);
+      content: "";
       inset-inline-start: 0;
       inset-inline-end: 0;
       top: 0;
@@ -4188,7 +4188,7 @@
       border-bottom: 0 solid transparent;
     }
     .sm\:grid-line-xfull > *::before {
-      content: attr(👻);
+      content: "";
       inset-inline-start: calc(var(--inner-gutter) / -2);
       inset-inline-end: calc(var(--inner-gutter) / -2);
       top: 0;
@@ -4200,7 +4200,7 @@
       content: none;
     }
     .sm\:grid-line-y > *::after {
-      content: attr(👻);
+      content: "";
       inset-inline-start: 0;
       inset-inline-end: calc(var(--inner-gutter) / -2);
       top: 0;
@@ -4209,7 +4209,7 @@
       border-inline-end: 0 solid transparent;
     }
     .sm\:grid-line-yfull > *::after {
-      content: attr(👻);
+      content: "";
       inset-inline-start: 0;
       inset-inline-end: calc(var(--inner-gutter) / -2);
       top: calc(var(--inner-gutter) / -1);
@@ -4557,13 +4557,13 @@
       position: relative;
     }
     [class*="grid-line-"] > *::before, [class*="grid-line-"] > *::after {
-      content: attr(👻);
+      content: "";
       position: absolute;
       z-index: 0;
       pointer-events: none;
     }
     .md\:grid-line-x > *::before {
-      content: attr(👻);
+      content: "";
       inset-inline-start: 0;
       inset-inline-end: 0;
       top: 0;
@@ -4572,7 +4572,7 @@
       border-bottom: 0 solid transparent;
     }
     .md\:grid-line-xfull > *::before {
-      content: attr(👻);
+      content: "";
       inset-inline-start: calc(var(--inner-gutter) / -2);
       inset-inline-end: calc(var(--inner-gutter) / -2);
       top: 0;
@@ -4584,7 +4584,7 @@
       content: none;
     }
     .md\:grid-line-y > *::after {
-      content: attr(👻);
+      content: "";
       inset-inline-start: 0;
       inset-inline-end: calc(var(--inner-gutter) / -2);
       top: 0;
@@ -4593,7 +4593,7 @@
       border-inline-end: 0 solid transparent;
     }
     .md\:grid-line-yfull > *::after {
-      content: attr(👻);
+      content: "";
       inset-inline-start: 0;
       inset-inline-end: calc(var(--inner-gutter) / -2);
       top: calc(var(--inner-gutter) / -1);
@@ -4941,13 +4941,13 @@
       position: relative;
     }
     [class*="grid-line-"] > *::before, [class*="grid-line-"] > *::after {
-      content: attr(👻);
+      content: "";
       position: absolute;
       z-index: 0;
       pointer-events: none;
     }
     .lg\:grid-line-x > *::before {
-      content: attr(👻);
+      content: "";
       inset-inline-start: 0;
       inset-inline-end: 0;
       top: 0;
@@ -4956,7 +4956,7 @@
       border-bottom: 0 solid transparent;
     }
     .lg\:grid-line-xfull > *::before {
-      content: attr(👻);
+      content: "";
       inset-inline-start: calc(var(--inner-gutter) / -2);
       inset-inline-end: calc(var(--inner-gutter) / -2);
       top: 0;
@@ -4968,7 +4968,7 @@
       content: none;
     }
     .lg\:grid-line-y > *::after {
-      content: attr(👻);
+      content: "";
       inset-inline-start: 0;
       inset-inline-end: calc(var(--inner-gutter) / -2);
       top: 0;
@@ -4977,7 +4977,7 @@
       border-inline-end: 0 solid transparent;
     }
     .lg\:grid-line-yfull > *::after {
-      content: attr(👻);
+      content: "";
       inset-inline-start: 0;
       inset-inline-end: calc(var(--inner-gutter) / -2);
       top: calc(var(--inner-gutter) / -1);
@@ -5325,13 +5325,13 @@
       position: relative;
     }
     [class*="grid-line-"] > *::before, [class*="grid-line-"] > *::after {
-      content: attr(👻);
+      content: "";
       position: absolute;
       z-index: 0;
       pointer-events: none;
     }
     .xl\:grid-line-x > *::before {
-      content: attr(👻);
+      content: "";
       inset-inline-start: 0;
       inset-inline-end: 0;
       top: 0;
@@ -5340,7 +5340,7 @@
       border-bottom: 0 solid transparent;
     }
     .xl\:grid-line-xfull > *::before {
-      content: attr(👻);
+      content: "";
       inset-inline-start: calc(var(--inner-gutter) / -2);
       inset-inline-end: calc(var(--inner-gutter) / -2);
       top: 0;
@@ -5352,7 +5352,7 @@
       content: none;
     }
     .xl\:grid-line-y > *::after {
-      content: attr(👻);
+      content: "";
       inset-inline-start: 0;
       inset-inline-end: calc(var(--inner-gutter) / -2);
       top: 0;
@@ -5361,7 +5361,7 @@
       border-inline-end: 0 solid transparent;
     }
     .xl\:grid-line-yfull > *::after {
-      content: attr(👻);
+      content: "";
       inset-inline-start: 0;
       inset-inline-end: calc(var(--inner-gutter) / -2);
       top: calc(var(--inner-gutter) / -1);
@@ -5709,13 +5709,13 @@
       position: relative;
     }
     [class*="grid-line-"] > *::before, [class*="grid-line-"] > *::after {
-      content: attr(👻);
+      content: "";
       position: absolute;
       z-index: 0;
       pointer-events: none;
     }
     .xxl\:grid-line-x > *::before {
-      content: attr(👻);
+      content: "";
       inset-inline-start: 0;
       inset-inline-end: 0;
       top: 0;
@@ -5724,7 +5724,7 @@
       border-bottom: 0 solid transparent;
     }
     .xxl\:grid-line-xfull > *::before {
-      content: attr(👻);
+      content: "";
       inset-inline-start: calc(var(--inner-gutter) / -2);
       inset-inline-end: calc(var(--inner-gutter) / -2);
       top: 0;
@@ -5736,7 +5736,7 @@
       content: none;
     }
     .xxl\:grid-line-y > *::after {
-      content: attr(👻);
+      content: "";
       inset-inline-start: 0;
       inset-inline-end: calc(var(--inner-gutter) / -2);
       top: 0;
@@ -5745,7 +5745,7 @@
       border-inline-end: 0 solid transparent;
     }
     .xxl\:grid-line-yfull > *::after {
-      content: attr(👻);
+      content: "";
       inset-inline-start: 0;
       inset-inline-end: calc(var(--inner-gutter) / -2);
       top: calc(var(--inner-gutter) / -1);
@@ -6094,7 +6094,7 @@
     position: relative;
   }
   [class*="keyline-"]::before {
-    content: attr(👻);
+    content: "";
     position: absolute;
     z-index: 0;
     inset-inline-start: calc(var(--inner-gutter) / -2 - 1px);
