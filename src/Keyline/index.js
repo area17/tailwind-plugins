@@ -10,7 +10,7 @@ module.exports = function ({ addUtilities, theme, config }) {
         position: 'relative',
       },
       [`[class*="${prefixString}keyline-"]::before`]: {
-        content: 'attr(👻)',
+        content: '""',
         position: 'absolute',
         'z-index': 0,
         left: `calc(var(--inner-gutter) / -2 - 1px)`,
