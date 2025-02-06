@@ -1586,6 +1586,9 @@
   .w-60 {
     width: calc(var(--spacing) * 60);
   }
+  .w-72 {
+    width: calc(var(--spacing) * 72);
+  }
   .w-76 {
     width: calc(var(--spacing) * 76);
   }
@@ -1606,9 +1609,6 @@
   }
   .w-68 {
     width: calc(var(--spacing) * 68);
-  }
-  .w-72 {
-    width: calc(var(--spacing) * 72);
   }
   .w-80 {
     width: calc(var(--spacing) * 80);
@@ -2953,17 +2953,13 @@
     &.grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
       --gridline-x-width: 0;
     }
-    &.grid-line-y > *:nth-child(n)::after {
+    &[class*="grid-line-y"] > *:nth-child(n)::after {
       --gridline-y-width: 1px;
+      --mike: a;
     }
-    &.grid-line-yfull > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    &.grid-line-y > *:nth-child(2n+2)::after {
+    &[class*="grid-line-y"] > *:nth-child(2n+2)::after {
       --gridline-y-width: 0;
-    }
-    &.grid-line-yfull > *:nth-child(2n+2)::after {
-      --gridline-y-width: 0;
+      --mike: 1;
     }
     &.grid-line-y > *:nth-child(-n+2)::after {
       --gridline-y-top: 0;
@@ -3019,17 +3015,13 @@
     &.grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
       --gridline-x-width: 0;
     }
-    &.grid-line-y > *:nth-child(n)::after {
+    &[class*="grid-line-y"] > *:nth-child(n)::after {
       --gridline-y-width: 1px;
+      --mike: a;
     }
-    &.grid-line-yfull > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    &.grid-line-y > *:nth-child(3n+3)::after {
+    &[class*="grid-line-y"] > *:nth-child(3n+3)::after {
       --gridline-y-width: 0;
-    }
-    &.grid-line-yfull > *:nth-child(3n+3)::after {
-      --gridline-y-width: 0;
+      --mike: 1;
     }
     &.grid-line-y > *:nth-child(-n+3)::after {
       --gridline-y-top: 0;
@@ -3085,17 +3077,13 @@
     &.grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
       --gridline-x-width: 0;
     }
-    &.grid-line-y > *:nth-child(n)::after {
+    &[class*="grid-line-y"] > *:nth-child(n)::after {
       --gridline-y-width: 1px;
+      --mike: a;
     }
-    &.grid-line-yfull > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    &.grid-line-y > *:nth-child(4n+4)::after {
+    &[class*="grid-line-y"] > *:nth-child(4n+4)::after {
       --gridline-y-width: 0;
-    }
-    &.grid-line-yfull > *:nth-child(4n+4)::after {
-      --gridline-y-width: 0;
+      --mike: 1;
     }
     &.grid-line-y > *:nth-child(-n+4)::after {
       --gridline-y-top: 0;
@@ -3151,17 +3139,13 @@
     &.grid-line-xfull > *:nth-child(5n+1):nth-last-child(-n+5) ~ *::before {
       --gridline-x-width: 0;
     }
-    &.grid-line-y > *:nth-child(n)::after {
+    &[class*="grid-line-y"] > *:nth-child(n)::after {
       --gridline-y-width: 1px;
+      --mike: a;
     }
-    &.grid-line-yfull > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    &.grid-line-y > *:nth-child(5n+5)::after {
+    &[class*="grid-line-y"] > *:nth-child(5n+5)::after {
       --gridline-y-width: 0;
-    }
-    &.grid-line-yfull > *:nth-child(5n+5)::after {
-      --gridline-y-width: 0;
+      --mike: 1;
     }
     &.grid-line-y > *:nth-child(-n+5)::after {
       --gridline-y-top: 0;
@@ -3217,17 +3201,13 @@
     &.grid-line-xfull > *:nth-child(6n+1):nth-last-child(-n+6) ~ *::before {
       --gridline-x-width: 0;
     }
-    &.grid-line-y > *:nth-child(n)::after {
+    &[class*="grid-line-y"] > *:nth-child(n)::after {
       --gridline-y-width: 1px;
+      --mike: a;
     }
-    &.grid-line-yfull > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    &.grid-line-y > *:nth-child(6n+6)::after {
+    &[class*="grid-line-y"] > *:nth-child(6n+6)::after {
       --gridline-y-width: 0;
-    }
-    &.grid-line-yfull > *:nth-child(6n+6)::after {
-      --gridline-y-width: 0;
+      --mike: 1;
     }
     &.grid-line-y > *:nth-child(-n+6)::after {
       --gridline-y-top: 0;
@@ -3283,17 +3263,13 @@
     &.grid-line-xfull > *:nth-child(7n+1):nth-last-child(-n+7) ~ *::before {
       --gridline-x-width: 0;
     }
-    &.grid-line-y > *:nth-child(n)::after {
+    &[class*="grid-line-y"] > *:nth-child(n)::after {
       --gridline-y-width: 1px;
+      --mike: a;
     }
-    &.grid-line-yfull > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    &.grid-line-y > *:nth-child(7n+7)::after {
+    &[class*="grid-line-y"] > *:nth-child(7n+7)::after {
       --gridline-y-width: 0;
-    }
-    &.grid-line-yfull > *:nth-child(7n+7)::after {
-      --gridline-y-width: 0;
+      --mike: 1;
     }
     &.grid-line-y > *:nth-child(-n+7)::after {
       --gridline-y-top: 0;
@@ -3349,17 +3325,13 @@
     &.grid-line-xfull > *:nth-child(8n+1):nth-last-child(-n+8) ~ *::before {
       --gridline-x-width: 0;
     }
-    &.grid-line-y > *:nth-child(n)::after {
+    &[class*="grid-line-y"] > *:nth-child(n)::after {
       --gridline-y-width: 1px;
+      --mike: a;
     }
-    &.grid-line-yfull > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    &.grid-line-y > *:nth-child(8n+8)::after {
+    &[class*="grid-line-y"] > *:nth-child(8n+8)::after {
       --gridline-y-width: 0;
-    }
-    &.grid-line-yfull > *:nth-child(8n+8)::after {
-      --gridline-y-width: 0;
+      --mike: 1;
     }
     &.grid-line-y > *:nth-child(-n+8)::after {
       --gridline-y-top: 0;
@@ -3415,17 +3387,13 @@
     &.grid-line-xfull > *:nth-child(9n+1):nth-last-child(-n+9) ~ *::before {
       --gridline-x-width: 0;
     }
-    &.grid-line-y > *:nth-child(n)::after {
+    &[class*="grid-line-y"] > *:nth-child(n)::after {
       --gridline-y-width: 1px;
+      --mike: a;
     }
-    &.grid-line-yfull > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    &.grid-line-y > *:nth-child(9n+9)::after {
+    &[class*="grid-line-y"] > *:nth-child(9n+9)::after {
       --gridline-y-width: 0;
-    }
-    &.grid-line-yfull > *:nth-child(9n+9)::after {
-      --gridline-y-width: 0;
+      --mike: 1;
     }
     &.grid-line-y > *:nth-child(-n+9)::after {
       --gridline-y-top: 0;
@@ -3481,17 +3449,13 @@
     &.grid-line-xfull > *:nth-child(10n+1):nth-last-child(-n+10) ~ *::before {
       --gridline-x-width: 0;
     }
-    &.grid-line-y > *:nth-child(n)::after {
+    &[class*="grid-line-y"] > *:nth-child(n)::after {
       --gridline-y-width: 1px;
+      --mike: a;
     }
-    &.grid-line-yfull > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    &.grid-line-y > *:nth-child(10n+10)::after {
+    &[class*="grid-line-y"] > *:nth-child(10n+10)::after {
       --gridline-y-width: 0;
-    }
-    &.grid-line-yfull > *:nth-child(10n+10)::after {
-      --gridline-y-width: 0;
+      --mike: 1;
     }
     &.grid-line-y > *:nth-child(-n+10)::after {
       --gridline-y-top: 0;
@@ -3547,17 +3511,13 @@
     &.grid-line-xfull > *:nth-child(11n+1):nth-last-child(-n+11) ~ *::before {
       --gridline-x-width: 0;
     }
-    &.grid-line-y > *:nth-child(n)::after {
+    &[class*="grid-line-y"] > *:nth-child(n)::after {
       --gridline-y-width: 1px;
+      --mike: a;
     }
-    &.grid-line-yfull > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    &.grid-line-y > *:nth-child(11n+11)::after {
+    &[class*="grid-line-y"] > *:nth-child(11n+11)::after {
       --gridline-y-width: 0;
-    }
-    &.grid-line-yfull > *:nth-child(11n+11)::after {
-      --gridline-y-width: 0;
+      --mike: 1;
     }
     &.grid-line-y > *:nth-child(-n+11)::after {
       --gridline-y-top: 0;
@@ -3613,17 +3573,13 @@
     &.grid-line-xfull > *:nth-child(12n+1):nth-last-child(-n+12) ~ *::before {
       --gridline-x-width: 0;
     }
-    &.grid-line-y > *:nth-child(n)::after {
+    &[class*="grid-line-y"] > *:nth-child(n)::after {
       --gridline-y-width: 1px;
+      --mike: a;
     }
-    &.grid-line-yfull > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    &.grid-line-y > *:nth-child(12n+12)::after {
+    &[class*="grid-line-y"] > *:nth-child(12n+12)::after {
       --gridline-y-width: 0;
-    }
-    &.grid-line-yfull > *:nth-child(12n+12)::after {
-      --gridline-y-width: 0;
+      --mike: 1;
     }
     &.grid-line-y > *:nth-child(-n+12)::after {
       --gridline-y-top: 0;
@@ -4211,12 +4167,6 @@
     }
   }
   .grid-line-y {
-    .grid-cols-2& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-2& > *:nth-child(2n+2)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-2& > *:nth-child(-n+2)::after {
       --gridline-y-top: 0;
     }
@@ -4225,12 +4175,6 @@
     }
   }
   .grid-line-y {
-    .grid-cols-3& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-3& > *:nth-child(3n+3)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-3& > *:nth-child(-n+3)::after {
       --gridline-y-top: 0;
     }
@@ -4239,12 +4183,6 @@
     }
   }
   .grid-line-y {
-    .grid-cols-4& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-4& > *:nth-child(4n+4)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-4& > *:nth-child(-n+4)::after {
       --gridline-y-top: 0;
     }
@@ -4253,12 +4191,6 @@
     }
   }
   .grid-line-y {
-    .grid-cols-5& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-5& > *:nth-child(5n+5)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-5& > *:nth-child(-n+5)::after {
       --gridline-y-top: 0;
     }
@@ -4267,12 +4199,6 @@
     }
   }
   .grid-line-y {
-    .grid-cols-6& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-6& > *:nth-child(6n+6)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-6& > *:nth-child(-n+6)::after {
       --gridline-y-top: 0;
     }
@@ -4281,12 +4207,6 @@
     }
   }
   .grid-line-y {
-    .grid-cols-7& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-7& > *:nth-child(7n+7)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-7& > *:nth-child(-n+7)::after {
       --gridline-y-top: 0;
     }
@@ -4295,12 +4215,6 @@
     }
   }
   .grid-line-y {
-    .grid-cols-8& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-8& > *:nth-child(8n+8)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-8& > *:nth-child(-n+8)::after {
       --gridline-y-top: 0;
     }
@@ -4309,12 +4223,6 @@
     }
   }
   .grid-line-y {
-    .grid-cols-9& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-9& > *:nth-child(9n+9)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-9& > *:nth-child(-n+9)::after {
       --gridline-y-top: 0;
     }
@@ -4323,12 +4231,6 @@
     }
   }
   .grid-line-y {
-    .grid-cols-10& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-10& > *:nth-child(10n+10)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-10& > *:nth-child(-n+10)::after {
       --gridline-y-top: 0;
     }
@@ -4337,12 +4239,6 @@
     }
   }
   .grid-line-y {
-    .grid-cols-11& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-11& > *:nth-child(11n+11)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-11& > *:nth-child(-n+11)::after {
       --gridline-y-top: 0;
     }
@@ -4351,12 +4247,6 @@
     }
   }
   .grid-line-y {
-    .grid-cols-12& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-12& > *:nth-child(12n+12)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-12& > *:nth-child(-n+12)::after {
       --gridline-y-top: 0;
     }
@@ -4380,12 +4270,6 @@
     }
   }
   .grid-line-yfull {
-    .grid-cols-2& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-2& > *:nth-child(2n+2)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-2& > *:nth-child(-n+2)::after {
       --gridline-y-top: 0;
     }
@@ -4394,12 +4278,6 @@
     }
   }
   .grid-line-yfull {
-    .grid-cols-3& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-3& > *:nth-child(3n+3)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-3& > *:nth-child(-n+3)::after {
       --gridline-y-top: 0;
     }
@@ -4408,12 +4286,6 @@
     }
   }
   .grid-line-yfull {
-    .grid-cols-4& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-4& > *:nth-child(4n+4)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-4& > *:nth-child(-n+4)::after {
       --gridline-y-top: 0;
     }
@@ -4422,12 +4294,6 @@
     }
   }
   .grid-line-yfull {
-    .grid-cols-5& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-5& > *:nth-child(5n+5)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-5& > *:nth-child(-n+5)::after {
       --gridline-y-top: 0;
     }
@@ -4436,12 +4302,6 @@
     }
   }
   .grid-line-yfull {
-    .grid-cols-6& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-6& > *:nth-child(6n+6)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-6& > *:nth-child(-n+6)::after {
       --gridline-y-top: 0;
     }
@@ -4450,12 +4310,6 @@
     }
   }
   .grid-line-yfull {
-    .grid-cols-7& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-7& > *:nth-child(7n+7)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-7& > *:nth-child(-n+7)::after {
       --gridline-y-top: 0;
     }
@@ -4464,12 +4318,6 @@
     }
   }
   .grid-line-yfull {
-    .grid-cols-8& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-8& > *:nth-child(8n+8)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-8& > *:nth-child(-n+8)::after {
       --gridline-y-top: 0;
     }
@@ -4478,12 +4326,6 @@
     }
   }
   .grid-line-yfull {
-    .grid-cols-9& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-9& > *:nth-child(9n+9)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-9& > *:nth-child(-n+9)::after {
       --gridline-y-top: 0;
     }
@@ -4492,12 +4334,6 @@
     }
   }
   .grid-line-yfull {
-    .grid-cols-10& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-10& > *:nth-child(10n+10)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-10& > *:nth-child(-n+10)::after {
       --gridline-y-top: 0;
     }
@@ -4506,12 +4342,6 @@
     }
   }
   .grid-line-yfull {
-    .grid-cols-11& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-11& > *:nth-child(11n+11)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-11& > *:nth-child(-n+11)::after {
       --gridline-y-top: 0;
     }
@@ -4520,12 +4350,6 @@
     }
   }
   .grid-line-yfull {
-    .grid-cols-12& > *:nth-child(n)::after {
-      --gridline-y-width: 1px;
-    }
-    .grid-cols-12& > *:nth-child(12n+12)::after {
-      --gridline-y-width: 0;
-    }
     .grid-cols-12& > *:nth-child(-n+12)::after {
       --gridline-y-top: 0;
     }
@@ -5060,17 +4884,13 @@
       &.grid-line-xfull > *:nth-child(2n+1):nth-last-child(-n+2) ~ *::before {
         --gridline-x-width: 0;
       }
-      &.grid-line-y > *:nth-child(n)::after {
+      &[class*="grid-line-y"] > *:nth-child(n)::after {
         --gridline-y-width: 1px;
+        --mike: a;
       }
-      &.grid-line-yfull > *:nth-child(n)::after {
-        --gridline-y-width: 1px;
-      }
-      &.grid-line-y > *:nth-child(2n+2)::after {
+      &[class*="grid-line-y"] > *:nth-child(2n+2)::after {
         --gridline-y-width: 0;
-      }
-      &.grid-line-yfull > *:nth-child(2n+2)::after {
-        --gridline-y-width: 0;
+        --mike: 1;
       }
       &.grid-line-y > *:nth-child(-n+2)::after {
         --gridline-y-top: 0;
@@ -5128,17 +4948,13 @@
       &.grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
         --gridline-x-width: 0;
       }
-      &.grid-line-y > *:nth-child(n)::after {
+      &[class*="grid-line-y"] > *:nth-child(n)::after {
         --gridline-y-width: 1px;
+        --mike: a;
       }
-      &.grid-line-yfull > *:nth-child(n)::after {
-        --gridline-y-width: 1px;
-      }
-      &.grid-line-y > *:nth-child(3n+3)::after {
+      &[class*="grid-line-y"] > *:nth-child(3n+3)::after {
         --gridline-y-width: 0;
-      }
-      &.grid-line-yfull > *:nth-child(3n+3)::after {
-        --gridline-y-width: 0;
+        --mike: 1;
       }
       &.grid-line-y > *:nth-child(-n+3)::after {
         --gridline-y-top: 0;
@@ -5175,6 +4991,13 @@
       }
     }
   }
+  .md\:grid-line-x-quaternary {
+    @media (width >= 650px) {
+      & > *::before {
+        --gridline-x-color: var(--color-blue-05);
+      }
+    }
+  }
   .md\:grid-line-x-tertiary {
     @media (width >= 650px) {
       & > *::before {
@@ -5184,12 +5007,6 @@
   }
   .md\:grid-line-y {
     @media (width >= 650px) {
-      .grid-cols-2& > *:nth-child(n)::after {
-        --gridline-y-width: 1px;
-      }
-      .grid-cols-2& > *:nth-child(2n+2)::after {
-        --gridline-y-width: 0;
-      }
       .grid-cols-2& > *:nth-child(-n+2)::after {
         --gridline-y-top: 0;
       }
@@ -5200,12 +5017,6 @@
   }
   .md\:grid-line-y {
     @media (width >= 650px) {
-      .grid-cols-3& > *:nth-child(n)::after {
-        --gridline-y-width: 1px;
-      }
-      .grid-cols-3& > *:nth-child(3n+3)::after {
-        --gridline-y-width: 0;
-      }
       .grid-cols-3& > *:nth-child(-n+3)::after {
         --gridline-y-top: 0;
       }
@@ -5216,12 +5027,6 @@
   }
   .md\:grid-line-y {
     @media (width >= 650px) {
-      .grid-cols-4& > *:nth-child(n)::after {
-        --gridline-y-width: 1px;
-      }
-      .grid-cols-4& > *:nth-child(4n+4)::after {
-        --gridline-y-width: 0;
-      }
       .grid-cols-4& > *:nth-child(-n+4)::after {
         --gridline-y-top: 0;
       }
@@ -5232,12 +5037,6 @@
   }
   .md\:grid-line-y {
     @media (width >= 650px) {
-      .grid-cols-5& > *:nth-child(n)::after {
-        --gridline-y-width: 1px;
-      }
-      .grid-cols-5& > *:nth-child(5n+5)::after {
-        --gridline-y-width: 0;
-      }
       .grid-cols-5& > *:nth-child(-n+5)::after {
         --gridline-y-top: 0;
       }
@@ -5248,12 +5047,6 @@
   }
   .md\:grid-line-y {
     @media (width >= 650px) {
-      .grid-cols-6& > *:nth-child(n)::after {
-        --gridline-y-width: 1px;
-      }
-      .grid-cols-6& > *:nth-child(6n+6)::after {
-        --gridline-y-width: 0;
-      }
       .grid-cols-6& > *:nth-child(-n+6)::after {
         --gridline-y-top: 0;
       }
@@ -5264,12 +5057,6 @@
   }
   .md\:grid-line-y {
     @media (width >= 650px) {
-      .grid-cols-7& > *:nth-child(n)::after {
-        --gridline-y-width: 1px;
-      }
-      .grid-cols-7& > *:nth-child(7n+7)::after {
-        --gridline-y-width: 0;
-      }
       .grid-cols-7& > *:nth-child(-n+7)::after {
         --gridline-y-top: 0;
       }
@@ -5280,12 +5067,6 @@
   }
   .md\:grid-line-y {
     @media (width >= 650px) {
-      .grid-cols-8& > *:nth-child(n)::after {
-        --gridline-y-width: 1px;
-      }
-      .grid-cols-8& > *:nth-child(8n+8)::after {
-        --gridline-y-width: 0;
-      }
       .grid-cols-8& > *:nth-child(-n+8)::after {
         --gridline-y-top: 0;
       }
@@ -5296,12 +5077,6 @@
   }
   .md\:grid-line-y {
     @media (width >= 650px) {
-      .grid-cols-9& > *:nth-child(n)::after {
-        --gridline-y-width: 1px;
-      }
-      .grid-cols-9& > *:nth-child(9n+9)::after {
-        --gridline-y-width: 0;
-      }
       .grid-cols-9& > *:nth-child(-n+9)::after {
         --gridline-y-top: 0;
       }
@@ -5312,12 +5087,6 @@
   }
   .md\:grid-line-y {
     @media (width >= 650px) {
-      .grid-cols-10& > *:nth-child(n)::after {
-        --gridline-y-width: 1px;
-      }
-      .grid-cols-10& > *:nth-child(10n+10)::after {
-        --gridline-y-width: 0;
-      }
       .grid-cols-10& > *:nth-child(-n+10)::after {
         --gridline-y-top: 0;
       }
@@ -5328,12 +5097,6 @@
   }
   .md\:grid-line-y {
     @media (width >= 650px) {
-      .grid-cols-11& > *:nth-child(n)::after {
-        --gridline-y-width: 1px;
-      }
-      .grid-cols-11& > *:nth-child(11n+11)::after {
-        --gridline-y-width: 0;
-      }
       .grid-cols-11& > *:nth-child(-n+11)::after {
         --gridline-y-top: 0;
       }
@@ -5344,12 +5107,6 @@
   }
   .md\:grid-line-y {
     @media (width >= 650px) {
-      .grid-cols-12& > *:nth-child(n)::after {
-        --gridline-y-width: 1px;
-      }
-      .grid-cols-12& > *:nth-child(12n+12)::after {
-        --gridline-y-width: 0;
-      }
       .grid-cols-12& > *:nth-child(-n+12)::after {
         --gridline-y-top: 0;
       }
@@ -5744,17 +5501,13 @@
       &.grid-line-xfull > *:nth-child(3n+1):nth-last-child(-n+3) ~ *::before {
         --gridline-x-width: 0;
       }
-      &.grid-line-y > *:nth-child(n)::after {
+      &[class*="grid-line-y"] > *:nth-child(n)::after {
         --gridline-y-width: 1px;
+        --mike: a;
       }
-      &.grid-line-yfull > *:nth-child(n)::after {
-        --gridline-y-width: 1px;
-      }
-      &.grid-line-y > *:nth-child(3n+3)::after {
+      &[class*="grid-line-y"] > *:nth-child(3n+3)::after {
         --gridline-y-width: 0;
-      }
-      &.grid-line-yfull > *:nth-child(3n+3)::after {
-        --gridline-y-width: 0;
+        --mike: 1;
       }
       &.grid-line-y > *:nth-child(-n+3)::after {
         --gridline-y-top: 0;
@@ -5812,17 +5565,13 @@
       &.grid-line-xfull > *:nth-child(4n+1):nth-last-child(-n+4) ~ *::before {
         --gridline-x-width: 0;
       }
-      &.grid-line-y > *:nth-child(n)::after {
+      &[class*="grid-line-y"] > *:nth-child(n)::after {
         --gridline-y-width: 1px;
+        --mike: a;
       }
-      &.grid-line-yfull > *:nth-child(n)::after {
-        --gridline-y-width: 1px;
-      }
-      &.grid-line-y > *:nth-child(4n+4)::after {
+      &[class*="grid-line-y"] > *:nth-child(4n+4)::after {
         --gridline-y-width: 0;
-      }
-      &.grid-line-yfull > *:nth-child(4n+4)::after {
-        --gridline-y-width: 0;
+        --mike: 1;
       }
       &.grid-line-y > *:nth-child(-n+4)::after {
         --gridline-y-top: 0;

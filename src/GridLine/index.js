@@ -279,21 +279,20 @@ module.exports = function ({ addComponents, matchComponents, theme, config }) {
       // vertical lines, reset
       obj = {
         ...obj,
-        [`.grid-cols-${i}.grid-line-y > *:nth-child(n)::after`]: {
-          '--gridline-y-width': '1px',
-        },
-        [`.grid-cols-${i}.grid-line-yfull > *:nth-child(n)::after`]: {
+        [`.grid-cols-${i}[class*="grid-line-y"] > *:nth-child(n)::after`]: {
           '--gridline-y-width': '1px',
         },
       };
       // vertical last in row, fix right
       obj = {
         ...obj,
-        [`.grid-cols-${i}.grid-line-y > *:nth-child(${i}n+${i})::after`]: {
-          '--gridline-y-width': '0',
+        [`.grid-cols-${i}[class*="grid-line-y"] > *:nth-child(n)::after`]: {
+          '--gridline-y-width': '1px',
+          '--mike': 'a',
         },
-        [`.grid-cols-${i}.grid-line-yfull > *:nth-child(${i}n+${i})::after`]: {
+        [`.grid-cols-${i}[class*="grid-line-y"] > *:nth-child(${i}n+${i})::after`]: {
           '--gridline-y-width': '0',
+          '--mike': '1',
         },
       };
       // vertical lines, fix top position of first row
