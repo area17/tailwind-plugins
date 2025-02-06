@@ -19,17 +19,18 @@ title: A17 Tailwind Plugins
   </p>
 
   <p>
-    We also wanted to include a few utility classes that would simplify some
-    common styling requirements.
-  </p>
-
-  <p>
     Version 5 of this plugin, updated in response to Tailwind's release of its version 4 required several refactors. You can report any issues in our <a href="https://github.com/area17/tailwind-plugins/issues" target="_blank">GitHub issue tracker</a>.
   </p>
 
+  <p>
+    There is a <strong>breaking change</strong> to the Layout plugin, see the <a href="./migrating.html">migration guide</a> or the <a href="./Layout.html#v5-0-0">V5 notes in the Layout docs</a>.
+  </p>
+
+  <h2 class="f-h2">Our Tailwind Setup</h2>
+
   <ul>
     <li>
-      Our <a href="./tailwind-setup.html">Tailwind setup</a> - a walk through of our
+      <a href="./tailwind-setup.html">Setup guide</a> - a walk through of our
       basic Tailwind setup, consuming a config JSON and applying plugins.
     </li>
     <li><a href="./migrating.html">Migration guide</a> from A17 Tailwind Plugins <code>v4</code> to <code>v5</code> and migrating from Tailwind <code>v3</code> to <code>v4</code></li>
@@ -39,7 +40,7 @@ title: A17 Tailwind Plugins
 
   <div class="grid gap-gutter md:grid-cols-2 mb-60 !max-w-full">
     <div>
-      <h3 class="f-h3">Setup</h3>
+      <h3 class="f-h3">Plugins Setup</h3>
       <ul>
         <li>
           <a href="./Setup.html">Setup</a> - the center pin of many of our
@@ -83,7 +84,7 @@ title: A17 Tailwind Plugins
           elements onto the design grid
           <ul>
             <li>
-              Breaking change from <code>&lt;v5.0.0</code> to <code>v5.0.0</code>: <br>
+              <a href="./Layout.html#v5-0-0">Breaking change</a> from <code>&lt;v5.0.0</code> to <code>v5.0.0</code>: <br>
               The format of the class names has been updated from <code>.w-N-cols</code> to <code>.w-cols-N</code>.
             </li>
             <li>In <code>v5.0.0</code> <code>.cols-container</code> is deprecated to be removed in <code>v6.0.0</code></li>
