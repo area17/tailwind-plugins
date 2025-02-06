@@ -14,8 +14,6 @@ const setup = require('./src/Setup');
 const colorTokens = require('./src/ColorTokens');
 const applyColorVariables = require('./src/ApplyColorVariables');
 const underline = require('./src/Underline');
-const components = require('./src/Components');
-const cssInJs = require('./src/CssInJs');
 const gridLayout = require('./src/GridLayout');
 const fullBleedScroller = require('./src/FullBleedScroller');
 const interactionMediaQueries = require('./src/InteractionMediaQueries');
@@ -39,8 +37,6 @@ module.exports = {
   colorTokens,
   applyColorVariables,
   underline,
-  components,
-  cssInJs,
   gridLayout,
   fullBleedScroller,
   interactionMediaQueries,

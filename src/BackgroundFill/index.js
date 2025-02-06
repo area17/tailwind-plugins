@@ -2,7 +2,7 @@ module.exports = function ({ matchUtilities, addUtilities, theme }) {
   const bgColors = theme('backgroundColor', {});
   let matchValues = {};
 
-  Object.keys(bgColors).forEach(key => {
+  Object.keys(bgColors).forEach((key) => {
     matchValues[key] = key;
   });
 
@@ -19,7 +19,7 @@ module.exports = function ({ matchUtilities, addUtilities, theme }) {
       'background-color': 'var(--background-fill-bg, inherit)',
       'pointer-events': 'none',
     },
-  }
+  };
 
   addUtilities({
     '.background-fill': {
@@ -30,7 +30,7 @@ module.exports = function ({ matchUtilities, addUtilities, theme }) {
     '.background-fill-none': {
       '&::before': {
         content: 'none',
-      }
+      },
     },
   });
 
@@ -41,11 +41,11 @@ module.exports = function ({ matchUtilities, addUtilities, theme }) {
           '--background-fill-bg': bgColors[value] || 'inherit',
           position: 'relative',
           ...psuedoEl,
-        }
+        };
       },
     },
     {
       values: matchValues,
-    },
+    }
   );
 };

@@ -255,24 +255,30 @@ module.exports = function ({ addComponents, matchComponents, theme, config }) {
     // horizontal last row, hide bottom border
     obj = {
       ...obj,
-      [`.grid-cols-${i}.grid-line-x > *:nth-child(n):nth-last-child(n)::before`]: {
-        '--gridline-x-width': '1px',
-      },
-      [`.grid-cols-${i}.grid-line-x > *:nth-child(${i}n+1):nth-last-child(-n+${i})::before`]: {
-        '--gridline-x-width': '0',
-      },
-      [`.grid-cols-${i}.grid-line-x > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ *::before`]: {
-        '--gridline-x-width': '0',
-      },
-      [`.grid-cols-${i}.grid-line-xfull > *:nth-child(n):nth-last-child(n)::before`]: {
-        '--gridline-x-width': '1px',
-      },
-      [`.grid-cols-${i}.grid-line-xfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::before`]: {
-        '--gridline-x-width': '0',
-      },
-      [`.grid-cols-${i}.grid-line-xfull > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ *::before`]: {
-        '--gridline-x-width': '0',
-      },
+      [`.grid-cols-${i}.grid-line-x > *:nth-child(n):nth-last-child(n)::before`]:
+        {
+          '--gridline-x-width': '1px',
+        },
+      [`.grid-cols-${i}.grid-line-x > *:nth-child(${i}n+1):nth-last-child(-n+${i})::before`]:
+        {
+          '--gridline-x-width': '0',
+        },
+      [`.grid-cols-${i}.grid-line-x > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ *::before`]:
+        {
+          '--gridline-x-width': '0',
+        },
+      [`.grid-cols-${i}.grid-line-xfull > *:nth-child(n):nth-last-child(n)::before`]:
+        {
+          '--gridline-x-width': '1px',
+        },
+      [`.grid-cols-${i}.grid-line-xfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::before`]:
+        {
+          '--gridline-x-width': '0',
+        },
+      [`.grid-cols-${i}.grid-line-xfull > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ *::before`]:
+        {
+          '--gridline-x-width': '0',
+        },
     };
 
     if (i > 1) {
@@ -288,12 +294,11 @@ module.exports = function ({ addComponents, matchComponents, theme, config }) {
         ...obj,
         [`.grid-cols-${i}[class*="grid-line-y"] > *:nth-child(n)::after`]: {
           '--gridline-y-width': '1px',
-          '--mike': 'a',
         },
-        [`.grid-cols-${i}[class*="grid-line-y"] > *:nth-child(${i}n+${i})::after`]: {
-          '--gridline-y-width': '0',
-          '--mike': '1',
-        },
+        [`.grid-cols-${i}[class*="grid-line-y"] > *:nth-child(${i}n+${i})::after`]:
+          {
+            '--gridline-y-width': '0',
+          },
       };
       // vertical lines, fix top position of first row
       obj = {
@@ -308,18 +313,22 @@ module.exports = function ({ addComponents, matchComponents, theme, config }) {
       // vertical lines, fix bottom position of last row
       obj = {
         ...obj,
-        [`.grid-cols-${i}.grid-line-y > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
-          '--gridline-y-bottom': '0',
-        },
-        [`.grid-cols-${i}.grid-line-y > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
-          '--gridline-y-bottom': '0',
-        },
-        [`.grid-cols-${i}.grid-line-yfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
-          '--gridline-y-bottom': '0',
-        },
-        [`.grid-cols-${i}.grid-line-yfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]: {
-          '--gridline-y-bottom': '0',
-        },
+        [`.grid-cols-${i}.grid-line-y > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]:
+          {
+            '--gridline-y-bottom': '0',
+          },
+        [`.grid-cols-${i}.grid-line-y > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]:
+          {
+            '--gridline-y-bottom': '0',
+          },
+        [`.grid-cols-${i}.grid-line-yfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]:
+          {
+            '--gridline-y-bottom': '0',
+          },
+        [`.grid-cols-${i}.grid-line-yfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]:
+          {
+            '--gridline-y-bottom': '0',
+          },
       };
     }
 

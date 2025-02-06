@@ -81,7 +81,7 @@ And then open `docs/tailwind.config.js` and require your plugin:
 
 ```JS
 // A17 tailwind plugins
-const { Setup, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, Spacing, Typography, ColorTokens, ApplyColorVariables, Underline, Components, CssInJs, GridLayout, SpacingTokens } = require('@area17/a17-tailwind-plugins');
+const { Setup, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, Spacing, Typography, ColorTokens, ApplyColorVariables, Underline, GridLayout, SpacingTokens } = require('@area17/a17-tailwind-plugins');
 const Foo = require('./../src/Foo/index.js');
 ```
 

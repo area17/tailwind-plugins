@@ -23,8 +23,9 @@ title: A17 Tailwind Plugins
     common styling requirements.
   </p>
 
-  <p><strong>Version 5 of this plugin, updated in response to Tailwind's release of its version 4 may contain quirks as we fully understand the changes made to Tailwind version 4. <br>
-    It may be safest to use Tailwind <code>v3.4.17</code> with A17 Tailwind Plugins <code>v4.0.6</code> while iron out any potential quirks.</strong></p>
+  <p>
+    Version 5 of this plugin, updated in response to Tailwind's release of its version 4 required several refactors. You can report any issues in our <a href="https://github.com/area17/tailwind-plugins/issues" target="_blank">GitHub issue tracker</a>.
+  </p>
 
   <ul>
     <li>
@@ -105,7 +106,7 @@ title: A17 Tailwind Plugins
           <a href="./Typography.html">Typography</a> - generates responsive
           typography classes with ability to
           <a href="./Typography.html#overriding"
-            >overriding styles at breakpoints</a
+            >override styles at breakpoints</a
           >
         </li>
       </ul>
@@ -117,11 +118,6 @@ title: A17 Tailwind Plugins
           <a href="./GridLine.html">GridLine</a> - generates vertical and
           horizontal grid line/stroke classes (borders in the gutters between
           elements)
-          <ul>
-            <li><strong>Needs refactor to reduce outputted CSS</strong></li>
-            <li>For now ensure you purge your CSS</li>
-            <li>Notes in JS src file</li>
-          </ul>
         </li>
         <li>
           <a href="./Keyline.html">Keyline</a> - generates keylines in the
@@ -220,17 +216,17 @@ title: A17 Tailwind Plugins
     <tbody class="opacity-50">
       <tr>
         <td><code>4.0.x</code></td>
-        <td><code><=4.0.6</code></td>
+        <td><code><=4.0.8</code></td>
         <td>❌ <sup><a href="#compatibility-2" id="compatibility-2-ref">2</a></sup></td>
       </tr>
       <tr>
         <td><code>3.4.x</code></td>
-        <td><code><=4.0.6</code></td>
+        <td><code><=4.0.8</code></td>
         <td>✅</td>
       </tr>
       <tr>
         <td><code>2.2.x</code></td>
-        <td><code><=4.0.6</code></td>
+        <td><code><=4.0.8</code></td>
         <td>✅ <sup><a href="#compatibility-3" id="compatibility-3-ref">3</a></sup></td>
       </tr>
     </tbody>

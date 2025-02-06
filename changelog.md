@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [5.0.0] - 2025-02-03
+## [5.0.0] - 2025-02-06
 
 ### Changed
 
@@ -23,7 +23,7 @@ We leaned that styles added with `addBase` always appear in the CSS, even if not
 - GridGap now uses `addUtilities`
 - Spacing now uses `matchUtilities`
 - Layout now uses `matchUtilities` and `addComponents` (This requires a format change from `w-N-cols` to `w-cols-N`)
-- GridLine now uses `addBase` (to be refactored)
+- GridLine now uses `addComponents` and `matchComponents` and produces less CSS than previous versions
 - KeyLine now uses `matchComponents`
 - BackgroundFill now uses `matchUtilities` and `addUtilities`
 - StrokeFull now uses `matchUtilities` and `addUtilities`
