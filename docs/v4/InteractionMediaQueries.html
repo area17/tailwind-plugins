@@ -1,0 +1,111 @@
+---
+title: Interaction Media Queries
+---
+
+{% include_relative includes/_header.html %}
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>
+    Generates a series Tailwind media query classes to query a document based on
+    the presence and accuracy of the user’s pointing device and whether it has
+    the ability to hover over elements. For a better understanding, CSS Tricks
+    has a great article about them:
+    <a
+      href="https://css-tricks.com/touch-devices-not-judged-size/"
+      target="_blank"
+      >Touch Devices Should Not Be Judged By Their Size</a
+    >.
+  </p>
+
+  <h2 id="setup">Setup</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { InteractionMediaQueries } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  plugins: [InteractionMediaQueries],
+  ...
+};</code></pre>
+  </figure>
+
+  <h2 id="output">Output</h2>
+
+  <p>
+    This plugin will output prefix classes which generate media queries for:
+  </p>
+
+  <ul>
+    <li>
+      <code>.pointer-course:foo</code> generates
+      <code>@media (pointer: coarse){ ... }</code>
+    </li>
+    <li>
+      <code>.pointer-fine:foo</code> generates
+      <code>@media (pointer: fine){ ... }</code>
+    </li>
+    <li>
+      <code>.pointer-none:foo</code> generates
+      <code>@media (pointer: none){ ... }</code>
+    </li>
+    <li>
+      <code>.hover-hover:foo</code> generates
+      <code>@media (hover: hover){ ... }</code>
+    </li>
+    <li>
+      <code>.hover-none:foo</code> generates
+      <code>@media (hover: none){ ... }</code>
+    </li>
+    <li>
+      <code>.any-pointer-course:foo</code> generates
+      <code>@media (any-pointer: coarse){ ... }</code>
+    </li>
+    <li>
+      <code>.any-pointer-fine:foo</code> generates
+      <code>@media (any-pointer: fine){ ... }</code>
+    </li>
+    <li>
+      <code>.any-pointer-none:foo</code> generates
+      <code>@media (any-pointer: none){ ... }</code>
+    </li>
+    <li>
+      <code>.any-hover-hover:foo</code> generates
+      <code>@media (any-hover: hover){ ... }</code>
+    </li>
+    <li>
+      <code>.any-hover-on-demand:foo</code> generates
+      <code>@media (any-hover: on-demand){ ... }</code>
+    </li>
+    <li>
+      <code>.any-hover-none:foo</code> generates
+      <code>@media (any-hover: none){ ... }</code>
+    </li>
+  </ul>
+
+  <h2 id="demo">Demo</h2>
+
+  <p>
+    The following, totally pointless example, will have a dark blue background
+    colour on devices where the primary pointer device is a mouse or stylus and
+    a light blue background colour on devices where the primary pointer device
+    is something, such as a finger.
+  </p>
+</div>
+
+<div class="bg-column hover-hover:bg-column-alt h-80 mt-20"></div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="bg-column hover-hover:bg-column-alt">...&lt;/div></code></pre>
+  </figure>
+</div>
+
+{% include_relative includes/_footer.html %}

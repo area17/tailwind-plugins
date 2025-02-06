@@ -1,4 +1,4 @@
-module.exports = function ({ addComponents, theme }) {
+module.exports = function ({ addBase, theme }) {
   const tokens = theme('colors', {});
 
   let styles = {};
@@ -16,7 +16,7 @@ module.exports = function ({ addComponents, theme }) {
     if (typeof color === 'string') {
       const colorName = names.length > 0 ? `${names.join('-')}-${name}` : name;
 
-      styles[':root'][`--${colorName}`] = color;
+      styles[':root'][`--color-${colorName}`] = color;
     } else {
       const parentNames = [...names, name];
 
@@ -26,5 +26,5 @@ module.exports = function ({ addComponents, theme }) {
     }
   }
 
-  addComponents(styles);
+  addBase(styles);
 };

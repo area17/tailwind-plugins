@@ -19,24 +19,28 @@ title: A17 Tailwind Plugins
   </p>
 
   <p>
-    We also wanted to include a few utility classes that would simplify some
-    common styling requirements.
+    Version 5 of this plugin, updated in response to Tailwind's release of its version 4 required several refactors. You can report any issues in our <a href="https://github.com/area17/tailwind-plugins/issues" target="_blank">GitHub issue tracker</a>.
   </p>
 
-  <p>Firstly, our Tailwind setup:</p>
+  <p>
+    There is a <strong>breaking change</strong> to the Layout plugin, see the <a href="./migrating.html">migration guide</a> or the <a href="./Layout.html#v5-0-0">V5 notes in the Layout docs</a>.
+  </p>
+
+  <h2 class="f-h2">Our Tailwind Setup</h2>
 
   <ul>
     <li>
-      <a href="./tailwind-setup.html">tailwind-setup</a> - a walk through of our
-      basic Tailwind setup, consuming a config JSON and applying plugins
+      <a href="./tailwind-setup.html">Setup guide</a> - a walk through of our
+      basic Tailwind setup, consuming a config JSON and applying plugins.
     </li>
+    <li><a href="./migrating.html">Migration guide</a> from A17 Tailwind Plugins <code>v4</code> to <code>v5</code> and migrating from Tailwind <code>v3</code> to <code>v4</code></li>
   </ul>
 
-  <p>And then, the our plugins themselves:</p>
+  <h2 class="f-h2" id="plugins">Available Plugins</h2>
 
-  <div class="grid gap-gutter md:grid-cols-2 my-60 !max-w-full">
-    <div class="border-t border-t-secondary pt-20">
-      <h2 class="f-h2">Setup</h2>
+  <div class="grid gap-gutter md:grid-cols-2 mb-60 !max-w-full">
+    <div>
+      <h3 class="f-h3">Plugins Setup</h3>
       <ul>
         <li>
           <a href="./Setup.html">Setup</a> - the center pin of many of our
@@ -57,49 +61,33 @@ title: A17 Tailwind Plugins
         <li>
           <a href="./SpacingTokens.html">SpacingTokens</a> - generates
           <code>rem</code> based spacing tokens based on pixel based scales or
-          inputs (updated in <code>v3.4.0</code>)
+          inputs
+          <ul>
+            <li>Not required in Tailwind v4</li>
+          </ul>
         </li>
       </ul>
     </div>
-    <div class="border-t border-t-secondary pt-20">
-      <h2 class="f-h2">Layout</h2>
+    <div class="border-t border-t-secondary pt-20 md:border-t-0 md:pt-0">
+      <h3 class="f-h3">Layout</h3>
       <ul>
         <li>
           <a href="./Spacing.html">Spacing</a> - generates responsive spacing
           classes
-          <ul>
-            <li>
-              <code>v4.0.5</code> adds logical properties
-              <code>margin-inline-start</code>/<code>ms-</code>,
-              <code>margin-inline-end</code>/<code>me-</code>,
-              <code>padding-inline-start</code>/<code>ps-</code>,
-              <code>padding-inline-end</code>/<code>pe-</code>,
-              <code>inset-inline-start</code>/<code>start</code> and
-              <code>inset-inline-end</code>/<code>end</code>
-            </li>
-          </ul>
         </li>
         <li>
           <a href="./Container.html">Container</a> - generates a custom
-          container class based on supplied config (resets and more useful
-          breakout styles new in <code>v3.6.0</code>)
+          container class based on supplied config
         </li>
         <li>
           <a href="./Layout.html">Layout</a> - generates utility classes to set
           elements onto the design grid
           <ul>
             <li>
-              <code>v3.6.0</code> adds <code>vw</code> based calcs variants
+              <a href="./Layout.html#v5-0-0">Breaking change</a> from <code>&lt;v5.0.0</code> to <code>v5.0.0</code>: <br>
+              The format of the class names has been updated from <code>.w-N-cols</code> to <code>.w-cols-N</code>.
             </li>
-            <li>
-              <code>v3.10.0</code> adds logical properties
-              <code>margin-inline-start</code>/<code>ms-</code>,
-              <code>margin-inline-end</code>/<code>me-</code>,
-              <code>padding-inline-start</code>/<code>ps-</code>,
-              <code>padding-inline-end</code>/<code>pe-</code>,
-              <code>inset-inline-start</code>/<code>start</code> and
-              <code>inset-inline-end</code>/<code>end</code>
-            </li>
+            <li>In <code>v5.0.0</code> <code>.cols-container</code> is deprecated to be removed in <code>v6.0.0</code></li>
           </ul>
         </li>
         <li>
@@ -113,20 +101,19 @@ title: A17 Tailwind Plugins
       </ul>
     </div>
     <div class="border-t border-t-secondary pt-20">
-      <h2 class="f-h2">Typography</h2>
+      <h3 class="f-h3">Typography</h3>
       <ul>
         <li>
           <a href="./Typography.html">Typography</a> - generates responsive
-          typography classes (updated in <code>v3.9.0</code> to allow
+          typography classes with ability to
           <a href="./Typography.html#overriding"
-            >Typography overriding styles</a
+            >override styles at breakpoints</a
           >
-          at breakpoints)
         </li>
       </ul>
     </div>
     <div class="border-t border-t-secondary pt-20">
-      <h2 class="f-h2">Grid gutter borders</h2>
+      <h3 class="f-h3">Grid gutter borders</h3>
       <ul>
         <li>
           <a href="./GridLine.html">GridLine</a> - generates vertical and
@@ -140,34 +127,32 @@ title: A17 Tailwind Plugins
       </ul>
     </div>
     <div class="border-t border-t-secondary pt-20">
-      <h2 class="f-h2">General Styling Utilities</h2>
+      <h3 class="f-h3">General Styling Utilities</h3>
       <ul>
         <li>
           <a href="./BackgroundFill.html">BackgroundFill</a> - draws a 100vw
-          background colour pseudo layer (new in <code>v3.8.0</code>)
+          background colour pseudo layer
         </li>
         <li>
           <a href="./StrokeFull.html">StrokeFull</a> - draws a 100vw key pseudo
-          layer (new in <code>v3.8.0</code>)
+          layer
         </li>
         <li>
           <a href="./Underline.html">Underline</a> - generates text underline
-          styling classes (new in <code>v3.1.0</code>)
+          styling classes
         </li>
         <li>
           <a href="./FullBleedScroller.html">FullBleedScroller</a> - easy full
-          bleed `overflow-x: auto` scrolling containers (new in
-          <code>v3.6.0</code>)
+          bleed `overflow-x: auto` scrolling containers
         </li>
         <li>
           <a href="./Scrollbar.html">Scrollbar</a> - scrollbar styling, unifies
-          the CSS standard and non-standard scrollbar styling (new in
-          <code>v3.6.0</code>)
+          the CSS standard and non-standard scrollbar styling
         </li>
       </ul>
     </div>
     <div class="border-t border-t-secondary pt-20">
-      <h2 class="f-h2">General Utilities</h2>
+      <h3 class="f-h3">General Utilities</h3>
       <ul>
         <li>
           <a href="./PseudoElements.html">PseudoElements</a> - adds additional
@@ -176,39 +161,88 @@ title: A17 Tailwind Plugins
         <li>
           <a href="./InteractionMediaQueries.html">InteractionMediaQueries</a> -
           adds interaction based media queries, think targeting devices with
-          hover capability (new in <code>v3.6.0</code>)
+          hover capability
         </li>
         <li>
           <a href="./RatioBox.html">RatioBox</a> - generates ratio box utilities
-        </li>
-        <li>
-          <a href="./CssInJs.html">CssInJs</a> - allows you to pass through CSS
-          from your Tailwind config (new in <code>v3.2.0</code>)
-        </li>
-        <li>
-          <a href="./Components.html">Components</a> - allows you to generate
-          component CSS from your Tailwind config (new in <code>v3.2.0</code>)
         </li>
       </ul>
     </div>
   </div>
 
-  <p>
-    For AREA 17 staffers used to the legacy
-    <a
-      href="https://code.area17.com/a17/fe-boilerplate/-/tree/main"
-      target="_blank"
-      >A17 Boilerplate</a
-    >
-    - these classes bring into Tailwind some of the useful classes from there
-    (and in return, some of the Tailwind classes have been taken back to the A17
-    SCSS set up).
-  </p>
+  <h2 class="f-h2" id="removed-plugins">Removed Plugins in <code>5.x.x</code></h2>
 
-  <p>
-    Tested in Tailwind <code>2.x.x</code> (with and without JIT) and
-    <code>3.2.x</code>.
-  </p>
+  <p>The following plugins are no longer available in <code>5.x.x</code> due to incompatibility with Tailwind 4. You'll need to move any styles specified in your config to inside your CSS if you used these plugins:</p>
+
+  <ul>
+    <li>
+      <a href="./v4/CssInJs.html">CssInJs</a> - allows you to pass through CSS
+      from your Tailwind config
+    </li>
+    <li>
+      <a href="./v4/Components.html">Components</a> - allows you to generate
+      component CSS from your Tailwind config
+    </li>
+  </ul>
+
+  <h2 class="f-h2" id="compatibility">Compatibility</h2>
+
+  <p>You are currently viewing docs for <code>5.x.x</code></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tailwind version</th>
+        <th>A17 Tailwind Plugins version</th>
+        <th>Compatible</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>4.0.x</code></td>
+        <td><code>5.x.x</code></td>
+        <td>✅</td>
+      </tr>
+      <tr>
+        <td><code>3.4.x</code></td>
+        <td><code>==5.0.0</code></td>
+        <td>✅</td>
+      </tr>
+      <tr>
+        <td><code>2.2.x</code></td>
+        <td><code>5.0.0</code></td>
+        <td>⁇ <sup><a href="#compatibility-1" id="compatibility-1-ref">1</a></sup></td>
+      </tr>
+    </tbody>
+    <tbody class="opacity-50">
+      <tr>
+        <td><code>4.0.x</code></td>
+        <td><code><=4.0.8</code></td>
+        <td>❌ <sup><a href="#compatibility-2" id="compatibility-2-ref">2</a></sup></td>
+      </tr>
+      <tr>
+        <td><code>3.4.x</code></td>
+        <td><code><=4.0.8</code></td>
+        <td>✅</td>
+      </tr>
+      <tr>
+        <td><code>2.2.x</code></td>
+        <td><code><=4.0.8</code></td>
+        <td>✅ <sup><a href="#compatibility-3" id="compatibility-3-ref">3</a></sup></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3">
+          <ol class="f-ui">
+            <li id="compatibility-1">Untested <a href="#compatibility-1-ref">&#8617;</a></li>
+            <li id="compatibility-2">Tailwind 4 introduced <a href="https://tailwindcss.com/docs/upgrade-guide#changes-from-v3" target="_blank">lots of changes</a> <a href="#compatibility-2-ref">&#8617;</a></li>
+            <li id="compatibility-3">As far as we know <a href="#compatibility-3-ref">&#8617;</a></li>
+          </ol>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
 </div>
 
 {% include_relative includes/_footer.html %}

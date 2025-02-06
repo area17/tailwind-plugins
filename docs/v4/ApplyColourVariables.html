@@ -1,0 +1,192 @@
+---
+title: ApplyColourVariables
+---
+
+{% include_relative includes/_header.html %}
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>
+    This plugin maps <code>:root</code> CSS colour variables, made with the
+    <code>ColorTokens</code> plugin, to Tailwind text, background and border
+    colours (or which ever Tailwind colour classes you set).
+  </p>
+
+  <p>
+    The CSS output is standard <code>text-</code>/<code>bg-</code>/<code
+      >border-</code
+    >
+    classes, only the values are mapped to CSS variables.
+  </p>
+
+  <h2 id="setup">Setup</h2>
+
+  <p>
+    Essentially you set your colours in the <code>theme</code> as you would when
+    overriding Tailwind colours as normal. <br />But, you assign each colour
+    type to the <code>ApplyColourVariables</code> function passing in 2 objects,
+    the first of the colour tokens and the second being your chosen colour
+    mappings.
+  </p>
+
+  <p>
+    The colour mappings are in abstract usage key to CSS variable name value:
+  </p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">backgroundColor: ApplyColorVariables(colors, {
+    banner: "grey-90",
+  }
+)</code></pre>
+  </figure>
+
+  <p>Which would give you:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">app.css</figcaption>
+    <pre class="code-example-code"><code class="language-css">.bg-banner {
+  background-color: var(--grey-90);
+}</code></pre>
+  </figure>
+
+  <p>And so your full config would be something like:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { ColorTokens, ApplyColorVariables } = require('@area17/a17-tailwind-plugins');
+
+const colors = {
+  "white": "#fff",
+  "grey-5": "#f2f2f2",
+  "grey-10": "#e6e6e6",
+  "grey-15": "#d9d9d9",
+  "grey-54": "#757575",
+  "grey-90": "#1a1a1a",
+  "black": "#000",
+  "blue-01": "#0A152B",
+  "blue-02": "#001F5C",
+  "blue-03": "#004F91",
+  "blue-04": "#313BFB",
+  "blue-05": "#81EEF3",
+  "red": {
+    "100": "#D3B2C0",
+    "400": "#EF4637",
+    "500": "#EE3523",
+    "700": "#772848",
+    "800": "#6C002C"
+  },
+  "purple": "#793CB8",
+  "purple-light": "rgba(121, 60, 184, 0.1)"
+};
+
+module.exports = {
+  ...
+  plugins: [ColorTokens],
+  theme: {
+    colors: colors,
+    borderColor: ApplyColorVariables(colors, {
+        primary: "grey-54",
+        secondary: "red-01",
+        tertiary: "grey-15"
+      }
+    ),
+    textColor: ApplyColorVariables(colors, {
+        title: "black",
+        primary: "grey-90",
+        inverse: "white",
+        secondary: "grey-54",
+        accent: "blue-03",
+        code: "black",
+        "danger": "red-400",
+        "tag": "purple",
+        "tip": "purple-light",
+        "custom": "#00f"
+      }
+    ),
+    backgroundColor: ApplyColorVariables(colors, {
+        primary: "white",
+        banner: "grey-90",
+        accent: "blue-03",
+        column: "blue-05",
+        column-alt: "blue-04",
+        code: "grey-10"
+      }
+    )
+  }
+  ...
+};</code></pre>
+  </figure>
+
+  <p>
+    You can also apply arbitrary Hex, RGB, RGBA, HSL, colour name or any valid
+    CSS colour value instead of a CSS variable name:
+  </p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre class="code-example-code"><code class="language-javascript">...
+backgroundColor: ApplyColorVariables(colors, {
+    banner: "grey-90",
+    specialCase: "#f00"
+  }
+)
+...</code></pre>
+  </figure>
+
+  <h2 id="output">Output</h2>
+  <p>
+    Based on the reference config mentioned in this guide, we would get the
+    following in our CSS:
+  </p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">app.css</figcaption>
+    <pre class="code-example-code"><code class="language-css">.text-primary {
+  color: var(--grey-90);
+}
+
+.text-danger {
+  color: var(--red-400);
+}
+
+.text-tag {
+  color: var(--purple);
+}
+
+.text-custom {
+  color: #00f;
+}
+
+.bg-column {
+  background-color: var(--blue-05);
+}
+
+etc.</code></pre>
+  </figure>
+
+  <p>
+    <strong>Note:</strong> This isn't all the output, just indicative. The
+    output classes themselves are very much standard Tailwind type colour
+    classes - the <strong>only</strong> difference is they're mapped to CSS
+    variables.
+  </p>
+
+  <h2 id="notes">Notes</h2>
+
+  <p>
+    This could be considered step 2 of abstracting colour tokens from colour
+    usage. The first step is generating colour variables with the
+    <code>ColorTokens</code> plugin. Although you could name your text,
+    background and border colours anything, its <strong>important</strong> to
+    name by abstract usage and not by the hue of the colour itself. It will be
+    far easier to update these and expand these in the future if you do this.
+  </p>
+</div>
+
+{% include_relative includes/_footer.html %}

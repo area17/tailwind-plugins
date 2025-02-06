@@ -79,6 +79,7 @@
       "grey-5": "#f2f2f2",
       "grey-10": "#e6e6e6",
       "grey-15": "#d9d9d9",
+      "grey-30": "#b3b3b3",
       "grey-54": "#757575",
       "grey-90": "#1a1a1a",
       "black": "#000",
@@ -91,9 +92,10 @@
       "red-01": "#f00"
     },
     "border": {
-      "primary": "black",
-      "secondary": "grey-15",
+      "primary": "grey-90",
+      "secondary": "grey-30",
       "tertiary": "grey-54",
+      "quaternary": "blue-05",
       "code-example-filename": "blue-05"
     },
     "text": {
@@ -104,17 +106,18 @@
       "accent": "blue-03",
       "code": "black",
       "code-example": "grey-3",
-      "code-example-filename": "blue-05"
+      "code-example-filename": "blue-05",
+      "error": "red-01"
     },
     "background": {
-      "primary": "white",
+      "primary": "grey-10",
       "header": "grey-10",
       "footer": "grey-10",
       "banner": "grey-90",
       "accent": "blue-03",
       "column": "blue-05",
       "column-alt": "blue-04",
-      "code": "grey-10",
+      "code": "white",
       "code-example": "grey-90",
       "quote": "grey-5"
     },
@@ -140,7 +143,7 @@
     "typesets": {
       "h1": {
         "xs": {
-          "font-family": "var(--sans)",
+          "font-family": "var(--font-sans)",
           "font-weight": "500",
           "bold-weight": "500",
           "font-size": "32px",
@@ -157,7 +160,7 @@
       },
       "h2": {
         "xs": {
-          "font-family": "var(--sans)",
+          "font-family": "var(--font-sans)",
           "font-weight": "500",
           "bold-weight": "500",
           "font-size": "20px",
@@ -174,7 +177,7 @@
       },
       "h3": {
         "xs": {
-          "font-family": "var(--sans)",
+          "font-family": "var(--font-sans)",
           "bold-weight": "500",
           "font-weight": "500",
           "font-size": "16px",
@@ -188,7 +191,7 @@
       },
       "h4": {
         "xs": {
-          "font-family": "var(--sans)",
+          "font-family": "var(--font-sans)",
           "bold-weight": "600",
           "font-weight": "600",
           "font-size": "14px",
@@ -202,7 +205,7 @@
       },
       "body": {
         "xs": {
-          "font-family": "var(--sans)",
+          "font-family": "var(--font-sans)",
           "bold-weight": "600",
           "font-size": "14px",
           "line-height": "1.7",
@@ -214,7 +217,7 @@
       },
       "ui": {
         "xs": {
-          "font-family": "var(--sans)",
+          "font-family": "var(--font-sans)",
           "font-size": "12px",
           "line-height": 1.2,
           "font-weight": 400
@@ -222,120 +225,11 @@
       },
       "code": {
         "xs": {
-          "font-family": "var(--mono)",
+          "font-family": "var(--font-mono)",
           "font-size": "14px",
           "line-height": 1.2,
           "font-weight": 400
         }
-      }
-    }
-  },
-  "components": {
-    ".show-grid": {
-      "apply": "relative",
-      "attributes": {
-        "--grid-column-bg": "rgba(0, 0, 0, 0.05)"
-      },
-      "selectors": {
-        "::after": "dev-tools-grid absolute w-full content-['']"
-      }
-    },
-    ".blockquote": {
-      "apply": "bg-quote py-20",
-      "selectors": {
-        "blockquote": "block px-20 md:px-40",
-        "blockquote p": "italic",
-        "blockquote p:first-child": "mt-0 relative",
-        "blockquote p:first-child::before": "content-[open-quote] absolute top-0 right-full -left-8",
-        "blockquote p:last-child::after": "content-[close-quote]",
-        "figcaption": "block mt-8 px-20 md:px-40",
-        "cite": "not-italic",
-        "cite::before": "content-['—'] mr-8"
-      }
-    },
-    ".code-example": {
-      "apply": "block bg-code-example",
-      "selectors": {
-        ".code-example-filename": {
-          "apply": "inline-block f-ui text-inverse px-20  py-12 border-b text-code-example-filename border-code-example-filename",
-          "attributes": {
-            "min-width": "160px"
-          }
-        },
-        ".code-example-code": "block f-code bg-code-example text-code-example bg-code-example",
-        ".code-example-code code": {
-          "apply": "bg-code-example max-h-600 overflow-auto",
-          "attributes": {
-            "scrollbar-color": "var(--grey-54) var(--grey-90)",
-            "scrollbar-width": "thin"
-          },
-          "selectors": {
-            "::-webkit-scrollbar": {
-              "attributes": {
-                "width": "8px",
-                "height": "8px"
-              }
-            },
-            "::-webkit-scrollbar-track": {
-              "attributes": {
-                "background": "var(--grey-90)"
-              }
-            },
-            "::-webkit-scrollbar-thumb": {
-              "attributes": {
-                "background": "var(--grey-54)",
-                "width": "8px",
-                "height": "8px"
-              }
-            }
-          }
-        }
-      }
-    },
-    ".copy": {
-      "breakpoints": {
-        "md": {
-          "selectors": {
-            "> *:not(.code-example, h2, hr)": {
-              "attributes": {
-                "max-width": "80%"
-              }
-            }
-          }
-        },
-        "lg": {
-          "selectors": {
-            "> *:not(.code-example, h2, hr)": {
-              "attributes": {
-                "max-width": "60%"
-              }
-            }
-          }
-        }
-      },
-      "selectors": {
-        "h2": "f-h2",
-        "h2:not(:first-child)": "mt-56 pt-48 border-t border-secondary",
-        "h3": "f-h3 mt-40",
-        "h4": "f-h4 mt-40",
-        "p": "f-body mt-20",
-        "p:first-child": "mt-0",
-        "ul": "f-body mt-20 list-disc pl-16",
-        "ul ul": "mt-0",
-        ".code-example": "mt-20",
-        "code:not([class])": "f-code text-code bg-code px-8 pt-4 pb-2",
-        "pre:not([class])": "block mt-20 f-code max-h-400 overflow-y-scroll",
-        "pre:not([class]) code:not([class])": "block p-8",
-        "a": {
-          "apply": "text-accent underline",
-          "selectors": {
-            ":hover, :focus": {
-              "apply": "text-primary"
-            }
-          }
-        },
-        "hr": "border-secondary my-40",
-        ".blockquote": "mt-20"
       }
     }
   }

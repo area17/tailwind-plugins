@@ -1,0 +1,196 @@
+---
+title: RatioBox
+---
+
+{% include_relative includes/_header.html %}
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>
+    Produces ratio boxes, which can be optionally grow if the content is longer
+    than the height and can also be set to be free ratio if the ratio is no
+    longer required.
+  </p>
+
+  <p>
+    <strong>NB:</strong> You may want to use
+    <a
+      href="https://github.com/tailwindlabs/tailwindcss-aspect-ratio"
+      target="_blank"
+      >Tailwind's official plugin</a
+    >. The main difference with this plugin is the ability to have
+    <a href="#expandable">expandable</a> ratio boxes, so effectively a
+    <code>min-height</code> of a ratio which expands if the content is too tall.
+  </p>
+
+  <h3>A note about Tailwind 3's native aspect ratio</h3>
+
+  <p>
+    In Tailwind 3, Tailwind introduced "<a
+      href="https://tailwindcss.com/blog/tailwindcss-v3#modern-aspect-ratio-api"
+      target="_blank"
+      >Modern aspect ratio API</a
+    >" to use browser native <code>aspect-ratio</code> and so the life span of
+    this plugin is very much limited.
+  </p>
+  <p>
+    At A17 we generally try and target current major and 2 previous major
+    versions the browsers with our styling and browser native aspect ratio isn't
+    there just yet. As of December 2021,
+    <a href="https://caniuse.com/?search=aspect-ratio" target="_blank"
+      >Safari is lagging behind</a
+    >. Now this might not be as big of deal as it might have been in the olden
+    days, as iOS and MacOS is pretty good at making its users update their
+    devices, so you'll need to weigh up how you do aspect ratio boxes in project
+    yourself.
+  </p>
+  <p>
+    Browser native <code>aspect-ratio</code> boxes will expand if the content is
+    taller than the box, unless you lock it with
+    <code>min-height: 0</code>/<code>min-h-0</code>.
+  </p>
+
+  <h2 id="setup">Setup</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { RatioBox } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  plugins: [RatioBox],
+  theme: {
+    ratios: {
+      "1x1": "1:1",
+      "16x9": "16:9"
+    }
+  }
+  ...
+};</code></pre>
+  </figure>
+
+  <h2 id="demo">Demo</h2>
+
+  <p>Using this plugin requires a wrapper and a child.</p>
+
+  <ul>
+    <li>
+      The wrapper gets the ratio classes: eg: <code>ratio ratio-1x1</code>,
+    </li>
+    <li>the child gets a class of <code>ratio-content</code>.</li>
+  </ul>
+
+  <p>
+    Based on the reference config mentioned in this guide, a 1:1 box that
+    changes to 16:9 ratio at the <code>md</code> breakpoint:
+  </p>
+</div>
+
+<div class="ratio ratio-1x1 md:ratio-16x9 mt-20">
+  <div class="ratio-content bg-column"></div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="ratio ratio-1x1 md:ratio-16x9">
+  &lt;div class="ratio-content bg-column">
+  &lt;/div>
+&lt;/div></code></pre>
+  </figure>
+</div>
+
+<div id="expandable" class="copy mt-40">
+  <p>
+    A 16:9 box, which can grow if the content is taller than the box
+    (effectively this box is <code>min-height: 16:9</code>):
+  </p>
+</div>
+
+<div class="ratio ratio-16x9 ratio-expandable mt-20 bg-column">
+  <div class="copy p-20">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ligula
+      risus, fermentum id elit sit amet, fringilla viverra metus. Phasellus in
+      convallis metus. Sed maximus nibh vitae nulla auctor pharetra et vel
+      felis. Suspendisse ornare gravida nunc eget suscipit. Curabitur
+      ullamcorper libero finibus efficitur pulvinar. Class aptent taciti
+      sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+      Phasellus congue non est eu tempus. Cras ut tellus ligula. Maecenas ac
+      pellentesque elit, ac ultrices dolor. Donec id nisi sem. Sed vitae
+      accumsan erat. Quisque eu lobortis neque, at suscipit tellus. Sed molestie
+      risus et sem fringilla egestas. Morbi porttitor ante sit amet placerat
+      tincidunt. Praesent cursus fermentum sapien et suscipit. Aenean augue ex,
+      faucibus vel erat a, consectetur cursus ante.
+    </p>
+    <p>
+      Sed rhoncus rhoncus maximus. Donec et feugiat ipsum. Duis nec euismod
+      nisi. Nam eget augue interdum, pulvinar eros condimentum, consectetur leo.
+      Etiam malesuada urna semper metus facilisis, vel rutrum massa imperdiet.
+      Ut id gravida velit. Proin egestas leo ipsum, quis blandit dolor vehicula
+      a. Nullam tristique euismod est non egestas. Sed at euismod risus.
+    </p>
+    <p>
+      Suspendisse hendrerit aliquet efficitur. Suspendisse placerat lectus nisi.
+      Duis id nibh tellus. Sed vehicula ipsum eu mauris sagittis, ac ultricies
+      magna feugiat. In luctus fermentum augue, non tristique dolor iaculis
+      blandit. Etiam quis lobortis metus, sit amet cursus nisl. Maecenas rhoncus
+      malesuada nibh at pretium. Duis cursus eros nisi, sed laoreet mi luctus
+      ac.
+    </p>
+  </div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="ratio ratio-16x9 ratio-expandable">
+  &lt;div>
+    ...
+  &lt;/div>
+&lt;/div></code></pre>
+  </figure>
+</div>
+
+<div class="copy mt-40">
+  <p>
+    A 16:9 ratio box that becomes free ratio at <code>lg</code>. <br /><strong
+      >NB:</strong
+    >
+    currently not possible to make this box constrained by a ratio again at a
+    larger breakpoint - so
+    <code>ratio-16x9 lg:ratio-free xl:ratio-16:9</code> would have unexpexted
+    results.
+  </p>
+</div>
+
+<div class="ratio ratio-16x9 lg:ratio-free mt-20 bg-column">
+  <div class="ratio-content copy p-20">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ligula
+      risus, fermentum id elit sit amet, fringilla viverra metus.
+    </p>
+  </div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="ratio ratio-16x9 lg:ratio-free">
+  &lt;div class="ratio-content">
+    ...
+  &lt;/div>
+&lt;/div></code></pre>
+  </figure>
+</div>
+
+{% include_relative includes/_footer.html %}

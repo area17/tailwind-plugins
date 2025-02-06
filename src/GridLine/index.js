@@ -1,302 +1,337 @@
-module.exports = function ({ addComponents, theme, config }) {
-  const bps = Object.keys(theme('screens', {})) || [];
-  const firstBp = bps[0];
+module.exports = function ({ addComponents, matchComponents, theme, config }) {
+  const breakpoints = theme('screens');
+  const firstBp = Object.keys(breakpoints)[0];
   const colors = theme('borderColor', theme('color', {}));
   const spacing = theme('spacing', {});
   const columnCount = theme('columnCount', {});
   const maxCols = theme('maxGridCols', columnCount);
-  const prefixString = config('prefix');
-  const bpString = '::BP::';
-  const regEx = new RegExp('::BP::', 'ig');
-  let stylesToReturn = {};
+  const maxColAmount = Math.max.apply(Math, Object.values(maxCols));
 
-  // set base
-  const styles = [
-    {
-      [`[class*="${prefixString}grid-line-"] > *`]: {
+  const gridlineTypes = {
+    'x': 'x',
+    'xfull': 'xfull',
+    'x-0': 'x-0',
+    'y': 'y',
+    'yfull': 'yfull',
+    'y-0': 'y-0',
+  };
+
+  const gridLineColours = {};
+  ['x', 'y', 'xy'].forEach((dir) => {
+    Object.entries(colors).forEach((group) => {
+      const [name, color] = group;
+      gridLineColours[`${dir}-${name}`] = `${dir}::${color}`;
+    });
+  });
+
+  const offsets = {};
+  for (i = 1; i <= 200; i++) {
+    offsets[i] = `${i}px`;
+  }
+
+  const gridColsValues = {};
+  for (i = 1; i < maxColAmount + 1; i++) {
+    gridColsValues[i] = i;
+  }
+
+  Object.keys(gridlineTypes).forEach((value) => {
+    let typeClassName = `.grid-line-${value}`;
+
+    let props = {};
+
+    if (value === 'x') {
+      props = {
+        [`${typeClassName} > *::before`]: {
+          content: '""',
+          'inset-inline-start': 'var(--gridline-x-start, 0)',
+          'inset-inline-end': 'var(--gridline-x-end, 0)',
+          top: '0',
+          bottom: 'var(--gridline-x-bottom, calc(var(--inner-gutter) / -2))',
+          'border-top': '0 solid transparent',
+          'border-bottom': 'var(--gridline-x-width, 0) solid var(--gridline-x-color, transparent)',
+        },
+      };
+    }
+
+    if (value === 'xfull') {
+      props = {
+        [`${typeClassName} > *::before`]: {
+          content: '""',
+          'inset-inline-start': 'var(--gridline-x-start, calc(var(--inner-gutter) / -2))',
+          'inset-inline-end': 'var(--gridline-x-end, calc(var(--inner-gutter) / -2))',
+          top: '0',
+          bottom: 'var(--gridline-x-bottom, calc(var(--inner-gutter) / -2))',
+          'border-top': '0 solid transparent',
+          'border-bottom': 'var(--gridline-x-width, 0) solid var(--gridline-x-color, transparent)',
+        },
+      };
+    }
+
+    if (value === 'x-0') {
+      props = {
+        [`${typeClassName} > *::before`]: {
+          content: 'none',
+        },
+      };
+    }
+
+    if (value === 'y') {
+      props = {
+        [`${typeClassName} > *::after`]: {
+          content: '""',
+          'inset-inline-start': '0',
+          'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
+          top: '0',
+          bottom: '0',
+          'border-inline-start': '0 solid transparent',
+          'border-inline-end': 'var(--gridline-y-width, 0) solid var(--gridline-y-color, transparent)',
+        },
+      };
+    }
+
+    if (value === 'yfull') {
+      props = {
+        [`${typeClassName} > *::after`]: {
+          content: '""',
+          'inset-inline-start': '0',
+          'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
+          top: 'var(--gridline-y-top, calc(var(--inner-gutter) / -1))',
+          bottom: '0',
+          'border-inline-start': '0 solid transparent',
+          'border-inline-end': 'var(--gridline-y-width, 0) solid var(--gridline-y-color, transparent)',
+        },
+        [`${typeClassName}.grid-line-x > *::after`]: {
+          'inset-inline-start': '0',
+          'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
+          top: 'var(--gridline-y-top, calc(var(--inner-gutter) / -2))',
+          bottom: 'var(--gridline-y-bottom, calc(var(--inner-gutter) / -2))',
+          'border-inline-start': '0 solid transparent',
+          'border-inline-end': 'var(--gridline-y-width, 0) solid var(--gridline-y-color, transparent)',
+        },
+        [`${typeClassName}.grid-line-xfull > *::after`]: {
+          'inset-inline-start': '0',
+          'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
+          top: 'var(--gridline-y-top, calc(var(--inner-gutter) / -2))',
+          bottom: 'var(--gridline-y-bottom, calc(var(--inner-gutter) / -2))',
+          'border-inline-start': '0 solid transparent',
+          'border-inline-end': 'var(--gridline-y-width, 0) solid var(--gridline-y-color, transparent)',
+        },
+      };
+    }
+
+    if (value === 'y-0') {
+      props = {
+        [`${typeClassName} > *::after`]: {
+          content: 'none',
+        },
+      };
+    }
+
+    addComponents({
+      [`${typeClassName} > *`]: {
         position: 'relative',
       },
-    },
-    {
-      [`[class*="${prefixString}grid-line-"] > *::before, [class*="${prefixString}grid-line-"] > *::after`]:
-        {
-          content: '""',
-          position: 'absolute',
-          'z-index': 0,
-          'pointer-events': 'none',
-        },
-    },
-    {
-      [`.${bpString + prefixString}grid-line-x > *::before`]: {
-        content: '""',
-        'inset-inline-start': '0',
-        'inset-inline-end': '0',
-        top: '0',
-        bottom: 'calc(var(--inner-gutter) / -2)',
-        'border-top': '0 solid transparent',
-        'border-bottom': '0 solid transparent',
+      [`${typeClassName} > *::before, ${typeClassName} > *::after`]: {
+        position: 'absolute',
+        'z-index': 0,
+        'pointer-events': 'none',
       },
-    },
-    {
-      [`.${bpString + prefixString}grid-line-xfull > *::before`]: {
-        content: '""',
-        'inset-inline-start': 'calc(var(--inner-gutter) / -2)',
-        'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
-        top: '0',
-        bottom: 'calc(var(--inner-gutter) / -2)',
-        'border-top': '0 solid transparent',
-        'border-bottom': '0 solid transparent',
-      },
-    },
-    {
-      [`.${bpString + prefixString}grid-line-x-0 > *::before`]: {
-        content: 'none',
-      },
-    },
-    {
-      [`.${bpString + prefixString}grid-line-y > *::after`]: {
-        content: '""',
-        'inset-inline-start': '0',
-        'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
-        top: '0',
-        bottom: '0',
-        'border-inline-start': '0 solid transparent',
-        'border-inline-end': '0 solid transparent',
-      },
-    },
-    {
-      [`.${bpString + prefixString}grid-line-yfull > *::after`]: {
-        content: '""',
-        'inset-inline-start': '0',
-        'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
-        top: 'calc(var(--inner-gutter) / -1)',
-        bottom: '0',
-        'border-inline-start': '0 solid transparent',
-        'border-inline-end': '0 solid transparent',
-      },
-    },
-    {
-      [`.${
-        bpString + prefixString
-      }grid-line-yfull[class*="${prefixString}grid-line-x"] > *::after`]: {
-        'inset-inline-start': '0',
-        'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
-        top: 'calc(var(--inner-gutter) / -2)',
-        bottom: 'calc(var(--inner-gutter) / -2)',
-        'border-inline-start': '0 solid transparent',
-        'border-inline-end': '0 solid transparent',
-      },
-    },
-    {
-      [`.${bpString + prefixString}grid-line-y-0 > *::after`]: {
-        content: 'none',
-      },
-    },
-  ];
-
-  // set spacing
-  Object.entries(spacing).forEach((group) => {
-    const [name, space] = group;
-
-    styles.push({
-      [`.${bpString + prefixString}grid-line-x-${name.replace(
-        '/',
-        '\\/'
-      )}[class*="${prefixString}grid-line-x-"] > *::before`]: {
-        bottom: `-${space}`,
-      },
-    });
-
-    styles.push({
-      [`.${bpString + prefixString}grid-line-x-${name.replace(
-        '/',
-        '\\/'
-      )}[class*="${prefixString}grid-line-yfull"] > *::after`]: {
-        top: `-${space}`,
-        bottom: `-${space}`,
-      },
+      ...props,
     });
   });
 
-  // set stroke colours
-  Object.entries(colors).forEach((group) => {
-    const [name, color] = group;
-    styles.push({
-      [`.${
-        bpString + prefixString
-      }grid-line-x-${name}[class*="${prefixString}grid-line-x-"] > *::before`]:
-        {
-          'border-bottom-color': color,
-        },
-    });
-    styles.push({
-      [`.${
-        bpString + prefixString
-      }grid-line-y-${name}[class*="${prefixString}grid-line-y-"] > *::after`]: {
-        'border-inline-end-color': color,
+  // colours
+  matchComponents(
+    {
+      [`grid-line`]: (value) => {
+        let parts = value.split('::');
+        let obj = {};
+        if (parts[0] === 'x') {
+          obj = {
+            '& > *::before': {
+              '--gridline-x-color': parts[1],
+            },
+          };
+        }
+        if (parts[0] === 'y') {
+          obj = {
+            '& > *::after': {
+              '--gridline-y-color': parts[1],
+            },
+          };
+        }
+        if (parts[0] === 'xy') {
+          obj = {
+            '& > *::before': {
+              '--gridline-x-color': parts[1],
+            },
+            '& > *::after': {
+              '--gridline-y-color': parts[1],
+            },
+          };
+        }
+        return obj;
       },
-    });
-    styles.push({
-      [`.${
-        bpString + prefixString
-      }grid-line-xy-${name}[class*="${prefixString}grid-line-xy-"] > *::before`]:
-        {
-          'border-bottom-color': color,
-        },
-    });
-    styles.push({
-      [`.${
-        bpString + prefixString
-      }grid-line-xy-${name}[class*="${prefixString}grid-line-xy-"] > *::after`]:
-        {
-          'border-inline-end-color': color,
-        },
-    });
-  });
-
-  // position strokes
-  let largestColCount = 0;
-  Object.entries(maxCols).forEach((group) => {
-    const [name, count] = group;
-    if (count > largestColCount) {
-      largestColCount = count;
+    },
+    {
+      values: gridLineColours,
     }
-  });
+  );
 
-  for (let i = 1; i <= largestColCount; i++) {
-    // horizontal lines, reset
-    styles.push({
-      [`.${
-        bpString + prefixString
-      }grid-cols-${i}[class*="${prefixString}grid-line-x"][class*="${prefixString}grid-line-x"] > *:nth-child(n)::before`]:
-        {
-          'border-bottom-width': '1px',
-        },
-    });
+  // spacings
+  matchComponents(
+    {
+      [`grid-line-x`]: (value) => {
+        let obj = {
+          '& > *::before': {
+            '--gridline-x-bottom': `-${value}`,
+            '--gridline-y-top': `-${value}`,
+            '--gridline-y-bottom': `-${value}`,
+          },
+          [`&.grid-line-yfull > *::after`]: {
+            '--gridline-x-bottom': `-${value}`,
+            '--gridline-y-top': `-${value}`,
+            '--gridline-y-bottom': `-${value}`,
+          },
+        };
+        return obj;
+      },
+    },
+    {
+      values: offsets,
+    }
+  );
+
+  // cols
+  Object.keys(gridColsValues).forEach((i) => {
+    let gridColObj = {};
+
+    let obj = {
+      [`.grid-cols-${i}.grid-line-x > *:nth-child(n)::before`]: {
+        '--gridline-x-width': '1px',
+        '--gridline-x-start': '0',
+        '--gridline-x-end': '0',
+      },
+    };
     if (i === 1) {
-      styles.push({
-        [`.${
-          bpString + prefixString
-        }grid-cols-${i}[class*="${prefixString}grid-line-xfull"] > *:nth-child(n)::before`]:
-          {
-            'inset-inline-start': '0',
-            'inset-inline-end': '0',
-          },
-      });
+      obj = {
+        ...obj,
+        [`.grid-cols-${i}.grid-line-xfull > *:nth-child(n)::before`]: {
+          '--gridline-x-width': '1px',
+          '--gridline-x-start': '0',
+          '--gridline-x-end': '0',
+        },
+      };
     } else {
-      styles.push({
-        [`.${
-          bpString + prefixString
-        }grid-cols-${i}[class*="${prefixString}grid-line-xfull"] > *:nth-child(n)::before`]:
-          {
-            'inset-inline-start': 'calc(var(--inner-gutter) / -2)',
-            'inset-inline-end': 'calc(var(--inner-gutter) / -2)',
-          },
-      });
+      obj = {
+        ...obj,
+        [`.grid-cols-${i}.grid-line-xfull > *:nth-child(n)::before`]: {
+          '--gridline-x-width': '1px',
+          '--gridline-x-start': 'calc(var(--inner-gutter) / -2)',
+          '--gridline-x-end': 'calc(var(--inner-gutter) / -2)',
+        },
+      };
     }
     // horizontal first in row, fix left
-    styles.push({
-      [`.${
-        bpString + prefixString
-      }grid-cols-${i}[class*="${prefixString}grid-line-x"] > *:nth-child(${i}n+1)::before`]:
-        {
-          'inset-inline-start': '0',
-        },
-    });
+    obj = {
+      ...obj,
+      [`.grid-cols-${i}.grid-line-x > *:nth-child(${i}n+1)::before`]: {
+        '--gridline-x-start': '0',
+      },
+      [`.grid-cols-${i}.grid-line-xfull > *:nth-child(${i}n+1)::before`]: {
+        '--gridline-x-start': '0',
+      },
+    };
     // horizontal last in row, fix right
-    styles.push({
-      [`.${
-        bpString + prefixString
-      }grid-cols-${i}[class*="${prefixString}grid-line-x"] > *:nth-child(${i}n+${i})::before`]:
-        {
-          'inset-inline-end': '0',
-        },
-    });
+    obj = {
+      ...obj,
+      [`.grid-cols-${i}.grid-line-x > *:nth-child(${i}n+${i})::before`]: {
+        '--gridline-x-end': '0',
+      },
+      [`.grid-cols-${i}.grid-line-xfull > *:nth-child(${i}n+${i})::before`]: {
+        '--gridline-x-end': '0',
+      },
+    };
     // horizontal last row, hide bottom border
-    styles.push({
-      [`.${
-        bpString + prefixString
-      }grid-cols-${i}[class*="${prefixString}grid-line-x"] > *:nth-child(${i}n+1):nth-last-child(-n+${i})::before`]:
+    obj = {
+      ...obj,
+      [`.grid-cols-${i}.grid-line-x > *:nth-child(n):nth-last-child(n)::before`]:
         {
-          'border-bottom-width': '0',
+          '--gridline-x-width': '1px',
         },
-    });
-    styles.push({
-      [`.${
-        bpString + prefixString
-      }grid-cols-${i}[class*="${prefixString}grid-line-x"] > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ *::before`]:
+      [`.grid-cols-${i}.grid-line-x > *:nth-child(${i}n+1):nth-last-child(-n+${i})::before`]:
         {
-          'border-bottom-width': '0',
+          '--gridline-x-width': '0',
         },
-    });
+      [`.grid-cols-${i}.grid-line-x > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ *::before`]:
+        {
+          '--gridline-x-width': '0',
+        },
+      [`.grid-cols-${i}.grid-line-xfull > *:nth-child(n):nth-last-child(n)::before`]:
+        {
+          '--gridline-x-width': '1px',
+        },
+      [`.grid-cols-${i}.grid-line-xfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::before`]:
+        {
+          '--gridline-x-width': '0',
+        },
+      [`.grid-cols-${i}.grid-line-xfull > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ *::before`]:
+        {
+          '--gridline-x-width': '0',
+        },
+    };
 
     if (i > 1) {
       // vertical lines, reset
-      styles.push({
-        [`.${
-          bpString + prefixString
-        }grid-cols-${i}[class*="${prefixString}grid-line-y"][class*="${prefixString}grid-line-y"] > *:nth-child(n)::after`]:
-          {
-            'border-inline-end-width': '1px',
-          },
-      });
+      obj = {
+        ...obj,
+        [`.grid-cols-${i}[class*="grid-line-y"] > *:nth-child(n)::after`]: {
+          '--gridline-y-width': '1px',
+        },
+      };
       // vertical last in row, fix right
-      styles.push({
-        [`.${
-          bpString + prefixString
-        }grid-cols-${i}[class*="${prefixString}grid-line-y"][class*="${prefixString}grid-line-y"] > *:nth-child(${i}n+${i})::after`]:
+      obj = {
+        ...obj,
+        [`.grid-cols-${i}[class*="grid-line-y"] > *:nth-child(n)::after`]: {
+          '--gridline-y-width': '1px',
+        },
+        [`.grid-cols-${i}[class*="grid-line-y"] > *:nth-child(${i}n+${i})::after`]:
           {
-            'border-inline-end-width': '0',
+            '--gridline-y-width': '0',
           },
-      });
+      };
       // vertical lines, fix top position of first row
-      styles.push({
-        [`.${
-          bpString + prefixString
-        }grid-cols-${i}[class*="${prefixString}grid-line-y"][class*="${prefixString}grid-line-y"] > *:nth-child(-n+${i})::after`]:
-          {
-            top: '0',
-          },
-      });
+      obj = {
+        ...obj,
+        [`.grid-cols-${i}.grid-line-y > *:nth-child(-n+${i})::after`]: {
+          '--gridline-y-top': '0',
+        },
+        [`.grid-cols-${i}.grid-line-yfull > *:nth-child(-n+${i})::after`]: {
+          '--gridline-y-top': '0',
+        },
+      };
       // vertical lines, fix bottom position of last row
-      styles.push({
-        [`.${
-          bpString + prefixString
-        }grid-cols-${i}[class*="${prefixString}grid-line-y"][class*="${prefixString}grid-line-y"] > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]:
+      obj = {
+        ...obj,
+        [`.grid-cols-${i}.grid-line-y > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]:
           {
-            bottom: '0',
+            '--gridline-y-bottom': '0',
           },
-      });
-      styles.push({
-        [`.${
-          bpString + prefixString
-        }grid-cols-${i}[class*="${prefixString}grid-line-y"][class*="${prefixString}grid-line-y"] > *:nth-child(${i}n+1):nth-last-child(-n+${i}) ~ li::after`]:
+        [`.grid-cols-${i}.grid-line-y > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]:
           {
-            bottom: '0',
+            '--gridline-y-bottom': '0',
           },
-      });
+        [`.grid-cols-${i}.grid-line-yfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]:
+          {
+            '--gridline-y-bottom': '0',
+          },
+        [`.grid-cols-${i}.grid-line-yfull > *:nth-child(${i}n+1):nth-last-child(-n+${i})::after`]:
+          {
+            '--gridline-y-bottom': '0',
+          },
+      };
     }
-  }
 
-  bps.forEach((bp) => {
-    if (bp === firstBp) {
-      styles.forEach((style) => {
-        for (const [key, value] of Object.entries(style)) {
-          stylesToReturn[key.replace(regEx, '')] = value;
-        }
-      });
-    } else {
-      stylesToReturn[`@screen ${bp}`] = stylesToReturn[`@screen ${bp}`] || {};
-      let mq = stylesToReturn[`@screen ${bp}`];
-      styles.forEach((style) => {
-        for (const [key, value] of Object.entries(style)) {
-          mq[key.replace(regEx, `${bp}\\:`)] = value;
-        }
-      });
-    }
-  });
-
-  addComponents(stylesToReturn, {
-    respectPrefix: false,
+    addComponents(obj);
   });
 };

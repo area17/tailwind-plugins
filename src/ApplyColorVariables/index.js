@@ -66,14 +66,14 @@ module.exports = function (tokens, colors) {
     */
     if (found) {
       if (typeof found[1] === 'string') {
-        colors[name] = `var(--${found[0]})`;
+        colors[name] = `var(--color-${found[0]})`;
       } else {
         const foundChild = Object.keys(found[1]).find(
           (key) => key === colorSplit[1]
         );
 
         if (foundChild) {
-          colors[name] = `var(--${found[0]}-${foundChild})`;
+          colors[name] = `var(--color-${found[0]}-${foundChild})`;
         }
       }
     }

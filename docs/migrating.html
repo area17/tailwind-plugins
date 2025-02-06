@@ -1,0 +1,129 @@
+---
+title: Migrating
+---
+
+{% include_relative includes/_header.html %}
+
+<div class="copy">
+  <h2>Migrating from A17 Tailwind Plugins 4 to A17 Tailwind Plugins 5</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">terminal</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-bash">npm install @area17/a17-tailwind-plugins@latest</code></pre>
+  </figure>
+
+  <h3>Migrate Layout class names</h3>
+
+  <p>See <a href="./Layout.html#v5-0-0">Layout/Breaking changes in <code>v5.0.0</code></a></p>
+
+  <ol>
+    <li>Search for <code>(\w*)-(\d\/\d|\d*)-cols(-no-gutter|-vw)?</code></li>
+    <li>Replace with <code>$1-cols$3-$2</code></li>
+  </ol>
+
+  <p>And for any fraction class usage:</p>
+
+  <ol>
+    <li>Search for <code>(\w*)-(\d\/\d)-cols</code></li>
+    <li>Replace with <code>$1-cols-$2</code></li>
+  </ol>
+
+  <h3>Migrate font family settings:</h3>
+
+  <p>In your <code>frontend.config.json</code> you may have have had:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">frontend.config.json</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">"font-family": "var(--sans)",</code></pre>
+  </figure>
+
+  <p>Font classes now have a prepended <code>font-</code>. So, you'll need to update to:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">frontend.config.json</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">"font-family": "var(--font-sans)",</code></pre>
+  </figure>
+
+  <h3>Migrate any CSS in config JSON</h3>
+
+  <p>You'll need to move any styles specified in your config to inside your CSS if you used these plugins.</p>
+
+  <h2>Migrating from Tailwind 3 to Tailwind 4</h2>
+
+  <p>Tailwind provide an <a href="https://tailwindcss.com/docs/upgrade-guide" target="_blank">upgrade guide</a>, you may need to do a mix of automatic and manual updates. Check those <a href="https://tailwindcss.com/docs/upgrade-guide#changes-from-v3">changes from v3</a> class name renames and removals.</p>
+
+  <h3>Remove <code>tokens</code> from <code>spacing</code> in the config JSON</h3>
+
+  <p>You no longer require the Spacing tokens plugin or setup:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">frontend.config.json</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">"tokens": {
+    "scaler": 4,
+    "arbitraries": {
+      "400": "400px",
+      "600": "600px"
+    }
+  },</code></pre>
+  </figure>
+
+  <p>Instead you add:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">input.css</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-css">@theme {
+  --spacing: 1px;
+}</code></pre>
+  </figure>
+
+  <h3>Confirm updates to your tailwind.config.js, input.css and postcss.config.js</h3>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">{% include_relative tailwind.config.js %}</code></pre>
+  </figure>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">input.css</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-css">@config "./tailwind.config.js";
+@import "tailwindcss";
+
+@theme {
+  --container-*: initial;
+  --breakpoint-*: initial;
+  --color-*: initial;
+  --font-*: initial;
+  --text-*: initial;
+  --tracking-*: initial;
+  --leading-*: initial;
+  --spacing: 1px;
+}
+
+@utility container {
+  max-width: 100%;
+}</code></pre>
+  </figure>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">postcss.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">{% include_relative postcss.config.js %}</code></pre>
+  </figure>
+</div>
+
+{% include_relative includes/_footer.html %}

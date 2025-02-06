@@ -35,7 +35,7 @@ module.exports = function ({ addBase, theme }) {
       });
     } else {
       rootVariables.push({
-        [`@screen ${bp}`]: {
+        [`@media (width >= ${breakpoints[bp]})`]: {
           ...styles,
         },
       });

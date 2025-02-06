@@ -4,6 +4,33 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.0.0] - 2025-02-06
+
+### Changed
+
+Upon the release of Tailwind 4, many of our plugins became incompatible and so updates have been required to enable their continued use in the Tailwind ecosystem.
+
+We leaned that styles added with `addBase` always appear in the CSS, even if not used and require to be purged. And the rules around what we can add are no longer the same, so selectors like `*[class*="scrollbars"]` are no longer allowed, utilities and components must begin with properly formed CSS class names, such as `.scrollbars`. CSS processing for previously allowed CSS from JS like `@screen` and `@apply` are no longer functioning in Tailwind 4. Tailwind 4 also removes the `e()` escape function.
+
+`matchUtilities`/`matchComponents` turn out to be very handy for dynamically generating classes like `.foo-N` to `.foo { property: N }`, along with negative variants when `supportsNegativeValues: true,` is passed to the options.
+
+- ColorTokens uses `addBase` to add its root variables to the CSS
+- ColorTokens now prepends `color-` to the generated CSS properties to be more inline with Tailwind naming scheme
+- Typography uses `addUtilities` to add the utility classes
+- Typography now prepends `font--` to the generated CSS properties to be more inline with Tailwind naming scheme
+- Container now uses `addUtilities`
+- DevTools now uses `addComponents`
+- GridGap now uses `addUtilities`
+- Spacing now uses `matchUtilities`
+- Layout now uses `matchUtilities` and `addComponents` (This requires a format change from `w-N-cols` to `w-cols-N`)
+- GridLine now uses `addComponents` and `matchComponents` and produces less CSS than previous versions
+- KeyLine now uses `matchComponents`
+- BackgroundFill now uses `matchUtilities` and `addUtilities`
+- StrokeFull now uses `matchUtilities` and `addUtilities`
+- Underline now uses `matchUtilities` and refactored class structure
+- FullBleedScroller now uses `addComponents`
+- Scrollbar now uses `addBase`, `addComponents` and `matchComponents`
+
 ## [4.0.8] - 2025-02-05
 
 Patch version to usurp older patch versions and include older changelog entries for `content` property fixes in `GridLine`, `Keyline` and `RatioBox`.

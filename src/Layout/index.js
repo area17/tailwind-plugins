@@ -1,6 +1,13 @@
-module.exports = function ({ addComponents, theme, e, prefix, config }) {
+module.exports = function ({ matchComponents, addComponents, theme, prefix }) {
   // docs: http://tailwind-plugins.dev.area17.com/Layout.html
 
+  const e = (str) => {
+    str = str.replace(/\\,/g, '\\2c ');
+    str = str.replace(/\//g, '\\/');
+    str = str.replace(/\(/g, '\\(');
+    str = str.replace(/\)/g, '\\)');
+    return str;
+  };
   const breakpoints = theme('screens');
   const firstBp = Object.keys(breakpoints)[0];
   const columnCount = theme('columnCount', {});
@@ -8,86 +15,112 @@ module.exports = function ({ addComponents, theme, e, prefix, config }) {
   const maxColAmount = Math.max.apply(Math, Object.values(maxCols));
   // the fractional classes we're going to generate
   const fractions = ['1/2', '1/3', '1/4', '2/3', '3/4'];
+  const valuesCalc = () => {
+    let obj = {};
+    for (i = 1; i < maxColAmount + 1; i++) {
+      obj[i] = i;
+    }
+    fractions.forEach(fraction => {
+      obj[fraction] = fraction;
+    });
+    return obj;
+  };
+  const values = valuesCalc();
   // the classes we want to generate, along with some information to help fill out the CSS calc
   const classes = [
+    /* width */
     {
       name: 'w',
       suffix: '-cols',
       attribute: 'width',
       addMarginLeft: true,
     },
+    /* margins */
+    {
+      name: 'me',
+      suffix: '-cols',
+      attribute: 'margin-inline-end',
+      addGutter: true,
+      allowsNegative: true,
+    },
+    {
+      name: 'ms',
+      suffix: '-cols',
+      attribute: 'margin-inline-start',
+      addGutter: true,
+      allowsNegative: true,
+    },
     {
       name: 'mr',
       suffix: '-cols',
       attribute: 'margin-right',
       addGutter: true,
+      allowsNegative: true,
     },
     {
       name: 'ml',
       suffix: '-cols',
       attribute: 'margin-left',
       addGutter: true,
+      allowsNegative: true,
     },
     {
       name: 'mx',
       suffix: '-cols',
-      attribute: ['margin-right', 'margin-left'],
+      attribute: 'margin-inline',
       addGutter: true,
+      allowsNegative: true,
+    },
+    /* margins - no gutter */
+    {
+      name: 'me',
+      suffix: '-cols-no-gutter',
+      attribute: 'margin-inline-end',
+      addGutter: false,
+      allowsNegative: true,
     },
     {
-      name: '-mr',
-      suffix: '-cols',
-      attribute: 'margin-right',
-      inverse: true,
-      addGutter: true,
-    },
-    {
-      name: '-ml',
-      suffix: '-cols',
-      attribute: 'margin-left',
-      inverse: true,
-      addGutter: true,
-    },
-    {
-      name: '-mx',
-      suffix: '-cols',
-      attribute: ['margin-right', 'margin-left'],
-      inverse: true,
-      addGutter: true,
+      name: 'ms',
+      suffix: '-cols-no-gutter',
+      attribute: 'margin-inline-start',
+      //accountForContainerMarginLeft: true,
+      addGutter: false,
+      allowsNegative: true,
     },
     {
       name: 'mr',
       suffix: '-cols-no-gutter',
       attribute: 'margin-right',
+      addGutter: false,
+      allowsNegative: true,
     },
     {
       name: 'ml',
       suffix: '-cols-no-gutter',
       attribute: 'margin-left',
-      accountForContainerMarginLeft: true,
+      //accountForContainerMarginLeft: true,
+      addGutter: false,
+      allowsNegative: true,
     },
     {
       name: 'mx',
       suffix: '-cols-no-gutter',
-      attribute: ['margin-right', 'margin-left'],
+      attribute: 'margin-inline',
+      addGutter: false,
+      allowsNegative: true,
+    },
+    /* paddings */
+    {
+      name: 'pe',
+      suffix: '-cols',
+      attribute: 'padding-inline-end',
+      addGutter: true,
     },
     {
-      name: '-mr',
-      suffix: '-cols-no-gutter',
-      attribute: 'margin-right',
-      inverse: true,
-    },
-    {
-      name: '-ml',
-      suffix: '-cols-no-gutter',
-      attribute: 'margin-left',
-      inverse: true,
-    },
-    {
-      name: '-mx',
-      suffix: '-cols-no-gutter',
-      attribute: ['margin-right', 'margin-left'],
-      inverse: true,
+      name: 'ps',
+      suffix: '-cols',
+      attribute: 'padding-inline-start',
+      addGutter: true,
     },
     {
       name: 'pr',
@@ -104,8 +137,19 @@ module.exports = function ({ addComponents, theme, e, prefix, config }) {
     {
       name: 'px',
       suffix: '-cols',
-      attribute: ['padding-right', 'padding-left'],
+      attribute: 'padding-inline',
       addGutter: true,
+    },
+    /* paddings - no gutter */
+    {
+      name: 'pe',
+      suffix: '-cols-no-gutter',
+      attribute: 'padding-inline-end',
+    },
+    {
+      name: 'ps',
+      suffix: '-cols-no-gutter',
+      attribute: 'padding-inline-start',
     },
     {
       name: 'pr',
@@ -120,321 +164,212 @@ module.exports = function ({ addComponents, theme, e, prefix, config }) {
     {
       name: 'px',
       suffix: '-cols-no-gutter',
-      attribute: ['padding-right', 'padding-left'],
+      attribute: 'padding-inline',
     },
-    {
-      name: 'left',
-      suffix: '-cols',
-      attribute: 'left',
-      addGutter: true,
-    },
-    {
-      name: 'right',
-      suffix: '-cols',
-      attribute: 'right',
-      addGutter: true,
-    },
-    {
-      name: 'inset-x',
-      suffix: '-cols',
-      attribute: ['right', 'left'],
-      addGutter: true,
-    },
-    {
-      name: 'left',
-      suffix: '-cols-no-gutter',
-      attribute: 'left',
-    },
-    {
-      name: 'right',
-      suffix: '-cols-no-gutter',
-      attribute: 'right',
-    },
-    {
-      name: 'inset-x',
-      suffix: '-cols-no-gutter',
-      attribute: ['right', 'left'],
-    },
-    {
-      name: '-left',
-      suffix: '-cols',
-      attribute: 'left',
-      addGutter: true,
-      inverse: true,
-    },
-    {
-      name: '-right',
-      suffix: '-cols',
-      attribute: 'right',
-      addGutter: true,
-      inverse: true,
-    },
-    {
-      name: '-inset-x',
-      suffix: '-cols',
-      attribute: ['right', 'left'],
-      addGutter: true,
-      inverse: true,
-    },
-    {
-      name: '-left',
-      suffix: '-cols-no-gutter',
-      attribute: 'left',
-      inverse: true,
-    },
-    {
-      name: '-right',
-      suffix: '-cols-no-gutter',
-      attribute: 'right',
-      inverse: true,
-    },
-    {
-      name: '-inset-x',
-      suffix: '-cols-no-gutter',
-      attribute: ['right', 'left'],
-      inverse: true,
-    },
-    {
-      name: 'me',
-      suffix: '-cols',
-      attribute: 'margin-inline-end',
-      addGutter: true,
-    },
-    {
-      name: 'ms',
-      suffix: '-cols',
-      attribute: 'margin-inline-start',
-      addGutter: true,
-    },
-    {
-      name: '-me',
-      suffix: '-cols',
-      attribute: 'margin-inline-end',
-      inverse: true,
-      addGutter: true,
-    },
-    {
-      name: '-ms',
-      suffix: '-cols',
-      attribute: 'margin-inline-start',
-      inverse: true,
-      addGutter: true,
-    },
-    {
-      name: 'me',
-      suffix: '-cols-no-gutter',
-      attribute: 'margin-inline-end',
-    },
-    {
-      name: 'ms',
-      suffix: '-cols-no-gutter',
-      attribute: 'margin-inline-start',
-      accountForContainerMarginLeft: true,
-    },
-    {
-      name: '-me',
-      suffix: '-cols-no-gutter',
-      attribute: 'margin-inline-end',
-      inverse: true,
-    },
-    {
-      name: '-ms',
-      suffix: '-cols-no-gutter',
-      attribute: 'margin-inline-start',
-      inverse: true,
-    },
-    {
-      name: 'pe',
-      suffix: '-cols',
-      attribute: 'padding-inline-end',
-      addGutter: true,
-    },
-    {
-      name: 'ps',
-      suffix: '-cols',
-      attribute: 'padding-inline-start',
-      addGutter: true,
-    },
-    {
-      name: 'pe',
-      suffix: '-cols-no-gutter',
-      attribute: 'padding-inline-end',
-    },
-    {
-      name: 'ps',
-      suffix: '-cols-no-gutter',
-      attribute: 'padding-inline-start',
-    },
+    /* positioning */
     {
       name: 'start',
       suffix: '-cols',
       attribute: 'inset-inline-start',
       addGutter: true,
+      allowsNegative: true,
     },
     {
       name: 'end',
       suffix: '-cols',
       attribute: 'inset-inline-end',
       addGutter: true,
+      allowsNegative: true,
     },
+    {
+      name: 'left',
+      suffix: '-cols',
+      attribute: 'left',
+      addGutter: true,
+      allowsNegative: true,
+    },
+    {
+      name: 'right',
+      suffix: '-cols',
+      attribute: 'right',
+      addGutter: true,
+      allowsNegative: true,
+    },
+    {
+      name: 'inset-x',
+      suffix: '-cols',
+      attribute: 'inset-inline',
+      addGutter: true,
+      allowsNegative: true,
+    },
+    /* positioning - no gutter */
     {
       name: 'start',
       suffix: '-cols-no-gutter',
       attribute: 'inset-inline-start',
+      allowsNegative: true,
     },
     {
       name: 'end',
       suffix: '-cols-no-gutter',
       attribute: 'inset-inline-end',
+      allowsNegative: true,
     },
     {
-      name: '-start',
-      suffix: '-cols',
-      attribute: 'inset-inline-start',
-      addGutter: true,
-      inverse: true,
-    },
-    {
-      name: '-end',
-      suffix: '-cols',
-      attribute: 'inset-inline-end',
-      addGutter: true,
-      inverse: true,
-    },
-    {
-      name: '-start',
+      name: 'left',
       suffix: '-cols-no-gutter',
-      attribute: 'inset-inline-start',
-      inverse: true,
+      attribute: 'left',
+      allowsNegative: true,
     },
     {
-      name: '-end',
+      name: 'right',
       suffix: '-cols-no-gutter',
-      attribute: 'inset-inline-end',
-      inverse: true,
+      attribute: 'right',
+      allowsNegative: true,
+    },
+    {
+      name: 'inset-x',
+      suffix: '-cols-no-gutter',
+      attribute: 'inset-inline',
+      allowsNegative: true,
     },
   ];
 
-  // makes CSS classes with calcs
-  function generateClasses(variant, obj, calc, cCalc, vwCalc) {
-    let attrs = {};
-    let cAttrs = {};
-    let vwAttrs = {};
+  function returnCalc(type, cols) {
+    if (type.fraction) {
+      const splitFraction = cols.split('/');
+      const numeric =
+        Math.floor((splitFraction[0] / splitFraction[1]) * 1000) / 1000;
+      const oneMinusNumeric =
+        Math.floor((1 - splitFraction[0] / splitFraction[1]) * 1000) / 1000;
+      const percent =
+        Math.floor((splitFraction[0] / splitFraction[1]) * 100000) / 1000;
 
-    if (obj.addGutter) {
+      //let calc = `${percent}% - (var(--inner-gutter) * ${oneMinusNumeric})`;
+      // adds `--cols-container` var to work within `cols-container` -- v5.0.0 deprecate to remove in v6.0.0
+      let calc = `${percent}% - (var(--inner-gutter) * max(${oneMinusNumeric}, var(--cols-container, 0)))`;
+
+      if (type.addGutter) {
+        calc = `((${calc}) + var(--inner-gutter))`;
+      }
+
+      return calc;
+    }
+
+    if (type.negative) {
+      // find the passed cols num
+      var match = cols.match(/\d+/);
+      cols = parseInt(match[0], 10);
+    }
+
+    //let calc = `((${cols} / var(--container-grid-columns, var(--grid-columns))) * 100%) - (var(--inner-gutter) - (${cols} / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))`;
+    // adds `--cols-container` var to work within `cols-container` -- v5.0.0 deprecate to remove in v6.0.0
+    let calc = `((${cols} / var(--container-grid-columns, var(--grid-columns))) * (100% - (var(--inner-gutter) * var(--cols-container, 0)))) - (var(--inner-gutter) - (${cols} / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))`;
+    let vwCalc = `((var(--container-width, 100vw - var(--scrollbar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns)))`;
+
+    if (cols > 1) {
+      vwCalc = `${vwCalc} * ${cols}`;
+      vwCalc = `(${vwCalc}) + (${cols - 1} * var(--inner-gutter))`;
+    }
+
+    if (type.addGutter) {
       calc = `((${calc}) + var(--inner-gutter))`;
-      cCalc = `((${cCalc}) + (2 * var(--inner-gutter)))`;
     }
 
-    if (obj.accountForContainerMarginLeft) {
-      // for when you have a margin-left inside of a cols-container
-      // need to account for the cols-container negative margin left
-      cCalc = `((${cCalc}) + var(--inner-gutter))`;
-    }
-
-    if (obj.inverse) {
+    if (type.negative) {
       calc = `(${calc}) * -1`;
-      cCalc = `(${cCalc}) * -1`;
       vwCalc = `(${vwCalc}) * -1`;
     }
 
-    if (Array.isArray(obj.attribute)) {
-      obj.attribute.forEach((attr) => {
-        attrs[attr] = `calc(${calc})`;
-        cAttrs[attr] = `calc(${cCalc})`;
-        vwAttrs[attr] = `calc(${vwCalc})`;
-      });
-    } else {
-      attrs[obj.attribute] = `calc(${calc})`;
-      cAttrs[obj.attribute] = `calc(${cCalc})`;
-      vwAttrs[obj.attribute] = `calc(${vwCalc})`;
+    // return
+    if (type.calcType === 'vwCalc') {
+      return vwCalc;
     }
 
-    styles.push({
-      [`${prefix('.' + e(obj.name + '-' + variant + (obj.suffix || '')))}`]:
-        attrs,
-      [`${prefix('.cols-container')} > ${prefix(
-        '.' + e(obj.name + '-' + variant + (obj.suffix || ''))
-      )}`]: cAttrs,
-      [`${prefix('.' + e(obj.name + '-' + variant + (obj.suffix || '')))}-vw`]:
-        vwAttrs,
-    });
+    return calc;
   }
 
-  // loops the classes we want to generate, provides the base CSS calcs to generateClasses for N cols wide classes
-  function generateByColumn(cols) {
-    classes.forEach((obj) => {
-      let calc = `((${cols} / var(--container-grid-columns, var(--grid-columns))) * 100%) - (var(--inner-gutter) - (${cols} / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))`;
-      let cCalc = `((${cols} / var(--container-grid-columns, var(--grid-columns))) * (100% - var(--inner-gutter))) - (var(--inner-gutter) - (${cols} / var(--container-grid-columns, var(--grid-columns)) * var(--inner-gutter)))`;
-      let vwCalc = `((var(--container-width, 100vw - var(--scrollbar-visible-width, 0px)) - (((var(--grid-columns) - 1) * var(--inner-gutter)) + (2 * var(--outer-gutter)))) / (var(--grid-columns)))`;
-      if (cols > 1) {
-        vwCalc = `${vwCalc} * ${cols}`;
-        vwCalc = `(${vwCalc}) + (${cols - 1} * var(--inner-gutter))`;
+  function add(type) {
+    let name = `${type.name}${type.suffix}`;
+
+    if (type.calcType === 'vwCalc') {
+      name += '-vw';
+    }
+
+    let selector = {};
+    selector[`${name}`] = (cols) => {
+      type.fraction = typeof(cols) === 'string' && cols.indexOf('/') > -1;
+      type.negative = typeof(cols) === 'string' && cols.indexOf('calc') > -1;
+
+      let attributes = {};
+      if (typeof(type.attribute) === 'string') {
+        attributes[type.attribute] = `calc(${returnCalc(type, cols)})`;
       }
+      if (typeof(type.attribute) === 'object' && Array.isArray(type.attribute)) {
+        type.attribute.forEach(attribute => {
+          attributes[attribute] = `calc(${returnCalc(type, cols)})`;
+        });
+      }
+      return attributes;
+    };
 
-      generateClasses(cols, obj, calc, cCalc, vwCalc);
+    matchComponents(selector, {
+      values: values,
+      supportsNegativeValues: type.allowsNegative ? true : false,
     });
   }
 
+  classes.forEach(type => {
+    ['calc', 'vwCalc'].forEach(calcType => {
+      add({
+        ...type,
+        calcType: calcType,
+      });
+    });
+  });
+
+  // fix nesting
   // nesting N cols wide columns needs an override to the --grid-columns to allow nesting of N cols wide columns
+  let styles = {};
+
   function fixNesting(cols) {
-    styles.push({
-      [`${prefix('.w')}-${cols}-cols > *`]: {
-        '--container-grid-columns': `${cols}`,
+    return {
+      [`.w-cols-${cols}`]: {
+        '& > *': {
+          '--container-grid-columns': `${cols}`,
+          '--cols-container': 0,
+        },
       },
-      [`${prefix('.w')}-${cols}-cols-vw > *`]: {
-        '--container-grid-columns': `${cols}`,
+      [`.w-cols-vw-${cols}`]: {
+        '& > *': {
+          '--container-grid-columns': `${cols}`,
+          '--cols-container': 0,
+        },
       },
-    });
+    };
   }
 
-  // loops the classes we want to generate, provides the base CSS calcs to generateClasses for fractional classes
-  function generateByFraction(fraction) {
-    const splitFraction = fraction.split('/');
-    const numeric =
-      Math.floor((splitFraction[0] / splitFraction[1]) * 1000) / 1000;
-    const oneMinusNumeric =
-      Math.floor((1 - splitFraction[0] / splitFraction[1]) * 1000) / 1000;
-    const percent =
-      Math.floor((splitFraction[0] / splitFraction[1]) * 100000) / 1000;
-
-    classes.forEach((obj) => {
-      let calc = `${percent}% - (var(--inner-gutter) * ${oneMinusNumeric})`;
-      let cCalc = `${percent}% - var(--inner-gutter)`;
-
-      generateClasses(fraction, obj, calc, cCalc);
-    });
-  }
-
-  // base styles
-  const styles = [
-    {
-      [prefix('.cols-container')]: {
-        display: 'flex',
-        'flex-flow': 'row wrap',
-        'margin-left': 'calc(var(--inner-gutter) * -1)',
-      },
-      [`${prefix('.cols-container')} > ${prefix('[class*="-cols"]')}`]: {
-        'margin-left': 'var(--inner-gutter)',
-      },
-      [`${prefix('.cols-container')} > ${prefix('.ml-0')}`]: {
-        'margin-left': 0,
-      },
-    },
-  ];
-
-  // lets make classes for the N cols wide columns
   for (let i = 1; i <= maxColAmount; i++) {
-    generateByColumn(i);
-    fixNesting(i);
+    styles = {...styles, ...fixNesting(i)};
   }
 
-  // lets make classes for fractionals
-  fractions.forEach((fraction) => {
-    generateByFraction(fraction);
-  });
 
-  addComponents(styles, {
-    respectPrefix: false,
-  });
+  // add .cols-container
+  styles['.cols-container'] = {
+    display: 'flex',
+    'flex-flow': 'row wrap',
+    'margin-left': 'calc(var(--inner-gutter) * -1)',
+    '& > [class*="-cols"]': {
+      '--cols-container': 1,
+      'margin-left': 'var(--inner-gutter)',
+    },
+    '& > .ml-0': {
+      'margin-left': 0,
+    },
+    '& > .ms-0': {
+      'margin-left': 0,
+    },
+  }
+
+  addComponents(styles);
 };

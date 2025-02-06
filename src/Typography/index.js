@@ -1,28 +1,31 @@
-module.exports = function ({ addBase, theme, prefix, e }) {
+module.exports = function ({ addBase, addUtilities, theme, prefix, e }) {
   const breakpoints = theme('screens', {});
   const fontFamilies = theme('fontFamilies', {});
   const typesets = JSON.parse(JSON.stringify(theme('typesets', {})));
   const firstBp = Object.keys(breakpoints)[0];
   const defaults = {}; // will be a collection of all used css properties, so we can override
+
   const styles = {};
   styles[':root'] = {};
 
+  const fstyles = {};
+
   Object.entries(fontFamilies).forEach((a) => {
     const [name, family] = a;
-    styles[':root'][`--${name}`] = family;
+    styles[':root'][`--font-${name}`] = family;
   });
 
   // make class name objects
   Object.entries(typesets).forEach((a) => {
     const name = a[0];
     const className = prefix(`.f-${name}`);
-    styles[className] = styles[className] || {};
+    fstyles[className] = fstyles[className] || {};
   });
 
   // create root bp keys in bp order
   Object.keys(breakpoints).forEach((bp) => {
-    if (bp !== firstBp && !styles[`@screen ${bp}`]) {
-      styles[`@screen ${bp}`] = { ':root': {} };
+    if (bp !== firstBp && !styles[`@media (width >= ${breakpoints[bp]})`]) {
+      styles[`@media (width >= ${breakpoints[bp]})`] = { ':root': {} };
     }
   });
 
@@ -105,15 +108,15 @@ module.exports = function ({ addBase, theme, prefix, e }) {
           if (property.startsWith('--')) {
             return;
           }
-          styles[className][property] = `var(--f-${name}-${property})`;
-          styles[`${className} b, ${className} strong`] = {
+          fstyles[className][property] = `var(--f-${name}-${property})`;
+          fstyles[`${className} b, ${className} strong`] = {
             'font-weight': `var(--f-${name}---bold-weight, bold)`,
           };
         });
       } else {
         // generate responsive root styles
-        styles[`@screen ${bp}`][':root'] = {
-          ...styles[`@screen ${bp}`][':root'],
+        styles[`@media (width >= ${breakpoints[bp]})`][':root'] = {
+          ...styles[`@media (width >= ${breakpoints[bp]})`][':root'],
           ...settings,
         };
       }
@@ -133,4 +136,5 @@ module.exports = function ({ addBase, theme, prefix, e }) {
   });
 
   addBase(styles);
+  addUtilities(fstyles);
 };

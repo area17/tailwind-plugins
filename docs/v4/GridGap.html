@@ -1,0 +1,117 @@
+---
+title: GridGap
+---
+
+{% include_relative includes/_header.html %}
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>This plugin creates classes to handle responsive grid gutters:</p>
+
+  <ul>
+    <li><code>.gap-gutter</code></li>
+    <li><code>.gap-y-gutter</code></li>
+    <li><code>.gap-x-gutter</code></li>
+  </ul>
+
+  <p>
+    Which are responsive CSS grid gutters to complement Tailwind's
+    <a href="https://tailwindcss.com/docs/gap" target="_blank">grid-gap</a>.
+  </p>
+
+  <h2 id="setup">Setup</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { Setup, GridGap } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  plugins: [Setup, GridGap],
+  theme: {
+    innerGutters: {
+      xs: "10px",
+      sm: "15px",
+      md: "20px",
+      lg: "30px",
+      xl: "40px",
+      xxl: "40px"
+    },
+  }
+  ...
+};</code></pre>
+  </figure>
+
+  <p>
+    Requires <code>Setup</code> plugin with
+    <code>theme.innerGutters</code> configured.
+  </p>
+
+  <h2 id="demo">Demo</h2>
+
+  <p>
+    Mixing in with standard Tailwind grid type classes, we use
+    <code>gap-x-gutter</code> to set the grid's column gutter:
+  </p>
+</div>
+
+<div class="show-grid">
+  <div
+    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-20 mt-20"
+  >
+    <div class="h-40 bg-column"></div>
+    <div class="h-40 bg-column"></div>
+    <div class="h-40 bg-column"></div>
+    <div class="h-40 bg-column"></div>
+  </div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-20  gap-x-gutter">
+  &lt;div>&lt;/div>
+  &lt;div>&lt;/div>
+  &lt;div>&lt;/div>
+  &lt;div>&lt;/div>
+&lt;/div></code></pre>
+  </figure>
+
+  <p>
+    Much like Tailwind's
+    <a href="https://tailwindcss.com/docs/gap" target="_blank">grid-gap</a>, you
+    can prefix these classes per breakpoint, state etc.
+  </p>
+</div>
+
+<div class="show-grid">
+  <div
+    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-0 md:gap-x-gutter lg:gap-x-0 xl:gap-x-gutter gap-y-20 mt-20"
+  >
+    <div class="h-40 bg-column"></div>
+    <div class="h-40 bg-column"></div>
+    <div class="h-40 bg-column"></div>
+    <div class="h-40 bg-column"></div>
+  </div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-20 gap-x-0 md:gap-x-gutter lg:gap-x-0 xl:gap-x-gutter">
+  &lt;div>&lt;/div>
+  &lt;div>&lt;/div>
+  &lt;div>&lt;/div>
+  &lt;div>&lt;/div>
+&lt;/div></code></pre>
+  </figure>
+</div>
+
+{% include_relative includes/_footer.html %}

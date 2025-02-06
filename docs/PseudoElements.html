@@ -7,6 +7,8 @@ title: PseudoElements
 <div class="copy">
   <h2 id="description">Description</h2>
 
+  <p><strong>Note:</strong> Tailwind 3+ includes most, if not all, of these psuedo elements. Its likely you don't need this plugin.</p>
+
   <p>Adds more CSS pseudo-elements support as variants:</p>
 
   <ul>
@@ -34,6 +36,25 @@ module.exports = {
   ...
   plugins: [PseudoElements]
 </code></pre>
+  </figure>
+
+  <h2 id="output">Output</h2>
+
+  <p>
+    This plugin will output pseudo classes variants:
+  </p>
+
+  <h2 id="demo">Demo</h2>
+
+  <ul>
+    <li class="marker:content-['⛄️'] marker:text-red">Snowman emoji <code>li</code> marker</li>
+  </ul>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;class="marker:content-['⛄️'] marker:text-red">...&lt;/li></code></pre>
   </figure>
 </div>
 

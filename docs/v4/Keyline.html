@@ -1,0 +1,155 @@
+---
+title: Keyline
+---
+
+{% include_relative includes/_header.html %}
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>
+    This plugin creates a border that sits in the gutter between elements and
+    assumes spacing is that of <code>var(--inner-gutter)</code>.
+  </p>
+
+  <p>
+    It creates utility classes based on the <code>borderColor</code> settings in
+    your Tailwind config (falls back to <code>colors</code>).
+  </p>
+
+  <ul>
+    <li>
+      <code>keyline-l-primary</code> draws a keyline to the left of the element
+      in the primary colour
+    </li>
+    <li>
+      <code>keyline-r-primary</code> draws a keyline to the right of the element
+      in the primary colour
+    </li>
+    <li>
+      <code>md:keyline-l-secondary</code> draws a keyline to the left of the
+      element in the secondary border colour at medium and up (see config below)
+    </li>
+    <li>
+      <code>lg:keyline-l-tertiary</code> draws a keyline to the left of the
+      element in the tertiary border colour at large and up (see config below)
+    </li>
+    <li>
+      <code>keyline-0</code> hides both left and right keylines on the element,
+      if previously set
+    </li>
+    <li>
+      <code>md:keyline-0</code> hides both left and right keylines on the
+      element, if previously set, at medium and up
+    </li>
+    <li>
+      <code>md:keyline-l-0</code> hides just the left keyline at medium and up
+    </li>
+    <li>
+      <code>md:keyline-r-0</code> hides just the right keyline and medium and up
+    </li>
+  </ul>
+
+  <h2 id="setup">Setup</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { Setup, Keyline } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  plugins: [Setup, Keyline],
+  theme: {
+    innerGutters: {
+      xs: "10px",
+      sm: "15px",
+      md: "20px",
+      lg: "30px",
+      xl: "40px",
+      xxl: "40px"
+    },
+    borderColor: {
+      "primary": "#757575",
+      "secondary": "#f00",
+      "tertiary": "#d9d9d9"
+    }
+  }
+  ...
+};</code></pre>
+  </figure>
+
+  <p>
+    Requires <code>Setup</code> plugin with <code>theme.innerGutters</code> and
+    <code>theme.borderColor</code> configured.
+  </p>
+
+  <h2 id="demo">Demo</h2>
+
+  <p>
+    Based on the reference config mentioned in this guide, and with a simple two
+    column CSS grid layout, we would get the following in our CSS:
+  </p>
+</div>
+
+<div class="grid grid-cols-2 gap-gutter mt-20">
+  <div class="h-80 bg-column"></div>
+  <div class="h-80 bg-column keyline-l-primary"></div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid grid-cols-2 gap-gutter mt-20">
+  &lt;div class="h-40 bg-column">&lt;/div>
+  &lt;div class="h-40 bg-column <strong>keyline-l-primary</strong>">&lt;/div>
+&lt;/div></code></pre>
+  </figure>
+
+  <p>
+    A more complex example, which differing numbers of columns per breakpoint,
+    and keylines being shown, hidden and changing colour:
+  </p>
+</div>
+
+<div
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-20 mt-20"
+>
+  <div class="h-40 bg-column"></div>
+  <div class="h-40 bg-column keyline-l-primary lg:keyline-l-secondary"></div>
+  <div class="h-40 bg-column md:keyline-l-primary lg:keyline-l-secondary"></div>
+  <div
+    class="h-40 bg-column keyline-l-primary md:keyline-l-0 lg:keyline-l-secondary"
+  ></div>
+  <div class="h-40 bg-column md:keyline-l-primary lg:keyline-l-0"></div>
+  <div class="h-40 bg-column keyline-l-primary lg:keyline-l-secondary"></div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-20">
+  &lt;div>&lt;/div>
+  &lt;div class="keyline-l-primary lg:keyline-l-secondary">&lt;/div>
+  &lt;div class="md:keyline-l-primary lg:keyline-l-secondary">&lt;/div>
+  &lt;div class="keyline-l-primary md:keyline-l-0 lg:keyline-l-secondary">&lt;/div>
+  &lt;div class="md:keyline-l-primary lg:keyline-l-0">&lt;/div>
+  &lt;div class="keyline-l-primary lg:keyline-l-secondary">&lt;/div>
+&lt;/div></code></pre>
+  </figure>
+
+  <p>
+    As you can see, its possible to add and maintain keylines in the gutters
+    between elements within a responsive grid but its a bit of a mess of
+    adding/removing classes. So, this plugin is probably better used for simpler
+    layouts (left/right columns) and for grid layouts you may want to use the
+    GridLine plugin instead.
+  </p>
+</div>
+
+{% include_relative includes/_footer.html %}

@@ -1,0 +1,40 @@
+---
+title: PseudoElements
+---
+
+{% include_relative includes/_header.html %}
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>Adds more CSS pseudo-elements support as variants:</p>
+
+  <ul>
+    <li><code>after</code></li>
+    <li><code>backdrop</code></li>
+    <li><code>before</code></li>
+    <li><code>cue</code></li>
+    <li><code>first-letter</code></li>
+    <li><code>first-line</code></li>
+    <li><code>grammar-error</code></li>
+    <li><code>marker</code></li>
+    <li><code>placeholder</code></li>
+    <li><code>selection</code></li>
+  </ul>
+
+  <h2 id="setup">Setup</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { PseudoElements } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  plugins: [PseudoElements]
+</code></pre>
+  </figure>
+</div>
+
+{% include_relative includes/_footer.html %}

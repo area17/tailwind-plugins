@@ -1,0 +1,310 @@
+---
+title: GridLayout
+---
+
+{% include_relative includes/_header.html %}
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>This plugin creates classes to handle CSS grid layouts:</p>
+
+  <ul>
+    <li>
+      <code>.grid-layout</code> - on parent, makes css grid layout with columns
+      set to equal the amount of design columns at each breakpoint and with the
+      grid gap set to the inner gutter
+    </li>
+    <li class="mt-20">
+      <code>.grid-col-span-N</code> - on child, sets width N grid columns wide
+    </li>
+    <li>
+      <code>.grid-col-start-N</code> - on child, starts element on the Nth grid
+      column
+    </li>
+    <li>
+      <code>.grid-col-end-N</code> - on child, ends element on the Nth grid
+      column
+    </li>
+  </ul>
+
+  <h3>Why use this over Tailwind's native grid column classes?</h3>
+
+  <p>
+    By default, Tailwind assumes you have a 12 grid layout at all your
+    breakpoints - this plugin does not. This plugin uses your Tailwind config,
+    specifically the <code>Setup</code> <code>theme.columnCount</code> to adjust
+    the amount of columns at each breakpoint so if your
+    <code>md</code> breakpoint has 8 design columns, you can easily span 6 of
+    them without having to convert from 12. This plugin also allows nesting
+    whilst keeping to your overall amount of design columns.
+  </p>
+
+  <h2 id="setup">Setup</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { Setup, GridLayout } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  plugins: [Setup, GridLayout],
+  theme: {
+    innerGutters: {
+      xs: "10px",
+      sm: "15px",
+      md: "20px",
+      lg: "30px",
+      xl: "40px",
+      xxl: "40px"
+    },
+    columnCount: {
+      xs: 4,
+      sm: 4,
+      md: 8,
+      lg: 12,
+      xl: 12
+    }
+  }
+  ...
+};</code></pre>
+  </figure>
+
+  <p>
+    Requires <code>Setup</code> plugin with <code>theme.innerGutters</code> and
+    <code>theme.columnCount</code> configured.
+  </p>
+
+  <h2 id="output">Output</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">app.css</figcaption>
+    <pre class="code-example-code"><code class="language-css">.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  grid-gap: var(--inner-gutter);
+}
+
+.grid-col-span-1 {
+  --grid-columns: 1;
+  grid-column: span 1 / span 1;
+}
+
+.grid-col-start-1 {
+  grid-column-start: 1;
+}
+
+.grid-col-end-1 {
+  grid-column-end: 1;
+}
+
+...
+
+.grid-col-span-MAXCOLS {
+  --grid-columns: MAXCOLS;
+  grid-column: span MAXCOLS / span MAXCOLS;
+}
+
+.grid-col-start-MAXCOLS {
+  grid-column-start: 1;
+}
+
+.grid-col-end-MAXCOLS {
+  grid-column: MAXCOLS;
+}
+</code></pre>
+  </figure>
+
+  <h2 id="demo">Demo</h2>
+</div>
+
+<div class="show-grid">
+  <div class="grid-layout mt-40">
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+    <div class="grid-col-span-1 h-40 bg-column"></div>
+  </div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid-layout">
+  &lt;div class="grid-col-span-1">&lt;/div>
+  &lt;div class="grid-col-span-1">&lt;/div>
+  &lt;div class="grid-col-span-1">&lt;/div>
+  &lt;div class="grid-col-span-1">&lt;/div>
+  &lt;div class="grid-col-span-1">&lt;/div>
+  &lt;div class="grid-col-span-1">&lt;/div>
+  &lt;div class="grid-col-span-1">&lt;/div>
+  &lt;div class="grid-col-span-1">&lt;/div>
+  &lt;div class="grid-col-span-1">&lt;/div>
+  &lt;div class="grid-col-span-1">&lt;/div>
+  &lt;div class="grid-col-span-1">&lt;/div>
+  &lt;div class="grid-col-span-1">&lt;/div>
+&lt;/div></code></pre>
+  </figure>
+
+  <hr />
+
+  <h3 id="nesting">Nesting</h3>
+
+  <p>
+    If you use <code>grid-col-span-N</code> classes for your grid column
+    spanning, then any nested <code>grid-layout</code>, or
+    <code>w-N-cols</code> classes will key off the design grid at each
+    breakpoint:
+  </p>
+</div>
+
+<div class="show-grid">
+  <div class="grid-layout mt-40">
+    <div class="grid-col-span-2 h-40 bg-column"></div>
+    <div class="grid-col-span-8 grid-layout h-100 pt-20 bg-column">
+      <div class="grid-col-span-6 grid-layout h-80 pt-20 bg-column-alt">
+        <div class="grid-col-span-2 h-40 bg-column"></div>
+        <div class="grid-col-span-2 h-40 bg-column"></div>
+      </div>
+      <div class="grid-col-span-1 h-40 bg-column-alt"></div>
+    </div>
+  </div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid-layout mt-40">
+  &lt;div class="grid-col-span-2">&lt;/div>
+  &lt;div class="grid-col-span-8 grid-layout">
+    &lt;div class="grid-col-span-6 grid-layout">
+      &lt;div class="grid-col-span-2">&lt;/div>
+      &lt;div class="grid-col-span-2">&lt;/div>
+    &lt;/div>
+    &lt;div class="grid-col-span-1">&lt;/div>
+  &lt;/div>
+&lt;/div></code></pre>
+  </figure>
+
+  <hr />
+
+  <h3 id="layout">Compatibility with <code>Layout</code> plugin</h3>
+
+  <p>
+    As both plugins use the same set of <code>:root</code> variables, they can
+    be nested inside of each other:
+  </p>
+</div>
+
+<div class="show-grid">
+  <div class="grid-layout mt-40">
+    <div class="grid-col-span-9 h-80 pt-20 bg-column">
+      <div class="w-5-cols h-40 bg-column-alt text-inverse">
+        w-5-cols inside grid-col-span-9
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid-layout">
+  &lt;div class="grid-col-span-9">
+    &lt;div class="w-5-cols">&lt;/div>
+  &lt;/div>
+&lt;/div></code></pre>
+  </figure>
+
+  <hr />
+
+  <h3 id="responsive">Responsive</h3>
+
+  <p>A full set of responsive classes are generated:</p>
+</div>
+
+<div class="show-grid">
+  <div class="grid-layout mt-40">
+    <div
+      class="grid-col-span-2 md:grid-col-span-2 lg:grid-col-span-4 h-40 bg-column"
+    >
+      grid-span-2 md:grid-span-2 lg:grid-span-4
+    </div>
+    <div
+      class="grid-col-span-1 md:grid-col-span-4 lg:grid-col-span-6 h-40 bg-column"
+    >
+      grid-span-1 md:grid-span-4 lg:grid-span-6
+    </div>
+  </div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="cols-grid mt-40">
+  &lt;div class="grid-span-2 md:grid-span-2 lg:grid-span-4 h-40 bg-column">grid-span-2 md:grid-span-2 lg:grid-span-4&lt;/div>
+  &lt;div class="grid-span-1 md:grid-span-4 lg:grid-span-6 h-40 bg-column">grid-span-1 md:grid-span-4 lg:grid-span-6&lt;/div>
+&lt;/div></code></pre>
+  </figure>
+
+  <hr />
+
+  <h3 class="mixing">Mixing and matching with Tailwind grid classes:</h3>
+
+  <p>
+    For full and complete grid layouts, you will want use Tailwind native
+    classes such as <code>row-span-*</code> (<a
+      href="https://tailwindcss.com/docs/grid-row"
+      target="_blank"
+      >Row spanning on Tailwind)</a
+    >. This plugin doesn't re-create or usurp all Tailwind grid classes, just
+    provides extra classes to work with your design grid.
+  </p>
+</div>
+
+<div class="show-grid">
+  <div class="grid-layout mt-40">
+    <div
+      class="grid-col-span-6 grid-col-start-4 row-span-full min-h-40 bg-column"
+    ></div>
+    <div
+      class="grid-col-span-3 grid-col-start-1 row-span-3 min-h-40 bg-column"
+    ></div>
+    <div
+      class="grid-col-span-3 grid-col-end-13 row-end-3 min-h-40 bg-column"
+    ></div>
+  </div>
+</div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="grid-layout mt-40">
+  &lt;div class="grid-col-span-6 grid-col-start-4 row-span-full bg-column">&lt;/div>
+  &lt;div class="grid-col-span-3 grid-col-start-1 row-span-3 bg-column">&lt;/div>
+  &lt;div class="grid-col-span-3 grid-col-end-13 row-end-3 h-40 bg-column">&lt;/div>
+&lt;/div></code></pre>
+  </figure>
+</div>
+
+{% include_relative includes/_footer.html %}

@@ -1,0 +1,187 @@
+---
+title: StrokeFull
+---
+
+{% include_relative includes/_header.html %}
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>
+    This plugin creates a series of classes to draw a 100vw stroke pseudo layer.
+  </p>
+
+  <p>
+    <a href="#demo">Jump to the demos</a> to see each in action, or jump to a
+    specific underline class group:
+  </p>
+
+  <ul>
+    <li><a href="#position">Position</a></li>
+    <li><a href="#color">Color</a></li>
+    <li><a href="#style">Style</a></li>
+    <li><a href="#thickness">Thickness</a></li>
+  </ul>
+
+  <h2 id="setup">Setup</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { StrokeFull } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  plugins: [StrokeFull],
+  theme: {
+    borderColor: {
+      primary: "#000",
+      secondary: "#d9d9d9",
+      tertiary: "#757575",
+    }
+  }
+  ...
+};</code></pre>
+  </figure>
+
+  <h2 id="demo">Demos</h2>
+
+  <p id="position">
+    The basic usage is to add <code>stroke-full-bottom</code> to draw a stroke
+    at the bottom of your container, or <code>stroke-full-top</code> - along
+    with a colour for your stroke, <code>stroke-full-primary</code>:
+  </p>
+</div>
+
+<div class="h-100 mt-40 stroke-full-bottom stroke-full-primary"></div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="stroke-full-bottom stroke-full-primary">...&lt;/div></code></pre>
+  </figure>
+
+  <p id="color">
+    Stroke colours are derived from your
+    <code>theme.borderColor</code> settings. So, using the secondary border
+    colour and drawing a top stroke:
+  </p>
+</div>
+
+<div class="h-100 mt-40 stroke-full-top stroke-full-secondary"></div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="stroke-full-top stroke-full-secondary">...&lt;/div></code></pre>
+  </figure>
+
+  <p>Usage with <code>background-fill</code>:</p>
+</div>
+
+<div
+  class="h-100 mt-40 background-fill-header stroke-full-bottom stroke-full-tertiary"
+></div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="background-fill-header stroke-full-bottom stroke-full-tertiary">...&lt;/div></code></pre>
+  </figure>
+
+  <p id="style">
+    You can also change the border style - any
+    <a
+      href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-style"
+      target="_blank"
+      >valid CSS border style</a
+    >
+    can be used. So, using <code>stroke-full-dotted</code>:
+  </p>
+</div>
+
+<div
+  class="h-100 mt-40 stroke-full-bottom stroke-full-primary stroke-full-dotted"
+></div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="stroke-full-bottom stroke-full-primary stroke-full-dotted">...&lt;/div></code></pre>
+  </figure>
+
+  <p>And <code>stroke-full-dashed</code>:</p>
+</div>
+
+<div
+  class="h-100 mt-40 stroke-full-bottom stroke-full-primary stroke-full-dashed"
+></div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="stroke-full-bottom stroke-full-primary stroke-full-dashed">...&lt;/div></code></pre>
+  </figure>
+
+  <p id="thickness">
+    By default, the stroke width is 0.0625em (1px). But, you can use any spacing
+    value from your <code>theme.spacing</code> config. For a 0.125em (2px)
+    stroke
+  </p>
+</div>
+
+<div
+  class="h-100 mt-40 stroke-full-bottom stroke-full-primary stroke-full-2"
+></div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="stroke-full-bottom stroke-full-primary stroke-full-2">...&lt;/div></code></pre>
+  </figure>
+
+  <p>And a 0.25em (4px) stroke:</p>
+</div>
+
+<div
+  class="h-100 mt-40 stroke-full-bottom stroke-full-primary stroke-full-4"
+></div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="stroke-full-bottom stroke-full-primary stroke-full-4">...&lt;/div></code></pre>
+  </figure>
+
+  <p>Combining type with thickness, a 0.625em (10px) dashed stroke:</p>
+</div>
+
+<div
+  class="h-100 mt-40 stroke-full-bottom stroke-full-primary stroke-full-dashed stroke-full-10"
+></div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="stroke-full-bottom stroke-full-primary stroke-full-dashed stroke-full-10">...&lt;/div></code></pre>
+  </figure>
+</div>
+
+{% include_relative includes/_footer.html %}

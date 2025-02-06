@@ -1,0 +1,134 @@
+---
+title: BackgroundFill
+---
+
+{% include_relative includes/_header.html %}
+
+<div class="copy">
+  <h2 id="description">Description</h2>
+
+  <p>
+    This plugin creates classes to draw a 100vw background colour pseudo layer:
+  </p>
+
+  <ul>
+    <li><code>.background-fill</code></li>
+    <li>
+      <code>.background-fill-*</code> (where <code>*</code> is one of your theme
+      background colors)
+    </li>
+  </ul>
+
+  <h2 id="setup">Setup</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { BackgroundFill } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  plugins: [BackgroundFill],
+  theme: {
+    backgroundColor: {
+      header: "#e6e6e6",
+      accent: "#004F91",
+    }
+  }
+  ...
+};</code></pre>
+  </figure>
+
+  <h2 id="demo">Demo</h2>
+
+  <p>
+    By default, <code>background-fill</code> will inhert the background colour
+    of the container its attached to:
+  </p>
+</div>
+
+<div class="h-100 mt-40 border bg-header background-fill"></div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="bg-header background-fill">...&lt;/div></code></pre>
+  </figure>
+
+  <p>And so changing the background will change the background fill:</p>
+</div>
+
+<div class="h-100 mt-40 border bg-accent background-fill"></div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="bg-accent background-fill">...&lt;/div></code></pre>
+  </figure>
+
+  <p>
+    You can also use any of your theme <code>backgroundColor</code> directly,
+    without applying a background to your container:
+  </p>
+</div>
+
+<div class="h-100 mt-40 border background-fill-accent"></div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="background-fill-accent">...&lt;/div></code></pre>
+  </figure>
+
+  <p>
+    This will be especially useful if your background is semi transparent so you
+    don't have a doubling up of layers.
+  </p>
+
+  <p>
+    To clear a <code>background-fill</code> there is a
+    <code>background-fill-none</code> class:
+  </p>
+</div>
+
+<div
+  class="h-100 mt-40 border bg-header background-fill md:bg-accent lg:background-fill-none"
+></div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="bg-header background-fill md:bg-accent lg:background-fill-none">...&lt;/div></code></pre>
+  </figure>
+
+  <p>
+    In that example, responsive background classes change the colour of the
+    background and then at <code>lg</code> the background fill is switched off.
+  </p>
+
+  <p>Using <code>background-fill-*</code> classes, you would:</p>
+</div>
+
+<div
+  class="h-100 mt-40 border background-fill-header md:background-fill-accent lg:background-fill-none"
+></div>
+
+<div class="copy">
+  <figure class="code-example">
+    <figcaption class="code-example-filename">document.html</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-html">&lt;div class="background-fill-header md:background-fill-accent lg:background-fill-none">...&lt;/div></code></pre>
+  </figure>
+</div>
+
+{% include_relative includes/_footer.html %}

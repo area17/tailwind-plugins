@@ -1,28 +1,25 @@
 // A17 tailwind plugins
 const {
-  Setup,
-  ApplyColorVariables,
-  BackgroundFill,
-  ColorTokens,
-  Components,
-  Container,
-  CssInJs,
-  DevTools,
-  FullBleedScroller,
-  GridGap,
-  GridLayout,
-  GridLine,
-  InteractionMediaQueries,
-  Keyline,
-  Layout,
-  PseudoElements,
-  RatioBox,
-  Scrollbar,
-  Spacing,
-  SpacingTokens,
-  StrokeFull,
-  Typography,
-  Underline,
+  setup,
+  colorTokens,
+  applyColorVariables,
+  typography,
+  container,
+  devTools,
+  gridGap,
+  gridLayout,
+  spacing,
+  layout,
+  gridLine,
+  keyline,
+  backgroundFill,
+  strokeFull,
+  underline,
+  fullBleedScroller,
+  scrollbar,
+  pseudoElements,
+  interactionMediaQueries,
+  ratioBox,
 } = require('../index');
 
 // conf
@@ -30,31 +27,26 @@ const feConfig = require('./frontend.config.json');
 
 module.exports = {
   content: ['./docs/**/*.html', './docs/*.html'],
-  corePlugins: {
-    container: false,
-  },
   plugins: [
-    Setup,
-    ColorTokens,
-    Components,
-    BackgroundFill,
-    Container,
-    CssInJs,
-    DevTools,
-    FullBleedScroller,
-    GridGap,
-    GridLayout,
-    GridLine,
-    InteractionMediaQueries,
-    Keyline,
-    Layout,
-    PseudoElements,
-    RatioBox,
-    Scrollbar,
-    Spacing,
-    StrokeFull,
-    Typography,
-    Underline,
+    setup,
+    colorTokens,
+    typography,
+    container,
+    devTools,
+    gridGap,
+    gridLayout,
+    spacing,
+    layout,
+    gridLine,
+    keyline,
+    backgroundFill,
+    strokeFull,
+    underline,
+    fullBleedScroller,
+    scrollbar,
+    pseudoElements,
+    interactionMediaQueries,
+    ratioBox,
   ],
   theme: {
     screens: feConfig.structure.breakpoints,
@@ -65,45 +57,37 @@ module.exports = {
     fontFamilies: feConfig.typography.families,
     typesets: feConfig.typography.typesets,
     spacingGroups: feConfig.spacing.groups,
-    spacing: SpacingTokens(feConfig.spacing.tokens),
+    ratios: feConfig.ratios,
+    css: feConfig.css,
     colors: feConfig.color.tokens,
-    borderColor: ApplyColorVariables(
+    borderColor: applyColorVariables(
       feConfig.color.tokens,
       feConfig.color.border
     ),
-    textColor: ApplyColorVariables(feConfig.color.tokens, feConfig.color.text),
-    backgroundColor: ApplyColorVariables(
+    textColor: applyColorVariables(feConfig.color.tokens, feConfig.color.text),
+    backgroundColor: applyColorVariables(
       feConfig.color.tokens,
       feConfig.color.background
     ),
-    underlineColor: ApplyColorVariables(
+    underlineColor: applyColorVariables(
       feConfig.color.tokens,
       feConfig.color.underline
     ),
     scrollbarColor: {
-      track: ApplyColorVariables(
+      track: applyColorVariables(
         feConfig.color.tokens,
         feConfig.color.scrollbar.track
       ),
-      thumb: ApplyColorVariables(
+      thumb: applyColorVariables(
         feConfig.color.tokens,
         feConfig.color.scrollbar.thumb
       ),
     },
-    ratios: feConfig.ratios,
-    components: feConfig.components,
-    css: feConfig.css,
-    extend: {
-      minHeight: ({ theme }) => theme('spacing'),
-      maxWidth: ({ theme }) => theme('spacing'),
-      spacing: {
-        'safe-top': 'env(safe-area-inset-top)',
-        'safe-bottom': 'env(safe-area-inset-bottom)',
-        'safe-left': 'env(safe-area-inset-left)',
-        'safe-right': 'env(safe-area-inset-right)',
-        gutter: 'var(--inner-gutter)',
-        'outer-gutter': 'var(--outer-gutter, 0px)',
-      },
+  },
+  extend: {
+    spacing: {
+      gutter: 'var(--inner-gutter)',
+      'outer-gutter': 'var(--outer-gutter, 0px)',
     },
   },
 };

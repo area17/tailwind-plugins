@@ -34,6 +34,11 @@ title: GridLine
     color of the horizontal and vertical strokes independently.
   </p>
 
+  <p>
+    <strong>Note:</strong> You will 100% want to make sure your CSS is purged when using this plugin -
+    as this plugin can create a lot of CSS to cover all the variations.
+  </p>
+
   <ul>
     <li>
       <code>grid-line-x</code> - draws grid lines above each child, each is the
@@ -138,11 +143,6 @@ module.exports = {
     Requires <code>Setup</code> plugin with <code>theme.innerGutters</code> and
     <code>theme.borderColor</code> configured and also the
     <code>GridGap</code> plugin.
-  </p>
-
-  <p>
-    You will 100% want to make sure your CSS is purged when using this plugin -
-    as this plugin can create a lot of CSS to cover all the variations.
   </p>
 
   <h2 id="demo">Demo</h2>
@@ -449,16 +449,16 @@ module.exports = {
 
   <p>
     And to make secondary border colour row grid lines
-    <code>grid-line-x-secondary</code> and tertiary border colour column grid
-    lines <code>grid-line-y-tertiary</code> - to give
+    <code>grid-line-x-secondary</code> and quaternary border colour column grid
+    lines <code>grid-line-y-quaternary</code> - to give
     <code
-      >grid-line-x grid-line-x-secondary grid-line-y grid-line-y-tertiary</code
+      >grid-line-x grid-line-x-secondary grid-line-y grid-line-y-quaternary</code
     >:
   </p>
 </div>
 
 <div
-  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-x-secondary grid-line-y grid-line-y-tertiary mt-20"
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter grid-line-x grid-line-x-secondary grid-line-y grid-line-y-quaternary mt-20"
 >
   <div class="h-40 bg-column"></div>
   <div class="h-40 bg-column"></div>
@@ -492,7 +492,7 @@ module.exports = {
 </div>
 
 <div
-  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-48 md:gap-y-64 grid-line-x-24 md:grid-line-x-32 xl:grid-line-x-32 grid-line-xfull grid-line-x-primary grid-line-y-0 md:grid-line-y md:grid-line-y-primary md:grid-line-x-tertiary lg:grid-line-y-secondary lg:grid-line-x-0 xl:grid-line-x xl:grid-line-x-primary mt-20"
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-gutter gap-y-48 md:gap-y-64 grid-line-x-24 md:grid-line-x-32 xl:grid-line-x-32 grid-line-xfull grid-line-x-primary grid-line-y-0 md:grid-line-y md:grid-line-y-primary md:grid-line-x-quaternary lg:grid-line-y-secondary lg:grid-line-x-0 xl:grid-line-x xl:grid-line-x-primary mt-20"
 >
   <div class="h-40 bg-column"></div>
   <div class="h-40 bg-column"></div>
@@ -514,7 +514,7 @@ module.exports = {
   gap-x-gutter
   gap-y-48 md:gap-y-64 grid-line-x-24 md:grid-line-x-32 xl:grid-line-x-32
   grid-line-xfull grid-line-x-primary
-  grid-line-y-0 md:grid-line-y md:grid-line-y-primary md:grid-line-x-tertiary
+  grid-line-y-0 md:grid-line-y md:grid-line-y-primary md:grid-line-x-quaternary
   lg:grid-line-y-secondary lg:grid-line-x-0
   xl:grid-line-x xl:grid-line-x-primary"></code></pre>
   </figure>

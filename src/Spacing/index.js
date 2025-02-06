@@ -1,14 +1,15 @@
-module.exports = function ({ addBase, theme, prefix }) {
+module.exports = function ({ addBase, matchUtilities, theme }) {
   const spacingGroups = theme('spacingGroups', {});
-  const themeCssSpacingProps = theme('spacingGroupProperties', {});
+  const breakpoints = theme('screens');
+  const firstBp = Object.keys(breakpoints)[0];
   const cssSpacingProps = {
     m: ['margin'],
     mt: ['margin-top'],
     mb: ['margin-bottom'],
     mr: ['margin-right'],
     ml: ['margin-left'],
-    mx: ['margin-left', 'margin-right'],
-    my: ['margin-top', 'margin-bottom'],
+    mx: ['margin-inline'],
+    my: ['margin-block'],
     ms: ['margin-inline-start'],
     me: ['margin-inline-end'],
     p: ['padding'],
@@ -18,8 +19,8 @@ module.exports = function ({ addBase, theme, prefix }) {
     pl: ['padding-left'],
     ps: ['padding-inline-start'],
     pe: ['padding-inline-end'],
-    px: ['padding-left', 'padding-right'],
-    py: ['padding-top', 'padding-bottom'],
+    px: ['padding-inline'],
+    py: ['padding-block'],
     gap: ['gap'],
     'gap-x': ['column-gap'],
     'gap-y': ['row-gap'],
@@ -30,22 +31,17 @@ module.exports = function ({ addBase, theme, prefix }) {
     start: ['inset-inline-start'],
     end: ['inset-inline-end'],
     inset: ['inset'],
-    'inset-x': ['inset-x'],
-    'inset-y': ['inset-y'],
-    ...themeCssSpacingProps,
+    'inset-x': ['inset-inline'],
+    'inset-y': ['inset-block'],
   };
-  const breakpoints = theme('screens');
-  const firstBp = Object.keys(breakpoints)[0];
   const rootStyles = {
     ':root': {},
   };
-  const spacingStyles = {};
-  const negatives = ['m', 'mt', 'mb', 'mr', 'ml', 'mx', 'my', 'ms', 'me', 'top', 'bottom', 'left', 'right', 'start', 'end', 'inset-x', 'inset-y'];
 
   // create root bp keys in bp order
   Object.keys(breakpoints).forEach((bp) => {
     if (bp !== firstBp) {
-      rootStyles[`@screen ${bp}`] = { ':root': {} };
+      rootStyles[`@media (width >= ${breakpoints[bp]})`] = { ':root': {} };
     }
   });
 
@@ -57,27 +53,8 @@ module.exports = function ({ addBase, theme, prefix }) {
       space = parseInt(space, 10) / 16 + 'rem';
       if (bp === firstBp) {
         rootStyles[':root'][`--spacing-${name}`] = space;
-        // create utility class
-        Object.entries(cssSpacingProps).forEach((spacingProp) => {
-          const [propName, cssProps] = spacingProp;
-          const className = prefix(`.${propName}-${name}`);
-          spacingStyles[className] = spacingStyles[className] || {};
-          cssProps.forEach((prop) => {
-            spacingStyles[className][prop] = `var(--spacing-${name})`;
-          });
-          // negative margins
-          if (negatives.includes(propName)) {
-            const classNameNegative = prefix(`.-${propName}-${name}`);
-            spacingStyles[classNameNegative] =
-              spacingStyles[classNameNegative] || {};
-            cssProps.forEach((prop) => {
-              spacingStyles[classNameNegative][prop] =
-                `calc(var(--spacing-${name}) * -1)`;
-            });
-          }
-        });
       } else {
-        rootStyles[`@screen ${bp}`][':root'][`--spacing-${name}`] = space;
+        rootStyles[`@media (width >= ${breakpoints[bp]})`][':root'][`--spacing-${name}`] = space;
       }
     });
   });
@@ -94,7 +71,65 @@ module.exports = function ({ addBase, theme, prefix }) {
     }
   });
 
-  // add
+  // add root styles
   addBase(rootStyles);
-  addBase(spacingStyles);
+
+  // add utility classes
+  const valuesCalc = () => {
+    let obj = {};
+    Object.keys(spacingGroups).forEach((group) => {
+      obj[group] = group;
+    });
+    return obj;
+  };
+  const values = valuesCalc();
+  const spacingStyles = {};
+
+  function add(cssSelector, cssAttributes) {
+    let selector = {};
+    selector[`${cssSelector}`] = (value) => {
+      if (value.indexOf('var(') > -1) {
+        return {};
+      }
+      let negative = typeof(value) === 'string' && value.indexOf('calc') > -1;
+      let attributes = {};
+
+      if (negative) {
+        value = value.replace(/calc\(/i, '');
+        value = value.replace(/ \* -1\)/i, '');
+
+        if (typeof(cssAttributes) === 'string') {
+          attributes[cssAttributes] = `calc(var(--spacing-${value}) * -1)`;
+        }
+
+        if (typeof(cssAttributes) === 'object' && Array.isArray(cssAttributes)) {
+          cssAttributes.forEach(cssAttribute => {
+            attributes[cssAttribute] = `calc(var(--spacing-${value}) * -1)`;
+          });
+        }
+      } else {
+        if (typeof(cssAttributes) === 'string') {
+          attributes[cssAttributes] = `var(--spacing-${value})`;
+        }
+
+        if (typeof(cssAttributes) === 'object' && Array.isArray(cssAttributes)) {
+          cssAttributes.forEach(cssAttribute => {
+            attributes[cssAttribute] = `var(--spacing-${value})`;
+          });
+        }
+      }
+
+      return attributes;
+    };
+
+    matchUtilities(selector, {
+      values: values,
+      supportsNegativeValues: true,
+    });
+  }
+
+  Object.keys(cssSpacingProps).forEach(prop => {
+    let attributes = cssSpacingProps[prop];
+    add(prop, attributes);
+  });
 };

@@ -22,7 +22,7 @@ describe('typography plugin', () => {
           typesets: {
             h1: {
               xs: {
-                'font-family': 'var(--sans)',
+                'font-family': 'var(--font-sans)',
                 'bold-weight': '500',
                 'font-size': '32',
                 'line-height': '1.2',

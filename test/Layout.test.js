@@ -28,16 +28,16 @@ describe('layout plugin', () => {
       {
         safelist: [
           'cols-container',
-          'w-1-cols',
-          'w-3-cols',
-          'w-12-cols',
-          'mx-1-cols',
-          'mx-3-cols',
-          'lg:w-1-cols',
-          'lg:w-3-cols',
-          'lg:w-12-cols',
-          'lg:mx-1-cols',
-          'lg:mx-3-cols',
+          'w-cols-1',
+          'w-cols-3',
+          'w-cols-12',
+          'mx-cols-1',
+          'mx-cols-3',
+          'lg:w-cols-1',
+          'lg:w-cols-3',
+          'lg:w-cols-12',
+          'lg:mx-cols-1',
+          'lg:mx-cols-3',
         ],
       }
     ).then((css) => {

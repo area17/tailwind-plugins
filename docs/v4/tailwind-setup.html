@@ -1,0 +1,149 @@
+---
+title: Tailwind Setup
+---
+
+{% include_relative includes/_header.html %}
+
+<div class="copy">
+  <p>
+    Our general Tailwind setup involves a <code>frontend.config.json</code> and
+    the usual <code>tailwind.config.js</code> file.
+  </p>
+
+  <p>
+    We use values from this JSON file inside the Tailwind config to separate
+    Tailwind config itself from front end site data. This JSON file is often
+    read by a project's Webpack set up, a project's JavaScript and a project's
+    CMS. This set up is, of course, not mandatory to use these plugins, but they
+    may still prove inspiration for your Tailwind set up all the same.
+  </p>
+
+  <p>
+    This documentation site is made using Tailwind and AREA 17 tailwind plugins,
+    this page documents the config files used for this site.
+  </p>
+
+  <h2>tailwind.config.js</h2>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">{% include_relative tailwind.config.js %}</code></pre>
+  </figure>
+
+  <p>
+    Breaking that down a little. Firstly require the plugins and then bring in
+    the front end config file. Then set up Tailwind, JIT if you prefer.
+  </p>
+
+  <p>
+    As we have a custom <code>container</code> plugin, we disable the default
+    Tailwind container class.
+  </p>
+
+  <p>Then we bring in the plugins.</p>
+
+  <p>
+    Then some we set the various TW theme items to their counterparts in the
+    config JSON - with some examples like <code>spacing</code> and colours use
+    plugins as functions to process values from the config JSON.
+  </p>
+
+  <p>And finally, a few useful spacing extends.</p>
+
+  <h2>frontend.config.json</h2>
+
+  <p>Our config JSON is broken down into:</p>
+
+  <ul>
+    <li>
+      <code>structure</code> - here we describe the main layout of the site, its
+      grid and composition, from these <code>:root</code> variables will be made
+      <ul>
+        <li><code>breakpoints</code> - where each of our breakpoints starts</li>
+        <li>
+          <code>columns</code> - how many design columns at each breakpoint
+        </li>
+        <li>
+          <code>container</code> - how wide the main container of the site is
+          (<code>auto</code> or <code>px/vw/rem</code>)
+        </li>
+      </ul>
+    </li>
+    <li>
+      <code>gutters</code> - gutters definitions
+      <ul>
+        <li><code>inner</code> - between design columns</li>
+        <li><code>outer</code> - on the outside of the main container</li>
+      </ul>
+    </li>
+    <li>
+      <code>ratios</code> - which ratios should be generated for ratio boxes
+    </li>
+    <li>
+      <code>spacing</code> - define the spacing values for use in Tailwind
+      spacing classes like <code>h-20</code> and <code>mx-40</code>
+      <ul>
+        <li>
+          <code>tokens</code> - people rarely think in <code>rems</code>,
+          they're abstract but as experienced screen developers we've been
+          talking about pixels for years - we rename the spacing tokens to pixel
+          values and use a function to convert them to <code>rems</code> and so
+          <code>mt-16</code> will give you a margin top of
+          <code>16px</code> (which in the output CSS will be <code>1rem</code>)
+        </li>
+        <li>
+          <code>groups</code> - responsive spacing utility classes, create
+          global spacing rules that are responsive and systematised, from these
+          <code>:root</code> variables will be made
+        </li>
+      </ul>
+    </li>
+    <li>
+      <code>color</code> - define site colours
+      <ul>
+        <li>
+          <code>tokens</code> - these are the colour names, such as
+          <code>red-600</code>, not super human readable, from these
+          <code>:root</code> variables will be made
+        </li>
+        <li>
+          <code>borderColor</code> - apply colour tokens (or arbitrary colours)
+          to human readable systematised named classes, eg:
+          <code>border-primary</code> for your primary border, might map to
+          <code>primary: grey-5</code>, from these <code>:root</code> variables
+          will be made
+        </li>
+        <li><code>textColor</code> - same for text classes</li>
+        <li><code>backgroundColor</code> - and background colours</li>
+      </ul>
+    </li>
+    <li>
+      <code>typography</code> - define the site type styles
+      <ul>
+        <li>
+          <code>families</code> - firstly the families being used, from these
+          <code>:root</code> variables will be made
+        </li>
+        <li>
+          <code>typesets</code> - responsive type sets, where breakpoint
+          overrides can be specified and typography can be systematised
+        </li>
+      </ul>
+    </li>
+    <li><code>components</code> - define any arbitrary components</li>
+    <li><code>css</code> - define any arbitrary CSS</li>
+  </ul>
+
+  <p>And so, in full:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">frontend.config.json</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-json">{% include_relative frontend.config.json %}</code></pre>
+  </figure>
+</div>
+
+{% include_relative includes/_footer.html %}

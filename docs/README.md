@@ -42,7 +42,7 @@ Scripts available to run are:
 
 Every plugin needs documentation, with config options and/or output demonstrated or demos of the output. Adding the documentation for a plugin is also a handy way to develop a new plugin. Lets say your plugin is called `Foo`.
 
-First step is to create a PHP file, with the name of your new plugin in the `docs` folder:
+First step is to create a HTML file, with the name of your new plugin in the `docs` folder:
 
 ```bash
 touch docs/Foo.html
@@ -81,7 +81,7 @@ And then open `docs/tailwind.config.js` and require your plugin:
 
 ```JS
 // A17 tailwind plugins
-const { Setup, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, Spacing, Typography, ColorTokens, ApplyColorVariables, Underline, Components, CssInJs, GridLayout, SpacingTokens } = require('@area17/a17-tailwind-plugins');
+const { Setup, RatioBox, Layout, GridLine, PseudoElements, DevTools, GridGap, Container, Keyline, Spacing, Typography, ColorTokens, ApplyColorVariables, Underline, GridLayout, SpacingTokens } = require('@area17/a17-tailwind-plugins');
 const Foo = require('./../src/Foo/index.js');
 ```
 
