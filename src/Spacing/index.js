@@ -54,7 +54,9 @@ module.exports = function ({ addBase, theme, prefix }) {
     const [name, spacings] = group;
     Object.entries(spacings).forEach((spacing) => {
       let [bp, space] = spacing;
-      space = parseInt(space, 10) / 16 + 'rem';
+      if (space && typeof space === 'number') {
+        space = parseInt(space, 10) / 16 + 'rem';
+      }
       if (bp === firstBp) {
         rootStyles[':root'][`--spacing-${name}`] = space;
         // create utility class
