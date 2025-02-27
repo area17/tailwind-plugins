@@ -1,25 +1,25 @@
 // A17 tailwind plugins
 const {
-  setup,
-  colorTokens,
-  applyColorVariables,
-  typography,
-  container,
-  devTools,
-  gridGap,
-  gridLayout,
-  spacing,
-  layout,
-  gridLine,
-  keyline,
-  backgroundFill,
-  strokeFull,
-  underline,
-  fullBleedScroller,
-  scrollbar,
-  pseudoElements,
-  interactionMediaQueries,
-  ratioBox,
+  Setup,
+  ColorTokens,
+  ApplyColorVariables,
+  Typography,
+  Container,
+  DevTools,
+  GridGap,
+  GridLayout,
+  Spacing,
+  Layout,
+  GridLine,
+  Keyline,
+  BackgroundFill,
+  StrokeFull,
+  Underline,
+  FullBleedScroller,
+  Scrollbar,
+  PseudoElements,
+  InteractionMediaQueries,
+  RatioBox,
 } = require('../index');
 
 // conf
@@ -28,25 +28,26 @@ const feConfig = require('./frontend.config.json');
 module.exports = {
   content: ['./docs/**/*.html', './docs/*.html'],
   plugins: [
-    setup,
-    colorTokens,
-    typography,
-    container,
-    devTools,
-    gridGap,
-    gridLayout,
-    spacing,
-    layout,
-    gridLine,
-    keyline,
-    backgroundFill,
-    strokeFull,
-    underline,
-    fullBleedScroller,
-    scrollbar,
-    pseudoElements,
-    interactionMediaQueries,
-    ratioBox,
+    Setup,
+    ColorTokens,
+    ApplyColorVariables,
+    Typography,
+    Container,
+    DevTools,
+    GridGap,
+    GridLayout,
+    Spacing,
+    Layout,
+    GridLine,
+    Keyline,
+    BackgroundFill,
+    StrokeFull,
+    Underline,
+    FullBleedScroller,
+    Scrollbar,
+    PseudoElements,
+    InteractionMediaQueries,
+    RatioBox,
   ],
   theme: {
     screens: feConfig.structure.breakpoints,
@@ -60,25 +61,25 @@ module.exports = {
     ratios: feConfig.ratios,
     css: feConfig.css,
     colors: feConfig.color.tokens,
-    borderColor: applyColorVariables(
+    borderColor: ApplyColorVariables(
       feConfig.color.tokens,
       feConfig.color.border
     ),
-    textColor: applyColorVariables(feConfig.color.tokens, feConfig.color.text),
-    backgroundColor: applyColorVariables(
+    textColor: ApplyColorVariables(feConfig.color.tokens, feConfig.color.text),
+    backgroundColor: ApplyColorVariables(
       feConfig.color.tokens,
       feConfig.color.background
     ),
-    underlineColor: applyColorVariables(
+    underlineColor: ApplyColorVariables(
       feConfig.color.tokens,
       feConfig.color.underline
     ),
     scrollbarColor: {
-      track: applyColorVariables(
+      track: ApplyColorVariables(
         feConfig.color.tokens,
         feConfig.color.scrollbar.track
       ),
-      thumb: applyColorVariables(
+      thumb: ApplyColorVariables(
         feConfig.color.tokens,
         feConfig.color.scrollbar.thumb
       ),
