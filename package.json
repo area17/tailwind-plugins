@@ -1,6 +1,6 @@
 {
   "name": "@area17/a17-tailwind-plugins",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "author": "A17 <dev@area17.com> (https://area17.com/)",
   "description": "A collection of Tailwind plugins to help build responsive design systems in collaboration with A17 design and development build methodologies",
   "main": "index.js",
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "dotenv": "~16.4.5",
-    "tailwindcss": "^4.0.0"
+    "tailwindcss": "^4.0.9"
   },
   "homepage": "https://github.com/area17/tailwind-plugins#readme",
   "bugs": {

@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.1.0] - 2025-02-27
+
+### Fixed
+
+- increased specificity of `container` and `breakout` selectors by adding `[class]` to selector to defeat Tailwind's build in `container` utility, which we can't disable
+
+### Added
+
+- `Spacing` now has ability to specify strings such as `clamp(64px, 64px + 1vw, 200px)` in responsive spacing groups
+- notes Vite, Stylelint, Class name and CSS migration from Tailwind 3 to Tailwind 4
+
+### Changed
+
+- reverted plugin names to PascalCase from camelCase
+
 ## [5.0.0] - 2025-02-06
 
 ### Changed
