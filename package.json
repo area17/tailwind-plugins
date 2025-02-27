@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "dotenv": "~16.4.5",
-    "tailwindcss": "^4.0.0"
+    "tailwindcss": "^4.0.9"
   },
   "homepage": "https://github.com/area17/tailwind-plugins#readme",
   "bugs": {
