@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - increased specificity of `container` and `breakout` selectors by adding `[class]` to selector to defeat Tailwind's build in `container` utility, which we can't disable
 
+### Added
+
+- `Spacing` now has ability to specify strings such as `clamp(64px, 64px + 1vw, 200px)` in responsive spacing groups
+
 ## [5.0.0] - 2025-02-06
 
 ### Changed
