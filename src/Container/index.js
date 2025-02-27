@@ -1,7 +1,7 @@
 module.exports = function ({ addUtilities, prefix }) {
   // handle global prefix
-  const classNameContainer = prefix('.container');
-  const classNameBreakout = prefix('.breakout');
+  const classNameContainer = prefix('.container[class]');
+  const classNameBreakout = prefix('.breakout[class]');
 
   const styles = {
     [classNameContainer]: {
@@ -23,7 +23,7 @@ module.exports = function ({ addUtilities, prefix }) {
       '--container-outer-gutter': 'var(--outer-gutter, 0)',
       '--breakout-container-outer-gutter': 'inherit',
     },
-    [classNameBreakout]: {
+    [`${classNameBreakout}, ${classNameContainer} > ${classNameBreakout}`]: {
       '--breakout-outer-gutter':
         'max(var(--outer-gutter), calc((100% - var(--container-width, 100%)) / 2))',
       '--breakout-container-outer-gutter': 'var(--outer-gutter)',
