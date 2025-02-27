@@ -14,6 +14,112 @@ title: Migrating
     ><code class="language-bash">npm install @area17/a17-tailwind-plugins@latest</code></pre>
   </figure>
 
+  <h3>Ensure your <code>screens</code>, <code>mainColWidths</code>, <code>innerGutters</code>, <code>outerGutters</code> and <code>columnCount</code> are defined at all breakpoints</h3>
+
+  <p>Previously you could define just the breakpoints where the gutters changed:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { Setup } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  plugins: [Setup],
+  theme: {
+    screens: {
+      xs: "0",
+      sm: "544px",
+      md: "650px",
+      lg: "990px",
+      xl: "1300px",
+      xxl: "1520px"
+    },
+    mainColWidths: {
+      xs: "auto",
+      xxl: "1440px"
+    },
+    innerGutters: {
+      xs: "10px",
+      xxl: "40px"
+    },
+    outerGutters: {
+      xs: "20px",
+      sm: "30px",
+      xxl: "0px"
+    },
+    columnCount: {
+      xs: "4",
+      sm: "4",
+      md: "8",
+      lg: "12",
+      xl: "12",
+      xxl: "12"
+    },
+  }
+  ...
+};</code></pre>
+  </figure>
+
+  <p>This was unintentional and no longer works, so you'll need:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">tailwind.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">const { Setup } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  plugins: [Setup],
+  theme: {
+    screens: {
+      xs: "0",
+      sm: "544px",
+      md: "650px",
+      lg: "990px",
+      xl: "1300px",
+      xxl: "1520px"
+    },
+    mainColWidths: {
+      xs: "auto",
+      sm: "auto",
+      md: "auto",
+      lg: "auto",
+      xl: "auto",
+      xxl: "1440px"
+    },
+    innerGutters: {
+      xs: "10px",
+      sm: "15px",
+      md: "20px",
+      lg: "30px",
+      xl: "40px",
+      xxl: "40px"
+    },
+    outerGutters: {
+      xs: "20px",
+      sm: "30px",
+      md: "40px",
+      lg: "40px",
+      xl: "40px",
+      xxl: "0px"
+    },
+    columnCount: {
+      xs: "4",
+      sm: "4",
+      md: "8",
+      lg: "12",
+      xl: "12",
+      xxl: "12"
+    },
+  }
+  ...
+};</code></pre>
+  </figure>
+
+
   <h3>Migrate Layout class names</h3>
 
   <p>See <a href="./Layout.html#v5-0-0">Layout/Breaking changes in <code>v5.0.0</code></a></p>
@@ -124,6 +230,202 @@ title: Migrating
       class="code-example-code"
     ><code class="language-javascript">{% include_relative postcss.config.js %}</code></pre>
   </figure>
+
+  <h3>Vite config</h3>
+
+  <p>If you're using Vite, you'll want to swap to <code>import tailwindcss from '@tailwindcss/vite'</code> and not use post CSS to compile, so you'll end up with a <code>vite.config.js</code> something like:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">vite.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">import eslintPlugin from '@nabla/vite-plugin-eslint'
+import tailwindcss from '@tailwindcss/vite'
+import laravel from 'laravel-vite-plugin'
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
+import dynamicImport from 'vite-plugin-dynamic-import'
+import environmentPlugin from 'vite-plugin-environment'
+import manifestSRI from 'vite-plugin-manifest-sri'
+
+export default ({ mode }) => {
+    return defineConfig({
+        server: {
+            host: 'sitename.test'
+        },
+        plugins: [
+            tailwindcss(),
+            dynamicImport(),
+            eslintPlugin(),
+            environmentPlugin({
+                MODE: mode,
+                BEHAVIORS_PATH: resolve(
+                    __dirname,
+                    'resources/frontend/scripts/behaviors'
+                ),
+                BEHAVIORS_EXTENSION: 'js'
+            }),
+            laravel({
+                input: [
+                    resolve(__dirname, 'resources/frontend/styles/app.css'),
+                    resolve(__dirname, 'resources/frontend/scripts/app.js')
+                ],
+                refresh: true
+            }),
+            manifestSRI()
+        ],
+        resolve: {
+            alias: {
+                '@': resolve(__dirname, 'resources/frontend'),
+                '@root': resolve(__dirname, './'),
+                '@vitrineUI': resolve(__dirname, 'vendor/area17/vitrine-ui'),
+                '@vitrineUIComponents': resolve(
+                    __dirname,
+                    'vendor/area17/vitrine-ui/resources/views/components/'
+                )
+            }
+        }
+    })
+}</code></pre>
+  </figure>
+
+  <h3>Stylelint</h3>
+
+  <p>You may also want to update your <code>stylelint.config.js</code>:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">stylelint.config.js</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-javascript">{
+    "extends": ["stylelint-config-standard", "stylelint-config-clean-order"],
+    "rules": {
+        "custom-property-pattern": null,
+        "at-rule-no-unknown": [
+            true,
+            {
+                "ignoreAtRules": [
+                    "config",
+                    "custom-variant",
+                    "source",
+                    "theme",
+                    "utility",
+                    "variant"
+                ]
+            }
+        ],
+        "at-rule-no-deprecated": [
+            true,
+            {
+                "ignoreAtRules": ["apply"]
+            }
+        ],
+        "import-notation": "string",
+        "function-no-unknown": [
+            true,
+            {
+                "ignoreFunctions": ["theme"]
+            }
+        ],
+        "no-descending-specificity": null
+    },
+    "ignoreFiles": [
+        "node_modules/**/*",
+        "public/build/**/*"
+    ]
+}</code></pre>
+  </figure>
+
+  <h3>Migrate classes</h3>
+
+  <p>And then you'll have fun migrating classes. For example:</p>
+
+  <ul>
+    <li>Arbitrary spacing using a pixel value doesn’t work anymore. Replace <code>left-[-99999px]</code> with <code>-left-99999</code></li>
+    <li><code>flex-shrink-0</code> has been replaced by <code>shrink-0</code></li>
+  </ul>
+
+  <p>Tailwind has a list of <a target="_blank" href="https://tailwindcss.com/docs/upgrade-guide#renamed-utilities">renamed utilities.</a> and some <a target="_blank" href="https://tailwindcss.com/docs/upgrade-guide#removed-deprecated-utilities">removed utilities</a>.</p>
+
+  <h3>Migrate CSS</h3>
+
+  <p>If you have any CSS in your project, you may want to update to use <code>@utility</code> and <code>@layer components {}</code></p>
+
+  <p>For example:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">effect.css</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-css">.effect-hidden-fade {
+  @apply pointer-events-none invisible opacity-0;
+
+  will-change: opacity, visibility;
+  transition:
+      opacity 300ms cubic-bezier(0, 0, 0.58, 1) 50ms,
+      visibility 0s 351ms;
+}</code></pre>
+  </figure>
+
+  <p>becomes:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">effect.css</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-css">@utility effect-hidden-fade {
+  @apply pointer-events-none invisible opacity-0;
+
+  will-change: opacity, visibility;
+  transition:
+      opacity 300ms cubic-bezier(0, 0, 0.58, 1) 50ms,
+      visibility 0s 351ms;
+}</code></pre>
+  </figure>
+
+  <p>And:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">effect.css</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-css">.wysiwyg * {
+    @apply f-body;
+}
+
+.wysiwyg h2,
+.wysiwyg h3,
+.wysiwyg h4 {
+    @apply f-body font-bold text-balance mt-group-6;
+}
+
+.wysiwyg p {
+    @apply text-pretty;
+}</code></pre>
+</figure>
+
+  <p>becomes:</p>
+
+  <figure class="code-example">
+    <figcaption class="code-example-filename">effect.css</figcaption>
+    <pre
+      class="code-example-code"
+    ><code class="language-css">@layer components {
+    .wysiwyg * {
+        @apply f-body;
+    }
+
+    .wysiwyg h2,
+    .wysiwyg h3,
+    .wysiwyg h4 {
+        @apply f-body font-bold text-balance mt-group-6;
+    }
+
+    .wysiwyg p {
+        @apply text-pretty;
+    }
+}</code></pre>
+</figure>
 </div>
 
 {% include_relative includes/_footer.html %}
