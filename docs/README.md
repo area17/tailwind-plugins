@@ -25,7 +25,6 @@ $ npm run watch
 And lastly, open a new terminal tab, `cd` to the root of the project and run:
 
 ```bash
-$ npm install
 $ npm run sync
 ```
 

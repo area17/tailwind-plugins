@@ -42,13 +42,17 @@ The generated class names in the Layout plugin have been changed to align them c
 
 ## Contribution
 
-### Code of Conduct
-
-AREA 17 is dedicated to building a welcoming, diverse, safe community. We expect everyone participating in the AREA 17 community to abide by our [Code of Conduct](CODE_OF_CONDUCT.md). Please read it. Please follow it.
-
 ### Adding a new plugin
 
 See [adding a new plugin](https://github.com/area17/tailwind-plugins/tree/main/docs#adding-a-new-plugin)
+
+### Updating the documentation
+
+See [docs/readme](https://github.com/area17/tailwind-plugins/tree/main/docs)
+
+### Code of Conduct
+
+AREA 17 is dedicated to building a welcoming, diverse, safe community. We expect everyone participating in the AREA 17 community to abide by our [Code of Conduct](CODE_OF_CONDUCT.md). Please read it. Please follow it.
 
 ### Bug reports and features submission
 
