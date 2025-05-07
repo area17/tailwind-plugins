@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.1.1] - 2025-05-07
+
+### Fixed
+
+- fix case that a class like `top-[var(--offset)]` (or worse a combo like `data-[header-sticky=true]:data-[header-reveal=true]:top-0 data-[header-sticky=true]:top-[var(--offset)]`) confuses the Tailwind parser when using `matchUtilities` inside the `Spacing` plugin. Now better checking passed value in the `matchUtilities` function matches a spacing group before trying to make CSS.
+
 ## [5.1.0] - 2025-02-27
 
 ### Fixed

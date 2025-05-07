@@ -90,7 +90,12 @@ module.exports = function ({ addBase, matchUtilities, theme }) {
   function add(cssSelector, cssAttributes) {
     let selector = {};
     selector[`${cssSelector}`] = (value) => {
-      if (value.indexOf('var(') > -1) {
+      if (
+        !value ||
+        typeof value !== 'string' ||
+        !(value in spacingGroups) ||
+        value.indexOf('var(') > -1
+      ) {
         return {};
       }
       let negative = typeof(value) === 'string' && value.indexOf('calc') > -1;
