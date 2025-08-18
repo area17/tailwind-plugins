@@ -100,7 +100,7 @@ module.exports = function ({ addBase, matchUtilities, theme }) {
 
       if (
         !(cleanedValue in spacingGroups) ||
-        value.indexOf('var(') > -1
+        cleanedValue.indexOf('var(') > -1
       ) {
         return {};
       }
