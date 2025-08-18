@@ -90,10 +90,16 @@ module.exports = function ({ addBase, matchUtilities, theme }) {
   function add(cssSelector, cssAttributes) {
     let selector = {};
     selector[`${cssSelector}`] = (value) => {
+      if(!value || typeof value !== 'string') {
+        return {};
+      }
+
+      // clean up the value to match spacing groups
+      // e.g. 'calc(spacing-1 * -1)' becomes 'spacing-1'
+      const cleanedValue = value.replace(/calc\(/i, '').replace(/ \* -1\)/i, '');
+
       if (
-        !value ||
-        typeof value !== 'string' ||
-        !(value in spacingGroups) ||
+        !(cleanedValue in spacingGroups) ||
         value.indexOf('var(') > -1
       ) {
         return {};
