@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.1.4] - 2025-11-25
+
+### Fixed
+
+- update `ApplyColorVariables` plugin to allow a broader range of nested colours and any number of dashes in token names.
+
 ## [5.1.3] - 2025-11-21
 
 ### Fixed

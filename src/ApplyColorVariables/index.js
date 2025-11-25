@@ -1,52 +1,55 @@
 module.exports = function (tokens, colors) {
   if (!colors) return;
 
-  Object.entries(colors).forEach((item) => {
-    const [name, color] = item;
-    const colorSplitIndex = color.lastIndexOf('-');
-    const colorSplit =
-      colorSplitIndex > -1
-        ? [color.slice(0, colorSplitIndex), color.slice(colorSplitIndex + 1)]
-        : [color];
+  /*
+    Flatten tokens to handle nested groups and dashed keys.
+    Supports:
 
-    /*
-    Find the matching color token:
-
-    firstly try string match, eg:
+    ```
     {
       "tokens": {
         "grey-950": "#0D0C0C",
         "grey-900": "#1B1918",
         "grey-850": "#282525",
         "grey-700": "#ADADAD",
-        "grey-100": "#D3D3D3",
+        "grey-100-AA": "#D3D3D3",
         "green": "#4BB543"
       }
     }
-    */
-    let found = Object.entries(tokens).find((token) => token[0] === color);
+    ```
 
-    if (!found) {
-      /*
-      might be that the token is a group, eg:
-      {
-        "tokens": {
-          "red": {
-            "100": "#D3B2C0",
-            "400": "#EF4637",
-            "500": "#EE3523",
-            "700": "#772848",
-            "800": "#6C002C"
-          }
+    and
+
+    ```
+    {
+      "tokens": {
+        "red": {
+          "100": "#D3B2C0",
+          "400": "#EF4637",
+          "500": "#EE3523",
+          "700": "#772848",
+          "800-AA": "#6C002C"
         }
       }
-      */
-      found = Object.entries(tokens).find(
-        (token) => token[0] === colorSplit[0]
-      );
     }
+    ```
 
-    /*
+    and
+
+    ```
+    {
+      "tokens": {
+        "reds": {
+          "red-100": "#D3B2C0",
+          "red-400": "#EF4637",
+          "red-500": "#EE3523",
+          "red-700": "#772848",
+          "red-800-AA": "#6C002C"
+        }
+      }
+    }
+    ```
+
     If nothing found (no matching string, no object of colours),
     then could be user specified a custom colour, eg:
     {
@@ -55,27 +58,28 @@ module.exports = function (tokens, colors) {
         "error": "red"
       }
     }
-    */
-    if (!found) {
-      // assign custom
-      colors[name] = color;
-    }
-
-    /*
-      something found, assign colour variable:
-    */
-    if (found) {
-      if (typeof found[1] === 'string') {
-        colors[name] = `var(--color-${found[0]})`;
-      } else {
-        const foundChild = Object.keys(found[1]).find(
-          (key) => key === colorSplit[1]
-        );
-
-        if (foundChild) {
-          colors[name] = `var(--color-${found[0]}-${foundChild})`;
-        }
+  */
+  const tokenLookup = {};
+  const buildLookup = (obj, prefix = []) => {
+    Object.entries(obj).forEach(([key, value]) => {
+      const path = [...prefix, key];
+      if (typeof value === 'string') {
+        const name = path.join('-');
+        tokenLookup[name] = `var(--color-${name})`;
+      } else if (value && typeof value === 'object') {
+        buildLookup(value, path);
       }
+    });
+  };
+  buildLookup(tokens);
+
+  Object.entries(colors).forEach(([name, color]) => {
+    if (typeof color === 'string' && tokenLookup[color]) {
+      // Map to the generated CSS variable when the token exists.
+      colors[name] = tokenLookup[color];
+    } else {
+      // Leave literal/custom values untouched.
+      colors[name] = color;
     }
   });
 
