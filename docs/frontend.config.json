@@ -89,7 +89,23 @@
       "blue-04": "#313BFB",
       "blue-05": "#81EEF3",
       "blue-06": "#ADD8E6",
-      "red-01": "#f00"
+      "red-01": "#f00",
+      "green-10": "#F3F7F5",
+      "green-20": "#E6F4EF",
+      "green-30": "#CDE9DE",
+      "green-40": "#9FD8C3",
+      "green-50": "#4CBF99",
+      "green-60": "#158F6A",
+      "green-70": "#1F6F54",
+      "green-90": "#0B3D2E",
+      "purple-10": "#F8F5FC",
+      "purple-20": "#F4EFFB",
+      "purple-30": "#E7DDF7",
+      "purple-40": "#D1C4EE",
+      "purple-50": "#A78BDA",
+      "purple-60": "#7A57B8",
+      "purple-70": "#5B3A8A",
+      "purple-90": "#3A1F5D"
     },
     "border": {
       "primary": "grey-90",
@@ -120,7 +136,9 @@
       "column-alt": "blue-04",
       "code": "white",
       "code-example": "grey-90",
-      "quote": "grey-5"
+      "quote": "grey-5",
+      "secondary": "grey-15",
+      "inverse": "black"
     },
     "underline": {
       "primary": "grey-54",
@@ -131,7 +149,45 @@
         "primary": "blue-06"
       },
       "thumb": {
-        "primary": "blue-03"
+        "primary": "blue-03",
+        "secondary": "blue-04"
+      }
+    }
+  },
+  "colorThemes": {
+    "accent-1": {
+      "text": {
+        "title": "green-90",
+        "primary": "green-90",
+        "secondary": "green-70",
+        "accent": "green-60"
+      },
+      "background": {
+        "primary": "green-20",
+        "secondary": "green-30",
+        "inverse": "green-90",
+        "accent": "green-10"
+      },
+      "border": {
+        "primary": "green-50",
+        "secondary": "green-40"
+      }
+    },
+    "accent-2": {
+      "text": {
+        "title": "purple-90",
+        "primary": "purple-90",
+        "secondary": "purple-70",
+        "accent": "purple-60"
+      },
+      "background": {
+        "primary": "purple-20",
+        "secondary": "purple-30",
+        "accent": "purple-10"
+      },
+      "border": {
+        "primary": "purple-50",
+        "secondary": "purple-40"
       }
     }
   },

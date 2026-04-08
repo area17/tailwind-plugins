@@ -20,6 +20,7 @@ const {
   PseudoElements,
   InteractionMediaQueries,
   RatioBox,
+  ColorThemes,
 } = require('../index');
 
 // conf
@@ -48,6 +49,7 @@ module.exports = {
     PseudoElements,
     InteractionMediaQueries,
     RatioBox,
+    ColorThemes,
   ],
   theme: {
     screens: feConfig.structure.breakpoints,
@@ -61,6 +63,7 @@ module.exports = {
     ratios: feConfig.ratios,
     css: feConfig.css,
     colors: feConfig.color.tokens,
+    colorThemes: feConfig.colorThemes,
     borderColor: ApplyColorVariables(
       feConfig.color.tokens,
       feConfig.color.border
