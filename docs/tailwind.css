@@ -1540,6 +1540,9 @@
   .flex-none {
     flex: none;
   }
+  .flex-shrink {
+    flex-shrink: 1;
+  }
   .flex-shrink-0 {
     flex-shrink: 0;
   }
@@ -1551,6 +1554,9 @@
   }
   .grow {
     flex-grow: 1;
+  }
+  .border-collapse {
+    border-collapse: collapse;
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -2029,6 +2035,9 @@
   .text-balance {
     text-wrap: balance;
   }
+  .text-wrap {
+    text-wrap: wrap;
+  }
   .text-accent {
     [class*="theme-"] & {
       color: var(--text-accent, var(--color-blue-03));
@@ -2243,6 +2252,9 @@
   }
   .grayscale {
     --tw-grayscale: grayscale(100%);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .transition {
@@ -5476,6 +5488,37 @@
     --purple-60: #7A57B8;
     --purple-70: #5B3A8A;
     --purple-90: #3A1F5D;
+  }
+  .theme-reset {
+    --text-title: var(--color-black);
+    --text-primary: var(--color-grey-90);
+    --text-inverse: var(--color-white);
+    --text-secondary: var(--color-grey-54);
+    --text-accent: var(--color-blue-03);
+    --text-code: var(--color-black);
+    --text-code-example: var(--color-grey-3);
+    --text-code-example-filename: var(--color-blue-05);
+    --text-error: var(--color-red-01);
+    --background-primary: var(--color-grey-10);
+    --background-header: var(--color-grey-10);
+    --background-container-demo: var(--color-white);
+    --background-footer: var(--color-grey-10);
+    --background-banner: var(--color-grey-90);
+    --background-accent: var(--color-blue-03);
+    --background-column: var(--color-blue-05);
+    --background-column-alt: var(--color-blue-04);
+    --background-code: var(--color-white);
+    --background-code-example: var(--color-grey-90);
+    --background-quote: var(--color-grey-5);
+    --background-secondary: var(--color-grey-15);
+    --background-inverse: var(--color-black);
+    --border-primary: var(--color-grey-90);
+    --border-secondary: var(--color-grey-30);
+    --border-tertiary: var(--color-grey-54);
+    --border-quaternary: var(--color-blue-05);
+    --border-code-example-filename: var(--color-blue-05);
+    --underline-primary: var(--color-grey-54);
+    --underline-secondary: var(--color-blue-03);
   }
   .theme-accent-1 {
     --text-title: var(--green-90);

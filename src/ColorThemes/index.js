@@ -9,7 +9,6 @@ module.exports = plugin(function ({ addBase, addUtilities, theme }) {
   const bgColors = theme('backgroundColor', {});
   const borderColors = theme('borderColor', {});
   const outlineColors = theme('outlineColor', {});
-  const divideColors = theme('divideColor', {});
   const ringColors = theme('ringColor', {});
   const ringOffsetColors = theme('ringOffsetColor', {});
   const underlineColors = theme('underlineColor', {});
@@ -20,6 +19,18 @@ module.exports = plugin(function ({ addBase, addUtilities, theme }) {
     ),
   };
 
+  const defaultThemeGroups = {
+    text: textColors,
+    background: bgColors,
+    border: borderColors,
+    outline: outlineColors,
+    ring: ringColors,
+    'ring-offset': ringOffsetColors,
+    underline: underlineColors,
+  };
+
+  baseStyles['.theme-reset'] = getThemeRules(defaultThemeGroups);
+
   Object.entries(themes).forEach(([themeName, groups]) => {
     baseStyles[`.theme-${themeName}`] = getThemeRules(groups);
   });
@@ -28,20 +39,19 @@ module.exports = plugin(function ({ addBase, addUtilities, theme }) {
     ...buildUtilities('text', textColors, 'color', 'text'),
     ...buildUtilities('bg', bgColors, 'background-color', 'background'),
     ...buildUtilities('border', borderColors, 'border-color', 'border'),
-    ...buildUtilities('outline', outlineColors, 'outline-color', 'border'),
-    ...buildUtilities('divide', divideColors, '--tw-divide-color', 'border'),
+    ...buildUtilities('outline', outlineColors, 'outline-color', 'outline'),
     ...buildUtilities('ring', ringColors, '--tw-ring-color', 'ring'),
     ...buildUtilities(
       'ring-offset',
       ringOffsetColors,
       '--tw-ring-offset-color',
-      'border'
+      'ring-offset'
     ),
     ...buildUtilities(
       'underline',
       underlineColors,
       'text-decoration-color',
-      'text'
+      'underline'
     ),
   };
 

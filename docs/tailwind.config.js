@@ -87,6 +87,15 @@ module.exports = {
         feConfig.color.scrollbar.thumb
       ),
     },
+    outlineColor: ApplyColorVariables(
+      feConfig.color.tokens,
+      feConfig.color.outline
+    ),
+    ringColor: ApplyColorVariables(feConfig.color.tokens, feConfig.color.ring),
+    ringOffsetColor: ApplyColorVariables(
+      feConfig.color.tokens,
+      feConfig.color['ring-offset']
+    ),
   },
   extend: {
     spacing: {

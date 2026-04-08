@@ -17,7 +17,6 @@ title: ColorThemes
 		<li>Background color</li>
 		<li>Border color</li>
 		<li>Outline color</li>
-		<li>Divide color</li>
 		<li>Ring color</li>
 	</ul>
 
@@ -226,6 +225,32 @@ module.exports = {
 		The text will render using the <code>blue-03</code>
 		token when the theme is applied, and fall back to the default <code>text-primary</code>
 		color when it is not.
+	</p>
+
+	<h2 id="theme-reset">Theme Reset</h2>
+
+	<p>
+		The <code>.theme-reset</code>
+		class can be used to revert themed content back to the default token values.
+	</p>
+
+	<p>
+		This is useful when nesting themes and you want a section to ignore an inherited theme and use the base colors instead.
+	</p>
+
+	<figure class="code-example">
+		<figcaption class="code-example-filename">document.html</figcaption>
+		<pre class="code-example-code"><code class="language-html">&lt;div class="theme-accent-1"&gt;
+  &lt;p class="text-primary"&gt;Themed text&lt;/p&gt;
+
+  &lt;div class="theme-reset"&gt;
+    &lt;p class="text-primary"&gt;Default text&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+	</figure>
+
+	<p>
+		The inner content will use the default color values, ignoring the parent theme.
 	</p>
 
 	<h2 id="usage">Usage Guidelines</h2>
