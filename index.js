@@ -19,6 +19,7 @@ const FullBleedScroller = require('./src/FullBleedScroller');
 const InteractionMediaQueries = require('./src/InteractionMediaQueries');
 const Scrollbar = require('./src/Scrollbar');
 const StrokeFull = require('./src/StrokeFull');
+const ColorThemes = require('./src/ColorThemes');
 
 module.exports = {
   BackgroundFill,
@@ -42,4 +43,5 @@ module.exports = {
   InteractionMediaQueries,
   Scrollbar,
   StrokeFull,
+  ColorThemes,
 };

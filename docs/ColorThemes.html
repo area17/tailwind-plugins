@@ -1,0 +1,282 @@
+---
+title: ColorThemes
+---
+{% include_relative includes/_header.html %}
+<div class="copy">
+	<h2 id="description">Description</h2>
+
+	<p>
+		The ColorThemes plugin generates token-based color themes in Tailwind by mapping color values to CSS custom properties. It generates utility classes that resolve to CSS variables with fallback values, allowing colors to be dynamically overridden at runtime via theme classes.
+	</p>
+
+	<h3>Supported Properties</h3>
+
+	<p>The theme system currently supports the following property groups:</p>
+	<ul>
+		<li>Text color</li>
+		<li>Background color</li>
+		<li>Border color</li>
+		<li>Outline color</li>
+		<li>Ring color</li>
+	</ul>
+
+	<h2 id="how-it-works">How It Works</h2>
+
+	<p>
+		The ColorThemes plugin maps semantic color names (e.g. <code>primary</code>, <code>title</code>) to CSS custom properties.
+	</p>
+
+	<ul>
+		<li>Default values are defined via Tailwind utilities (e.g. <code>text-primary</code>, <code>bg-primary</code>)</li>
+		<li>Theme classes (e.g. <code>.theme-accent-1</code>) override these values using CSS variables</li>
+		<li>Utilities resolve to CSS variables with fallback values</li>
+	</ul>
+
+	<figure class="code-example">
+		<figcaption class="code-example-filename">Generated CSS</figcaption>
+		<pre class="code-example-code"><code class="language-css">.text-primary {
+  color: var(--text-primary, var(--color-grey-90));
+}</code></pre>
+	</figure>
+
+	<p>
+		This allows themes to dynamically override colors at runtime without changing markup. If a theme does not define a value, the fallback token is used.
+	</p>
+
+	<h2 id="setup">Setup</h2>
+
+	<figure class="code-example">
+		<figcaption class="code-example-filename">tailwind.config.js</figcaption>
+		<pre class="code-example-code"><code class="language-javascript">const { ColorTokens, ColorThemes } = require('@area17/a17-tailwind-plugins');
+
+module.exports = {
+  ...
+  plugins: [ColorTokens, ColorThemes],
+  theme: {
+    colors: {
+      "white": "#fff",
+      "grey-3": "#f8f8f8",
+      "grey-5": "#f2f2f2",
+      "grey-10": "#e6e6e6",
+      "grey-15": "#d9d9d9",
+      "grey-30": "#b3b3b3",
+      "grey-54": "#757575",
+      "grey-90": "#1a1a1a",
+      "black": "#000",
+      "blue-01": "#0A152B",
+      "blue-02": "#001F5C",
+      "blue-03": "#004F91",
+      "blue-04": "#313BFB",
+      "blue-05": "#81EEF3",
+      "blue-06": "#ADD8E6",
+      "red-01": "#f00",
+      "green-10": "#F3F7F5",
+      "green-20": "#E6F4EF",
+      "green-30": "#CDE9DE",
+      "green-40": "#9FD8C3",
+      "green-50": "#4CBF99",
+      "green-60": "#158F6A",
+      "green-70": "#1F6F54",
+      "green-90": "#0B3D2E",
+      "purple-10": "#F8F5FC",
+      "purple-20": "#F4EFFB",
+      "purple-30": "#E7DDF7",
+      "purple-40": "#D1C4EE",
+      "purple-50": "#A78BDA",
+      "purple-60": "#7A57B8",
+      "purple-70": "#5B3A8A",
+      "purple-90": "#3A1F5D"
+    },
+    borderColor: ApplyColorVariables(colors, {
+        primary: "grey-5",
+        secondary: "grey-10",
+        tertiary: "grey-15"
+      }
+    ),
+    textColor: ApplyColorVariables(colors, {
+        title: "black",
+        primary: "grey-90",
+        inverse: "white",
+        secondary: "grey-54",
+        accent: "blue-01",
+      }
+    ),
+    backgroundColor: ApplyColorVariables(colors, {
+        primary: "white",
+        secondary: "grey-15",
+        banner: "grey-90",
+        accent: "blue-03",
+        column: "blue-05",
+        column-alt: "blue-04",
+        code: "grey-10",
+        inverse: "black",
+      }
+    ),
+    colorThemes: {
+      "accent-1": {
+        "text": {
+          "title": "green-90",
+          "primary": "green-90",
+          "secondary": "green-70",
+          "accent": "green-60"
+        },
+        "background": {
+          "primary": "green-20",
+          "secondary": "green-30",
+          "inverse": "green-90",
+          "accent": "green-10"
+        },
+        "border": {
+          "primary": "green-50",
+          "secondary": "green-40"
+        }
+      },
+      "accent-2": {
+        "text": {
+          "title": "purple-90",
+          "primary": "purple-90",
+          "secondary": "purple-70",
+          "accent": "purple-60"
+        },
+        "background": {
+          "primary": "purple-20",
+          "secondary": "purple-30",
+          "accent": "purple-10"
+        },
+        "border": {
+          "primary": "purple-50",
+          "secondary": "purple-40"
+        }
+      }
+    },
+  }
+  ...
+};</code></pre>
+	</figure>
+
+	<h2 id="demo">Demo</h2>
+
+	<p>
+		Theme classes are generated based on the keys in the <code>colorThemes</code>
+		config. For example, if we name our theme <code>accent-1</code>, we get a class of <code>.theme-accent-1</code>.
+	</p>
+
+	<div class="flex flex-col gap-gutter md:flex-row mt-inner-2 max-w-full">
+		<div class="lg:w-1/3">
+			<div class="bg-primary border border-primary text-primary p-inner-2">
+				<h3 class="text-title f-h2 mt-0">No theme, default colors</h3>
+				<p class="text-primary mt-12">Lorem ipsum dolor sit amet ut aliquet eros laoreet mi fringilla justo.</p>
+				<sub class="text-accent">In laoreet habitasse lacus orci senectus iaculis magna neque sollicitudin sapien nullam.</sub>
+				<button class="bg-inverse hover:bg-secondary hover:text-title text-inverse block mt-inner-2 py-12 px-24">Button</button>
+			</div>
+		</div>
+		<div class="theme-accent-1 lg:w-1/3">
+			<div class="bg-primary border border-primary text-primary p-inner-2">
+				<h3 class="text-title f-h2 mt-0">With <code class="f-code text-code bg-code px-8 pt-4 pb-2">.theme-accent-1</code>
+					applied</h3>
+				<p class="text-primary mt-12">Lorem ipsum dolor sit amet ut aliquet eros laoreet mi fringilla justo.</p>
+				<sub class="text-accent">In laoreet habitasse lacus orci senectus iaculis magna neque sollicitudin sapien nullam.</sub>
+				<button class="bg-inverse hover:bg-secondary hover:text-title text-inverse block mt-inner-2 py-12 px-24">Button</button>
+			</div>
+		</div>
+		<div class="theme-accent-2 lg:w-1/3">
+			<div class="bg-primary border border-primary text-primary p-inner-2">
+				<h3 class="text-title f-h2 mt-0">With <code class="f-code text-code bg-code px-8 pt-4 pb-2">.theme-accent-2</code>
+					applied</h3>
+				<p class="text-primary mt-12">Lorem ipsum dolor sit amet ut aliquet eros laoreet mi fringilla justo.</p>
+				<sub class="text-accent">In laoreet habitasse lacus orci senectus iaculis magna neque sollicitudin sapien nullam.</sub>
+				<button class="bg-inverse hover:bg-secondary hover:text-title text-inverse block mt-inner-2 py-12 px-24">Button</button>
+			</div>
+		</div>
+	</div>
+
+	<h2 id="minimal-example">Minimal Example</h2>
+
+	<p>
+		A simple theme can be created by mapping semantic keys to color tokens in the <code>colorThemes</code>
+		config.
+	</p>
+
+	<figure class="code-example">
+		<figcaption class="code-example-filename">tailwind.config.js</figcaption>
+		<pre class="code-example-code"><code class="language-javascript">colorThemes: {
+  brand: {
+    text: {
+      primary: "blue-03"
+    }
+  }
+}</code></pre>
+	</figure>
+
+	<p>
+		This generates a theme class <code>.theme-brand</code>
+		that overrides the <code>text-primary</code>
+		utility.
+	</p>
+
+	<figure class="code-example">
+		<figcaption class="code-example-filename">document.html</figcaption>
+		<pre class="code-example-code"><code class="language-html">&lt;div class="theme-brand"&gt;
+  &lt;p class="text-primary"&gt;This text is themed&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+	</figure>
+
+	<p>
+		The text will render using the <code>blue-03</code>
+		token when the theme is applied, and fall back to the default <code>text-primary</code>
+		color when it is not.
+	</p>
+
+	<h2 id="theme-reset">Theme Reset</h2>
+
+	<p>
+		The <code>.theme-reset</code>
+		class can be used to revert themed content back to the default token values.
+	</p>
+
+	<p>
+		This is useful when nesting themes and you want a section to ignore an inherited theme and use the base colors instead.
+	</p>
+
+	<figure class="code-example">
+		<figcaption class="code-example-filename">document.html</figcaption>
+		<pre class="code-example-code"><code class="language-html">&lt;div class="theme-accent-1"&gt;
+  &lt;p class="text-primary"&gt;Themed text&lt;/p&gt;
+
+  &lt;div class="theme-reset"&gt;
+    &lt;p class="text-primary"&gt;Default text&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+	</figure>
+
+	<p>
+		The inner content will use the default color values, ignoring the parent theme.
+	</p>
+
+	<h2 id="usage">Usage Guidelines</h2>
+
+	<h4>Theme values must reference existing color tokens</h4>
+	<p>Theme color values should reference defined color tokens (e.g. <code>blue-03</code>). Named colors like "blue" will not work unless they exist as tokens.</p>
+
+	<h4>Theme classes must wrap content</h4>
+	<p>The theme class must be applied to a parent element. Utility classes on the same element will not inherit theme values.</p>
+	For example, this will <strong>not</strong>
+	work as expected:
+	<figure class="code-example">
+		<figcaption class="code-example-filename">document.html</figcaption>
+		<pre class="code-example-code"><code class="language-html">&lt;div class="theme-accent-1 bg-primary">&lt;/div></code></pre>
+	</figure>
+	<p>Instead, wrap the element:</p>
+	<figure class="code-example">
+		<figcaption class="code-example-filename">document.html</figcaption>
+		<pre class="code-example-code"><code class="language-html">&lt;div class="theme-accent-1"&gt;
+  &lt;div class="bg-primary"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+	</figure>
+
+	<h4>Theme keys must exist in the base token set</h4>
+	<p>All theme keys (e.g. <code>primary</code>, <code>title</code>, etc.) must be defined in the default token set. New keys cannot be introduced in the theme config.
+		This ensures that a valid fallback color is always available.</p>
+</div>
+
+{% include_relative includes/_footer.html %}
